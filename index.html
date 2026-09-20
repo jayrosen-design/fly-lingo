@@ -142,6 +142,25 @@ table.q td.no{color:var(--ink-muted)}
 .plus{color:var(--ink-muted);font-size:20px}
 input[type=range]{accent-color:var(--core-blue);width:100%}
 #tip{position:fixed;z-index:5;pointer-events:none;background:var(--dark-blue);color:#fff;font:700 12px/16px var(--display);padding:6px 10px;border-radius:8px;box-shadow:var(--shadow-overlay);white-space:nowrap}
+/* home */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:center}
+.hero h2{font-size:40px;line-height:46px}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.hero img{width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow-raised);display:block}
+.expgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.expcard{display:flex;flex-direction:column;background:var(--surface-card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-card);overflow:hidden;text-decoration:none;color:var(--ink);transition:box-shadow .15s,transform .15s}
+.expcard:hover{box-shadow:var(--shadow-raised);transform:translateY(-2px)}
+.expcard img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:left top;display:block;border-bottom:1px solid var(--border)}
+.expcard .body{display:flex;flex-direction:column;gap:6px;padding:16px 18px 18px}
+.expcard .num{font:700 12px/16px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--core-blue)}
+.expcard h3{margin:0;font:700 20px/26px var(--display)}
+.expcard p{margin:0;font-size:14px;line-height:20px;color:var(--ink-muted)}
+.expcard .role{display:inline-flex;align-self:flex-start;height:24px;padding:0 10px;border-radius:999px;font:700 12px/24px var(--display)}
+.expcard .role.student{background:var(--surface-blue-tint-strong);color:var(--core-blue)}
+.expcard .role.staff{background:var(--surface-warning-tint);color:var(--ink)}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:1100px){.expgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.hero h2{font-size:28px;line-height:34px}.expgrid,.three{grid-template-columns:1fr}}
 /* about */
 .lib{flex-direction:row;gap:20px}
 .lib .thumb img{width:150px;border:1px solid var(--border);border-radius:8px;display:block}
@@ -208,7 +227,8 @@ pre.mermaid svg{max-width:none;height:auto}
       <span class="eyebrow">Embodied Drosophila literacy simulation</span>
     </div>
     <nav class="tabs" aria-label="Views">
-      <a href="#simulate" data-view="simulate" aria-current="page">Simulate</a>
+      <a href="#home" data-view="home" aria-current="page">Home</a>
+      <a href="#simulate" data-view="simulate">Simulate</a>
       <a href="#dashboards" data-view="dash">Dashboards</a>
       <a href="#about" data-view="about">About</a>
     </nav>
@@ -235,7 +255,41 @@ pre.mermaid svg{max-width:none;height:auto}
   </header>
 
   <main>
-  <section class="view" id="view-simulate">
+  <section class="view page" id="view-home">
+    <div class="page-inner">
+      <div class="hero">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span class="eyebrow">Embodied Drosophila literacy simulation</span>
+          <h2>A fruit fly learning to read, and the flies who teach and proctor it</h2>
+          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
+          <div class="actions"><a class="btn btn-primary" href="#simulate">Open the simulator</a><a class="btn btn-tertiary" href="#dashboards">Dashboards</a><a class="btn btn-tertiary" href="#about">About the research</a></div>
+        </div>
+        <img src="docs/screenshots/app-simulate.png" alt="The simulator: a fruit fly on a smartphone screen with the brain panel and docked dashboards">
+      </div>
+
+      <div>
+        <h3 class="sec">Six experiments</h3>
+        <p class="sub">Four student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all six.</p>
+      </div>
+      <div class="expgrid">
+        <a class="expcard" href="#simulate" data-run="1"><img loading="lazy" src="docs/screenshots/overview.png" alt="Experiment 1: the fly walking across the phone screen toward a tile"><div class="body"><span class="num">Experiment 1</span><h3>Walking</h3><p>The fly walks across a phone lying on the table, reads the meaning with head sweeps, and presses word-part tiles with a foreleg.</p><span class="role student">Student</span></div></a>
+        <a class="expcard" href="#simulate" data-run="2"><img loading="lazy" src="docs/screenshots/exp2-paths-heatmap.png" alt="Experiment 2: flight paths and a landing heatmap over the phone"><div class="body"><span class="num">Experiment 2</span><h3>Flying</h3><p>It climbs to read the meaning, then dives and lands on its answer. Flight paths and a landing heatmap build up over trials.</p><span class="role student">Student</span></div></a>
+        <a class="expcard" href="#simulate" data-run="3"><img loading="lazy" src="docs/screenshots/exp3-touch.png" alt="Experiment 3: the fly holding a fly-sized phone and pressing a tile"><div class="body"><span class="num">Experiment 3</span><h3>Touch</h3><p>A phone at the fly's own scale, held at the bottom edge. It swipes the answers into reach and taps one.</p><span class="role student">Student</span></div></a>
+        <a class="expcard" href="#simulate" data-run="4"><img loading="lazy" src="docs/screenshots/exp4-laptop.png" alt="Experiment 4: a real-size laptop showing the spelling activity"><div class="body"><span class="num">Experiment 4</span><h3>Spelling</h3><p>A real-size laptop shows the meaning and the word-part hints. The fly flies key to key and presses each letter to spell the word.</p><span class="role student">Student</span></div></a>
+        <a class="expcard" href="#simulate" data-run="5"><img loading="lazy" src="docs/screenshots/exp5-laptop.png" alt="Experiment 5: the teacher fly on a fly-sized laptop's trackpad"><div class="body"><span class="num">Experiment 5</span><h3>Teacher</h3><p>A teacher fly grades the four students from a fly-sized laptop, steering the cursor with one foreleg on the trackpad. The screen is never touched.</p><span class="role staff">Staff</span></div></a>
+        <a class="expcard" href="#simulate" data-run="6"><img loading="lazy" src="docs/screenshots/exp6-screen.png" alt="Experiment 6: a grid of nine webcam sessions with a vision overlay and the FlyAI panel"><div class="body"><span class="num">Experiment 6</span><h3>District admin</h3><p>Nine webcam sessions on one screen, a vision overlay on every fly, and FlyAI flagging suspected cheating for the admin to check in on.</p><span class="role staff">Staff</span></div></a>
+      </div>
+
+      <h3 class="sec">What you can measure</h3>
+      <div class="three">
+        <article class="card"><h3>Brain and body</h3><p>A 55,000-point nervous system stylised after Drosophila anatomy, a fly-eye view through 750 ommatidia, tarsal adhesion, gaze contrast and viewing distance, all live.</p></article>
+        <article class="card"><h3>Learning</h3><p>The dopamine rule Δw = η(R − V) on every answer, G-DINA attribute mastery, Half-Life Regression forgetting curves, and a Rasch Wright map with standard errors.</p></article>
+        <article class="card"><h3>Navigation and proctoring</h3><p>Fitts' law for the teacher's cursor, grading error against real accuracy, and proctoring flags scored against seeded cheating with precision and response time.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-simulate" hidden>
   <div id="stage">
     <aside id="dockLeft" aria-label="Live dashboard panel">
       <div class="docktabs" role="group" aria-label="Dashboard shown beside the arena">
@@ -2036,8 +2090,8 @@ requestAnimationFrame(frame);
 // =====================================================================
 // Views (hash routing) and dashboards
 // =====================================================================
-const VIEWS = { simulate: 'view-simulate', dash: 'view-dash', about: 'view-about' };
-const HASHES = { '#simulate': 'simulate', '#dashboards': 'dash', '#about': 'about' };
+const VIEWS = { home: 'view-home', simulate: 'view-simulate', dash: 'view-dash', about: 'view-about' };
+const HASHES = { '#home': 'home', '#simulate': 'simulate', '#dashboards': 'dash', '#about': 'about' };
 function setView(v) {
   view = v;
   Object.entries(VIEWS).forEach(([k, id]) => { document.getElementById(id).hidden = k !== v; });
@@ -2060,9 +2114,10 @@ function route() {
   const h = location.hash.split('?')[0];
   if (HASHES[h]) setView(HASHES[h]);
   else if (h.startsWith('#d-')) { setView('dash'); const el = document.getElementById(h.slice(1)); if (el) el.scrollIntoView({ block: 'start' }); }
-  else setView('simulate');
+  else setView('home');
 }
 addEventListener('hashchange', route);
+document.querySelectorAll('[data-run]').forEach(a => a.addEventListener('click', () => { setExperiment(Number(a.dataset.run)); }));
 
 // ---------- chart helpers ----------
 const CH = { blue: '#0021a5', green: '#22884c', navy: '#002657', amber: '#f2a900', red: '#d32737', muted: '#6b7280', grid: '#ece9e3', ink: '#002657' };

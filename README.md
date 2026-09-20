@@ -23,9 +23,11 @@ The repository is a static site, so it deploys as is: import it at [vercel.com/n
 
 From a terminal with the Vercel CLI, `npx vercel` from the repository root does the same.
 
-## Three views
+## Four views
 
-The app is one page with three views, switched by the tabs in the header and by hash routes (`#simulate`, `#dashboards`, `#about`). It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
+The app is one page with four views, switched by the tabs in the header and by hash routes (`#home`, `#simulate`, `#dashboards`, `#about`). The home page explains the project and shows a card for each experiment; picking a card opens that experiment in the simulator.
+
+![The home page: a short explanation of the project and a grid of six experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
 
 | | |
 | --- | --- |
