@@ -514,7 +514,7 @@ pre.mermaid svg{max-width:none;height:auto}
       </tbody></table></div>
 
       <h3 class="sec">The dashboards</h3>
-      <p>Everything is computed from the live session; where a quantity stands in for a sensor or model the app does not yet have, its card says so. The same cards dock beside the arena in the Simulate view.</p>
+      <p>Everything is computed from the live session; where a quantity stands in for a sensor or model the app does not yet have, its card says so. The same cards dock beside the arena in the Simulate view, which opens the dashboard for whichever experiment is running.</p>
       <div class="shots">
         <figure><img loading="lazy" src="docs/screenshots/dashboards-1.png" alt="Session and kinematic dashboards"><figcaption><strong>1 · Kinematic and sensorimotor.</strong> Tarsal adhesion, contrast sampled from the screen texture where the head camera looks, a torque proxy, the microsaccadic gaze path, viewing distance against the 1 to 10 mm band and an acuity heatmap.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/dashboards-3.png" alt="Psychometric dashboards"><figcaption><strong>3 · Psychometric.</strong> The Q-matrix, G-DINA posteriors, Half-Life Regression curves with a P(fail) alert, and a Wright map with θ ± SE against task difficulties and S-X² flags.</figcaption></figure>
@@ -2538,7 +2538,10 @@ function setExperiment(n) {
   game.scrollY = 0; game.placed = Math.min(game.placed, 2); agent.wordDone = false; agent.swipe = null; currentTraj = [];
   buildTiles(); plantFeet(); redrawScreen(performance.now()); renderTrial(); setPhase(cfg.laptop ? 't_read' : 'look'); if (cfg.laptop) { agent.t = 0; agent.plan = []; agent.step = null; } setCamMode(cfg.classroom && !wasClass ? 'phone' : camMode);
   if (cfg.classroom) $('phasePill').textContent = 'Class in session';
+  // the side panel follows the experiment to its most related dashboard (after start-up, once the dock code exists)
+  requestAnimationFrame(() => { dockChoice = DOCK_FOR[n]; if (view === 'simulate') dock(dockChoice); });
 }
+const DOCK_FOR = { 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
 document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => setExperiment(Number(b.dataset.exp))));
 $('pathsBtn').addEventListener('click', () => { showPaths = !showPaths; $('pathsBtn').setAttribute('aria-pressed', String(showPaths)); $('pathsBtn').textContent = showPaths ? 'Hide paths' : 'Show paths'; Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === experiment; }); ghostLine.visible = showPaths && experiment !== 3 && !!agent.ghost; });
 $('seasonBtn').addEventListener('click', () => { cls.season = !cls.season; $('seasonBtn').setAttribute('aria-pressed', String(cls.season)); $('seasonBtn').textContent = cls.season ? 'Mating season on' : 'Mating season off'; clsLog(cls.season ? 'Mating season: courtship drive restored.' : 'Out of season: courtship drive drops to a tenth.'); drawBoard(); });
@@ -2698,7 +2701,7 @@ function dock(id) {
   if (view !== 'simulate') return;
   const sec = document.getElementById(id); if (!sec) return;
   document.getElementById('dockBody').appendChild(sec); docked = sec;
-  document.querySelectorAll('[data-dock]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.dock === id)));
+  document.querySelectorAll('[data-dock]').forEach(b => { b.setAttribute('aria-pressed', String(b.dataset.dock === id)); if (b.dataset.dock === id) { const bar = b.parentElement; bar.scrollLeft = b.offsetLeft - bar.offsetLeft - (bar.clientWidth - b.offsetWidth) / 2; } });
   sizeCharts(); drawDashboards(performance.now(), true);
 }
 let dockChoice = 'd-session';
