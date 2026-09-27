@@ -27,7 +27,7 @@ From a terminal with the Vercel CLI, `npx vercel` from the repository root does 
 
 The app is one page with four views, switched by the tabs in the header and by hash routes (`#home`, `#simulate`, `#dashboards`, `#about`). The home page explains the project and shows a card for each experiment; picking a card opens that experiment in the simulator.
 
-![The home page: a short explanation of the project and a grid of six experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
+![The home page: a short explanation of the project and a grid of seven experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
 
 | | |
 | --- | --- |
@@ -85,6 +85,7 @@ Switch with the control at the top left of the header. All three share the same 
 | 4 · Spelling | Real-size laptop with a spelling activity | Hovers in front of the screen | Flies key to key and presses each letter with its body | Letter answers into the same trials, memory and dashboards |
 | 5 · Teacher | Fly-sized laptop with a gradebook, trackpad only, no touch | Reads from the trackpad | Steers the cursor with one foreleg on the pad, presses the pad to click, steps over to tap keys | Clicks, misclicks, keystrokes, Fitts' law, cursor heatmap, grading error |
 | 6 · District admin | Fly-sized laptop with nine webcam sessions, a vision overlay and FlyAI | Watches the grid | Steers to a flagged tile, opens it, clicks the check-in button | Flags scored against seeded cheating, precision, response time, attention, detections |
+| 7 · Classroom | 24 fly-sized tablets on six round tables | Head sweeps over its own tablet, glances at a neighbour's | Taps one of four tiles with a foreleg, twelve items each, between courtship, rejection, rivalry and grooming | Time budget by sex, courtship network, rejections, male courtship drive, lesson completion time in and out of season |
 
 ### Spelling
 
@@ -117,6 +118,29 @@ Dashboard 6, District proctoring, scores the flags against the hidden seeding: c
 | --- | --- |
 | ![Experiment 6 screen: the 3 by 3 webcam grid with vision overlay and the FlyAI panel](docs/screenshots/exp6-screen.png) | ![Dashboard 6: proctoring counters, attention by student, detections, FlyAI log](docs/screenshots/dashboards-6.png) |
 | **The proctoring screen.** Boxes on flies and hands, gaze rays, eye-contact badges, a red flag on a suspected tile, FlyAI on the right. | **Dashboard 6.** Flags scored against the seeded truth, attention per student, detections over time. |
+
+### Classroom
+
+Experiment 7 fills a fly-sized classroom: six round tables, four seats each, a tablet in front of every seat, and a whiteboard that tracks the lesson. Twenty-four students, twelve female and twelve male, are seated at random, so some tables are balanced and some are not. The females are drawn larger with a striped, pointed abdomen; the males are smaller, with a dark abdomen tip and sex combs on the forelegs. Every fly has to finish the same twelve word-part items. A lesson ends only when the last fly finishes, then the bell rings and the next lesson starts.
+
+It is mating season, and the flies behave like flies. Each student is a lightweight copy of the procedural fly with its own gait, wings and tapping foreleg, and its own state machine:
+
+- **On task.** It reads its tablet with head sweeps and taps an answer. The chance of a right answer rises with its mastery, learned with the same Δw = η(R − V) rule, and falls when its attention drops.
+- **Courtship.** Between items a male may turn toward a female, walk after her (or fly, if she sits at another table), tap her with a foreleg and sing by extending and vibrating one wing.
+- **Rejection.** A busy, unreceptive female usually ignores him and keeps tapping, or flicks her wings and kicks, or decamps on a short flight around the room. A female who has finished is more tolerant and may let him stay beside her for a moment. Nothing further happens; he goes back to his tablet.
+- **Courtship conditioning.** Each rejection cuts a male's courtship drive by about a third, so the room settles as a lesson goes on. Drive recovers a little between lessons.
+- **Rivals.** Two males courting the same female square off with raised wings and lunges, and the loser goes back to his seat.
+- **Grooming and glancing.** Flies groom between trials. A fly may glance at a tablemate who is further ahead, which raises the chance that its next answer is right.
+- **Co-action.** Attention rises when tablemates are on task and falls when courtship happens at the table or when a male is singing beside you.
+
+Rings under the flies show what each one is doing: blue on task, red courting, pink being courted, amber grooming or glancing, green finished, grey away from the tablet. Dashed red lines join courting pairs, and small badges mark a song, a rejection, a fight or a finished lesson. Toggle the overlay and mating season from the pills above the arena. The camera starts on the whole room; click any fly to follow it, see through its eyes and drive the brain panel with its behaviour, which lights the antennal lobes and lateral horn during courtship and the mesothoracic neuropil during song.
+
+Dashboard 7, Classroom social dynamics, shows the class on task, finished and courting, counts of courtship attempts and of each kind of rejection, fights, glances and grooming bouts, a time budget for females and males, the room over time with mean male drive, a courtship network matrix, lesson completion times in and out of season, and a live roster of all 24.
+
+| | |
+| --- | --- |
+| ![Experiment 7: six round tables of fly students with tablets, coloured rings under each fly, a whiteboard at the back](docs/screenshots/exp7-classroom.png) | ![Dashboard 7: class session counters, time budget by sex, the room over time, courtship network](docs/screenshots/dashboards-7.png) |
+| **The classroom.** Twenty-four students at six tables, rings showing behaviour, the whiteboard tracking the lesson. | **Dashboard 7.** Time budget by sex, courtship and rejection counts, the room over time, the courtship network. |
 
 The landing scatter is deliberate: each answer is aimed at the tile centre plus a small normal error (about 6 px walking, 14 px flying, 8 px touch on the 390 px wide screen), which is what makes the heatmap informative rather than a set of points.
 
@@ -343,7 +367,7 @@ The TRD describes a biologically grounded stack: a MuJoCo `flybody` model (102 D
 flowchart LR
   subgraph Now["In this repo today"]
     UI["3D language interface<br/>screen · tiles · trial card"]
-    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>six experiments"]
+    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>seven experiments"]
     Policy["Behavioural policy<br/>memory-weighted tile choice"]
     BrainViz["Stylised CNS point cloud<br/>16 regions, act[]"]
     Eye["Fly-eye mosaic<br/>750 ommatidia, 4.5°"]
