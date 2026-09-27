@@ -100,7 +100,7 @@ Switch with the control at the top left of the header. All three share the same 
 | 4 · Spelling | Real-size laptop with a spelling activity | Hovers in front of the screen | Flies key to key and presses each letter with its body | Letter answers into the same trials, memory and dashboards |
 | 5 · Teacher | Fly-sized laptop with a gradebook, trackpad only, no touch | Reads from the trackpad | Steers the cursor with one foreleg on the pad, presses the pad to click, steps over to tap keys | Clicks, misclicks, keystrokes, Fitts' law, cursor heatmap, grading error |
 | 6 · District admin | Fly-sized laptop with nine webcam sessions, a vision overlay and FlyAI | Watches the grid | Steers to a flagged tile, opens it, clicks the check-in button | Flags scored against seeded cheating, precision, response time, attention, detections |
-| 8 · Phonics | Table-sized phone running a phonics app with a mic | Reads the word, listens to the app say it | Walks to the mic, taps it, and sings each sound with one wing | Sounds right per attempt, letter-sound memory, confusion matrix, spectrogram |
+| 8 · Phonics | Table-sized phone running a phonics app with a mic | Reads the word, listens to the app say it | Stands on the mic facing the word, holds it down with a foreleg, and sings each sound with one wing | Sounds right per attempt, letter-sound memory, confusion matrix, spectrogram |
 | 7 · Classroom | 24 fly-sized tablets on six round tables | Head sweeps over its own tablet, glances at a neighbour's | Taps one of four tiles with a foreleg, twelve items each, between courtship, rejection, rivalry and grooming | Time budget by sex, courtship network, rejections, male courtship drive, lesson completion time in and out of season |
 
 ### Spelling
@@ -137,7 +137,7 @@ Dashboard 6, District proctoring, scores the flags against the hidden seeding: c
 
 ### Phonics
 
-Experiment 8 is a phonics lesson on the table-sized phone. The app shows a word split into letter boxes with the sound each spells (c a t, /k/ /æ/ /t/), a hint, a Listen button, a spectrogram panel, a row for what it heard, and a mic button. The fly reads the word and listens while the app says it; with sound on, the model word uses the browser's speech voice where one exists. Then the fly walks to the mic, taps it with a foreleg, and says the word back.
+Experiment 8 is a phonics lesson on the table-sized phone. The app shows a word split into letter boxes with the sound each spells (c a t, /k/ /æ/ /t/), a hint, a Listen button, a spectrogram panel, a row for what it heard, and a mic button. The fly reads the word and listens while the app says it; with sound on, the model word uses the browser's speech voice where one exists. The fly stands on the mic button facing up the screen, so the word stays in view while it answers. It presses the mic with a foreleg, holds it down like push-to-talk, and says the word back, its eyes moving across the letter boxes as it goes.
 
 A fly cannot speak, so it sings. Male Drosophila make their courtship song by extending one wing and vibrating it: a pulse song with pulses about 35 ms apart and a sine song humming near 150 Hz. The simulation borrows that. Each sound is synthesised with Web Audio and drawn on the spectrogram from the same model:
 

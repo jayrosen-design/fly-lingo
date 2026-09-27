@@ -832,7 +832,7 @@ pre.mermaid svg{max-width:none;height:auto}
 
       <h3 class="sec">Phonics</h3>
       <div class="shots">
-        <figure><img loading="lazy" src="docs/screenshots/exp8-phonics.png" alt="Experiment 8: the fly at the mic of a phonics app, one wing extended as it sings"><figcaption><strong>8 · Phonics.</strong> The app says the word; the fly walks to the mic, taps it, and sings each sound with one extended wing while ripples spread from the wing and the spectrogram fills.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/exp8-phonics.png" alt="Experiment 8: the fly at the mic of a phonics app, one wing extended as it sings"><figcaption><strong>8 · Phonics.</strong> The app says the word; the fly stands on the mic facing the word, holds it down with a foreleg, and sings each sound with one extended wing while ripples spread from the wing and the spectrogram fills.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/exp8-screen.png" alt="Experiment 8 phonics app: letter boxes with their sounds, the Listen button, a spectrogram of the buzz, the heard row and the mic button"><figcaption><strong>8 · The phonics app.</strong> Letter boxes with the sound each spells, the Listen button, a spectrogram of the fly's buzz, what the recogniser heard, and the mic.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/dashboards-8.png" alt="Dashboard 8: phonics session counters, letter-sound memory, confusion matrix"><figcaption><strong>Dashboard 8 · Phonics and wing song.</strong> Words said right, sounds right, a letter-sound memory per phoneme, a confusion matrix of target against heard sounds, and the last attempt's spectrogram.</figcaption></figure>
       </div>
@@ -958,7 +958,7 @@ const EXP = {
   5: { name: 'Teacher', note: 'Experiment 5 · Teacher. A fly-sized laptop with a gradebook of the flies from Experiments 1 to 4. The screen is not touchable: the teacher stays on the trackpad and steers the cursor with one foreleg, presses the pad to click, and steps over to tap keys.', phys: 'Fly-sized laptop · trackpad only, no touch', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   6: { name: 'District admin', note: 'Experiment 6 · District admin. The admin fly watches nine students on a 3 × 3 grid of webcam sessions. A vision overlay boxes each fly, its forelegs and its gaze; FlyAI flags suspected cheating and the admin steers the cursor to the tile and sends a check-in.', phys: 'Fly-sized laptop · trackpad only · vision overlay', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   7: { name: 'Classroom', note: 'Experiment 7 · Classroom. Twenty-four students, twelve female and twelve male, at six round tables with a fly-sized tablet each, in mating season. Every fly has to finish twelve items. Rings show what each fly is doing; the vision overlay boxes every fly, its forelegs and its gaze. Click a fly to follow it and see its brain.', phys: '24 flies · 6 tables', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 10, 17], classroom: true },
-  8: { name: 'Phonics', note: 'Experiment 8 · Phonics. The app shows a word, says it, and asks the fly to say it back. A fly cannot speak, so it walks to the mic and sings each sound with one extended wing: pulse song for k, t, d, a formant-shaped hum for vowels, a fluttered hiss for s and sh. Turn the sound on to hear it.', phys: 'Wing song · pulse and sine', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-13, 11, 20] },
+  8: { name: 'Phonics', note: 'Experiment 8 · Phonics. The app shows a word, says it, and asks the fly to say it back. A fly cannot speak, so it stands on the mic facing the word, holds the mic down with a foreleg, and sings each sound with one extended wing: pulse song for k, t, d, a formant-shaped hum for vowels, a fluttered hiss for s and sh. Turn the sound on to hear it.', phys: 'Wing song · pulse and sine', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-13, 11, 20] },
 };
 let experiment = 1;
 
@@ -1309,7 +1309,7 @@ function redrawScreen(now) { drawScreen(now); screenTex.needsUpdate = true; }
 const agent = { phase: 'look', t: 0, target: null, standPos: null, tapLeg: null, tileIdx: -1, wordDone: false, hover: null, from: null, swipe: null, targetScroll: 0 };
 const PHASE_TEXT = { look: 'Looking at the screen', walk: 'Walking to a tile', tap: 'Pressing the glass', react: 'Reading the outcome', celebrate: 'Word complete',
   takeoff: 'Taking off', hover: 'Hovering, reading the meaning', dive: 'Diving to the answer', land: 'Landing', scroll: 'Swiping the answers into reach',
-  p_look: 'Reading the word', p_listen: 'Listening to the app', p_walk: 'Walking to the mic', p_tap: 'Tapping the mic', p_buzz: 'Singing the sounds with one wing', p_react: 'Hearing the score', p_celebrate: 'Word said right', p_back: 'Walking back to read',
+  p_look: 'Reading the word', p_listen: 'Listening to the app', p_walk: 'Settling on the mic', p_tap: 'Pressing the mic', p_buzz: 'Holding the mic and singing with one wing', p_react: 'Hearing the score', p_celebrate: 'Word said right', p_back: 'Settling on the mic',
   t_read: 'Reading the screen', t_fly: 'Flying', t_walk: 'Walking', t_arm: 'Steering the cursor with a foreleg', t_press: 'Clicking', t_dip: 'Pressing a key', t_done: 'All students graded', s_celebrate: 'Word spelled', a_watch: 'Watching the nine sessions' };
 function chooseTile() {
   const needed = cur().parts[game.placed];
@@ -1517,7 +1517,7 @@ function animateFly(dt) {
   const st = flyState;
   fly.position.copy(st.pos); fly.rotation.y = st.yaw; fly.updateMatrixWorld(true);
   head.rotation.y = st.headYaw;
-  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap') ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
+  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz') ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
   let stepping = legs.filter(L => L.step).length;
   legs.forEach(L => {
     if (L === busyLeg) return;
@@ -2779,7 +2779,7 @@ const ripples = Array.from({ length: 8 }, () => { const m = new THREE.Mesh(new T
 function spawnRipple(kind) { const r = ripples.find(x => x.t >= 1); if (!r) return; r.t = 0; r.m.material.color.setHex(RING_KIND[kind]); r.m.visible = true; const p = fly.localToWorld(new THREE.Vector3(flyState.songSide * 1.6, 0, -0.8)); r.m.position.set(p.x, screenTopY() + 0.06, p.z); }
 function stepRipples(dt) { ripples.forEach(r => { if (r.t >= 1) { r.m.visible = false; return; } r.t = Math.min(1, r.t + dt / 0.9); const s = 1.5 + 12 * r.t; r.m.scale.set(s, s, s); r.m.material.opacity = 0.55 * (1 - r.t); }); }
 // ---------- the lesson ----------
-const P_READ = [195, 650], P_STAND = [195, 736], P_MIC = [195, 758];
+const P_READ = [195, 792], P_STAND = P_READ, P_MIC = [195, 756]; // the fly stands on the mic facing up the screen, so the word stays in view
 function phonicsStart() {
   const st = flyState; st.pos.copy(pxToWorld(...P_READ)); st.pos.y = SCREEN_Y; st.yaw = Math.PI; st.songExt = 0; st.songAmp = 0; plantFeet();
   phon.stage = 'read'; phon.plan = []; phon.heard = []; phon.cur = -1; game.feedback = `The fly reads "${phon.word.word}" and listens to the app say it.`; setPhase('p_look'); redrawScreen(performance.now()); renderTrial();
@@ -2817,7 +2817,7 @@ function stepPhonics(dt, now) {
     case 'p_look': st.headYaw = Math.sin(agent.t * 9) * 0.22; pulse(0, 0.9); pulse(1, 0.9); pulse(2, 0.5);
       if (agent.t > 1.3) { st.headYaw = 0; P.stage = 'listen'; speakModel(P.word.word); setPhase('p_listen'); } break;
     case 'p_listen': pulse(6, 0.9); pulse(7, 0.9); pulse(10, 0.4); redraw();
-      if (agent.t > 1.4) { P.stage = 'go'; agent.goal = pxToWorld(...P_STAND); agent.goalYaw = 0; setPhase('p_walk'); redrawScreen(now); } break;
+      if (agent.t > 1.4) { P.stage = 'go'; agent.goal = pxToWorld(...P_STAND); agent.goalYaw = Math.PI; setPhase('p_walk'); redrawScreen(now); } break;
     case 'p_walk': case 'p_back':
       if (walkToward(agent.goal, agent.goalYaw, dt)) {
         if (agent.phase === 'p_back') { phonicsStart(); break; }
@@ -2825,20 +2825,19 @@ function stepPhonics(dt, now) {
       } break;
     case 'p_tap': { const L = agent.tapLeg, T = agent.t, gy = agent.target.y; pulse(12, 0.95); pulse(11, 0.7);
       if (T < 0.28) { const k = T / 0.28; L.foot.lerpVectors(agent.tapFrom, agent.target, k); L.foot.y = gy + Math.sin(k * Math.PI) * 0.9; }
-      else if (T < 0.45) { L.foot.copy(agent.target); if (!agent.tapped) { agent.tapped = true; startAttempt(); st.songSide = Math.random() < 0.5 ? 1 : -1; redrawScreen(now); } }
-      else if (T < 0.75) { const k = (T - 0.45) / 0.3; L.foot.lerpVectors(agent.target, restWorld(L), k); L.foot.y = Math.max(gy, L.groundY) + Math.sin(k * Math.PI) * 0.7; }
-      else { L.foot.copy(restWorld(L)); setPhase('p_buzz'); }
+      else { L.foot.copy(agent.target); agent.tapped = true; startAttempt(); st.songSide = L === legs[0] ? 1 : -1; redrawScreen(now); setPhase('p_buzz'); } // press and hold, like push-to-talk
       break; }
     case 'p_buzz': {
       let acc = agent.t, i = 0; while (i < P.plan.length && acc > P.plan[i].dur + 0.07) { acc -= P.plan[i].dur + 0.07; i++; }
       if (i >= P.plan.length) { finishAttempt(); redrawScreen(now); renderTrial(); setPhase('p_react'); break; }
       if (i !== P.cur) { if (P.cur >= 0) resolveSound(P.cur); P.cur = i; buzzSound(P.plan[i].q, P.plan[i].dur, P.f0); renderTrial(); }
       const s = P.plan[i], gap = acc > s.dur, kind = PH[s.q].kind;
+      st.headYaw += ((P.plan.length > 1 ? (i / (P.plan.length - 1) - 0.5) * -0.5 : 0) - st.headYaw) * Math.min(1, dt * 6); // eyes follow the letter being sung
       st.songAmp = gap ? 0 : kind === 'stop' ? ((acc * 1000) % 35 < 12 && acc < 0.105 ? 1 : 0.2) : Math.min(1, acc / 0.04, (s.dur - acc) / 0.05);
       { const total = P.plan.reduce((a, q) => a + q.dur + 0.07, 0), x = Math.min(240, Math.round(agent.t / total * 240)); if (x > P.specX) { paintSpectrum(spectrumOf(gap ? null : s.q, acc, st.songAmp, P.f0), P.specX, x); P.specX = x; } }
       P.ringAcc += dt; if (!gap && P.ringAcc > 0.12) { P.ringAcc = 0; spawnRipple(kind); }
       pulse(13, 0.4 + 0.6 * st.songAmp); pulse(11, 0.75); pulse(2, 0.6); pulse(6, 0.5); pulse(7, 0.5); redraw(); break; }
-    case 'p_react': if (agent.t > 1.6) { const done = P.heard.length && P.plan.every(s => s.p === s.q);
+    case 'p_react': st.headYaw *= 0.9; if (agent.t > 1.6) { const done = P.heard.length && P.plan.every(s => s.p === s.q);
         if (done) setPhase('p_celebrate'); else if (P.attempt < 2) { P.stage = 'listen'; speakModel(P.word.word); setPhase('p_listen'); redrawScreen(now); }
         else { nextPhonicsWord(); agent.goal = pxToWorld(...P_READ); agent.goalYaw = Math.PI; setPhase('p_back'); redrawScreen(now); renderTrial(); } } break;
     case 'p_celebrate': st.buzz = Math.max(st.buzz, 0.3); pulse(3, 0.9); pulse(4, 0.9);
