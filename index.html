@@ -46,6 +46,7 @@ main{flex-grow:1;min-height:0;display:flex;flex-direction:column}
 /* ---- simulate ---- */
 #stage{position:relative;height:100%;display:grid;grid-template-columns:var(--dock-w) minmax(0,1fr) var(--panel-w);grid-template-rows:minmax(0,1fr) var(--dock-h)}
 #stage.nodock{--dock-w:0px}
+#vision{position:absolute;pointer-events:none}
 #scene{display:block;grid-column:2;grid-row:1;width:100%;height:100%;min-width:0;min-height:0;touch-action:none}
 #dockLeft{grid-column:1;grid-row:1/3;background:var(--surface-card);border-right:1px solid var(--border);display:flex;flex-direction:column;min-height:0;overflow:hidden}
 #dockLeft .docktabs{display:flex;gap:4px;padding:10px 12px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;flex-shrink:0}
@@ -308,6 +309,7 @@ pre.mermaid svg{max-width:none;height:auto}
       <div id="dockBody"></div>
     </aside>
     <canvas id="scene" aria-label="3D arena: a fruit fly answering word-part questions on a smartphone"></canvas>
+    <canvas id="vision" aria-hidden="true" hidden></canvas>
     <div id="dockBottom" aria-label="Live telemetry strip">
       <div class="mini"><div class="rowlbl"><span>Tarsal adhesion</span><b id="mAdh">0 µN</b></div><canvas class="chart" id="cmAdh" aria-label="Adhesion, last 90 seconds"></canvas></div>
       <div class="mini"><div class="rowlbl"><span>Gaze contrast</span><b id="mCon">0.00</b></div><canvas class="chart" id="cmCon" aria-label="Contrast under the gaze, last 90 seconds"></canvas></div>
@@ -331,6 +333,7 @@ pre.mermaid svg{max-width:none;height:auto}
       <button type="button" class="pill toggle" id="heatBtn" aria-pressed="false">Show landing heatmap</button>
       <button type="button" class="pill toggle" id="seasonBtn" aria-pressed="true" hidden>Mating season on</button>
       <button type="button" class="pill toggle" id="overlayBtn" aria-pressed="true" hidden>Hide social overlay</button>
+      <button type="button" class="pill toggle" id="visionBtn" aria-pressed="false" hidden>Show vision overlay</button>
     </div>
     <p id="expNote">Experiment 1 · Walking. The fly walks across a phone lying on the table and presses tiles with a foreleg.</p>
     <div id="eyeLabel" aria-hidden="true"><span class="eyebrow">Fly eye</span><span>750 ommatidia · 4.5° between axes</span></div>
@@ -762,9 +765,10 @@ pre.mermaid svg{max-width:none;height:auto}
       <div class="shots">
         <figure><img loading="lazy" src="docs/screenshots/exp7-classroom.png" alt="Experiment 7: six round tables of fly students with tablets, coloured rings under each fly, a whiteboard at the back"><figcaption><strong>7 · Classroom.</strong> Twenty-four students, twelve female and twelve male, at six round tables with a tablet each. Rings show what each fly is doing: blue on task, red courting, pink being courted, amber grooming or glancing, green finished.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/exp7-courtship.png" alt="Experiment 7 close-up: a male fly beside a female at her tablet with one wing extended, song and heart badges above"><figcaption><strong>7 · Courtship at a tablet.</strong> A male beside a female who keeps working. He has tapped her with a foreleg and extended one wing to sing. Click any fly to follow it and drive the brain panel.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/exp7-vision.png" alt="Experiment 7 with the vision overlay: a bounding box and name on every fly, green boxes on the forelegs, dashed gaze rays and eye-contact badges, fading movement trails"><figcaption><strong>7 · Vision overlay.</strong> The same computer-vision layer as the district admin's screen, over the whole room: a box and confidence on every fly, its forelegs boxed as hands, a gaze ray with an eye-contact badge, and the last twelve seconds of its path.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/dashboards-7.png" alt="Dashboard 7: class session counters, time budget by sex, the room over time, courtship network"><figcaption><strong>Dashboard 7 · Classroom social dynamics.</strong> Courtship attempts and each kind of rejection, fights, glances and grooming, a time budget for females and males, mean male courtship drive over time, a courtship network, and lesson times in and out of season.</figcaption></figure>
       </div>
-      <p>Every fly has to finish the same twelve items, and a lesson ends only when the last one does. In between, the flies behave like flies. A male may orient toward a female, follow her, tap her with a foreleg and sing by vibrating one extended wing. A busy, unreceptive female usually ignores him and keeps tapping, or flicks her wings and kicks, or decamps on a short flight. Each rejection lowers his courtship drive, the courtship-conditioning effect, so the room settles as the lesson goes on. Rival males trade wing threats and lunges, flies groom between trials, a glance at a tablemate who is further ahead makes the next answer more likely to be right, and busy tablemates keep each other on task. Turn mating season off to compare how long the class takes.</p>
+      <p>Every fly has to finish the same twelve items, and a lesson ends only when the last one does. In between, the flies behave like flies. A male may orient toward a female, follow her, tap her with a foreleg and sing by vibrating one extended wing. A busy, unreceptive female usually ignores him and keeps tapping, or flicks her wings and kicks, or decamps on a short flight. Each rejection lowers his courtship drive, the courtship-conditioning effect, so the room settles as the lesson goes on. Rival males trade wing threats and lunges, flies groom between trials, a glance at a tablemate who is further ahead makes the next answer more likely to be right, and busy tablemates keep each other on task. Turn mating season off to compare how long the class takes. With twenty-four flies there is no single fly-eye view here; instead a vision overlay, like the district admin's, boxes every fly and its forelegs, draws where it is looking with an eye-contact badge (its own tablet, a neighbour's, or lost to a suitor or rival), and traces its recent path.</p>
       <article class="card"><h3>Behaviour sources for the classroom</h3><ul class="refs">
         <li>Connolly, K., &amp; Cook, R. (1973). Rejection responses by female <em>Drosophila melanogaster</em>: their ontogeny, causality and effects upon the behaviour of the courting male. <em>Behaviour, 44</em>, 142–166.</li>
         <li>Siegel, R. W., &amp; Hall, J. C. (1979). Conditioned responses in courtship behavior of normal and mutant <em>Drosophila</em>. <em>PNAS, 76</em>(7), 3430–3434.</li>
@@ -890,7 +894,7 @@ const EXP = {
   4: { name: 'Spelling', note: 'Experiment 4 · Spelling. A real-size laptop. The fly hovers to read the meaning and the word-part hints, then flies key to key and presses each letter to spell the word.', phys: 'Real-size laptop · keys', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-45, 34, 60], laptop: true },
   5: { name: 'Teacher', note: 'Experiment 5 · Teacher. A fly-sized laptop with a gradebook of the flies from Experiments 1 to 4. The screen is not touchable: the teacher stays on the trackpad and steers the cursor with one foreleg, presses the pad to click, and steps over to tap keys.', phys: 'Fly-sized laptop · trackpad only, no touch', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   6: { name: 'District admin', note: 'Experiment 6 · District admin. The admin fly watches nine students on a 3 × 3 grid of webcam sessions. A vision overlay boxes each fly, its forelegs and its gaze; FlyAI flags suspected cheating and the admin steers the cursor to the tile and sends a check-in.', phys: 'Fly-sized laptop · trackpad only · vision overlay', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
-  7: { name: 'Classroom', note: 'Experiment 7 · Classroom. Twenty-four students, twelve female and twelve male, at six round tables with a fly-sized tablet each, in mating season. Every fly has to finish twelve items. Rings show what each fly is doing; click a fly to follow it and see its brain.', phys: '24 flies · 6 tables', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 10, 17], classroom: true },
+  7: { name: 'Classroom', note: 'Experiment 7 · Classroom. Twenty-four students, twelve female and twelve male, at six round tables with a fly-sized tablet each, in mating season. Every fly has to finish twelve items. Rings show what each fly is doing; the vision overlay boxes every fly, its forelegs and its gaze. Click a fly to follow it and see its brain.', phys: '24 flies · 6 tables', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 10, 17], classroom: true },
 };
 let experiment = 1;
 
@@ -1986,6 +1990,7 @@ eyeScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMater
     }`,
 })));
 function renderEye() {
+  if (experiment === 7) return; // many flies: no single fly-eye view in the classroom
   const r = sceneCanvas.getBoundingClientRect(); if (r.width < 700) return;
   renderer.setRenderTarget(eyeRT); renderer.render(scene, eyeCam); renderer.setRenderTarget(null);
   const size = 220, pad = 16, x = r.width - size - pad;
@@ -2356,6 +2361,7 @@ function stepClassroom(dt, now) {
   for (let i = timers.length - 1; i >= 0; i--) if (timers[i].at <= cls.time) { const f = timers[i].fn; timers.splice(i, 1); f(); }
   cls.students.forEach(s => stepStudent(s, dt));
   cls.students.forEach(s => stepLegs(s, dt));
+  if (cls.time - (cls.trailAt || 0) > 0.25) { cls.trailAt = cls.time; cls.students.forEach(s => { (s.trail || (s.trail = [])).push([s.pos.x, s.pos.y, s.pos.z]); if (s.trail.length > 48) s.trail.shift(); }); }
   const f = cls.students[cls.focal];
   flyState.pos.copy(f.pos); flyState.airborne = f.airborne;
   // the focal fly drives the brain panel
@@ -2388,7 +2394,7 @@ function classroomReset() {
   cls.time = 0; cls.lesson = 1; cls.bellAt = null; cls.lessonStart = 0; cls.lessonRejects = 0; cls.lessonCourts = 0; cls.hist = []; cls.log = []; cls.lessons = []; cls.matrix.fill(0); timers.length = 0;
   Object.keys(cls.totals).forEach(k => { cls.totals[k] = 0; });
   cls.students.forEach(s => { s.pos.copy(s.home); s.yaw = s.homeYaw; s.at = s.table; s.progress = 0; s.mastery = 0.15 + 0.35 * Math.random(); s.attention = 0.85; s.partner = s.courtedBy = s.rival = null; s.flight = s.goal = s.after = s.next = null; s.airborne = false; s.tapLeg = null; s.wingExt = s.threat = s.flick = s.lunge = 0; s.glyphT = 0;
-    s.drive = s.sex === 'M' ? 0.6 + 0.4 * Math.random() : 0; s.receptive = s.sex === 'F' ? 0.08 + 0.12 * Math.random() : 0; Object.keys(s.stats).forEach(k => { s.stats[k] = 0; }); newItem(s); plantStudent(s); setState(s, 'read', readTime(s)); });
+    s.trail = []; s.drive = s.sex === 'M' ? 0.6 + 0.4 * Math.random() : 0; s.receptive = s.sex === 'F' ? 0.08 + 0.12 * Math.random() : 0; Object.keys(s.stats).forEach(k => { s.stats[k] = 0; }); newItem(s); plantStudent(s); setState(s, 'read', readTime(s)); });
 }
 window.__cls = cls; window.__clsFocus = i => setFocal(i); // debug hooks, like window.__lap
 function classroomStart() { cls.students.forEach(s => { if (!s.flight) plantStudent(s); }); drawTablets(); drawBoard(); game.feedback = `${cls.students[cls.focal].name} is on task. Click any fly to follow it.`; }
@@ -2404,7 +2410,7 @@ function classroomStart() { cls.students.forEach(s => { if (!s.flight) plantStud
   });
 }
 function setFocal(i) {
-  cls.focal = i; const s = cls.students[i]; s.rig.head.add(eyeCam);
+  cls.focal = i; const s = cls.students[i]; flyState.pos.copy(s.pos);
   game.feedback = `Following ${s.name} ${s.sex === 'F' ? '♀' : '♂'} at table ${'ABCDEF'[s.table]}.`; renderTrial();
   if (camMode === 'follow') { controls.target.copy(s.pos); camera.position.copy(s.pos).add(new THREE.Vector3(...EXP[7].camOffset)); }
 }
@@ -2427,6 +2433,55 @@ function renderClassTrial() {
   $('stWords').textContent = Math.min(s.progress, CLS.items); $('stTaps').textContent = s.stats.taps; $('stAcc').textContent = s.stats.taps ? Math.round(s.stats.correct / s.stats.taps * 100) + '%' : '0%';
   $('phasePill').textContent = `${s.name} ${SEXSYM(s)} · ${doing(s)}`;
   $('memory').innerHTML = S.filter(o => o.table === s.table).map(o => `<div class="m"><span>${o.name} ${SEXSYM(o)}</span><div class="bar${o.progress >= CLS.items ? ' done' : ''}"><span style="width:${Math.round(Math.min(1, o.progress / CLS.items) * 100)}%"></span></div><span class="sub">${doing(o).toLowerCase()}</span></div>`).join('');
+}
+
+// ---------- computer-vision overlay (like the district admin's screen) ----------
+// Projects each student's body box, forelegs ("hands"), gaze ray with an eye-contact badge, and its recent path onto the arena.
+let visionOn = false;
+const visionCanvas = document.getElementById('vision'), vc = visionCanvas.getContext('2d');
+const VBOX = [-2.6, 2.6, 0, 2.6, -3.9, 2.3], vP = new THREE.Vector3(), vH = new THREE.Vector3();
+function toPx(v, r) { vP.copy(v).project(camera); return vP.z > 1 ? null : [(vP.x + 1) / 2 * r.width, (1 - vP.y) / 2 * r.height]; }
+function gazeOf(s) {
+  if (onTask(s)) return { p: tabPoint(s, CLS.tw / 2, 64), k: 'task' };
+  if (s.state === 'peek' && s.peekAt) return { p: tabPoint(s.peekAt, CLS.tw / 2, 64), k: 'peek' };
+  const o = s.state === 'fight' ? s.rival : s.state === 'court' ? s.partner : null;
+  if (o) return { p: o.pos.clone().setY(o.pos.y + 1.3), k: 'lost' };
+  const a = s.yaw + s.headYaw; return { p: s.pos.clone().add(new THREE.Vector3(Math.sin(a) * 6, 0.3, Math.cos(a) * 6)), k: s.progress >= CLS.items ? 'done' : 'lost' };
+}
+const GAZE = { task: [C.gator, 'rgba(242,169,0,0.95)', 'eye contact · task'], peek: [C.alachua, 'rgba(242,169,0,0.95)', 'eye contact · neighbour'], lost: [C.bottlebrush, 'rgba(211,39,55,0.95)', 'eye contact · lost'], done: [C.control, 'rgba(117,123,133,0.9)', 'done · looking around'] };
+function drawVision() {
+  const r = { width: sceneCanvas.clientWidth, height: sceneCanvas.clientHeight }, pr = Math.min(devicePixelRatio, 2);
+  if (visionCanvas.width !== Math.round(r.width * pr) || visionCanvas.height !== Math.round(r.height * pr)) { visionCanvas.width = Math.round(r.width * pr); visionCanvas.height = Math.round(r.height * pr); }
+  Object.assign(visionCanvas.style, { left: sceneCanvas.offsetLeft + 'px', top: sceneCanvas.offsetTop + 'px', width: r.width + 'px', height: r.height + 'px' });
+  vc.setTransform(pr, 0, 0, pr, 0, 0); vc.clearRect(0, 0, r.width, r.height); vc.lineJoin = 'round';
+  const count = { fly: 0, hands: 0, task: 0, peek: 0, lost: 0, done: 0 };
+  cls.students.forEach(s => {
+    const R = s.rig;
+    // trajectory: the last 12 s, fading
+    const T = s.trail || []; let prev = null;
+    T.forEach((q, i) => { const p = toPx(vH.set(q[0], q[1] + 0.1, q[2]), r); if (p && prev) { vc.strokeStyle = `rgba(0,33,165,${0.08 + 0.6 * i / T.length})`; vc.lineWidth = 2; vc.beginPath(); vc.moveTo(prev[0], prev[1]); vc.lineTo(p[0], p[1]); vc.stroke(); } prev = p; });
+    // body box from the projected corners of a fly-sized box
+    let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9, ok = true;
+    for (let c = 0; c < 8; c++) { vH.set(VBOX[c & 1], VBOX[2 + (c >> 1 & 1)], VBOX[4 + (c >> 2 & 1)]); const p = toPx(R.group.localToWorld(vH), r); if (!p) { ok = false; break; } x0 = Math.min(x0, p[0]); x1 = Math.max(x1, p[0]); y0 = Math.min(y0, p[1]); y1 = Math.max(y1, p[1]); }
+    if (!ok || x1 < 0 || y1 < 0 || x0 > r.width || y0 > r.height) return;
+    count.fly++; const bh = y1 - y0, focal = s.i === cls.focal;
+    vc.setLineDash([]); vc.strokeStyle = 'rgba(0,33,165,0.95)'; vc.lineWidth = focal ? 2.5 : 1.5; vc.strokeRect(x0, y0, x1 - x0, y1 - y0);
+    const conf = Math.min(0.99, 0.62 + bh / 220 + 0.02 * Math.sin(cls.time * 3 + s.i)); const tag = `${s.name}${SEXSYM(s)} ${conf.toFixed(2)}`;
+    vc.font = `700 9px ${DISPLAY}`; vc.textAlign = 'left'; vc.textBaseline = 'middle'; const tw = vc.measureText(tag).width + 6;
+    vc.fillStyle = 'rgba(0,33,165,0.95)'; vc.fillRect(x0, y0 - 12, tw, 12); vc.fillStyle = '#fff'; vc.fillText(tag, x0 + 3, y0 - 6);
+    // forelegs, labelled hands
+    const hs = Math.max(6, Math.min(14, bh * 0.16));
+    if (!s.airborne) { [0, 1].forEach(j => { const p = toPx(R.legs[j].foot, r); if (!p) return; count.hands++; vc.strokeStyle = 'rgba(34,136,76,0.95)'; vc.lineWidth = 1.5; vc.strokeRect(p[0] - hs / 2, p[1] - hs / 2, hs, hs); if (R.legs[j] === s.tapLeg) { vc.fillStyle = 'rgba(34,136,76,0.35)'; vc.fillRect(p[0] - hs / 2, p[1] - hs / 2, hs, hs); } });
+      if (bh > 40) { vc.fillStyle = 'rgba(34,136,76,0.95)'; vc.font = `700 8px ${DISPLAY}`; vc.fillText('hands', x0, y1 + 7); } }
+    // gaze ray and eye-contact badge
+    const g = gazeOf(s); count[g.k]++; R.head.getWorldPosition(vH); const hp = toPx(vH, r), gp = toPx(g.p, r);
+    if (hp && gp) { vc.strokeStyle = GAZE[g.k][1]; vc.lineWidth = 1.5; vc.setLineDash([3, 3]); vc.beginPath(); vc.moveTo(hp[0], hp[1]); vc.lineTo(gp[0], gp[1]); vc.stroke(); vc.setLineDash([]); vc.fillStyle = GAZE[g.k][1]; vc.beginPath(); vc.arc(gp[0], gp[1], 2.5, 0, Math.PI * 2); vc.fill(); }
+    if (bh > 28 || focal) { const t = GAZE[g.k][2]; vc.font = `700 8px ${DISPLAY}`; const w = vc.measureText(t).width + 10; vc.fillStyle = GAZE[g.k][0]; vc.beginPath(); vc.roundRect(x0, y1 + (bh > 40 ? 14 : 3), w, 13, 6.5); vc.fill(); vc.fillStyle = '#fff'; vc.fillText(t, x0 + 5, y1 + (bh > 40 ? 20.5 : 9.5)); }
+  });
+  // detection summary, bottom right (where the fly-eye inset sits in the other experiments)
+  const lines = [`Vision · ${count.fly} flies · ${count.hands} hands`, `eye contact: ${count.task} task · ${count.peek} neighbour · ${count.lost} lost · ${count.done} done`];
+  vc.font = `700 11px ${DISPLAY}`; const w = Math.max(...lines.map(l => vc.measureText(l).width)) + 20; const y = r.height - 58;
+  const x = r.width - w - 16; vc.fillStyle = 'rgba(0,38,87,0.88)'; vc.beginPath(); vc.roundRect(x, y, w, 44, 10); vc.fill(); vc.fillStyle = '#fff'; lines.forEach((l, i) => vc.fillText(l, x + 10, y + 14 + i * 16));
 }
 
 // ---------- Cameras ----------
@@ -2459,7 +2514,7 @@ function setExperiment(n) {
   $('gripPill').textContent = n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
   document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
   const wasClass = classroom.visible; classroom.visible = !!cfg.classroom; fly.visible = !cfg.classroom;
-  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom; $('seasonBtn').hidden = $('overlayBtn').hidden = !cfg.classroom;
+  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom; $('vision').hidden = !(cfg.classroom && visionOn);
   $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : 'words built';
   $('memHead').textContent = cfg.classroom ? 'Tablemates · lesson progress' : 'Word part memory · Kenyon cell to MBON weights';
   document.querySelectorAll('.mini[data-cls]').forEach(el => { el.hidden = !cfg.classroom; }); document.querySelectorAll('#dockBottom .mini:not([data-cls])').forEach(el => { el.hidden = !!cfg.classroom; }); requestAnimationFrame(() => sizeCharts()); // size the strip charts that just became visible
@@ -2487,6 +2542,7 @@ function setExperiment(n) {
 document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => setExperiment(Number(b.dataset.exp))));
 $('pathsBtn').addEventListener('click', () => { showPaths = !showPaths; $('pathsBtn').setAttribute('aria-pressed', String(showPaths)); $('pathsBtn').textContent = showPaths ? 'Hide paths' : 'Show paths'; Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === experiment; }); ghostLine.visible = showPaths && experiment !== 3 && !!agent.ghost; });
 $('seasonBtn').addEventListener('click', () => { cls.season = !cls.season; $('seasonBtn').setAttribute('aria-pressed', String(cls.season)); $('seasonBtn').textContent = cls.season ? 'Mating season on' : 'Mating season off'; clsLog(cls.season ? 'Mating season: courtship drive restored.' : 'Out of season: courtship drive drops to a tenth.'); drawBoard(); });
+$('visionBtn').addEventListener('click', () => { visionOn = !visionOn; $('visionBtn').setAttribute('aria-pressed', String(visionOn)); $('visionBtn').textContent = visionOn ? 'Hide vision overlay' : 'Show vision overlay'; $('vision').hidden = !visionOn; });
 $('overlayBtn').addEventListener('click', () => { clsOverlay = !clsOverlay; $('overlayBtn').setAttribute('aria-pressed', String(clsOverlay)); $('overlayBtn').textContent = clsOverlay ? 'Hide social overlay' : 'Show social overlay'; });
 $('heatBtn').addEventListener('click', () => { showHeat = !showHeat; if (EXP[experiment].laptop) drawLaptop(); $('heatBtn').setAttribute('aria-pressed', String(showHeat)); $('heatBtn').textContent = showHeat ? 'Hide landing heatmap' : 'Show landing heatmap'; redrawScreen(performance.now()); });
 
@@ -2577,7 +2633,7 @@ function frame(now) {
     if (experiment !== 7) sampleTelemetry(now);
   }
   updateCamera(); controls2.update();
-  if (view === 'simulate') { renderer.render(scene, camera); renderEye(); renderer2.render(scene2, camera2); if (drawDashboards(now)) { if (experiment === 7) drawClassStrip(); else drawMiniStrip(); } }
+  if (view === 'simulate') { renderer.render(scene, camera); renderEye(); if (experiment === 7 && visionOn) drawVision(); renderer2.render(scene2, camera2); if (drawDashboards(now)) { if (experiment === 7) drawClassStrip(); else drawMiniStrip(); } }
   else if (view === 'dash') drawDashboards(now);
 }
 requestAnimationFrame(frame);

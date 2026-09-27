@@ -133,14 +133,20 @@ It is mating season, and the flies behave like flies. Each student is a lightwei
 - **Grooming and glancing.** Flies groom between trials. A fly may glance at a tablemate who is further ahead, which raises the chance that its next answer is right.
 - **Co-action.** Attention rises when tablemates are on task and falls when courtship happens at the table or when a male is singing beside you.
 
-Rings under the flies show what each one is doing: blue on task, red courting, pink being courted, amber grooming or glancing, green finished, grey away from the tablet. Dashed red lines join courting pairs, and small badges mark a song, a rejection, a fight or a finished lesson. Toggle the overlay and mating season from the pills above the arena. The camera starts on the whole room; click any fly to follow it, see through its eyes and drive the brain panel with its behaviour, which lights the antennal lobes and lateral horn during courtship and the mesothoracic neuropil during song.
+Rings under the flies show what each one is doing: blue on task, red courting, pink being courted, amber grooming or glancing, green finished, grey away from the tablet. Dashed red lines join courting pairs, and small badges mark a song, a rejection, a fight or a finished lesson. Toggle that overlay and mating season from the pills above the arena.
+
+With twenty-four flies there is no single fly-eye inset here. Instead, a third pill turns on a computer-vision overlay like the district admin's screen: a bounding box with name and confidence on every fly, its forelegs boxed as hands (filled while tapping), a dashed gaze ray from its head with an eye-contact badge (green on its own tablet, amber on a neighbour's, red when lost to a suitor or rival, grey once done), the last twelve seconds of its path, and a detection summary in the corner.
+
+The camera starts on the whole room; click any fly to follow it and drive the brain panel with its behaviour, which lights the antennal lobes and lateral horn during courtship and the mesothoracic neuropil during song.
 
 Dashboard 7, Classroom social dynamics, shows the class on task, finished and courting, counts of courtship attempts and of each kind of rejection, fights, glances and grooming bouts, a time budget for females and males, the room over time with mean male drive, a courtship network matrix, lesson completion times in and out of season, and a live roster of all 24.
 
 | | |
 | --- | --- |
-| ![Experiment 7: six round tables of fly students with tablets, coloured rings under each fly, a whiteboard at the back](docs/screenshots/exp7-classroom.png) | ![Dashboard 7: class session counters, time budget by sex, the room over time, courtship network](docs/screenshots/dashboards-7.png) |
-| **The classroom.** Twenty-four students at six tables, rings showing behaviour, the whiteboard tracking the lesson. | **Dashboard 7.** Time budget by sex, courtship and rejection counts, the room over time, the courtship network. |
+| ![Experiment 7: six round tables of fly students with tablets, coloured rings under each fly, a whiteboard at the back](docs/screenshots/exp7-classroom.png) | ![Experiment 7 with the vision overlay: boxes, hands, gaze rays, eye-contact badges and trails on every fly](docs/screenshots/exp7-vision.png) |
+| **The classroom.** Twenty-four students at six tables, rings showing behaviour, the whiteboard tracking the lesson. | **Vision overlay.** Boxes and confidence, hands, gaze rays with eye-contact badges, and trails. |
+| ![Experiment 7 close-up: a male beside a female at her tablet with one wing extended](docs/screenshots/exp7-courtship.png) | ![Dashboard 7: class session counters, time budget by sex, the room over time, courtship network](docs/screenshots/dashboards-7.png) |
+| **Courtship at a tablet.** He has tapped her and sings with one wing while she keeps working. | **Dashboard 7.** Time budget by sex, courtship and rejection counts, the room over time, the courtship network. |
 
 The landing scatter is deliberate: each answer is aimed at the tile centre plus a small normal error (about 6 px walking, 14 px flying, 8 px touch on the 390 px wide screen), which is what makes the heatmap informative rather than a set of points.
 
