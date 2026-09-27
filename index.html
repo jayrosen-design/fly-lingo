@@ -268,6 +268,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <button type="button" data-exp="5" aria-pressed="false">5 · Teacher</button>
         <button type="button" data-exp="6" aria-pressed="false">6 · District admin</button>
         <button type="button" data-exp="7" aria-pressed="false">7 · Classroom</button>
+        <button type="button" data-exp="8" aria-pressed="false">8 · Phonics</button>
       </div>
       <div class="seg" role="group" aria-label="Speed">
         <button type="button" data-speed="1" aria-pressed="true">1×</button>
@@ -289,15 +290,15 @@ pre.mermaid svg{max-width:none;height:auto}
         <div style="display:flex;flex-direction:column;gap:12px">
           <span class="eyebrow">Embodied Drosophila literacy simulation</span>
           <h2>A fruit fly learning to read, and the flies who teach and proctor it</h2>
-          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid, a classroom of 24 flies with tablets in mating season. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
+          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid, a classroom of 24 flies with tablets in mating season, a phonics app that asks it to say the word, which it sings back with one wing. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
           <div class="actions"><a class="btn btn-primary" href="#simulate">Open the simulator</a><a class="btn btn-tertiary" href="#dashboards">Dashboards</a><a class="btn btn-tertiary" href="#about">About the research</a></div>
         </div>
         <img src="docs/screenshots/app-simulate.png" alt="The simulator: a fruit fly on a smartphone screen with the brain panel and docked dashboards">
       </div>
 
       <div>
-        <h3 class="sec">Seven experiments</h3>
-        <p class="sub">Five student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all seven.</p>
+        <h3 class="sec">Eight experiments</h3>
+        <p class="sub">Six student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all eight.</p>
       </div>
       <div class="expgrid">
         <a class="expcard" href="#simulate" data-run="1"><img loading="lazy" src="docs/screenshots/overview.png" alt="Experiment 1: the fly walking across the phone screen toward a tile"><div class="body"><span class="num">Experiment 1</span><h3>Walking</h3><p>The fly walks across a phone lying on the table, reads the meaning with head sweeps, and presses word-part tiles with a foreleg.</p><span class="role student">Student</span></div></a>
@@ -307,6 +308,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <a class="expcard" href="#simulate" data-run="5"><img loading="lazy" src="docs/screenshots/exp5-laptop.png" alt="Experiment 5: the teacher fly on a fly-sized laptop's trackpad"><div class="body"><span class="num">Experiment 5</span><h3>Teacher</h3><p>A teacher fly grades the four students from a fly-sized laptop, steering the cursor with one foreleg on the trackpad. The screen is never touched.</p><span class="role staff">Staff</span></div></a>
         <a class="expcard" href="#simulate" data-run="6"><img loading="lazy" src="docs/screenshots/exp6-screen.png" alt="Experiment 6: a grid of nine webcam sessions with a vision overlay and the FlyAI panel"><div class="body"><span class="num">Experiment 6</span><h3>District admin</h3><p>Nine webcam sessions on one screen, a vision overlay on every fly, and FlyAI flagging suspected cheating for the admin to check in on.</p><span class="role staff">Staff</span></div></a>
         <a class="expcard" href="#simulate" data-run="7"><img loading="lazy" src="docs/screenshots/exp7-classroom.png" alt="Experiment 7: six round tables of fly students with tablets, coloured rings showing what each fly is doing"><div class="body"><span class="num">Experiment 7</span><h3>Classroom</h3><p>Twenty-four students at six round tables, one tablet each, in mating season. Courtship, rejection and rivalry compete with the lesson, and everyone still has to finish.</p><span class="role student">Student</span></div></a>
+        <a class="expcard" href="#simulate" data-run="8"><img loading="lazy" src="docs/screenshots/exp8-phonics.png" alt="Experiment 8: the fly at the mic of a phonics app, one wing extended as it sings the sounds, a spectrogram of its buzz on the screen"><div class="body"><span class="num">Experiment 8</span><h3>Phonics</h3><p>The app says a word and the fly says it back, sound by sound, by singing with one wing: pulse song for consonants, a hum for vowels. The recogniser scores every sound.</p><span class="role student">Student</span></div></a>
       </div>
 
       <h3 class="sec">What you can measure</h3>
@@ -334,6 +336,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <button type="button" data-dock="d-teacher-sec" aria-pressed="false"><b>5</b><span>Teacher</span></button>
         <button type="button" data-dock="d-admin-sec" aria-pressed="false"><b>6</b><span>Admin</span></button>
         <button type="button" data-dock="d-class-sec" aria-pressed="false"><b>7</b><span>Classroom</span></button>
+        <button type="button" data-dock="d-phonics-sec" aria-pressed="false"><b>8</b><span>Phonics</span></button>
       </div>
       <div id="dockBody"></div>
     </aside>
@@ -357,33 +360,34 @@ pre.mermaid svg{max-width:none;height:auto}
       <button type="button" class="pill toggle" id="seasonBtn" aria-pressed="true" hidden>Mating season on</button>
       <button type="button" class="pill toggle" id="overlayBtn" aria-pressed="true" hidden>Hide social overlay</button>
       <button type="button" class="pill toggle" id="visionBtn" aria-pressed="false" hidden>Show vision overlay</button>
+      <button type="button" class="pill toggle" id="soundBtn" aria-pressed="false" hidden>Turn sound on</button>
     </div>
     <p id="expNote">Experiment 1 · Walking. The fly walks across a phone lying on the table and presses tiles with a foreleg.</p>
     <div id="eyeLabel" aria-hidden="true"><span class="eyebrow">Fly eye</span><span>750 ommatidia · 4.5° between axes</span></div>
 
     <aside id="brainPanel" aria-label="Scenario panel">
       <div id="nowLine" aria-live="polite">Walking · building a word</div>
-      <section id="rpScreen" data-rp="3 4 5 6" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
+      <section id="rpScreen" data-rp="3 4 5 6 8" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
       <section id="rpMap" data-rp="7" class="rp"><div class="rowlbl"><h3>Seating chart</h3><span class="sub">click a fly to follow it</span></div><canvas id="rpMapCv" aria-label="Top-down seating chart of the six tables; click a fly to follow it"></canvas></section>
       <section id="rpScen" class="rp"><h3 id="rpScenHead"></h3><div id="rpScenBody"></div></section>
-      <section data-rp="1 2 3 4 7" style="display:flex;flex-direction:column;gap:8px">
+      <section data-rp="1 2 3 4 7 8" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <h2>Central nervous system</h2>
           <span class="sub">Point cloud stylised after Drosophila anatomy, brain and ventral nerve cord. Drag to turn.</span>
         </div>
         <canvas id="brain" aria-label="Rotating point cloud of the fly's brain; regions brighten when active"></canvas>
       </section>
-      <section data-rp="1 2 3 4 7" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8" style="display:flex;flex-direction:column;gap:10px">
         <div class="rowlbl"><span>Dopamine · PAM cluster</span><span id="dopaVal">0.50</span></div>
         <div class="bar" id="dopaBar"><span style="width:50%"></span></div>
         <ul class="regions" id="regions"></ul>
       </section>
-      <section data-rp="1 2 3 4 7" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8" style="display:flex;flex-direction:column;gap:10px">
         <h3 id="memHead">Word part memory · Kenyon cell to MBON weights</h3>
         <div class="memory" id="memory"></div>
       </section>
       <section style="display:flex;flex-direction:column;gap:12px">
-        <div class="stat-row" data-rp="1 2 3 4 7">
+        <div class="stat-row" data-rp="1 2 3 4 7 8">
           <div class="stat good"><b id="stWords">0</b><span class="sub">words built</span></div>
           <div class="stat plain"><b id="stTaps">0</b><span class="sub">answers</span></div>
           <div class="stat"><b id="stAcc">0%</b><span class="sub">correct</span></div>
@@ -406,7 +410,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <p class="lead">Four dashboards from the psychometric specification, fed by the running fly. Values update while the simulation runs in the Simulate view. Where a quantity is a stand-in for a sensor or model the app does not yet have, the card says so.</p>
       </div>
       <nav class="subnav" aria-label="Dashboards">
-        <a href="#d-session">Session</a><a href="#d-kinematic">1 · Kinematic and sensorimotor</a><a href="#d-connectome">2 · Connectomic</a><a href="#d-psycho">3 · Psychometric</a><a href="#d-curriculum">4 · Curriculum</a><a href="#d-teacher">5 · Teacher navigation</a><a href="#d-admin">6 · District proctoring</a><a href="#d-class">7 · Classroom</a>
+        <a href="#d-session">Session</a><a href="#d-kinematic">1 · Kinematic and sensorimotor</a><a href="#d-connectome">2 · Connectomic</a><a href="#d-psycho">3 · Psychometric</a><a href="#d-curriculum">4 · Curriculum</a><a href="#d-teacher">5 · Teacher navigation</a><a href="#d-admin">6 · District proctoring</a><a href="#d-class">7 · Classroom</a><a href="#d-phonics">8 · Phonics</a>
       </nav>
 
       <section id="d-session" class="grid" data-dockable>
@@ -501,6 +505,25 @@ pre.mermaid svg{max-width:none;height:auto}
         <article class="card span6"><header><h3>Lessons</h3><span class="sub">seconds until all 24 finished</span></header><canvas class="chart" id="cLessons" aria-label="Bar per lesson: time for the whole class to finish"></canvas><div class="legend"><span><i style="background:#f2a900"></i>in season</span><span><i style="background:#0021a5"></i>out of season</span></div><p class="sub">Turn mating season off in the simulator to compare. A lesson ends only when its last fly finishes.</p><ul class="events" id="cLog" style="max-height:200px"></ul></article>
         <article class="card span12"><header><h3>Roster</h3><span class="sub">all 24, live</span></header><div style="overflow-x:auto"><table class="q" id="cRoster"><thead><tr><th>Fly</th><th>Doing</th><th>Items</th><th>Accuracy</th><th>On task</th><th>Courted · courting</th><th>Rejections given · received</th><th>Drive · receptivity</th><th>Attention</th></tr></thead><tbody></tbody></table></div></article>
       </section>
+
+      <h3 class="sec" id="d-phonics">Dashboard 8 · Phonics and wing song</h3>
+      <p class="sub">Experiment 8. The app says a word and the fly sings it back sound by sound with one wing. The recogniser scores each sound against the word; a letter-sound memory per phoneme learns with the same Δw = η(R − V) rule as the word parts.</p>
+      <section class="grid" id="d-phonics-sec" data-dockable>
+        <article class="card span4"><header><h3>Phonics session</h3><span class="sub" id="phMode">not running</span></header>
+          <div class="stat-row"><div class="stat good"><b id="phPerfect">0</b><span class="sub">words said right</span></div><div class="stat plain"><b id="phSounds">0</b><span class="sub">sounds sung</span></div><div class="stat"><b id="phAcc">–</b><span class="sub">sounds right</span></div></div>
+          <div class="kv"><span>Attempts · retries</span><b id="phAttempts">0 · 0</b><span>Current word</span><b id="phWord">–</b><span>Mean letter-sound memory</span><b id="phMem">–</b><span>Carrier pitch</span><b id="phF0">–</b><span>Sound</span><b id="phAudio">off</b></div>
+          <p class="sub">A word gets two attempts. The chance of singing a sound right is 0.3 + 0.65 × its memory, so sounds the fly has practised come out right more often.</p></article>
+        <article class="card span4"><header><h3>Letter-sound memory</h3><span class="sub">per phoneme, with accuracy</span></header><div id="phMemList" class="memory"></div><p class="sub">Grouped by how the fly sings them: pulse song for stops, a hum for vowels and nasals, a hiss for fricatives.</p></article>
+        <article class="card span4"><header><h3>Confusions</h3><span class="sub">target sound row, what was heard column</span></header><canvas class="chart" id="cPhConf" style="height:300px" aria-label="Matrix of target sounds against the sounds the recogniser heard"></canvas><p class="sub">The diagonal is right answers. Off-diagonal cells cluster within a kind of sound, the errors a phonics teacher expects: /k/ for /t/, /s/ for /ʃ/.</p></article>
+        <article class="card span6"><header><h3>Last attempt</h3><span class="sub">spectrogram of the buzz, 0 to 8 kHz</span></header><canvas class="chart" id="cPhSpec" style="height:180px" aria-label="Spectrogram of the fly's last sung attempt"></canvas><div id="phLast" class="sub"></div></article>
+        <article class="card span6"><header><h3>How a fly sings a word</h3><span class="sub">sound kind to song mode</span></header>
+          <div style="overflow-x:auto"><table class="q"><thead><tr><th>Sounds</th><th>Song mode</th><th>In real flies</th></tr></thead><tbody>
+            <tr><th scope="row">Stops · /b d g k p t/</th><td>Pulse song, three pulses 35 ms apart, filtered at the consonant's burst frequency</td><td>Pulse song, interpulse interval about 35 ms</td></tr>
+            <tr><th scope="row">Vowels · /æ ɛ ɪ ɒ ʌ/</th><td>A sawtooth hum at 165 to 205 Hz shaped by the vowel's first two formants</td><td>Sine song, a hum near 150 Hz</td></tr>
+            <tr><th scope="row">Fricatives · /f s ʃ tʃ h/</th><td>Band-passed hiss fluttered at the wingbeat</td><td>Not in the song; the wing's noise</td></tr>
+            <tr><th scope="row">Nasals and liquids · /m n l r/</th><td>A low muffled hum, or a gliding one</td><td>Sine song variants</td></tr>
+          </tbody></table></div><ul class="events" id="phLog" style="max-height:160px"></ul></article>
+      </section>
     </div>
   </section>
 
@@ -512,7 +535,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <p class="lead">Fruit Fly Lingo is the interaction layer of the Embodied Drosophila Literacy Simulation (EDLS). It puts a simulated fruit fly in front of a smartphone that teaches word parts, and asks a simple question with a hard answer: can a nervous system that evolved for finding food and avoiding swatters be repurposed to assemble prefixes, roots and suffixes?</p>
       </div>
       <section class="two">
-        <article class="card tint"><h3>What the app simulates</h3><p>A procedural fly with six IK legs, wings and a head-mounted compound-eye camera lives on a table with a phone. The phone runs a small morphology curriculum in the style of LibreLingo and Word Root Workshop: build the word that means <em>able to be counted again</em> from <em>re-</em>, <em>count</em> and <em>-able</em>. The fly answers by touching tiles, and the student experiments vary how it gets there: walking on the glass, flying up to read and diving to land, holding a fly-sized phone and swiping, or spelling the word key by key on a laptop. Two more experiments put flies on the other side of the desk: a teacher grading those students from a fly-sized laptop, and a district admin proctoring nine of them through webcam sessions with a vision overlay and an assistant called FlyAI. A seventh puts twenty-four student flies in one classroom during mating season, where courtship, rejection and rivalry compete with the lesson.</p><p>A stylised central nervous system, about 55,000 points laid out after Drosophila anatomy, lights up with what the fly does: optic lobes while it reads, central complex and leg neuropils while it moves, mushroom bodies and taste centres when a sugar reward arrives, lateral horn when it flinches from a wrong answer.</p></article>
+        <article class="card tint"><h3>What the app simulates</h3><p>A procedural fly with six IK legs, wings and a head-mounted compound-eye camera lives on a table with a phone. The phone runs a small morphology curriculum in the style of LibreLingo and Word Root Workshop: build the word that means <em>able to be counted again</em> from <em>re-</em>, <em>count</em> and <em>-able</em>. The fly answers by touching tiles, and the student experiments vary how it gets there: walking on the glass, flying up to read and diving to land, holding a fly-sized phone and swiping, or spelling the word key by key on a laptop. Two more experiments put flies on the other side of the desk: a teacher grading those students from a fly-sized laptop, and a district admin proctoring nine of them through webcam sessions with a vision overlay and an assistant called FlyAI. A seventh puts twenty-four student flies in one classroom during mating season, where courtship, rejection and rivalry compete with the lesson. An eighth is a phonics lesson: the fly cannot speak, so it answers by singing each sound with one wing.</p><p>A stylised central nervous system, about 55,000 points laid out after Drosophila anatomy, lights up with what the fly does: optic lobes while it reads, central complex and leg neuropils while it moves, mushroom bodies and taste centres when a sugar reward arrives, lateral horn when it flinches from a wrong answer.</p></article>
         <article class="card tint"><h3>What we are trying to learn</h3><p>Whether biological wiring is a useful <strong>inductive bias</strong> for symbolic learning. A random network can learn to tap tiles; the interesting result is a network constrained by the fly's actual circuits doing it, because then the solution has to route through the same sensorimotor pathways a real fly uses. The "Digital Sphinx" problem, a worm connectome driving a fly body, shows how easily a high-capacity learner fakes the behaviour without the biology.</p><p>How <strong>reward learning</strong> in the mushroom body maps onto a curriculum. The PAM dopamine cluster gates plasticity between Kenyon cells and output neurons; here that is the rule Δw = η(R − V) that strengthens a word part's memory after a correct answer, and the Half-Life Regression that schedules its review.</p><p>How to <strong>measure learning</strong> in a non-human agent. The dashboards apply G-DINA cognitive diagnosis, Half-Life Regression and the Many-Facet Rasch model so that "the fly learned re-" is a claim with a posterior, a half-life and a logit, not a feeling.</p></article>
       </section>
 
@@ -750,7 +773,7 @@ pre.mermaid svg{max-width:none;height:auto}
 </pre></article><article class="card"><h3>From this app to the full EDLS</h3><pre class="mermaid">flowchart LR
   subgraph Now[&quot;In this repo today&quot;]
     UI[&quot;3D language interface&lt;br/&gt;screen · tiles · trial card&quot;]
-    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;seven experiments&quot;]
+    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;eight experiments&quot;]
     Policy[&quot;Behavioural policy&lt;br/&gt;memory-weighted tile choice&quot;]
     BrainViz[&quot;Stylised CNS point cloud&lt;br/&gt;16 regions, act[]&quot;]
     Eye[&quot;Fly-eye mosaic&lt;br/&gt;750 ommatidia, 4.5°&quot;]
@@ -806,6 +829,20 @@ pre.mermaid svg{max-width:none;height:auto}
         <li>Ramdya, P., et al. (2015). Mechanosensory interactions drive collective behaviour in <em>Drosophila</em>. <em>Nature, 519</em>, 233–236.</li>
         <li>Zajonc, R. B. (1965). Social facilitation. <em>Science, 149</em>(3681), 269–274.</li>
       </ul><p class="sub">The model is a caricature built on these findings, not a fit to their data.</p></article>
+
+      <h3 class="sec">Phonics</h3>
+      <div class="shots">
+        <figure><img loading="lazy" src="docs/screenshots/exp8-phonics.png" alt="Experiment 8: the fly at the mic of a phonics app, one wing extended as it sings"><figcaption><strong>8 · Phonics.</strong> The app says the word; the fly walks to the mic, taps it, and sings each sound with one extended wing while ripples spread from the wing and the spectrogram fills.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/exp8-screen.png" alt="Experiment 8 phonics app: letter boxes with their sounds, the Listen button, a spectrogram of the buzz, the heard row and the mic button"><figcaption><strong>8 · The phonics app.</strong> Letter boxes with the sound each spells, the Listen button, a spectrogram of the fly's buzz, what the recogniser heard, and the mic.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/dashboards-8.png" alt="Dashboard 8: phonics session counters, letter-sound memory, confusion matrix"><figcaption><strong>Dashboard 8 · Phonics and wing song.</strong> Words said right, sounds right, a letter-sound memory per phoneme, a confusion matrix of target against heard sounds, and the last attempt's spectrogram.</figcaption></figure>
+      </div>
+      <p>A fly has no voice, but male Drosophila do make sound: they vibrate one extended wing to sing a courtship song with two parts, a pulse song whose pulses come about 35 ms apart and a sine song that hums near 150 Hz, and they hear it with the Johnston's organ in the antennae. The phonics experiment borrows that apparatus. Stop consonants are sung as pulse song, three pulses 35 ms apart filtered at the consonant's burst frequency; vowels are a hum shaped by the vowel's first two formants; fricatives are a hiss fluttered at the wingbeat; nasals and liquids are low or gliding hums. Turn the sound on to hear it; the app's model word uses the browser's speech voice where one is available. Each sound is right with a probability set by its letter-sound memory, and wrong ones are the confusions a phonics teacher expects, such as /t/ for /k/ or /s/ for /ʃ/.</p>
+      <article class="card"><h3>Sources for the wing song</h3><ul class="refs">
+        <li>Bennet-Clark, H. C., &amp; Ewing, A. W. (1969). Pulse interval as a critical parameter in the courtship song of <em>Drosophila melanogaster</em>. <em>Animal Behaviour, 17</em>, 755–759.</li>
+        <li>von Schilcher, F. (1976). The function of pulse song and sine song in the courtship of <em>Drosophila melanogaster</em>. <em>Animal Behaviour, 24</em>, 622–625.</li>
+        <li>Göpfert, M. C., &amp; Robert, D. (2002). The mechanical basis of <em>Drosophila</em> audition. <em>Journal of Experimental Biology, 205</em>, 1199–1208.</li>
+        <li>von Philipsborn, A. C., et al. (2011). Neuronal control of <em>Drosophila</em> courtship song. <em>Neuron, 69</em>(3), 509–522.</li>
+      </ul><p class="sub">The mapping from speech sounds to song modes is an invention of this simulation, not a claim about flies.</p></article>
 
       <h3 class="sec">From this app to the full EDLS</h3>
       <section class="two">
@@ -921,6 +958,7 @@ const EXP = {
   5: { name: 'Teacher', note: 'Experiment 5 · Teacher. A fly-sized laptop with a gradebook of the flies from Experiments 1 to 4. The screen is not touchable: the teacher stays on the trackpad and steers the cursor with one foreleg, presses the pad to click, and steps over to tap keys.', phys: 'Fly-sized laptop · trackpad only, no touch', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   6: { name: 'District admin', note: 'Experiment 6 · District admin. The admin fly watches nine students on a 3 × 3 grid of webcam sessions. A vision overlay boxes each fly, its forelegs and its gaze; FlyAI flags suspected cheating and the admin steers the cursor to the tile and sends a check-in.', phys: 'Fly-sized laptop · trackpad only · vision overlay', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   7: { name: 'Classroom', note: 'Experiment 7 · Classroom. Twenty-four students, twelve female and twelve male, at six round tables with a fly-sized tablet each, in mating season. Every fly has to finish twelve items. Rings show what each fly is doing; the vision overlay boxes every fly, its forelegs and its gaze. Click a fly to follow it and see its brain.', phys: '24 flies · 6 tables', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 10, 17], classroom: true },
+  8: { name: 'Phonics', note: 'Experiment 8 · Phonics. The app shows a word, says it, and asks the fly to say it back. A fly cannot speak, so it walks to the mic and sings each sound with one extended wing: pulse song for k, t, d, a formant-shaped hum for vowels, a fluttered hiss for s and sh. Turn the sound on to hear it.', phys: 'Wing song · pulse and sine', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-13, 11, 20] },
 };
 let experiment = 1;
 
@@ -987,6 +1025,7 @@ const screenCanvas = document.createElement('canvas'); screenCanvas.width = SW; 
 const sc = screenCanvas.getContext('2d');
 function rrect(x, y, w, h, r) { sc.beginPath(); sc.roundRect(x, y, w, h, r); }
 function drawScreen(now) {
+  if (experiment === 8) return drawPhonics(now);
   const w = cur(); const L = layout(); const scroll = L.tapY ? game.scrollY : 0;
   sc.setTransform(1, 0, 0, 1, 0, 0);
   sc.fillStyle = C.page; sc.fillRect(0, 0, SW, SH);
@@ -1129,7 +1168,7 @@ const legs = legDefs.map((d, i) => ({
   pad: mesh(new THREE.SphereGeometry(0.07, 6, 6), dark, fly),
 }));
 const tmpA = new THREE.Vector3(), tmpB = new THREE.Vector3(), tmpC = new THREE.Vector3();
-function restWorld(L) { const p = fly.localToWorld(L.rest.clone()); p.y = experiment >= 4 ? surfaceY(p.x, p.z, L.front) : L.groundY; return p; }
+function restWorld(L) { const p = fly.localToWorld(L.rest.clone()); p.y = EXP[experiment].laptop ? surfaceY(p.x, p.z, L.front) : L.groundY; return p; }
 function solveLeg(L, bodyLift) {
   const hip = tmpA.copy(L.hip); hip.y += bodyLift;
   const foot = fly.worldToLocal(tmpB.copy(L.foot));
@@ -1144,7 +1183,7 @@ function solveLeg(L, bodyLift) {
   const footL = hip.clone().add(d);
   setBone(L.femur, hip, knee); setBone(L.tibia, knee, footL); L.pad.position.copy(footL);
 }
-const flyState = { pos: new THREE.Vector3(0, SCREEN_Y, 40), vel: new THREE.Vector3(), yaw: 0, groundY: SCREEN_Y, headYaw: 0, buzz: 0, flinch: 0, proboscis: 0, walking: false, airborne: false, gaitPhase: 0 };
+const flyState = { songExt: 0, songAmp: 0, songSide: 1, pos: new THREE.Vector3(0, SCREEN_Y, 40), vel: new THREE.Vector3(), yaw: 0, groundY: SCREEN_Y, headYaw: 0, buzz: 0, flinch: 0, proboscis: 0, walking: false, airborne: false, gaitPhase: 0 };
 function plantFeet() { fly.position.copy(flyState.pos); fly.rotation.y = flyState.yaw; fly.updateMatrixWorld(true); legs.forEach(L => { L.step = null; L.foot.copy(restWorld(L)); }); }
 
 // ---------- Brain point cloud ----------
@@ -1235,6 +1274,7 @@ const $ = id => document.getElementById(id);
 function renderTrial() {
   const w = cur();
   if (experiment === 7) return renderClassTrial();
+  if (experiment === 8) return renderPhonicsTrial();
   if (experiment === 4 && typeof spell !== 'undefined' && spell.letters.length) {
     $('meaning').textContent = spell.word.meaning;
     $('chips').innerHTML = spell.letters.map((ch, i) => i < spell.typed.length ? `<span class="chip ${KINDS[partAtLetter(i)]}" style="padding:0 12px">${ch}</span>` : `<span class="chip empty" style="padding:0 10px">${KINDS[partAtLetter(i)][0]}</span>`).join('');
@@ -1269,6 +1309,7 @@ function redrawScreen(now) { drawScreen(now); screenTex.needsUpdate = true; }
 const agent = { phase: 'look', t: 0, target: null, standPos: null, tapLeg: null, tileIdx: -1, wordDone: false, hover: null, from: null, swipe: null, targetScroll: 0 };
 const PHASE_TEXT = { look: 'Looking at the screen', walk: 'Walking to a tile', tap: 'Pressing the glass', react: 'Reading the outcome', celebrate: 'Word complete',
   takeoff: 'Taking off', hover: 'Hovering, reading the meaning', dive: 'Diving to the answer', land: 'Landing', scroll: 'Swiping the answers into reach',
+  p_look: 'Reading the word', p_listen: 'Listening to the app', p_walk: 'Walking to the mic', p_tap: 'Tapping the mic', p_buzz: 'Singing the sounds with one wing', p_react: 'Hearing the score', p_celebrate: 'Word said right', p_back: 'Walking back to read',
   t_read: 'Reading the screen', t_fly: 'Flying', t_walk: 'Walking', t_arm: 'Steering the cursor with a foreleg', t_press: 'Clicking', t_dip: 'Pressing a key', t_done: 'All students graded', s_celebrate: 'Word spelled', a_watch: 'Watching the nine sessions' };
 function chooseTile() {
   const needed = cur().parts[game.placed];
@@ -1355,7 +1396,8 @@ function beginTap(targetWorld) {
 }
 function stepAgent(dt, now) {
   agent.t += dt;
-  if (experiment >= 4) return stepTeacher(dt, now);
+  if (experiment === 8) return stepPhonics(dt, now);
+  if (EXP[experiment].laptop) return stepTeacher(dt, now);
   const st = flyState; const s = phone.scale.x;
   switch (agent.phase) {
     case 'look': {
@@ -1475,14 +1517,14 @@ function animateFly(dt) {
   const st = flyState;
   fly.position.copy(st.pos); fly.rotation.y = st.yaw; fly.updateMatrixWorld(true);
   head.rotation.y = st.headYaw;
-  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press') ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || (experiment >= 5 && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
+  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap') ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
   let stepping = legs.filter(L => L.step).length;
   legs.forEach(L => {
     if (L === busyLeg) return;
     if (st.airborne) { // tuck the legs under the body
       const tucked = L.rest.clone().multiplyScalar(0.55); tucked.y = 0.55; L.foot.copy(fly.localToWorld(tucked)); L.step = null; return;
     }
-    const restW = restWorld(L); if (experiment >= 4) L.groundY = restW.y;
+    const restW = restWorld(L); if (EXP[experiment].laptop) L.groundY = restW.y;
     if (L.step) {
       L.step.t += dt / 0.09;
       const k = Math.min(1, L.step.t);
@@ -1490,7 +1532,7 @@ function animateFly(dt) {
       if (k >= 1) { L.step = null; L.foot.y = restW.y; }
     } else if (L.foot.distanceTo(restW) > 0.5 && stepping < 3) {
       forward.set(Math.sin(st.yaw), 0, Math.cos(st.yaw));
-      const to = restW.clone().addScaledVector(forward, st.walking ? 0.6 : 0); to.y = experiment >= 4 ? surfaceY(to.x, to.z, L.front) : L.groundY;
+      const to = restW.clone().addScaledVector(forward, st.walking ? 0.6 : 0); to.y = EXP[experiment].laptop ? surfaceY(to.x, to.z, L.front) : L.groundY;
       L.step = { from: L.foot.clone(), to, t: 0 }; stepping++;
     }
   });
@@ -1505,7 +1547,8 @@ function animateFly(dt) {
   body.rotation.x += (pitch - body.rotation.x) * Math.min(1, dt * 6);
   proboscis.scale.y = 0.35 + st.proboscis * 0.9; proboscis.position.y = -0.6 - st.proboscis * 0.35;
   const flap = st.buzz > 0 ? Math.sin(performance.now() / 6) * 0.6 * Math.min(1, st.buzz * 2) : 0;
-  wings.forEach(g => { g.rotation.z = g.userData.side * (0.25 + flap); g.rotation.y = g.userData.side * -0.35; });
+  wings.forEach(g => { g.rotation.z = g.userData.side * (0.25 + flap); g.rotation.y = g.userData.side * -0.35;
+    if (st.songExt > 0.01 && g.userData.side === st.songSide) { g.rotation.y = g.userData.side * (-0.35 - 1.25 * st.songExt); g.rotation.z += g.userData.side * Math.sin(performance.now() / 4) * 0.18 * st.songAmp; } }); // one wing out to sing (Experiment 8)
   legs.forEach(L => solveLeg(L, lift));
 }
 
@@ -2512,7 +2555,7 @@ function drawVision() {
 }
 
 // ---------- scenario panels: the right panel and bottom strip follow the experiment ----------
-const BRAIN_EXPS = [1, 2, 3, 4, 7]; // the teacher and admin panels show their screen and work queue instead of the brain
+const BRAIN_EXPS = [1, 2, 3, 4, 7, 8]; // the teacher and admin panels show their screen and work queue instead of the brain
 let rpAt = 0;
 // scenario history, 4 samples a second of the numbers the strip plots (the classroom keeps its own in cls.hist)
 const sh = []; let shAt = 0, shSim = 0; const shPrev = new THREE.Vector3();
@@ -2524,6 +2567,8 @@ function sampleScenario(now, dt) {
   sh.push({ t, exp: experiment, speed, h: Math.max(0, st.pos.y - ground), air: st.airborne ? 1 : 0, scroll: game.scrollY, typed: spell.typed.length,
     path: T.path, clicks: T.clicks, miss: T.miss, keys: T.keys, graded: T.graded.length,
     att: admin.students.length ? admin.students.reduce((a, s) => a + s.att, 0) / admin.students.length : null, flags: admin.flags.filter(f => f.open).length,
+    song: flyState.songAmp || 0, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
+    song: flyState.songAmp || 0, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
     prec: A.tp + A.fp ? A.tp / (A.tp + A.fp) : null, checkins: A.checkins, det: A.detections.filter(d => t - d.t < 5).reduce((a, d) => a + d.lookaway + d.helper + d.device + d.offscreen, 0) });
   if (sh.length > 480) sh.shift();
 }
@@ -2571,6 +2616,12 @@ const STRIPS = {
     clsS('Mean mastery', 'mastery', () => { const p = clsLast(); return p ? p.mastery.toFixed(2) : '–'; }, 1, '#0021a5'),
     clsS('Male courtship drive', 'drive', () => { const p = clsLast(); return p ? p.drive.toFixed(2) : '–'; }, 1, '#f2a900'),
     clsS('Attention · followed fly', 'att', () => { const p = clsLast(); return p ? p.att.toFixed(2) : '–'; }, 1, '#0021a5')],
+  8: [sHist('Wing song amplitude', 'song', () => flyState.songExt > 0.5 ? 'singing' : 'folded', { ymax: 1 }, '#f2a900'),
+    { l: 'Sounds right per attempt', v: () => { const h = phon.history[phon.history.length - 1]; return h ? `${h.right} of ${h.n}` : '–'; }, d: id => barChart(id, phon.history.slice(-20).map(h => ({ v: h.right / h.n, color: h.right === h.n ? CH.green : h.right ? CH.amber : CH.red, label: `${h.word}, attempt ${h.attempt}: ${h.right} of ${h.n} sounds` })), { ymax: 1, positive: true, compact: true, empty: 'No attempts yet' }) },
+    sHist('Letter-sound memory', 'mem', () => { const p = shLast(); return p && p.mem != null ? p.mem.toFixed(2) : '–'; }, { ymax: 1 }, '#22884c'),
+    sDw(8, 'sound'),
+    { l: "Hearing · Johnston's organ", v: () => lastSample(s => s.act[6].toFixed(2)), d: id => lineChart(id, [{ name: 'Antennal hearing', color: CH.blue, get: s => s.act[6] }], { ymin: 0, ymax: 1, compact: true }) },
+    sDopa],
 };
 let stripExp = 0;
 function drawStrip() {
@@ -2603,6 +2654,8 @@ function scenarioCard() {
     return ['Proctoring', `<h3>Open flags</h3><ul>${open.map(f => `<li class="now">${admin.students[f.student].name}: ${REASON[f.reason] || f.reason} · ${Math.round(TDT() - f.t)} s ago</li>`).join('') || '<li>None open</li>'}</ul>` +
       (ai ? `<p class="sub" style="margin:0">FlyAI: ${ai.text}</p>` : '') + `<h3>Next actions</h3><ol>${next.map((s, i) => `<li class="${i ? '' : 'now'}">${stepText(s)}</li>`).join('')}</ol>` +
       kv([['Flags · confirmed · false alarms', `${admin.flags.length} · ${A.tp} · ${A.fp}`], ['Check-ins sent', A.checkins]])]; }
+  if (e === 8) { const P = phon, s = P.stage === 'mic' ? P.plan[P.cur] : null;
+    return ['Wing song', kv([['Now singing', s ? `${slash(s.q)} for ${slash(s.p)}` : 'nothing, wings folded'], ['Song mode', s ? SONG[PH[s.q].kind] : '–'], ['Carrier pitch', Math.round(P.f0) + ' Hz'], ['Wing', st.songExt > 0.5 ? (st.songSide > 0 ? 'right wing out' : 'left wing out') : 'folded'], ['Word', `${P.word.word} · attempt ${Math.max(1, P.attempt)} of 2`], ['Sounds right overall', P.stats.sounds ? pct(P.stats.right / P.stats.sounds) : '–'], ['Sound', audio.on ? 'on' : 'off, use the pill above the arena']])]; }
   const s = cls.students[cls.focal]; const other = s.state === 'court' || s.state === 'fight' ? (s.rival && s.state === 'fight' ? s.rival : s.partner) : s.courtedBy;
   return [`Following ${s.name} ${SEXSYM(s)}`, kv([['Doing', doing(s)], ['Table', 'ABCDEF'[s.table] + (s.at !== s.table ? ` · visiting ${'ABCDEF'[s.at]}` : '')], ['Items', `${Math.min(s.progress, CLS.items)} of ${CLS.items}`], ['First-try accuracy', s.stats.taps ? pct(s.stats.correct / s.stats.taps) : '–'], ['Attention', s.attention.toFixed(2)], [s.sex === 'M' ? 'Courtship drive' : 'Receptivity', (s.sex === 'M' ? s.drive : s.receptive).toFixed(2)], [s.state === 'fight' ? 'Rival' : s.sex === 'M' ? 'Courting' : 'Courted by', other ? `${other.name} ${SEXSYM(other)}` : 'nobody']])];
 }
@@ -2610,7 +2663,7 @@ function renderScenario(force) {
   if (view !== 'simulate' && !force) return;
   const [head, body] = scenarioCard(); if ($('rpScenHead').textContent !== head) $('rpScenHead').textContent = head;
   const B = $('rpScenBody'); if (B.innerHTML !== body) B.innerHTML = body;
-  if ([3, 4, 5, 6].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
+  if ([3, 4, 5, 6, 8].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
 }
 // a live copy of the phone or laptop screen
 function drawRpScreen() {
@@ -2619,8 +2672,8 @@ function drawRpScreen() {
   if (cv.height !== Math.round(h * pr) || cv.width !== Math.round(w * pr)) { cv.width = Math.round(w * pr); cv.height = Math.round(h * pr); cv.style.height = h + 'px'; }
   const g = cv.getContext('2d'); g.setTransform(pr, 0, 0, pr, 0, 0); g.fillStyle = '#0b0b0c'; g.fillRect(0, 0, w, h);
   const s = Math.min(w / src.width, h / src.height), dw = src.width * s, dh = src.height * s; g.drawImage(src, (w - dw) / 2, (h - dh) / 2, dw, dh);
-  $('rpScreenHead').textContent = experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
-  $('rpScreenSub').textContent = experiment === 3 ? 'what the fly sees, scrolled' : 'live, as on the laptop';
+  $('rpScreenHead').textContent = experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
+  $('rpScreenSub').textContent = experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
 }
 // classroom seating chart, top down
 const MAP = { x0: -56, x1: 56, z0: -40, z1: 32 };
@@ -2644,6 +2697,198 @@ $('rpMapCv').addEventListener('click', e => {
   cls.students.forEach(s => { const [x, y] = mapXY(s.pos.x, s.pos.z, r.width, r.height); const d = Math.hypot(x - px, y - py); if (d < bd) { bd = d; best = s; } });
   if (best) { setFocal(best.i); renderScenario(true); }
 });
+
+// =====================================================================
+// Experiment 8: Phonics. The app shows a word, says it, and asks the fly to say it back.
+// A fly cannot speak, so it sings the sounds with one extended wing, the way Drosophila courtship song
+// is made: stop consonants become pulse song (three clicks 35 ms apart, the species' interpulse interval),
+// vowels a sine-song hum shaped by the vowel's formants, fricatives a wing-fluttered hiss, nasals a low hum.
+// The app's recogniser scores each sound; wrong ones are the confusions phonics teachers expect (/k/ as /t/).
+// =====================================================================
+const PH = {
+  a: { ipa: 'æ', kind: 'vowel', f1: 700, f2: 1700 }, e: { ipa: 'ɛ', kind: 'vowel', f1: 550, f2: 1850 }, i: { ipa: 'ɪ', kind: 'vowel', f1: 400, f2: 2000 },
+  o: { ipa: 'ɒ', kind: 'vowel', f1: 600, f2: 1000 }, u: { ipa: 'ʌ', kind: 'vowel', f1: 640, f2: 1200 },
+  b: { ipa: 'b', kind: 'stop', f: 400 }, d: { ipa: 'd', kind: 'stop', f: 1800 }, g: { ipa: 'g', kind: 'stop', f: 1200 }, k: { ipa: 'k', kind: 'stop', f: 1500 }, p: { ipa: 'p', kind: 'stop', f: 600 }, t: { ipa: 't', kind: 'stop', f: 3200 },
+  f: { ipa: 'f', kind: 'fric', f: 4500 }, s: { ipa: 's', kind: 'fric', f: 6000 }, sh: { ipa: 'ʃ', kind: 'fric', f: 3000 }, ch: { ipa: 'tʃ', kind: 'fric', f: 3600 }, h: { ipa: 'h', kind: 'fric', f: 1500 },
+  m: { ipa: 'm', kind: 'nasal', f: 250 }, n: { ipa: 'n', kind: 'nasal', f: 320 }, l: { ipa: 'l', kind: 'liquid', f1: 400, f2: 1100 }, r: { ipa: 'r', kind: 'liquid', f1: 450, f2: 1300 },
+};
+const PLIST = Object.keys(PH);
+const CONF = { k: ['t', 'g'], t: ['k', 'd'], d: ['t', 'b'], b: ['p', 'd'], p: ['b', 't'], g: ['k', 'd'], s: ['sh', 'f'], sh: ['s', 'ch'], ch: ['sh', 't'], f: ['s', 'h'], h: ['f'], m: ['n'], n: ['m'], l: ['r'], r: ['l'], a: ['e', 'u'], e: ['i', 'a'], i: ['e'], o: ['u', 'a'], u: ['o', 'a'] };
+const SONG = { vowel: 'sine song, formant-shaped', liquid: 'sine song, gliding', stop: 'pulse song, 3 pulses 35 ms apart', fric: 'wing-fluttered hiss', nasal: 'low hum' };
+const DUR = { vowel: 0.38, liquid: 0.3, stop: 0.2, fric: 0.34, nasal: 0.3 };
+const PWORDS = [
+  { word: 'cat', g: ['c', 'a', 't'], p: ['k', 'a', 't'], hint: 'a small pet that says meow' }, { word: 'dog', g: ['d', 'o', 'g'], p: ['d', 'o', 'g'], hint: 'a pet that barks' },
+  { word: 'sun', g: ['s', 'u', 'n'], p: ['s', 'u', 'n'], hint: 'it shines in the day sky' }, { word: 'map', g: ['m', 'a', 'p'], p: ['m', 'a', 'p'], hint: 'it shows you the way' },
+  { word: 'bed', g: ['b', 'e', 'd'], p: ['b', 'e', 'd'], hint: 'you sleep in it' }, { word: 'fish', g: ['f', 'i', 'sh'], p: ['f', 'i', 'sh'], hint: 'it swims and has fins' },
+  { word: 'ship', g: ['sh', 'i', 'p'], p: ['sh', 'i', 'p'], hint: 'a big boat' }, { word: 'chin', g: ['ch', 'i', 'n'], p: ['ch', 'i', 'n'], hint: 'the bottom of your face' },
+  { word: 'frog', g: ['f', 'r', 'o', 'g'], p: ['f', 'r', 'o', 'g'], hint: 'it hops and says ribbit' }, { word: 'duck', g: ['d', 'u', 'ck'], p: ['d', 'u', 'k'], hint: 'a bird that quacks' },
+  { word: 'hen', g: ['h', 'e', 'n'], p: ['h', 'e', 'n'], hint: 'a mother chicken' }, { word: 'lip', g: ['l', 'i', 'p'], p: ['l', 'i', 'p'], hint: 'part of your mouth' },
+];
+const phon = { idx: 0, word: PWORDS[0], stage: 'read', attempt: 0, plan: [], heard: [], cur: -1, f0: 180, mem: new Map(), conf: new Map(), history: [], log: [], lesson: 1,
+  stats: { attempts: 0, words: 0, perfect: 0, sounds: 0, right: 0, retries: 0 }, specX: 0, ringAcc: 0, drawAt: 0 };
+const memP = p => { if (!phon.mem.has(p)) phon.mem.set(p, 0.25); return phon.mem.get(p); };
+const slash = p => `/${PH[p].ipa}/`;
+function phLog(text) { phon.log.push({ t: TDT(), text }); if (phon.log.length > 60) phon.log.shift(); game.feedback = text; }
+// ---------- sound: Web Audio synthesis of the wing song, off until the viewer turns it on ----------
+const audio = { ctx: null, on: false, master: null, noise: null };
+function audioInit() {
+  if (!audio.ctx) { const A = window.AudioContext || window.webkitAudioContext; if (!A) return false; audio.ctx = new A(); audio.master = audio.ctx.createGain(); audio.master.gain.value = 0.3; audio.master.connect(audio.ctx.destination);
+    const n = audio.ctx.createBuffer(1, audio.ctx.sampleRate, audio.ctx.sampleRate), d = n.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; audio.noise = n; }
+  audio.ctx.resume(); return true;
+}
+function buzzSound(p, dur, f0) {
+  if (!audio.on || !audio.ctx) return; const c = audio.ctx, t = c.currentTime + 0.01, P = PH[p], env = c.createGain(); env.connect(audio.master); env.gain.setValueAtTime(0, t);
+  const hold = (v, a = 0.03) => { env.gain.linearRampToValueAtTime(v, t + a); env.gain.setValueAtTime(v, t + dur - 0.05); env.gain.linearRampToValueAtTime(0, t + dur); };
+  const run = (...xs) => xs.forEach(x => { x.start(t); x.stop(t + dur + 0.03); });
+  if (P.kind === 'vowel' || P.kind === 'liquid') {
+    const o = c.createOscillator(); o.type = 'sawtooth'; o.frequency.setValueAtTime(f0, t); if (P.kind === 'liquid') o.frequency.linearRampToValueAtTime(f0 * 1.15, t + dur);
+    const lfo = c.createOscillator(); lfo.frequency.value = 7; const lg = c.createGain(); lg.gain.value = 5; lfo.connect(lg).connect(o.frequency);
+    [P.f1, P.f2].forEach((f, k) => { const bp = c.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = f; bp.Q.value = 6; const g = c.createGain(); g.gain.value = k ? 0.7 : 1.2; o.connect(bp).connect(g).connect(env); });
+    const hum = c.createOscillator(); hum.frequency.value = f0; const hg = c.createGain(); hg.gain.value = 0.3; hum.connect(hg).connect(env); hold(0.9); run(o, lfo, hum);
+  } else if (P.kind === 'nasal') {
+    const o = c.createOscillator(); o.type = 'triangle'; o.frequency.value = f0 * 0.8; const lp = c.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 500; o.connect(lp).connect(env); hold(0.9, 0.04); run(o);
+  } else {
+    const src = c.createBufferSource(); src.buffer = audio.noise; const bp = c.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = P.f; bp.Q.value = P.kind === 'stop' ? 3 : 1.5; src.connect(bp).connect(env);
+    if (P.kind === 'stop') for (let k = 0; k < 3; k++) { const s = t + k * 0.035; env.gain.setValueAtTime(0.001, s); env.gain.linearRampToValueAtTime(1, s + 0.004); env.gain.exponentialRampToValueAtTime(0.001, s + 0.022); }
+    else { const am = c.createOscillator(); am.frequency.value = f0; const ag = c.createGain(); ag.gain.value = 0.3; am.connect(ag).connect(env.gain); hold(0.5, 0.04); run(am); }
+    run(src);
+  }
+}
+function speakModel(word) { if (audio.on && 'speechSynthesis' in window) { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(word); u.rate = 0.7; speechSynthesis.speak(u); } catch (e) { /* no voice available */ } } }
+// ---------- spectrogram of the buzz (64 bands to 8 kHz), drawn from the same model that drives the synthesis ----------
+const spectro = document.createElement('canvas'); spectro.width = 240; spectro.height = 64; const spc = spectro.getContext('2d');
+function spectrumOf(p, k, amp, f0) {
+  const out = new Float32Array(64); if (!p || amp <= 0) return out; const P = PH[p];
+  for (let b = 0; b < 64; b++) { const f = (b + 0.5) * 125; let e;
+    if (P.kind === 'vowel' || P.kind === 'liquid') e = (0.35 + 0.65 * Math.max(0, Math.cos(2 * Math.PI * f / f0))) * (Math.exp(-(((f - P.f1) / 200) ** 2)) + 0.7 * Math.exp(-(((f - P.f2) / 280) ** 2))) + 0.5 * Math.exp(-(((f - f0) / 70) ** 2));
+    else if (P.kind === 'nasal') e = Math.exp(-(((f - f0 * 0.8) / 160) ** 2)) + 0.3 * Math.exp(-(((f - P.f) / 300) ** 2));
+    else if (P.kind === 'stop') e = (k * 1000) % 35 < 10 && k < 0.105 ? (0.6 + 0.4 * Math.random()) * Math.exp(-(((f - P.f) / 1500) ** 2)) : 0.03;
+    else e = (0.5 + 0.5 * Math.random()) * 0.85 * Math.exp(-(((f - P.f) / 1100) ** 2));
+    out[b] = Math.min(1, e * amp); }
+  return out;
+}
+// one attempt spans the full width: columns x0..x1 get this spectrum
+function paintSpectrum(arr, x0, x1) {
+  for (let b = 0; b < 64; b++) { const v = arr[b]; spc.fillStyle = v < 0.04 ? '#041033' : v < 0.35 ? `rgba(47,90,168,${0.4 + v})` : v < 0.7 ? `rgb(${Math.round(47 + 180 * (v - 0.35))},${Math.round(90 + 60 * (v - 0.35))},168)` : '#f2a900'; spc.fillRect(x0, 63 - b, Math.max(1, x1 - x0), 1); }
+}
+function clearSpectro() { spc.fillStyle = '#041033'; spc.fillRect(0, 0, 240, 64); }
+clearSpectro();
+// ---------- ripples from the singing wing ----------
+const RING_KIND = { vowel: 0x0021a5, liquid: 0x0021a5, stop: 0xf2a900, fric: 0x22884c, nasal: 0x002657 };
+const ripples = Array.from({ length: 8 }, () => { const m = new THREE.Mesh(new THREE.RingGeometry(0.92, 1, 48), new THREE.MeshBasicMaterial({ color: 0x0021a5, transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide })); m.rotation.x = -Math.PI / 2; m.visible = false; scene.add(m); return { m, t: 1 }; });
+function spawnRipple(kind) { const r = ripples.find(x => x.t >= 1); if (!r) return; r.t = 0; r.m.material.color.setHex(RING_KIND[kind]); r.m.visible = true; const p = fly.localToWorld(new THREE.Vector3(flyState.songSide * 1.6, 0, -0.8)); r.m.position.set(p.x, screenTopY() + 0.06, p.z); }
+function stepRipples(dt) { ripples.forEach(r => { if (r.t >= 1) { r.m.visible = false; return; } r.t = Math.min(1, r.t + dt / 0.9); const s = 1.5 + 12 * r.t; r.m.scale.set(s, s, s); r.m.material.opacity = 0.55 * (1 - r.t); }); }
+// ---------- the lesson ----------
+const P_READ = [195, 650], P_STAND = [195, 736], P_MIC = [195, 758];
+function phonicsStart() {
+  const st = flyState; st.pos.copy(pxToWorld(...P_READ)); st.pos.y = SCREEN_Y; st.yaw = Math.PI; st.songExt = 0; st.songAmp = 0; plantFeet();
+  phon.stage = 'read'; phon.plan = []; phon.heard = []; phon.cur = -1; game.feedback = `The fly reads "${phon.word.word}" and listens to the app say it.`; setPhase('p_look'); redrawScreen(performance.now()); renderTrial();
+}
+function nextPhonicsWord() { phon.idx = (phon.idx + 1) % PWORDS.length; if (!phon.idx) phon.lesson++; phon.word = PWORDS[phon.idx]; phon.attempt = 0; phon.stage = 'read'; phon.plan = []; phon.heard = []; phon.cur = -1; clearSpectro(); }
+function startAttempt() {
+  const W = phon.word; phon.attempt++; phon.stats.attempts++; if (phon.attempt > 1) phon.stats.retries++; phon.f0 = 165 + Math.random() * 40; phon.heard = []; phon.cur = -1; phon.stage = 'mic'; phon.specX = 0; clearSpectro();
+  phon.plan = W.p.map(p => { const ok = Math.random() < 0.3 + 0.65 * memP(p); const alt = CONF[p]; const q = ok ? p : alt[Math.floor(Math.random() * alt.length)]; return { p, q, dur: DUR[PH[q].kind] }; });
+}
+function resolveSound(j) {
+  const s = phon.plan[j]; if (!s || phon.heard[j]) return; phon.heard[j] = s.q; const ok = s.p === s.q, V = memP(s.p), R = ok ? 1 : 0, dw = ETA * (R - V);
+  phon.mem.set(s.p, V + dw); phon.stats.sounds++; if (ok) phon.stats.right++; const key = s.p + '>' + s.q; phon.conf.set(key, (phon.conf.get(key) || 0) + 1);
+  tele.trials.push({ t: TDT(), exp: 8, correct: ok, pos: Math.min(j, 2), needed: slash(s.p), chosen: slash(s.q), sameKind: PH[s.q].kind === PH[s.p].kind, offset: 0, R, V, dw, level: tele.ddt.level, divergence: 0, dwell: 0, word: phon.word.word });
+  if (tele.trials.length > 400) tele.trials.shift();
+  game.dopamine = Math.max(0, Math.min(1, game.dopamine + (ok ? 0.12 : -0.08))); if (ok) { pulse(3, 0.85); pulse(4, 0.85); } else { pulse(8, 0.7); pulse(9, 0.7); }
+}
+function finishAttempt() {
+  resolveSound(phon.cur); const right = phon.plan.filter(s => s.p === s.q).length, n = phon.plan.length; phon.stage = 'score';
+  phon.history.push({ t: TDT(), word: phon.word.word, right, n, attempt: phon.attempt }); if (phon.history.length > 60) phon.history.shift();
+  if (right === n) { phon.stats.perfect++; phon.stats.words++; game.dopamine = Math.min(1, game.dopamine + 0.25); pulse(10, 0.9); }
+  else if (phon.attempt >= 2) phon.stats.words++;
+  phLog(right === n ? `"${phon.word.word}" buzzed right: ${phon.plan.map(s => slash(s.q)).join(' ')}.` : `Heard ${phon.plan.map(s => slash(s.q)).join(' ')} for ${phon.word.p.map(slash).join(' ')}. ${right} of ${n} sounds right${phon.attempt < 2 ? ', trying again' : ''}.`);
+}
+function walkToward(goal, yawGoal, dt) {
+  const st = flyState, to = new THREE.Vector3().subVectors(goal, st.pos); to.y = 0; const dist = to.length();
+  const want = dist > 0.2 ? Math.atan2(to.x, to.z) : yawGoal; let dy = Math.atan2(Math.sin(want - st.yaw), Math.cos(want - st.yaw)); st.yaw += Math.max(-4 * dt, Math.min(4 * dt, dy));
+  if (dist > 0.2 && Math.abs(dy) < 0.8) { to.normalize(); st.pos.addScaledVector(to, Math.min(dist, 7 * dt)); st.walking = true; st.gaitPhase += dt * 10; pulse(5, 0.8); pulse(11, 0.6); pulse(12, 0.7); pulse(13, 0.6); pulse(14, 0.6); } else st.walking = false;
+  return dist <= 0.2 && Math.abs(dy) < 0.06;
+}
+function stepPhonics(dt, now) {
+  const st = flyState, P = phon; stepRipples(dt);
+  st.songExt += ((agent.phase === 'p_buzz' ? 1 : 0) - st.songExt) * Math.min(1, dt * 8); if (agent.phase !== 'p_buzz') st.songAmp = Math.max(0, st.songAmp - dt * 4);
+  const redraw = () => { if (now - P.drawAt > 80) { P.drawAt = now; redrawScreen(now); } };
+  switch (agent.phase) {
+    case 'p_look': st.headYaw = Math.sin(agent.t * 9) * 0.22; pulse(0, 0.9); pulse(1, 0.9); pulse(2, 0.5);
+      if (agent.t > 1.3) { st.headYaw = 0; P.stage = 'listen'; speakModel(P.word.word); setPhase('p_listen'); } break;
+    case 'p_listen': pulse(6, 0.9); pulse(7, 0.9); pulse(10, 0.4); redraw();
+      if (agent.t > 1.4) { P.stage = 'go'; agent.goal = pxToWorld(...P_STAND); agent.goalYaw = 0; setPhase('p_walk'); redrawScreen(now); } break;
+    case 'p_walk': case 'p_back':
+      if (walkToward(agent.goal, agent.goalYaw, dt)) {
+        if (agent.phase === 'p_back') { phonicsStart(); break; }
+        agent.target = pxToWorld(...P_MIC); const local = fly.worldToLocal(agent.target.clone()); agent.tapLeg = local.x < 0 ? legs[0] : legs[1]; agent.tapLeg.step = null; agent.tapFrom = agent.tapLeg.foot.clone(); agent.tapped = false; setPhase('p_tap');
+      } break;
+    case 'p_tap': { const L = agent.tapLeg, T = agent.t, gy = agent.target.y; pulse(12, 0.95); pulse(11, 0.7);
+      if (T < 0.28) { const k = T / 0.28; L.foot.lerpVectors(agent.tapFrom, agent.target, k); L.foot.y = gy + Math.sin(k * Math.PI) * 0.9; }
+      else if (T < 0.45) { L.foot.copy(agent.target); if (!agent.tapped) { agent.tapped = true; startAttempt(); st.songSide = Math.random() < 0.5 ? 1 : -1; redrawScreen(now); } }
+      else if (T < 0.75) { const k = (T - 0.45) / 0.3; L.foot.lerpVectors(agent.target, restWorld(L), k); L.foot.y = Math.max(gy, L.groundY) + Math.sin(k * Math.PI) * 0.7; }
+      else { L.foot.copy(restWorld(L)); setPhase('p_buzz'); }
+      break; }
+    case 'p_buzz': {
+      let acc = agent.t, i = 0; while (i < P.plan.length && acc > P.plan[i].dur + 0.07) { acc -= P.plan[i].dur + 0.07; i++; }
+      if (i >= P.plan.length) { finishAttempt(); redrawScreen(now); renderTrial(); setPhase('p_react'); break; }
+      if (i !== P.cur) { if (P.cur >= 0) resolveSound(P.cur); P.cur = i; buzzSound(P.plan[i].q, P.plan[i].dur, P.f0); renderTrial(); }
+      const s = P.plan[i], gap = acc > s.dur, kind = PH[s.q].kind;
+      st.songAmp = gap ? 0 : kind === 'stop' ? ((acc * 1000) % 35 < 12 && acc < 0.105 ? 1 : 0.2) : Math.min(1, acc / 0.04, (s.dur - acc) / 0.05);
+      { const total = P.plan.reduce((a, q) => a + q.dur + 0.07, 0), x = Math.min(240, Math.round(agent.t / total * 240)); if (x > P.specX) { paintSpectrum(spectrumOf(gap ? null : s.q, acc, st.songAmp, P.f0), P.specX, x); P.specX = x; } }
+      P.ringAcc += dt; if (!gap && P.ringAcc > 0.12) { P.ringAcc = 0; spawnRipple(kind); }
+      pulse(13, 0.4 + 0.6 * st.songAmp); pulse(11, 0.75); pulse(2, 0.6); pulse(6, 0.5); pulse(7, 0.5); redraw(); break; }
+    case 'p_react': if (agent.t > 1.6) { const done = P.heard.length && P.plan.every(s => s.p === s.q);
+        if (done) setPhase('p_celebrate'); else if (P.attempt < 2) { P.stage = 'listen'; speakModel(P.word.word); setPhase('p_listen'); redrawScreen(now); }
+        else { nextPhonicsWord(); agent.goal = pxToWorld(...P_READ); agent.goalYaw = Math.PI; setPhase('p_back'); redrawScreen(now); renderTrial(); } } break;
+    case 'p_celebrate': st.buzz = Math.max(st.buzz, 0.3); pulse(3, 0.9); pulse(4, 0.9);
+      if (agent.t > 1.6) { nextPhonicsWord(); agent.goal = pxToWorld(...P_READ); agent.goalYaw = Math.PI; setPhase('p_back'); redrawScreen(now); renderTrial(); } break;
+  }
+}
+// ---------- the phonics app screen ----------
+function drawPhonics(now) {
+  const W = phon.word, P = phon, g = sc; g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = C.page; g.fillRect(0, 0, SW, SH);
+  g.fillStyle = C.darkBlue; g.fillRect(0, 0, SW, 64); g.fillStyle = '#fff'; g.font = `700 17px ${DISPLAY}`; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText('Fruit Fly Lingo', 16, 32);
+  g.fillStyle = C.onDarkMuted; g.font = `700 14px ${DISPLAY}`; g.textAlign = 'right'; g.fillText(`Phonics · Lesson ${P.lesson}`, SW - 16, 32);
+  g.textAlign = 'center'; g.fillStyle = C.inkMuted; g.font = `700 12px ${DISPLAY}`; g.fillText('SAY THE WORD', SW / 2, 92); g.font = `400 15px ${BODY}`; g.fillText(W.hint, SW / 2, 116);
+  // grapheme boxes with the sound each spells
+  const n = W.g.length, bw = Math.min(96, (SW - 32 - (n - 1) * 10) / n), x0 = (SW - (n * bw + (n - 1) * 10)) / 2;
+  W.g.forEach((gr, j) => { const x = x0 + j * (bw + 10), h = P.heard[j], ok = h && h === W.p[j], live = P.stage === 'mic' && P.cur === j && !h;
+    g.fillStyle = h ? (ok ? C.successTint : '#fde8ea') : live ? C.warnTint : C.blueTint; g.beginPath(); g.roundRect(x, 138, bw, 100, 14); g.fill();
+    if (live) { g.strokeStyle = C.alachua; g.lineWidth = 3; g.stroke(); }
+    g.fillStyle = h ? (ok ? C.gatorInk : C.bottlebrush) : C.darkBlue; g.font = `700 52px ${DISPLAY}`; g.fillText(gr, x + bw / 2, 190);
+    g.font = `700 15px ${DISPLAY}`; g.fillStyle = C.inkMuted; g.fillText(slash(W.p[j]), x + bw / 2, 258); });
+  // listen button
+  const listening = P.stage === 'listen'; g.fillStyle = listening ? C.coreBlue : C.card; g.strokeStyle = C.coreBlue; g.lineWidth = 2; g.beginPath(); g.roundRect(SW / 2 - 70, 282, 140, 44, 22); g.fill(); g.stroke();
+  g.fillStyle = listening ? '#fff' : C.coreBlue; g.beginPath(); g.moveTo(SW / 2 - 44, 298); g.lineTo(SW / 2 - 38, 298); g.lineTo(SW / 2 - 30, 290); g.lineTo(SW / 2 - 30, 318); g.lineTo(SW / 2 - 38, 310); g.lineTo(SW / 2 - 44, 310); g.closePath(); g.fill();
+  if (listening) { g.strokeStyle = '#fff'; g.lineWidth = 2; for (let k = 1; k <= 2; k++) { g.globalAlpha = 0.5 + 0.5 * Math.sin(now / 150 - k); g.beginPath(); g.arc(SW / 2 - 30, 304, 6 + k * 6, -0.8, 0.8); g.stroke(); } g.globalAlpha = 1; }
+  g.font = `700 15px ${DISPLAY}`; g.textAlign = 'left'; g.fillText(listening ? 'Listening' : 'Listen', SW / 2 - 14, 305); g.textAlign = 'center';
+  // spectrogram of the buzz
+  g.fillStyle = '#041033'; g.beginPath(); g.roundRect(16, 346, SW - 32, 206, 14); g.fill(); g.imageSmoothingEnabled = false; g.drawImage(spectro, 24, 372, SW - 48, 150); g.imageSmoothingEnabled = true;
+  g.fillStyle = '#c8cdd6'; g.font = `700 11px ${DISPLAY}`; g.textAlign = 'left'; g.fillText('YOUR BUZZ · 0 to 8 kHz', 28, 360); g.textAlign = 'right'; g.fillText(P.stage === 'mic' && P.plan[P.cur] ? SONG[PH[P.plan[P.cur].q].kind] : '', SW - 28, 360); g.textAlign = 'center';
+  // what the recogniser heard
+  g.fillStyle = C.inkMuted; g.font = `700 12px ${DISPLAY}`; g.fillText('HEARD', SW / 2, 578);
+  W.p.forEach((p, j) => { const h = P.heard[j], x = SW / 2 + (j - (n - 1) / 2) * 70; g.fillStyle = !h ? C.track : h === p ? C.gator : C.bottlebrush; g.beginPath(); g.roundRect(x - 30, 592, 60, 34, 17); g.fill(); g.fillStyle = h ? '#fff' : C.inkMuted; g.font = `700 16px ${DISPLAY}`; g.fillText(h ? slash(h) : '·', x, 610); });
+  const right = P.plan.filter((s, j) => P.heard[j] && s.p === s.q).length;
+  g.fillStyle = C.darkBlue; g.font = `700 16px ${DISPLAY}`; g.fillText(P.stage === 'score' ? (right === n ? 'All sounds right. Well buzzed!' : `${right} of ${n} sounds right${P.attempt < 2 ? ' · try again' : ''}`) : P.stage === 'go' ? 'Tap the mic and say it' : P.stage === 'mic' ? 'Listening to you…' : P.stage === 'listen' ? 'Listen to the word' : 'Read the word', SW / 2, 662);
+  // mic button
+  const on = P.stage === 'mic'; if (on) { g.fillStyle = 'rgba(211,39,55,0.18)'; g.beginPath(); g.arc(SW / 2, 758, 58 + 8 * Math.sin(now / 120), 0, Math.PI * 2); g.fill(); }
+  g.fillStyle = on ? C.bottlebrush : C.coreBlue; g.beginPath(); g.arc(SW / 2, 758, 50, 0, Math.PI * 2); g.fill();
+  g.fillStyle = '#fff'; g.beginPath(); g.roundRect(SW / 2 - 9, 732, 18, 32, 9); g.fill(); g.strokeStyle = '#fff'; g.lineWidth = 3; g.beginPath(); g.arc(SW / 2, 752, 16, 0.15 * Math.PI, 0.85 * Math.PI); g.stroke(); g.beginPath(); g.moveTo(SW / 2, 768); g.lineTo(SW / 2, 780); g.stroke();
+}
+
+function renderPhonicsTrial() {
+  const W = phon.word, P = phon;
+  $('meaning').textContent = `Say "${W.word}": ${W.hint}`;
+  $('chips').innerHTML = W.g.map((gr, j) => { const h = P.heard[j]; return h ? `<span class="chip ${h === W.p[j] ? 'root' : 'suffix'}">${gr}<small>${slash(h)}</small></span>` : `<span class="chip empty">${gr} ${slash(W.p[j])}</span>`; }).join('<span class="plus" aria-hidden="true">+</span>');
+  const right = P.plan.filter((s, j) => P.heard[j] && s.p === s.q).length;
+  $('placedCount').textContent = `${right} of ${W.p.length} sounds`; $('placedBar').classList.toggle('done', right === W.p.length); $('placedBar').firstElementChild.style.width = `${right / W.p.length * 100}%`;
+  $('feedback').textContent = game.feedback;
+  $('nowLine').textContent = `Phonics · saying "${W.word}" · attempt ${Math.max(1, P.attempt)} of 2`;
+  $('stWords').textContent = P.stats.perfect; $('stTaps').textContent = P.stats.sounds; $('stAcc').textContent = P.stats.sounds ? Math.round(P.stats.right / P.stats.sounds * 100) + '%' : '0%';
+  const ps = [...P.mem.keys()].sort((a, b) => P.mem.get(b) - P.mem.get(a));
+  $('memory').innerHTML = ps.map(p => { const m = P.mem.get(p); return `<div class="m"><span>${slash(p)}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${m >= 0.8 ? 'mastered' : Math.round(m * 100) + '% · ' + SONG[PH[p].kind].split(',')[0]}</span></div>`; }).join('') || '<p class="sub">Memories appear once the fly has buzzed a sound.</p>';
+}
 
 // ---------- Cameras ----------
 let camMode = 'follow';
@@ -2672,12 +2917,12 @@ function setExperiment(n) {
   experiment = n; const cfg = EXP[n]; const s = cfg.phoneScale;
   document.querySelectorAll('[data-exp]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.exp) === n)));
   $('expNote').textContent = cfg.note; $('physPill').textContent = cfg.phys;
-  $('gripPill').textContent = n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
+  $('gripPill').textContent = n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
   document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
   const wasClass = classroom.visible; classroom.visible = !!cfg.classroom; fly.visible = !cfg.classroom;
-  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom; $('vision').hidden = !(cfg.classroom && visionOn);
-  $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : 'words built';
-  $('memHead').textContent = cfg.classroom ? 'Tablemates · lesson progress' : 'Word part memory · Kenyon cell to MBON weights';
+  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n === 8; $('soundBtn').hidden = n !== 8; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom; $('vision').hidden = !(cfg.classroom && visionOn);
+  $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : n === 8 ? 'words said right' : 'words built';
+  $('memHead').textContent = cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
   document.querySelectorAll('#brainPanel [data-rp]').forEach(el => { el.hidden = !el.dataset.rp.split(' ').includes(String(n)); }); requestAnimationFrame(() => { sizeCharts(); resize(); renderScenario(true); }); // right panel sections for this scenario
   if (cfg.classroom) { setFocal(cls.focal); classroomStart(); } else head.add(eyeCam);
   phone.scale.setScalar(s); phone.position.set(0, TABLE_Y + 4 * s, 0); phone.updateMatrixWorld(true);
@@ -2699,14 +2944,16 @@ function setExperiment(n) {
   game.scrollY = 0; game.placed = Math.min(game.placed, 2); agent.wordDone = false; agent.swipe = null; currentTraj = [];
   buildTiles(); plantFeet(); redrawScreen(performance.now()); renderTrial(); setPhase(cfg.laptop ? 't_read' : 'look'); if (cfg.laptop) { agent.t = 0; agent.plan = []; agent.step = null; } setCamMode(cfg.classroom && !wasClass ? 'phone' : camMode);
   if (cfg.classroom) $('phasePill').textContent = 'Class in session';
+  if (n === 8) phonicsStart();
   // the side panel follows the experiment to its most related dashboard (after start-up, once the dock code exists)
   requestAnimationFrame(() => { dockChoice = DOCK_FOR[n]; if (view === 'simulate') dock(dockChoice); });
 }
-const DOCK_FOR = { 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
+const DOCK_FOR = { 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
 document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => setExperiment(Number(b.dataset.exp))));
 $('pathsBtn').addEventListener('click', () => { showPaths = !showPaths; $('pathsBtn').setAttribute('aria-pressed', String(showPaths)); $('pathsBtn').textContent = showPaths ? 'Hide paths' : 'Show paths'; Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === experiment; }); ghostLine.visible = showPaths && experiment !== 3 && !!agent.ghost; });
 $('seasonBtn').addEventListener('click', () => { cls.season = !cls.season; $('seasonBtn').setAttribute('aria-pressed', String(cls.season)); $('seasonBtn').textContent = cls.season ? 'Mating season on' : 'Mating season off'; clsLog(cls.season ? 'Mating season: courtship drive restored.' : 'Out of season: courtship drive drops to a tenth.'); drawBoard(); });
 $('visionBtn').addEventListener('click', () => { visionOn = !visionOn; $('visionBtn').setAttribute('aria-pressed', String(visionOn)); $('visionBtn').textContent = visionOn ? 'Hide vision overlay' : 'Show vision overlay'; $('vision').hidden = !visionOn; });
+$('soundBtn').addEventListener('click', () => { audio.on = !audio.on && audioInit(); if (!audio.on && 'speechSynthesis' in window) speechSynthesis.cancel(); $('soundBtn').setAttribute('aria-pressed', String(audio.on)); $('soundBtn').textContent = audio.on ? 'Turn sound off' : 'Turn sound on'; });
 $('overlayBtn').addEventListener('click', () => { clsOverlay = !clsOverlay; $('overlayBtn').setAttribute('aria-pressed', String(clsOverlay)); $('overlayBtn').textContent = clsOverlay ? 'Hide social overlay' : 'Show social overlay'; });
 $('heatBtn').addEventListener('click', () => { showHeat = !showHeat; if (EXP[experiment].laptop) drawLaptop(); $('heatBtn').setAttribute('aria-pressed', String(showHeat)); $('heatBtn').textContent = showHeat ? 'Hide landing heatmap' : 'Show landing heatmap'; redrawScreen(performance.now()); });
 
@@ -2717,7 +2964,7 @@ $('playBtn').addEventListener('click', () => { playing = !playing; $('playBtn').
 $('resetBtn').addEventListener('click', () => {
   game.memory.clear(); game.taps = 0; game.correct = 0; game.wordsBuilt = 0; game.dopamine = 0.5; game.placed = 0; game.wordIdx = 0; game.lesson = 1;
   for (const e of [1, 2, 3, 4, 5, 6]) heat[e].getContext('2d').clearRect(0, 0, heat[e].width, heat[e].height);
-  teacherReset(); adminReset(); classroomReset();
+  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; });
   Object.values(trajGroups).forEach(g => { while (g.children.length) { const c = g.children[0]; g.remove(c); c.geometry.dispose(); } });
   game.feedback = 'Memory cleared. The fly is looking for the prefix.'; cur().parts.forEach(memoryOf); setExperiment(experiment);
 });
@@ -3072,6 +3319,20 @@ function drawDashboards(now, force) {
     const pct = x => Math.round(x * 100) + '%';
     const rows = St.map(s => { const T = s.stats, tt = T.onTask + T.courtT + T.groomT + T.away; return `<tr><th scope="row">${s.name} ${SEXSYM(s)}</th><td>${doing(s)}</td><td class="${s.progress >= CLS.items ? 'yes' : ''}">${Math.min(s.progress, CLS.items)} / ${CLS.items}</td><td>${T.taps ? pct(T.correct / T.taps) : '–'}</td><td>${tt ? pct(T.onTask / tt) : '–'}</td><td>${T.courted} · ${T.court}</td><td>${T.rejections} · ${T.rejectedBy}</td><td>${s.sex === 'M' ? s.drive.toFixed(2) : s.receptive.toFixed(2)}</td><td>${s.attention.toFixed(2)}</td></tr>`; }).join('');
     const tb = document.querySelector('#cRoster tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
+  }
+  // ---- dashboard 8: phonics ----
+  { const P = phon, St = P.stats;
+    $t('phMode', experiment === 8 ? `Experiment 8 · Phonics · lesson ${P.lesson}` : 'switch to Experiment 8 to run');
+    $t('phPerfect', St.perfect); $t('phSounds', St.sounds); $t('phAcc', St.sounds ? Math.round(100 * St.right / St.sounds) + '%' : '–'); $t('phAttempts', `${St.attempts} · ${St.retries}`); $t('phWord', `${P.word.word} · ${P.word.p.map(slash).join(' ')}`);
+    $t('phMem', P.mem.size ? ([...P.mem.values()].reduce((a, b) => a + b, 0) / P.mem.size).toFixed(2) : '–'); $t('phF0', Math.round(P.f0) + ' Hz'); $t('phAudio', audio.on ? 'on' : 'off');
+    const acc = p => { const T = tele.trials.filter(x => x.exp === 8 && x.needed === slash(p)); return T.length ? Math.round(100 * T.filter(x => x.correct).length / T.length) + '% of ' + T.length : '–'; };
+    const list = PLIST.filter(p => P.mem.has(p)).sort((a, b) => PH[a].kind.localeCompare(PH[b].kind)).map(p => { const m = P.mem.get(p); return `<div class="m" style="grid-template-columns:48px 1fr 92px"><span>${slash(p)}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${acc(p)}</span></div>`; }).join('') || '<p class="sub">Runs in Experiment 8.</p>';
+    const ml = document.getElementById('phMemList'); if (ml.innerHTML !== list) ml.innerHTML = list;
+    const seen = PLIST.filter(p => [...P.conf.keys()].some(k => k.split('>').includes(p)));
+    heatGrid('cPhConf', seen.flatMap(a => seen.map(b => P.conf.get(a + '>' + b) || 0)), Math.max(1, seen.length), { labels: seen.map(slash) });
+    { const o = chart('cPhSpec'); if (o.w) { const { ctx, w, h } = o; ctx.clearRect(0, 0, w, h); ctx.imageSmoothingEnabled = false; ctx.drawImage(spectro, 0, 0, w, h); ctx.imageSmoothingEnabled = true; label(o, 6, 10, '8 kHz', 'left', '#c8cdd6'); label(o, 6, h - 8, '0', 'left', '#c8cdd6'); } }
+    const last = P.history[P.history.length - 1]; $t('phLast', P.plan.length ? `Target ${P.word.p.map(slash).join(' ')} · heard ${P.plan.map((s, j) => P.heard[j] ? slash(s.q) : '·').join(' ')}` : last ? `Last word ${last.word}: ${last.right} of ${last.n} sounds right` : 'No attempt yet');
+    document.getElementById('phLog').innerHTML = P.log.slice(-8).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing sung yet</li>';
   }
   return true;
 }
