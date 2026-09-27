@@ -49,10 +49,26 @@ main{flex-grow:1;min-height:0;display:flex;flex-direction:column}
 #vision{position:absolute;pointer-events:none}
 #scene{display:block;grid-column:2;grid-row:1;width:100%;height:100%;min-width:0;min-height:0;touch-action:none}
 #dockLeft{grid-column:1;grid-row:1/3;background:var(--surface-card);border-right:1px solid var(--border);display:flex;flex-direction:column;min-height:0;overflow:hidden}
-#dockLeft .docktabs{display:flex;gap:4px;padding:10px 12px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;flex-shrink:0}
-#dockLeft .docktabs::-webkit-scrollbar{display:none}
-#dockLeft .docktabs button{height:30px;padding:0 10px;border:1px solid var(--border-control);border-radius:999px;background:var(--surface-card);color:var(--ink);font:700 12px/16px var(--display);cursor:pointer;white-space:nowrap}
+#dockLeft .dockhead{display:flex;flex-direction:column;gap:10px;padding:14px 14px 10px;flex-shrink:0}
+#dockLeft .dockttl{display:flex;flex-direction:column;gap:2px;min-width:0}
+#dockLeft .dockttl h2{margin:0;font:700 18px/24px var(--display);color:var(--ink)}
+#dockLeft .dockttl .sub{font-size:12px;line-height:16px}
+#dockLeft .dockacts{display:flex;gap:6px}
+#dockLeft .dockbtn{height:26px;padding:0 10px;border:1px solid var(--border-control);border-radius:999px;background:var(--surface-card);color:var(--ink);font:700 11px/24px var(--display);cursor:pointer;text-decoration:none;white-space:nowrap}
+#dockLeft .dockbtn[aria-pressed="true"]{background:var(--blue-tint,#eff1fa);border-color:var(--core-blue);color:var(--core-blue)}
+#dockLeft .docktabs{display:flex;flex-wrap:wrap;gap:5px;padding:0 14px 12px;border-bottom:1px solid var(--border);flex-shrink:0}
+#dockLeft .docktabs button{position:relative;display:inline-flex;align-items:center;gap:5px;height:28px;padding:0 11px 0 9px;border:1px solid var(--border-control);border-radius:999px;background:var(--surface-card);color:var(--ink);cursor:pointer;white-space:nowrap}
+#dockLeft .docktabs button b{font:700 10px/14px var(--display);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-muted)}
+#dockLeft .docktabs button span{font:700 12px/16px var(--display)}
 #dockLeft .docktabs button[aria-pressed="true"]{background:var(--core-blue);color:#fff;border-color:var(--core-blue)}
+#dockLeft .docktabs button[aria-pressed="true"] b{color:rgba(255,255,255,.75)}
+#dockLeft .docktabs button.live::after{content:"";position:absolute;top:-2px;right:-2px;width:8px;height:8px;border-radius:50%;background:var(--gator,#22884c);box-shadow:0 0 0 2px var(--surface-card)}
+#dockLeft .docktabs button.live[aria-pressed="true"]::after{box-shadow:0 0 0 2px var(--core-blue)}
+#dockLeft:not(.notes) #dockBody .card>p.sub{display:none}
+#dockBody .card>header{cursor:pointer;user-select:none}
+#dockBody .card>header h3::before{content:"";display:inline-block;width:6px;height:6px;margin:0 9px 3px 2px;border-right:2px solid var(--ink-muted);border-bottom:2px solid var(--ink-muted);transform:rotate(45deg);transition:transform .15s}
+#dockBody .card.collapsed>header h3::before{transform:rotate(-45deg);margin-bottom:1px}
+#dockBody .card.collapsed>:not(header){display:none}
 #dockBody{flex-grow:1;min-height:0;overflow-y:auto;padding:12px}
 #dockBody .grid{grid-template-columns:1fr;gap:12px}
 #dockBody .grid>*{grid-column:span 1}
@@ -296,15 +312,19 @@ pre.mermaid svg{max-width:none;height:auto}
   <section class="view" id="view-simulate" hidden>
   <div id="stage">
     <aside id="dockLeft" aria-label="Live dashboard panel">
+      <div class="dockhead">
+        <div class="dockttl"><span class="eyebrow">Live metrics</span><h2 id="dockTitle">Session</h2><span class="sub" id="dockSub">Follows the running experiment</span></div>
+        <div class="dockacts"><button type="button" class="dockbtn" id="dockNotes" aria-pressed="false" title="Show the explanatory notes under each card">Notes</button><button type="button" class="dockbtn" id="dockFold" title="Collapse or expand every card">Collapse all</button><a class="dockbtn" id="dockFull" href="#dashboards" title="Open this dashboard full width">Full view</a></div>
+      </div>
       <div class="docktabs" role="group" aria-label="Dashboard shown beside the arena">
-        <button type="button" data-dock="d-session" aria-pressed="true">Session</button>
-        <button type="button" data-dock="d-kinematic-sec" aria-pressed="false">1 Kinematic</button>
-        <button type="button" data-dock="d-connectome-sec" aria-pressed="false">2 Connectomic</button>
-        <button type="button" data-dock="d-psycho-sec" aria-pressed="false">3 Psychometric</button>
-        <button type="button" data-dock="d-curriculum-sec" aria-pressed="false">4 Curriculum</button>
-        <button type="button" data-dock="d-teacher-sec" aria-pressed="false">5 Teacher</button>
-        <button type="button" data-dock="d-admin-sec" aria-pressed="false">6 Admin</button>
-        <button type="button" data-dock="d-class-sec" aria-pressed="false">7 Classroom</button>
+        <button type="button" data-dock="d-session" aria-pressed="true"><b>Now</b><span>Session</span></button>
+        <button type="button" data-dock="d-kinematic-sec" aria-pressed="false"><b>1</b><span>Kinematic</span></button>
+        <button type="button" data-dock="d-connectome-sec" aria-pressed="false"><b>2</b><span>Connectomic</span></button>
+        <button type="button" data-dock="d-psycho-sec" aria-pressed="false"><b>3</b><span>Psychometric</span></button>
+        <button type="button" data-dock="d-curriculum-sec" aria-pressed="false"><b>4</b><span>Curriculum</span></button>
+        <button type="button" data-dock="d-teacher-sec" aria-pressed="false"><b>5</b><span>Teacher</span></button>
+        <button type="button" data-dock="d-admin-sec" aria-pressed="false"><b>6</b><span>Admin</span></button>
+        <button type="button" data-dock="d-class-sec" aria-pressed="false"><b>7</b><span>Classroom</span></button>
       </div>
       <div id="dockBody"></div>
     </aside>
@@ -2701,10 +2721,21 @@ function dock(id) {
   if (view !== 'simulate') return;
   const sec = document.getElementById(id); if (!sec) return;
   document.getElementById('dockBody').appendChild(sec); docked = sec;
-  document.querySelectorAll('[data-dock]').forEach(b => { b.setAttribute('aria-pressed', String(b.dataset.dock === id)); if (b.dataset.dock === id) { const bar = b.parentElement; bar.scrollLeft = b.offsetLeft - bar.offsetLeft - (bar.clientWidth - b.offsetWidth) / 2; } });
+  const head = document.getElementById(id.replace(/-sec$/, '')); const follows = DOCK_FOR[experiment] === id;
+  document.getElementById('dockTitle').textContent = id === 'd-session' ? 'Session' : head ? head.textContent.replace(/^Dashboard \d+ · /, '') : '';
+  document.getElementById('dockSub').textContent = follows ? `Follows Experiment ${experiment} · ${EXP[experiment].name}` : id === 'd-session' ? 'The current trial and running totals' : `Pinned · switching experiments returns to its own dashboard`;
+  document.getElementById('dockFull').dataset.target = id === 'd-session' ? '' : id.replace(/-sec$/, '');
+  document.querySelectorAll('[data-dock]').forEach(b => b.classList.toggle('live', b.dataset.dock === DOCK_FOR[experiment]));
+  document.getElementById('dockFold').textContent = sec.querySelector('.card:not(.collapsed)>header') ? 'Collapse all' : 'Expand all';
+  document.querySelectorAll('[data-dock]').forEach(b => { b.setAttribute('aria-pressed', String(b.dataset.dock === id));  });
   sizeCharts(); drawDashboards(performance.now(), true);
 }
 let dockChoice = 'd-session';
+// side panel tools: notes, collapsible cards, full view
+document.getElementById('dockNotes').addEventListener('click', e => { const on = document.getElementById('dockLeft').classList.toggle('notes'); e.currentTarget.setAttribute('aria-pressed', String(on)); sizeCharts(); drawDashboards(performance.now(), true); });
+document.getElementById('dockBody').addEventListener('click', e => { const h = e.target.closest('.card>header'); if (!h) return; h.parentElement.classList.toggle('collapsed'); const sec = docked; document.getElementById('dockFold').textContent = sec && sec.querySelector('.card:not(.collapsed)>header') ? 'Collapse all' : 'Expand all'; sizeCharts(); drawDashboards(performance.now(), true); });
+document.getElementById('dockFold').addEventListener('click', e => { if (!docked) return; const open = !!docked.querySelector('.card:not(.collapsed)>header'); docked.querySelectorAll('.card').forEach(c => { if (c.querySelector(':scope>header')) c.classList.toggle('collapsed', open); }); e.currentTarget.textContent = open ? 'Expand all' : 'Collapse all'; sizeCharts(); drawDashboards(performance.now(), true); });
+document.getElementById('dockFull').addEventListener('click', e => { const t = e.currentTarget.dataset.target; setTimeout(() => { const el = t && document.getElementById(t); if (el) el.scrollIntoView(); }, 80); });
 document.querySelectorAll('[data-dock]').forEach(b => b.addEventListener('click', () => { dockChoice = b.dataset.dock; dock(dockChoice); }));
 const stageEl = document.getElementById('stage');
 document.getElementById('dockHide').addEventListener('click', () => { const on = stageEl.classList.toggle('nodock'); document.getElementById('dockLeft').hidden = on; document.getElementById('dockHide').textContent = on ? 'Show panel' : 'Hide panel'; document.getElementById('dockHide').setAttribute('aria-pressed', String(!on)); resize(); sizeCharts(); });
