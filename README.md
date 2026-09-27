@@ -32,9 +32,23 @@ The app is one page with four views, switched by the tabs in the header and by h
 | | |
 | --- | --- |
 | ![The Simulate view: the fly taking off in Experiment 2, brain panel on the right](docs/screenshots/app-simulate.png) | ![The Dashboards view: psychometric cards with the Q-matrix, G-DINA mastery, Half-Life Regression and the Wright map](docs/screenshots/dashboards-3.png) |
-| **Simulate.** The arena with the fly-eye inset, the brain panel on the right, a dockable dashboard panel on the left that switches to the running experiment's dashboard (1 Kinematic, 2 Curriculum, 3 Psychometric, 4 Connectomic, 5 Teacher, 6 Admin, 7 Classroom; a green dot marks it; pick another with the buttons at its top, or hide it; its header names the dashboard and offers Notes for the explanatory text, Collapse all, and Full view, and each card folds by clicking its title), and a bottom strip of always-on live charts: adhesion, gaze contrast, eye-to-glass distance, dopamine, Δw per answer and path divergence. | **Dashboards.** Four dashboards from the EDLS psychometric specification, fed by telemetry from the running simulation. |
+| **Simulate.** The arena with the fly-eye inset, a scenario panel on the right, a dockable dashboard panel on the left that switches to the running experiment's dashboard (1 Kinematic, 2 Curriculum, 3 Psychometric, 4 Connectomic, 5 Teacher, 6 Admin, 7 Classroom; a green dot marks it; pick another with the buttons at its top, or hide it; its header names the dashboard and offers Notes for the explanatory text, Collapse all, and Full view, and each card folds by clicking its title), and a bottom strip of six live charts. The right panel and the strip also change with the experiment; see the table below. | **Dashboards.** Four dashboards from the EDLS psychometric specification, fed by telemetry from the running simulation. |
 | ![The Dashboards view on a phone: adhesion and contrast cards stacked](docs/screenshots/phone-dashboards.png) | ![The About view: research library with report thumbnails, page images and download buttons](docs/screenshots/about-library.png) |
 | **Phone layout.** Single-column cards, header controls in a strip. | **About.** What the app simulates and what it is trying to learn, the research library with downloadable PDFs and page images, and all 187 sources the reports cite. |
+
+### Panels by experiment
+
+The left panel docks the most related dashboard. The right panel and the bottom strip show what matters for the scenario in front of you, so the three together cover different ground instead of repeating the same numbers.
+
+| Experiment | Right panel | Bottom strip |
+| --- | --- | --- |
+| 1 · Walking | Gait card (which of the six feet are down, walking speed, presses), brain, word-part memory | Adhesion, gaze contrast, eye to glass, dopamine, Δw per answer, path divergence |
+| 2 · Flying | Flight card (height, airspeed, wings, landing error), brain, memory | Height above glass, airspeed, wings beating, landing error, path divergence, dopamine |
+| 3 · Touch | Live copy of the fly-sized phone screen, touch card (scroll, forelegs, taps), brain, memory | Scroll position, gaze contrast, eye to glass, tap offset, Δw per answer, dopamine |
+| 4 · Spelling | Live laptop screen, spelling card (letters so far, next part, key accuracy), brain, memory | Letters typed, keys right and wrong, flight speed, height above keys, Δw per letter, dopamine |
+| 5 · Teacher | Live gradebook screen, grading queue, the teacher's next actions, cursor and foreleg state; no brain | Cursor path, clicks and misclicks, movement time, grading error, keystrokes, students graded |
+| 6 · District admin | Live proctoring screen, open flags, FlyAI's latest recommendation, next actions; no brain | Mean attention, open flags, detections, flag precision, check-ins, response time |
+| 7 · Classroom | Clickable seating chart of all 24 flies, a card for the followed fly, its brain, tablemates | On task, courting now, finished, mean mastery, male courtship drive, followed fly's attention |
 
 ### The dashboards
 

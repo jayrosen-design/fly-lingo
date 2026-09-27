@@ -87,6 +87,15 @@ main{flex-grow:1;min-height:0;display:flex;flex-direction:column}
 #brainPanel h3,.card h3{margin:0;font:700 14px/20px var(--display)}
 .sub{font-size:13px;line-height:19px;color:var(--ink-muted)}
 #nowLine{font:700 13px/19px var(--display);padding:8px 12px;background:var(--surface-blue-tint);border:1px solid #e9eaf1;border-radius:10px}
+#brainPanel .rp{display:flex;flex-direction:column;gap:8px}
+#brainPanel .rp[hidden]{display:none}
+#rpScreenCv{display:block;width:100%;border-radius:12px;background:#0b0b0c}
+#rpMapCv{display:block;width:100%;aspect-ratio:5/4;border-radius:12px;background:var(--surface-sunken,#f4f2ee);cursor:pointer}
+#rpScenBody .kv{margin:0}
+#rpScenBody ol,#rpScenBody ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:3px;font-size:13px;line-height:18px}
+#rpScenBody li.now{font-weight:700;color:var(--core-blue)}
+.feet{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 10px;font:700 11px/16px var(--display)}
+.feet span{display:flex;align-items:center;gap:6px}.feet i{width:10px;height:10px;border-radius:50%;border:2px solid var(--core-blue)}.feet i.on{background:var(--core-blue)}
 #brain{display:block;width:100%;aspect-ratio:1/1;border-radius:16px;background:#041033;cursor:grab}
 .regions{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .regions li{display:flex;flex-direction:column;gap:4px}
@@ -330,19 +339,13 @@ pre.mermaid svg{max-width:none;height:auto}
     </aside>
     <canvas id="scene" aria-label="3D arena: a fruit fly answering word-part questions on a smartphone"></canvas>
     <canvas id="vision" aria-hidden="true" hidden></canvas>
-    <div id="dockBottom" aria-label="Live telemetry strip">
-      <div class="mini"><div class="rowlbl"><span>Tarsal adhesion</span><b id="mAdh">0 µN</b></div><canvas class="chart" id="cmAdh" aria-label="Adhesion, last 90 seconds"></canvas></div>
-      <div class="mini"><div class="rowlbl"><span>Gaze contrast</span><b id="mCon">0.00</b></div><canvas class="chart" id="cmCon" aria-label="Contrast under the gaze, last 90 seconds"></canvas></div>
-      <div class="mini"><div class="rowlbl"><span>Eye to glass</span><b id="mDist">0 mm</b></div><canvas class="chart" id="cmDist" aria-label="Viewing distance with the acuity band"></canvas></div>
-      <div class="mini"><div class="rowlbl"><span>Dopamine · PAM</span><b id="mDopa">0.50</b></div><canvas class="chart" id="cmDopa" aria-label="Dopamine over time"></canvas></div>
-      <div class="mini"><div class="rowlbl"><span>Δw per answer</span><b id="mDw">–</b></div><canvas class="chart" id="cmDw" aria-label="Weight change per answer"></canvas></div>
-      <div class="mini"><div class="rowlbl"><span>Path divergence</span><b id="mDiv">–</b></div><canvas class="chart" id="cmDiv" aria-label="Path divergence per answer with the reset threshold"></canvas></div>
-      <div class="mini" data-cls hidden><div class="rowlbl"><span>On task</span><b id="mcTask">0%</b></div><canvas class="chart" id="cmcTask" aria-label="Share of the class on task over time"></canvas></div>
-      <div class="mini" data-cls hidden><div class="rowlbl"><span>Courting now</span><b id="mcCourt">0</b></div><canvas class="chart" id="cmcCourt" aria-label="Males courting over time"></canvas></div>
-      <div class="mini" data-cls hidden><div class="rowlbl"><span>Finished</span><b id="mcDone">0 of 24</b></div><canvas class="chart" id="cmcDone" aria-label="Flies finished over time"></canvas></div>
-      <div class="mini" data-cls hidden><div class="rowlbl"><span>Mean mastery</span><b id="mcMast">0.00</b></div><canvas class="chart" id="cmcMast" aria-label="Mean word-part mastery over time"></canvas></div>
-      <div class="mini" data-cls hidden><div class="rowlbl"><span>Male courtship drive</span><b id="mcDrive">0.00</b></div><canvas class="chart" id="cmcDrive" aria-label="Mean male courtship drive over time"></canvas></div>
-      <div class="mini" data-cls hidden><div class="rowlbl"><span>Attention · focal fly</span><b id="mcAtt">0.00</b></div><canvas class="chart" id="cmcAtt" aria-label="Attention of the followed fly over time"></canvas></div>
+    <div id="dockBottom" aria-label="Live telemetry strip for the running experiment">
+      <div class="mini"><div class="rowlbl"><span id="msL0"></span><b id="msV0">–</b></div><canvas class="chart" id="ms0"></canvas></div>
+      <div class="mini"><div class="rowlbl"><span id="msL1"></span><b id="msV1">–</b></div><canvas class="chart" id="ms1"></canvas></div>
+      <div class="mini"><div class="rowlbl"><span id="msL2"></span><b id="msV2">–</b></div><canvas class="chart" id="ms2"></canvas></div>
+      <div class="mini"><div class="rowlbl"><span id="msL3"></span><b id="msV3">–</b></div><canvas class="chart" id="ms3"></canvas></div>
+      <div class="mini"><div class="rowlbl"><span id="msL4"></span><b id="msV4">–</b></div><canvas class="chart" id="ms4"></canvas></div>
+      <div class="mini"><div class="rowlbl"><span id="msL5"></span><b id="msV5">–</b></div><canvas class="chart" id="ms5"></canvas></div>
     </div>
     <button type="button" id="dockHide" class="pill toggle" aria-pressed="true">Hide panel</button>
     <div id="state" aria-live="polite">
@@ -358,26 +361,29 @@ pre.mermaid svg{max-width:none;height:auto}
     <p id="expNote">Experiment 1 · Walking. The fly walks across a phone lying on the table and presses tiles with a foreleg.</p>
     <div id="eyeLabel" aria-hidden="true"><span class="eyebrow">Fly eye</span><span>750 ommatidia · 4.5° between axes</span></div>
 
-    <aside id="brainPanel" aria-label="Brain activity">
-      <section style="display:flex;flex-direction:column;gap:8px">
-        <div id="nowLine" aria-live="polite">Walking · building a word</div>
+    <aside id="brainPanel" aria-label="Scenario panel">
+      <div id="nowLine" aria-live="polite">Walking · building a word</div>
+      <section id="rpScreen" data-rp="3 4 5 6" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
+      <section id="rpMap" data-rp="7" class="rp"><div class="rowlbl"><h3>Seating chart</h3><span class="sub">click a fly to follow it</span></div><canvas id="rpMapCv" aria-label="Top-down seating chart of the six tables; click a fly to follow it"></canvas></section>
+      <section id="rpScen" class="rp"><h3 id="rpScenHead"></h3><div id="rpScenBody"></div></section>
+      <section data-rp="1 2 3 4 7" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <h2>Central nervous system</h2>
           <span class="sub">Point cloud stylised after Drosophila anatomy, brain and ventral nerve cord. Drag to turn.</span>
         </div>
         <canvas id="brain" aria-label="Rotating point cloud of the fly's brain; regions brighten when active"></canvas>
       </section>
-      <section style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7" style="display:flex;flex-direction:column;gap:10px">
         <div class="rowlbl"><span>Dopamine · PAM cluster</span><span id="dopaVal">0.50</span></div>
         <div class="bar" id="dopaBar"><span style="width:50%"></span></div>
         <ul class="regions" id="regions"></ul>
       </section>
-      <section style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7" style="display:flex;flex-direction:column;gap:10px">
         <h3 id="memHead">Word part memory · Kenyon cell to MBON weights</h3>
         <div class="memory" id="memory"></div>
       </section>
       <section style="display:flex;flex-direction:column;gap:12px">
-        <div class="stat-row">
+        <div class="stat-row" data-rp="1 2 3 4 7">
           <div class="stat good"><b id="stWords">0</b><span class="sub">words built</span></div>
           <div class="stat plain"><b id="stTaps">0</b><span class="sub">answers</span></div>
           <div class="stat"><b id="stAcc">0%</b><span class="sub">correct</span></div>
@@ -2324,6 +2330,7 @@ function stepLegs(s, dt) {
     else if (L.foot.distanceTo(rest) > 0.5 && stepping < 3) { L.step = { from: L.foot.clone(), to: rest.addScaledVector(fw, s.walking ? 0.6 : 0), t: 0 }; stepping++; }
   });
 }
+const ringKind = s => s.state === 'court' || s.state === 'fight' ? 'courting' : s.courtedBy || s.state === 'reject' || s.state === 'pairF' ? 'courted' : onTask(s) ? 'task' : s.progress >= CLS.items ? 'done' : s.state === 'groom' || s.state === 'peek' ? 'distracted' : 'away';
 function poseStudent(s, now) {
   const R = s.rig; R.head.rotation.y = s.headYaw;
   const bob = s.walking ? Math.sin(s.gait * 2) * 0.04 : 0, lift = bob + (s.airborne ? -0.3 : 0);
@@ -2336,7 +2343,7 @@ function poseStudent(s, now) {
     g.rotation.z = side * z; g.rotation.y = side * y; });
   R.legs.forEach(L => solveStudentLeg(R, L, lift));
   // overlay: ring colour by what the fly is doing, glyph above it
-  const k = s.state === 'court' || s.state === 'fight' ? 'courting' : s.courtedBy || s.state === 'reject' || s.state === 'pairF' ? 'courted' : onTask(s) ? 'task' : s.progress >= CLS.items ? 'done' : s.state === 'groom' || s.state === 'peek' ? 'distracted' : 'away';
+  const k = ringKind(s);
   R.ring.material = ringMats[k]; R.ring.position.set(s.pos.x, (s.airborne ? CLS.topY : s.pos.y) + 0.03, s.pos.z); R.ring.visible = clsOverlay && !s.airborne;
   const g = R.glyph; g.visible = clsOverlay && s.glyphT > 0 && !!s.glyph; if (g.visible) { g.material = glyphMats[s.glyph]; g.position.set(s.pos.x, s.pos.y + 5.2 + Math.sin(now / 300 + s.i) * 0.2, s.pos.z); }
 }
@@ -2504,6 +2511,140 @@ function drawVision() {
   const x = r.width - w - 16; vc.fillStyle = 'rgba(0,38,87,0.88)'; vc.beginPath(); vc.roundRect(x, y, w, 44, 10); vc.fill(); vc.fillStyle = '#fff'; lines.forEach((l, i) => vc.fillText(l, x + 10, y + 14 + i * 16));
 }
 
+// ---------- scenario panels: the right panel and bottom strip follow the experiment ----------
+const BRAIN_EXPS = [1, 2, 3, 4, 7]; // the teacher and admin panels show their screen and work queue instead of the brain
+let rpAt = 0;
+// scenario history, 4 samples a second of the numbers the strip plots (the classroom keeps its own in cls.hist)
+const sh = []; let shAt = 0, shSim = 0; const shPrev = new THREE.Vector3();
+function sampleScenario(now, dt) {
+  shSim += dt; if (now - shAt < 250) return; const el = shSim; shSim = 0; shAt = now;
+  const st = flyState, T = teacher.stats, A = admin.stats, t = TDT();
+  const speed = el > 0 ? st.pos.distanceTo(shPrev) / el : 0; shPrev.copy(st.pos);
+  const ground = EXP[experiment].laptop ? surfaceY(st.pos.x, st.pos.z) : screenTopY();
+  sh.push({ t, exp: experiment, speed, h: Math.max(0, st.pos.y - ground), air: st.airborne ? 1 : 0, scroll: game.scrollY, typed: spell.typed.length,
+    path: T.path, clicks: T.clicks, miss: T.miss, keys: T.keys, graded: T.graded.length,
+    att: admin.students.length ? admin.students.reduce((a, s) => a + s.att, 0) / admin.students.length : null, flags: admin.flags.filter(f => f.open).length,
+    prec: A.tp + A.fp ? A.tp / (A.tp + A.fp) : null, checkins: A.checkins, det: A.detections.filter(d => t - d.t < 5).reduce((a, d) => a + d.lookaway + d.helper + d.device + d.offscreen, 0) });
+  if (sh.length > 480) sh.shift();
+}
+const shNow = () => sh.filter(p => p.exp === experiment);
+const shLast = () => { const H = shNow(); return H[H.length - 1]; };
+const lastSample = f => { const s = tele.samples[tele.samples.length - 1]; return s ? f(s) : '–'; };
+const trialsOf = e => tele.trials.filter(x => x.exp === e);
+const BL = 5; // one body length in scene units
+const meanOf = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
+// strip entries: label, current value, chart
+const sDopa = { l: 'Dopamine · PAM', v: () => lastSample(s => s.dopa.toFixed(2)), d: id => lineChart(id, [{ name: 'Dopamine', color: CH.blue, get: s => s.dopa, area: 'rgba(242,169,0,0.18)' }], { ymin: 0, ymax: 1, compact: true }) };
+const sContrast = { l: 'Gaze contrast', v: () => lastSample(s => s.contrast.toFixed(2)), d: id => lineChart(id, [{ name: 'Contrast', color: CH.blue, get: s => s.onScreen ? s.contrast : null }], { ymin: 0, ymax: 1, compact: true }) };
+const sEye = { l: 'Eye to glass', v: () => lastSample(s => s.dist.toFixed(1) + ' mm'), d: id => lineChart(id, [{ name: 'Eye to glass', color: CH.blue, get: s => Math.min(30, s.dist) }], { ymin: 0, ymax: 30, unit: 'mm', band: [1, 10], compact: true }) };
+const sDw = (e, what = 'answer') => ({ l: `Δw per ${what}`, v: () => { const t = trialsOf(e).pop(); return t ? (t.dw >= 0 ? '+' : '') + t.dw.toFixed(3) : '–'; }, d: id => barChart(id, trialsOf(e).slice(-20).map(x => ({ v: x.dw, color: x.dw >= 0 ? CH.green : CH.red, label: `${x.needed}: Δw ${x.dw.toFixed(3)}` })), { ymax: 0.25, compact: true, empty: 'No answers yet' }) });
+const sDiv = e => ({ l: 'Path divergence', v: () => { const t = trialsOf(e).pop(); return t ? t.divergence.toFixed(1) : '–'; }, d: id => barChart(id, trialsOf(e).slice(-20).map(x => ({ v: x.divergence, color: x.divergence > 10 ? CH.red : CH.blue, label: `divergence ${x.divergence.toFixed(1)}` })), { ymax: 14, threshold: 10, positive: true, compact: true, empty: 'No paths yet' }) });
+const sOffset = (e, l) => ({ l, v: () => { const t = trialsOf(e).pop(); return t ? Math.round(t.offset) + ' px' : '–'; }, d: id => barChart(id, trialsOf(e).slice(-20).map(x => ({ v: x.offset, color: x.correct ? CH.green : CH.red, label: `${x.chosen}: ${Math.round(x.offset)} px from the tile centre, ${x.correct ? 'right' : 'wrong'}` })), { positive: true, compact: true, empty: 'No answers yet' }) });
+const sHist = (l, key, v, opt = {}, color = '#0021a5') => ({ l, v, d: id => classLine(id, [{ name: l, color, get: p => p[key] == null ? null : p[key] * (opt.k || 1) }], { ymin: 0, ymax: typeof opt.ymax === 'function' ? opt.ymax() : opt.ymax, compact: true }, shNow()) });
+const sSpeed = l => sHist(l, 'speed', () => { const p = shLast(); return p ? (p.speed / BL).toFixed(1) + ' BL/s' : '–'; }, { k: 1 / BL });
+const sHeight = l => sHist(l, 'h', () => { const p = shLast(); return p ? (p.h / BL).toFixed(1) + ' BL' : '–'; }, { k: 1 / BL });
+const clsS = (l, key, v, ymax, color) => ({ l, v, d: id => classLine(id, [{ name: l, color, get: q => q[key] }], { ymin: 0, ymax, compact: true }) });
+const clsLast = () => cls.hist[cls.hist.length - 1];
+const STRIPS = {
+  1: [{ l: 'Tarsal adhesion', v: () => lastSample(s => Math.round(s.adhesion) + ' µN'), d: id => lineChart(id, [{ name: 'Adhesion', color: CH.blue, get: s => s.adhesion, area: 'rgba(0,33,165,0.08)' }], { ymin: 0, ymax: 80, unit: 'µN', compact: true }) },
+    sContrast, sEye, sDopa, sDw(1), sDiv(1)],
+  2: [sHeight('Height above glass'), sSpeed('Airspeed'), sHist('Wings beating', 'air', () => flyState.buzz > 0 ? 'beating' : 'folded', { ymax: 1 }, '#f2a900'),
+    sOffset(2, 'Landing error'), sDiv(2), sDopa],
+  3: [sHist('Scroll position', 'scroll', () => Math.round(game.scrollY) + ' px', { ymax: LAYOUTS.list.height - SH }), sContrast, sEye, sOffset(3, 'Tap offset'), sDw(3), sDopa],
+  4: [sHist('Letters typed', 'typed', () => `${spell.typed.length} of ${spell.letters.length}`, { ymax: () => Math.max(1, spell.letters.length) }),
+    { l: 'Keys right · wrong', v: () => { const T = trialsOf(4); return `${T.filter(x => x.correct).length} · ${T.filter(x => !x.correct).length}`; }, d: id => barChart(id, trialsOf(4).slice(-20).map(x => ({ v: x.correct ? 1 : -1, color: x.correct ? CH.green : CH.red, label: `${x.chosen} for ${x.needed}: ${x.correct ? 'right' : 'wrong key'}` })), { ymax: 1, compact: true, empty: 'No keys yet' }) },
+    sSpeed('Flight speed'), sHeight('Height above keys'), sDw(4, 'letter'), sDopa],
+  5: [sHist('Cursor path', 'path', () => Math.round(teacher.stats.path) + ' px'),
+    { l: 'Clicks · misclicks', v: () => `${teacher.stats.clicks} · ${teacher.stats.miss}`, d: id => classLine(id, [{ name: 'Clicks', color: CH.blue, get: p => p.clicks }, { name: 'Misclicks', color: CH.red, get: p => p.miss }], { ymin: 0, compact: true }, shNow()) },
+    { l: 'Movement time', v: () => { const f = teacher.stats.fitts[teacher.stats.fitts.length - 1]; return f ? f.MT.toFixed(2) + ' s' : '–'; }, d: id => barChart(id, teacher.stats.fitts.slice(-20).map(f => ({ v: f.MT, color: f.hit ? CH.green : CH.red, label: `${f.label}: ${f.MT.toFixed(2)} s, ID ${f.ID.toFixed(2)}, ${f.hit ? 'hit' : 'miss'}` })), { positive: true, compact: true, empty: 'No cursor moves yet' }) },
+    { l: 'Grading error', v: () => { const m = meanOf(teacher.stats.graded.filter(g => g.err != null).map(g => g.err)); return m == null ? '–' : m.toFixed(1) + ' pts'; }, d: id => barChart(id, teacher.stats.graded.filter(g => g.err != null).slice(-20).map(g => ({ v: g.err, color: g.err <= 5 ? CH.green : CH.amber, label: `${g.student}: typed ${g.grade}, real ${g.truth}` })), { positive: true, compact: true, empty: 'Nobody graded yet' }) },
+    sHist('Keystrokes', 'keys', () => String(teacher.stats.keys)), sHist('Students graded', 'graded', () => `${teacher.students.filter(x => x.grade != null).length} of ${teacher.students.length}`, {}, '#22884c')],
+  6: [sHist('Mean attention', 'att', () => { const p = shLast(); return p && p.att != null ? Math.round(p.att * 100) + '%' : '–'; }, { ymax: 1 }),
+    sHist('Open flags', 'flags', () => String(admin.flags.filter(f => f.open).length), { ymax: () => Math.max(3, ...shNow().map(p => p.flags)) }, '#d32737'),
+    sHist('Detections · last 5 s', 'det', () => { const p = shLast(); return p ? String(p.det) : '–'; }, {}, '#f2a900'),
+    sHist('Flag precision', 'prec', () => { const A = admin.stats; return A.tp + A.fp ? Math.round(100 * A.tp / (A.tp + A.fp)) + '%' : '–'; }, { ymax: 1 }, '#22884c'),
+    sHist('Check-ins', 'checkins', () => String(admin.stats.checkins)),
+    { l: 'Response time', v: () => { const m = meanOf(admin.stats.resp); return m == null ? '–' : m.toFixed(1) + ' s'; }, d: id => barChart(id, admin.stats.resp.slice(-20).map(r => ({ v: r, color: CH.blue, label: `flag to check-in ${r.toFixed(1)} s` })), { positive: true, compact: true, empty: 'No check-ins yet' }) }],
+  7: [clsS('On task', 'onTask', () => { const p = clsLast(); return p ? Math.round(p.onTask * 100) + '%' : '–'; }, 1, '#0021a5'),
+    clsS('Courting now', 'courting', () => { const p = clsLast(); return p ? String(p.courting) : '–'; }, 6, '#d32737'),
+    clsS('Finished', 'done', () => { const p = clsLast(); return p ? `${p.done} of 24` : '–'; }, 24, '#22884c'),
+    clsS('Mean mastery', 'mastery', () => { const p = clsLast(); return p ? p.mastery.toFixed(2) : '–'; }, 1, '#0021a5'),
+    clsS('Male courtship drive', 'drive', () => { const p = clsLast(); return p ? p.drive.toFixed(2) : '–'; }, 1, '#f2a900'),
+    clsS('Attention · followed fly', 'att', () => { const p = clsLast(); return p ? p.att.toFixed(2) : '–'; }, 1, '#0021a5')],
+};
+let stripExp = 0;
+function drawStrip() {
+  STRIPS[experiment].forEach((c, i) => {
+    if (stripExp !== experiment) { $('msL' + i).textContent = c.l; $('ms' + i).setAttribute('aria-label', `${c.l}, live`); }
+    const v = c.v(), el = $('msV' + i); if (el.textContent !== v) el.textContent = v; c.d('ms' + i);
+  });
+  stripExp = experiment;
+}
+
+// ---------- right panel: a card for what matters in this scenario ----------
+const LEG_NAMES = ['Left fore', 'Right fore', 'Left mid', 'Right mid', 'Left hind', 'Right hind'];
+const stepText = s => !s ? '' : s.type === 'read' ? `Read: ${s.note || 'the screen'}` : s.type === 'cursor' ? `Steer the cursor to ${s.label}` : s.type === 'click' ? 'Press the pad to click' : s.type === 'key' ? `Type ${s.ch === '⏎' ? 'Enter' : s.ch}` : s.type === 'watch' ? 'Watch the nine sessions' : s.type === 'done' ? 'Everyone graded' : s.type;
+const REASON = { lookaway: 'looked away', helper: 'helper fly in frame', device: 'second device', offscreen: 'answered off camera' };
+const kv = rows => `<div class="kv">${rows.map(([k, v]) => `<span>${k}</span><b>${v}</b>`).join('')}</div>`;
+const pct = x => x == null ? '–' : Math.round(x * 100) + '%';
+function scenarioCard() {
+  const e = experiment, st = flyState, p = shLast(), T = trialsOf(e), acc = T.length ? T.filter(x => x.correct).length / T.length : null;
+  if (e === 1) return ['Gait · tripod stepping', `<div class="feet">${legs.map((L, i) => `<span><i class="${!L.step && Math.abs(L.foot.y - L.groundY) < 0.05 ? 'on' : ''}"></i>${LEG_NAMES[i]}</span>`).join('')}</div>` +
+    kv([['Walking speed', p ? (p.speed / BL).toFixed(1) + ' body lengths/s' : '–'], ['Legs swinging now', legs.filter(L => L.step).length], ['Presses', T.length], ['Mean press offset', T.length ? Math.round(meanOf(T.map(x => x.offset))) + ' px' : '–']])];
+  if (e === 2) return ['Flight', kv([['Height above glass', p ? (p.h / BL).toFixed(1) + ' body lengths' : '–'], ['Airspeed', p ? (p.speed / BL).toFixed(1) + ' body lengths/s' : '–'], ['Wings', st.buzz > 0 ? 'beating, about 200 Hz' : 'folded'], ['Doing', PHASE_TEXT[agent.phase] || agent.phase], ['Landings', T.length], ['Mean landing error', T.length ? Math.round(meanOf(T.map(x => x.offset))) + ' px' : '–'], ['Landed on the right tile', pct(acc)]])];
+  if (e === 3) { const max = LAYOUTS.list.height - SH; return ['Touch · fly-sized phone', kv([['Scroll position', `${Math.round(game.scrollY)} of ${max} px`], ['Forelegs', agent.phase === 'scroll' ? 'swiping' : agent.phase === 'tap' ? 'one pressing' : 'holding the edge'], ['Taps', T.length], ['Right answers', pct(acc)], ['Mean tap offset', T.length ? Math.round(meanOf(T.map(x => x.offset))) + ' px' : '–']])]; }
+  if (e === 4) return ['Spelling', `<div class="chips">${spell.letters.map((ch, i) => i < spell.typed.length ? `<span class="chip ${KINDS[partAtLetter(i)]}" style="padding:0 10px">${ch}</span>` : `<span class="chip empty" style="padding:0 8px">·</span>`).join('')}</div>` +
+    kv([['Word', spell.word.word], ['Next letter belongs to the', spell.done ? 'word is done' : KINDS[partAtLetter(spell.typed.length)]], ['Keys pressed', T.length], ['Right keys', pct(acc)], ['Doing', PHASE_TEXT[agent.phase] || agent.phase]])];
+  if (e === 5) { const cur = teacher.students.findIndex(x => x.grade == null); const next = [agent.step, ...(agent.plan || [])].filter(Boolean).slice(0, 5);
+    return ['Grading', `<ul>${teacher.students.map((s, i) => `<li class="${i === cur ? 'now' : ''}">${s.name} · ${s.section}: ${s.grade == null ? (i === cur ? 'grading now' : 'waiting') : s.grade === 'I' ? 'Incomplete' : s.grade}</li>`).join('')}</ul>` +
+      `<h3>Next actions</h3><ol>${next.map((s, i) => `<li class="${i ? '' : 'now'}">${stepText(s)}</li>`).join('') || '<li>Planning</li>'}</ol>` +
+      kv([['Cursor', teacher.cursor.map(Math.round).join(', ')], ['Foreleg', agent.phase === 't_press' ? 'pressing the pad' : agent.phase === 't_arm' ? 'steering on the pad' : st.walking ? 'walking' : 'resting on the pad'], ['Clicks · misclicks', `${teacher.stats.clicks} · ${teacher.stats.miss}`], ['Keystrokes', teacher.stats.keys], ['Grading period', teacher.round]])]; }
+  if (e === 6) { const open = admin.flags.filter(f => f.open), next = [agent.step, ...(agent.plan || [])].filter(Boolean).slice(0, 3), ai = [...admin.chat].reverse().find(m => m.kind !== 'action'), A = admin.stats;
+    return ['Proctoring', `<h3>Open flags</h3><ul>${open.map(f => `<li class="now">${admin.students[f.student].name}: ${REASON[f.reason] || f.reason} · ${Math.round(TDT() - f.t)} s ago</li>`).join('') || '<li>None open</li>'}</ul>` +
+      (ai ? `<p class="sub" style="margin:0">FlyAI: ${ai.text}</p>` : '') + `<h3>Next actions</h3><ol>${next.map((s, i) => `<li class="${i ? '' : 'now'}">${stepText(s)}</li>`).join('')}</ol>` +
+      kv([['Flags · confirmed · false alarms', `${admin.flags.length} · ${A.tp} · ${A.fp}`], ['Check-ins sent', A.checkins]])]; }
+  const s = cls.students[cls.focal]; const other = s.state === 'court' || s.state === 'fight' ? (s.rival && s.state === 'fight' ? s.rival : s.partner) : s.courtedBy;
+  return [`Following ${s.name} ${SEXSYM(s)}`, kv([['Doing', doing(s)], ['Table', 'ABCDEF'[s.table] + (s.at !== s.table ? ` · visiting ${'ABCDEF'[s.at]}` : '')], ['Items', `${Math.min(s.progress, CLS.items)} of ${CLS.items}`], ['First-try accuracy', s.stats.taps ? pct(s.stats.correct / s.stats.taps) : '–'], ['Attention', s.attention.toFixed(2)], [s.sex === 'M' ? 'Courtship drive' : 'Receptivity', (s.sex === 'M' ? s.drive : s.receptive).toFixed(2)], [s.state === 'fight' ? 'Rival' : s.sex === 'M' ? 'Courting' : 'Courted by', other ? `${other.name} ${SEXSYM(other)}` : 'nobody']])];
+}
+function renderScenario(force) {
+  if (view !== 'simulate' && !force) return;
+  const [head, body] = scenarioCard(); if ($('rpScenHead').textContent !== head) $('rpScenHead').textContent = head;
+  const B = $('rpScenBody'); if (B.innerHTML !== body) B.innerHTML = body;
+  if ([3, 4, 5, 6].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
+}
+// a live copy of the phone or laptop screen
+function drawRpScreen() {
+  const cv = $('rpScreenCv'), w = cv.clientWidth; if (!w) return; const lap = EXP[experiment].laptop, src = lap ? lapCanvas : screenCanvas;
+  const h = lap ? Math.round(w * 640 / 1024) : Math.min(300, Math.round(w * SH / SW)); const pr = Math.min(devicePixelRatio, 2);
+  if (cv.height !== Math.round(h * pr) || cv.width !== Math.round(w * pr)) { cv.width = Math.round(w * pr); cv.height = Math.round(h * pr); cv.style.height = h + 'px'; }
+  const g = cv.getContext('2d'); g.setTransform(pr, 0, 0, pr, 0, 0); g.fillStyle = '#0b0b0c'; g.fillRect(0, 0, w, h);
+  const s = Math.min(w / src.width, h / src.height), dw = src.width * s, dh = src.height * s; g.drawImage(src, (w - dw) / 2, (h - dh) / 2, dw, dh);
+  $('rpScreenHead').textContent = experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
+  $('rpScreenSub').textContent = experiment === 3 ? 'what the fly sees, scrolled' : 'live, as on the laptop';
+}
+// classroom seating chart, top down
+const MAP = { x0: -56, x1: 56, z0: -40, z1: 32 };
+function mapXY(x, z, w, h) { const s = Math.min(w / (MAP.x1 - MAP.x0), h / (MAP.z1 - MAP.z0)); return [(x - MAP.x0) * s + (w - (MAP.x1 - MAP.x0) * s) / 2, (z - MAP.z0) * s + (h - (MAP.z1 - MAP.z0) * s) / 2, s]; }
+function drawRpMap() {
+  const cv = $('rpMapCv'), w = cv.clientWidth, h = cv.clientHeight; if (!w) return; const pr = Math.min(devicePixelRatio, 2);
+  if (cv.width !== Math.round(w * pr)) { cv.width = Math.round(w * pr); cv.height = Math.round(h * pr); }
+  const g = cv.getContext('2d'); g.setTransform(pr, 0, 0, pr, 0, 0); g.clearRect(0, 0, w, h);
+  for (let t = 0; t < 6; t++) { const c = tableCenter(t), [x, y, s] = mapXY(c.x, c.z, w, h); g.fillStyle = '#e3d2b8'; g.beginPath(); g.arc(x, y, CLS.tableR * s, 0, Math.PI * 2); g.fill(); g.fillStyle = C.inkMuted; g.font = `700 10px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('ABCDEF'[t], x, y); }
+  g.strokeStyle = C.bottlebrush; g.setLineDash([3, 3]); g.lineWidth = 1.5;
+  cls.students.forEach(s => { const o = s.state === 'fight' ? s.rival : s.state === 'court' ? s.partner : null; if (!o) return; const [a, b] = mapXY(s.pos.x, s.pos.z, w, h), [c, d] = mapXY(o.pos.x, o.pos.z, w, h); g.beginPath(); g.moveTo(a, b); g.lineTo(c, d); g.stroke(); });
+  g.setLineDash([]);
+  const col = { task: C.coreBlue, distracted: C.alachua, courting: C.bottlebrush, courted: '#e88aa0', done: C.gator, away: C.control };
+  cls.students.forEach(s => { const [x, y] = mapXY(s.pos.x, s.pos.z, w, h); g.fillStyle = col[ringKind(s)]; g.beginPath(); g.arc(x, y, s.airborne ? 6 : 5, 0, Math.PI * 2); g.fill();
+    if (s.airborne) { g.strokeStyle = '#fff'; g.lineWidth = 2; g.stroke(); }
+    if (s.i === cls.focal) { g.strokeStyle = C.darkBlue; g.lineWidth = 2; g.beginPath(); g.arc(x, y, 9, 0, Math.PI * 2); g.stroke(); }
+    g.fillStyle = C.darkBlue; g.font = `700 8px ${DISPLAY}`; g.fillText(s.sex === 'F' ? '♀' : '♂', x, y - 10); });
+}
+$('rpMapCv').addEventListener('click', e => {
+  const cv = e.currentTarget, r = cv.getBoundingClientRect(), px = e.clientX - r.left, py = e.clientY - r.top; let best = null, bd = 14;
+  cls.students.forEach(s => { const [x, y] = mapXY(s.pos.x, s.pos.z, r.width, r.height); const d = Math.hypot(x - px, y - py); if (d < bd) { bd = d; best = s; } });
+  if (best) { setFocal(best.i); renderScenario(true); }
+});
+
 // ---------- Cameras ----------
 let camMode = 'follow';
 let view = 'simulate';
@@ -2537,7 +2678,7 @@ function setExperiment(n) {
   $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom; $('vision').hidden = !(cfg.classroom && visionOn);
   $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : 'words built';
   $('memHead').textContent = cfg.classroom ? 'Tablemates · lesson progress' : 'Word part memory · Kenyon cell to MBON weights';
-  document.querySelectorAll('.mini[data-cls]').forEach(el => { el.hidden = !cfg.classroom; }); document.querySelectorAll('#dockBottom .mini:not([data-cls])').forEach(el => { el.hidden = !!cfg.classroom; }); requestAnimationFrame(() => sizeCharts()); // size the strip charts that just became visible
+  document.querySelectorAll('#brainPanel [data-rp]').forEach(el => { el.hidden = !el.dataset.rp.split(' ').includes(String(n)); }); requestAnimationFrame(() => { sizeCharts(); resize(); renderScenario(true); }); // right panel sections for this scenario
   if (cfg.classroom) { setFocal(cls.focal); classroomStart(); } else head.add(eyeCam);
   phone.scale.setScalar(s); phone.position.set(0, TABLE_Y + 4 * s, 0); phone.updateMatrixWorld(true);
   phone.visible = !cfg.laptop && !cfg.classroom; laptop.visible = !!cfg.laptop;
@@ -2653,10 +2794,10 @@ function frame(now) {
     if (game.flash && now - game.flash.t < 800 && now - flashRedraw > 120) { flashRedraw = now; redrawScreen(now); }
     if (EXP[experiment].laptop && now - lapLast > (experiment === 6 ? 120 : 400)) { lapLast = now; drawLaptop(); }
     hudAcc += raw; if (hudAcc > 0.07) { hudAcc = 0; renderBrainHud(); }
-    if (experiment !== 7) sampleTelemetry(now);
+    if (experiment !== 7) { sampleTelemetry(now); sampleScenario(now, dt); }
   }
   updateCamera(); controls2.update();
-  if (view === 'simulate') { renderer.render(scene, camera); renderEye(); if (experiment === 7 && visionOn) drawVision(); renderer2.render(scene2, camera2); if (drawDashboards(now)) { if (experiment === 7) drawClassStrip(); else drawMiniStrip(); } }
+  if (view === 'simulate') { renderer.render(scene, camera); renderEye(); if (experiment === 7 && visionOn) drawVision(); if (BRAIN_EXPS.includes(experiment)) renderer2.render(scene2, camera2); if (drawDashboards(now)) drawStrip(); if (now - rpAt > 250) { rpAt = now; renderScenario(); } }
   else if (view === 'dash') drawDashboards(now);
 }
 requestAnimationFrame(frame);
@@ -2739,18 +2880,6 @@ document.getElementById('dockFull').addEventListener('click', e => { const t = e
 document.querySelectorAll('[data-dock]').forEach(b => b.addEventListener('click', () => { dockChoice = b.dataset.dock; dock(dockChoice); }));
 const stageEl = document.getElementById('stage');
 document.getElementById('dockHide').addEventListener('click', () => { const on = stageEl.classList.toggle('nodock'); document.getElementById('dockLeft').hidden = on; document.getElementById('dockHide').textContent = on ? 'Show panel' : 'Hide panel'; document.getElementById('dockHide').setAttribute('aria-pressed', String(!on)); resize(); sizeCharts(); });
-function drawMiniStrip() {
-  const S = tele.samples, last = S[S.length - 1], T = tele.trials;
-  const $t = (id, v) => { const el = document.getElementById(id); if (el.textContent !== String(v)) el.textContent = v; };
-  if (last) { $t('mAdh', Math.round(last.adhesion) + ' µN'); $t('mCon', last.contrast.toFixed(2)); $t('mDist', last.dist.toFixed(1) + ' mm'); $t('mDopa', last.dopa.toFixed(2)); }
-  const lt = T[T.length - 1]; if (lt) { $t('mDw', (lt.dw >= 0 ? '+' : '') + lt.dw.toFixed(3)); $t('mDiv', lt.exp === 3 ? 'n/a' : lt.divergence.toFixed(1)); }
-  lineChart('cmAdh', [{ name: 'Adhesion', color: CH.blue, get: s => s.adhesion, area: 'rgba(0,33,165,0.08)' }], { ymin: 0, ymax: 80, unit: 'µN', compact: true });
-  lineChart('cmCon', [{ name: 'Contrast', color: CH.blue, get: s => s.onScreen ? s.contrast : null }], { ymin: 0, ymax: 1, compact: true });
-  lineChart('cmDist', [{ name: 'Eye to glass', color: CH.blue, get: s => Math.min(30, s.dist) }], { ymin: 0, ymax: 30, unit: 'mm', band: [1, 10], compact: true });
-  lineChart('cmDopa', [{ name: 'Dopamine', color: CH.blue, get: s => s.dopa, area: 'rgba(242,169,0,0.18)' }], { ymin: 0, ymax: 1, compact: true });
-  barChart('cmDw', T.slice(-20).map(x => ({ v: x.dw, color: x.dw >= 0 ? CH.green : CH.red, label: `${x.needed}: Δw ${x.dw.toFixed(3)}` })), { ymax: 0.25, compact: true, empty: 'No answers yet' });
-  barChart('cmDiv', T.filter(x => x.exp !== 3).slice(-20).map(x => ({ v: x.divergence, color: x.divergence > 10 ? CH.red : CH.blue, label: `divergence ${x.divergence.toFixed(1)}` })), { ymax: 14, threshold: 10, positive: true, compact: true, empty: 'No paths yet' });
-}
 function frameAxes(o, pad) { const { ctx, w, h } = o; ctx.clearRect(0, 0, w, h); ctx.strokeStyle = CH.grid; ctx.lineWidth = 1; ctx.beginPath(); for (let i = 0; i <= 2; i++) { const y = pad.t + (h - pad.t - pad.b) * i / 2; ctx.moveTo(pad.l, y); ctx.lineTo(w - pad.r, y); } ctx.stroke(); }
 function label(o, x, y, text, align = 'left', color = CH.muted) { const { ctx } = o; ctx.fillStyle = color; ctx.font = `700 11px ${DISPLAY}`; ctx.textAlign = align; ctx.textBaseline = 'middle'; ctx.fillText(text, x, y); }
 // time-series line chart over telemetry samples
@@ -2947,26 +3076,16 @@ function drawDashboards(now, force) {
   return true;
 }
 // line chart over the classroom history (cls.hist), same look as lineChart
-function classLine(id, series, opt = {}) {
+function classLine(id, series, opt = {}, H = cls.hist) {
   const o = chart(id); if (!o.w) return; const { ctx, w, h } = o; const pad = opt.compact ? { l: 30, r: 6, t: 6, b: 6 } : { l: 40, r: 8, t: 8, b: 18 }; frameAxes(o, pad);
-  const H = cls.hist; if (H.length < 2) { label(o, w / 2, h / 2, experiment === 7 ? 'Collecting samples' : 'Runs in Experiment 7', 'center'); return; }
-  const t0 = H[0].t, t1 = H[H.length - 1].t, span = Math.max(1, t1 - t0), ymin = opt.ymin ?? 0, ymax = opt.ymax ?? Math.max(1, ...H.map(p => series[0].get(p)));
+  if (H.length < 2) { label(o, w / 2, h / 2, H === cls.hist && experiment !== 7 ? 'Runs in Experiment 7' : 'Collecting samples', 'center'); return; }
+  const t0 = H[0].t, t1 = H[H.length - 1].t, span = Math.max(1, t1 - t0), ymin = opt.ymin ?? 0, ymax = opt.ymax ?? Math.max(1, ...H.map(p => series[0].get(p) ?? 0));
   const X = t => pad.l + (w - pad.l - pad.r) * (t - t0) / span, Y = v => pad.t + (h - pad.t - pad.b) * (1 - (v - ymin) / (ymax - ymin));
-  series.forEach(sr => { ctx.strokeStyle = sr.color; ctx.lineWidth = 2; ctx.lineJoin = 'round'; ctx.beginPath(); H.forEach((p, i) => { const x = X(p.t), y = Y(sr.get(p)); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke(); });
+  series.forEach(sr => { ctx.strokeStyle = sr.color; ctx.lineWidth = 2; ctx.lineJoin = 'round'; ctx.beginPath(); let on = false; H.forEach(p => { const v = sr.get(p); if (v == null) { on = false; return; } const x = X(p.t), y = Y(v); on ? ctx.lineTo(x, y) : ctx.moveTo(x, y); on = true; }); ctx.stroke(); });
   const fm = v => Math.abs(v) >= 10 ? String(Math.round(v)) : v.toFixed(opt.compact ? 0 : 1);
   label(o, pad.l - 4, Y(ymax), fm(ymax), 'right'); label(o, pad.l - 4, Y(ymin), fm(ymin), 'right');
   if (!opt.compact) { label(o, pad.l, h - 6, `${Math.round(span)} s`, 'left'); label(o, w - pad.r, h - 6, 'now', 'right'); }
-  if (o.hover) { const tt = t0 + (o.hover[0] - pad.l) / (w - pad.l - pad.r) * span; let best = H[0]; for (const p of H) if (Math.abs(p.t - tt) < Math.abs(best.t - tt)) best = p; o.tipFn = () => series.map(sr => `${sr.name}: ${sr.get(best).toFixed(2)}`).join(' · ') + ` · ${(t1 - best.t).toFixed(0)} s ago`; } else o.tipFn = null;
-}
-function drawClassStrip() {
-  const H = cls.hist, p = H[H.length - 1]; const $t = (id, v) => { const el = document.getElementById(id); if (el.textContent !== String(v)) el.textContent = v; };
-  if (p) { $t('mcTask', Math.round(p.onTask * 100) + '%'); $t('mcCourt', p.courting); $t('mcDone', `${p.done} of 24`); $t('mcMast', p.mastery.toFixed(2)); $t('mcDrive', p.drive.toFixed(2)); $t('mcAtt', p.att.toFixed(2)); }
-  classLine('cmcTask', [{ name: 'On task', color: CH.blue, get: q => q.onTask }], { ymin: 0, ymax: 1, compact: true });
-  classLine('cmcCourt', [{ name: 'Courting', color: CH.red, get: q => q.courting }], { ymin: 0, ymax: 6, compact: true });
-  classLine('cmcDone', [{ name: 'Finished', color: CH.green, get: q => q.done }], { ymin: 0, ymax: 24, compact: true });
-  classLine('cmcMast', [{ name: 'Mean mastery', color: CH.blue, get: q => q.mastery }], { ymin: 0, ymax: 1, compact: true });
-  classLine('cmcDrive', [{ name: 'Male drive', color: CH.amber, get: q => q.drive }], { ymin: 0, ymax: 1, compact: true });
-  classLine('cmcAtt', [{ name: 'Attention', color: CH.blue, get: q => q.att }], { ymin: 0, ymax: 1, compact: true });
+  if (o.hover) { const tt = t0 + (o.hover[0] - pad.l) / (w - pad.l - pad.r) * span; let best = H[0]; for (const p of H) if (Math.abs(p.t - tt) < Math.abs(best.t - tt)) best = p; o.tipFn = () => series.map(sr => `${sr.name}: ${sr.get(best) == null ? '–' : sr.get(best).toFixed(2)}`).join(' · ') + ` · ${(t1 - best.t).toFixed(0)} s ago`; } else o.tipFn = null;
 }
 
 // slideshow presence check (a HEAD request; the About card only offers the download when the file is deployed)
