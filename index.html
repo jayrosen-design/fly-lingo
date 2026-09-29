@@ -360,7 +360,7 @@ pre.mermaid svg{max-width:none;height:auto}
       <button type="button" class="pill toggle" id="seasonBtn" aria-pressed="true" hidden>Mating season on</button>
       <button type="button" class="pill toggle" id="overlayBtn" aria-pressed="true" hidden>Hide social overlay</button>
       <button type="button" class="pill toggle" id="visionBtn" aria-pressed="false" hidden>Show vision overlay</button>
-      <button type="button" class="pill toggle" id="soundBtn" aria-pressed="false" hidden>Turn sound on</button>
+      <button type="button" class="pill toggle" id="soundBtn" aria-pressed="false" hidden>Sound off</button>
     </div>
     <p id="expNote">Experiment 1 · Walking. The fly walks across a phone lying on the table and presses tiles with a foreleg.</p>
     <div id="eyeLabel" aria-hidden="true"><span class="eyebrow">Fly eye</span><span>750 ommatidia · 4.5° between axes</span></div>
@@ -836,7 +836,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <figure><img loading="lazy" src="docs/screenshots/exp8-screen.png" alt="Experiment 8 phonics app: letter boxes with their sounds, the Listen button, a spectrogram of the buzz, the heard row and the mic button"><figcaption><strong>8 · The phonics app.</strong> Letter boxes with the sound each spells, the Listen button, a spectrogram of the fly's buzz, what the recogniser heard, and the mic.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/dashboards-8.png" alt="Dashboard 8: phonics session counters, letter-sound memory, confusion matrix"><figcaption><strong>Dashboard 8 · Phonics and wing song.</strong> Words said right, sounds right, a letter-sound memory per phoneme, a confusion matrix of target against heard sounds, and the last attempt's spectrogram.</figcaption></figure>
       </div>
-      <p>A fly has no voice, but male Drosophila do make sound: they vibrate one extended wing to sing a courtship song with two parts, a pulse song whose pulses come about 35 ms apart and a sine song that hums near 150 Hz, and they hear it with the Johnston's organ in the antennae. The phonics experiment borrows that apparatus. Stop consonants are sung as pulse song, three pulses 35 ms apart filtered at the consonant's burst frequency; vowels are a hum shaped by the vowel's first two formants; fricatives are a hiss fluttered at the wingbeat; nasals and liquids are low or gliding hums. Turn the sound on to hear it; the app's model word uses the browser's speech voice where one is available. Each sound is right with a probability set by its letter-sound memory, and wrong ones are the confusions a phonics teacher expects, such as /t/ for /k/ or /s/ for /ʃ/.</p>
+      <p>A fly has no voice, but male Drosophila do make sound: they vibrate one extended wing to sing a courtship song with two parts, a pulse song whose pulses come about 35 ms apart and a sine song that hums near 150 Hz, and they hear it with the Johnston's organ in the antennae. The phonics experiment borrows that apparatus. Stop consonants are sung as pulse song, three pulses 35 ms apart filtered at the consonant's burst frequency; vowels are a hum shaped by the vowel's first two formants; fricatives are a hiss fluttered at the wingbeat; nasals and liquids are low or gliding hums. You hear the buzz while the fly sings, and only then: a wingbeat hum near 200 Hz with the second wing slightly detuned, coloured by each sound. Each sound is right with a probability set by its letter-sound memory, and wrong ones are the confusions a phonics teacher expects, such as /t/ for /k/ or /s/ for /ʃ/.</p>
       <article class="card"><h3>Sources for the wing song</h3><ul class="refs">
         <li>Bennet-Clark, H. C., &amp; Ewing, A. W. (1969). Pulse interval as a critical parameter in the courtship song of <em>Drosophila melanogaster</em>. <em>Animal Behaviour, 17</em>, 755–759.</li>
         <li>von Schilcher, F. (1976). The function of pulse song and sine song in the courtship of <em>Drosophila melanogaster</em>. <em>Animal Behaviour, 24</em>, 622–625.</li>
@@ -958,7 +958,7 @@ const EXP = {
   5: { name: 'Teacher', note: 'Experiment 5 · Teacher. A fly-sized laptop with a gradebook of the flies from Experiments 1 to 4. The screen is not touchable: the teacher stays on the trackpad and steers the cursor with one foreleg, presses the pad to click, and steps over to tap keys.', phys: 'Fly-sized laptop · trackpad only, no touch', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   6: { name: 'District admin', note: 'Experiment 6 · District admin. The admin fly watches nine students on a 3 × 3 grid of webcam sessions. A vision overlay boxes each fly, its forelegs and its gaze; FlyAI flags suspected cheating and the admin steers the cursor to the tile and sends a check-in.', phys: 'Fly-sized laptop · trackpad only · vision overlay', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   7: { name: 'Classroom', note: 'Experiment 7 · Classroom. Twenty-four students, twelve female and twelve male, at six round tables with a fly-sized tablet each, in mating season. Every fly has to finish twelve items. Rings show what each fly is doing; the vision overlay boxes every fly, its forelegs and its gaze. Click a fly to follow it and see its brain.', phys: '24 flies · 6 tables', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 10, 17], classroom: true },
-  8: { name: 'Phonics', note: 'Experiment 8 · Phonics. The app shows a word, says it, and asks the fly to say it back. A fly cannot speak, so it stands on the mic facing the word, holds the mic down with a foreleg, and sings each sound with one extended wing: pulse song for k, t, d, a formant-shaped hum for vowels, a fluttered hiss for s and sh. Turn the sound on to hear it.', phys: 'Wing song · pulse and sine', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-13, 11, 20] },
+  8: { name: 'Phonics', note: 'Experiment 8 · Phonics. The app shows a word, plays it, and asks the fly to say it back. A fly cannot speak, so it stands on the mic facing the word, holds the mic down with a foreleg, and sings each sound with one extended wing: pulse song for k, t, d, a formant-shaped hum for vowels, a fluttered hiss for s and sh. You hear the buzz only while it sings; the pill above the arena turns it off.', phys: 'Wing song · pulse and sine', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-13, 11, 20] },
 };
 let experiment = 1;
 
@@ -2699,7 +2699,7 @@ $('rpMapCv').addEventListener('click', e => {
 });
 
 // =====================================================================
-// Experiment 8: Phonics. The app shows a word, says it, and asks the fly to say it back.
+// Experiment 8: Phonics. The app shows a word, plays it, and asks the fly to say it back.
 // A fly cannot speak, so it sings the sounds with one extended wing, the way Drosophila courtship song
 // is made: stop consonants become pulse song (three clicks 35 ms apart, the species' interpulse interval),
 // vowels a sine-song hum shaped by the vowel's formants, fricatives a wing-fluttered hiss, nasals a low hum.
@@ -2729,32 +2729,54 @@ const phon = { idx: 0, word: PWORDS[0], stage: 'read', attempt: 0, plan: [], hea
 const memP = p => { if (!phon.mem.has(p)) phon.mem.set(p, 0.25); return phon.mem.get(p); };
 const slash = p => `/${PH[p].ipa}/`;
 function phLog(text) { phon.log.push({ t: TDT(), text }); if (phon.log.length > 60) phon.log.shift(); game.feedback = text; }
-// ---------- sound: Web Audio synthesis of the wing song, off until the viewer turns it on ----------
-const audio = { ctx: null, on: false, master: null, noise: null };
+// ---------- sound: a live fly buzz, heard only while the fly sings ----------
+// One persistent voice: a sawtooth wingbeat near 200 Hz with a slightly detuned second wing (the beating hum of two wings),
+// a wingstroke tremolo, formant filters that colour vowels, a noise band for fricatives, and a gated path for pulse song.
+// updateVoice() runs every frame and mutes everything unless Experiment 8 is playing and the fly is singing.
+const audio = { ctx: null, on: false, userOff: false, master: null, v: null };
+window.__audio = audio; // debug hook, like window.__cls
 function audioInit() {
-  if (!audio.ctx) { const A = window.AudioContext || window.webkitAudioContext; if (!A) return false; audio.ctx = new A(); audio.master = audio.ctx.createGain(); audio.master.gain.value = 0.3; audio.master.connect(audio.ctx.destination);
-    const n = audio.ctx.createBuffer(1, audio.ctx.sampleRate, audio.ctx.sampleRate), d = n.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; audio.noise = n; }
+  if (!audio.ctx) {
+    const A = window.AudioContext || window.webkitAudioContext; if (!A) return false; const c = audio.ctx = new A();
+    audio.master = c.createGain(); audio.master.gain.value = 0.45; audio.master.connect(c.destination);
+    const osc = c.createOscillator(); osc.type = 'sawtooth'; osc.frequency.value = 200;
+    const osc2 = c.createOscillator(); osc2.type = 'square'; osc2.frequency.value = 201.6; const o2g = c.createGain(); o2g.gain.value = 0.3;
+    const body = c.createGain(); body.gain.value = 0.7; const trem = c.createOscillator(); trem.frequency.value = 24; const tg = c.createGain(); tg.gain.value = 0.25; trem.connect(tg).connect(body.gain);
+    osc.connect(body); osc2.connect(o2g).connect(body);
+    const lp = c.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2400; lp.Q.value = 0.8; body.connect(lp);
+    const band = (f, q) => { const x = c.createBiquadFilter(); x.type = 'bandpass'; x.frequency.value = f; x.Q.value = q; return x; };
+    const f1 = band(700, 5), f2 = band(1700, 5), f1g = c.createGain(), f2g = c.createGain(), dry = c.createGain(); f1g.gain.value = f2g.gain.value = 0; dry.gain.value = 1;
+    lp.connect(f1).connect(f1g); lp.connect(f2).connect(f2g); lp.connect(dry);
+    const voice = c.createGain(); voice.gain.value = 0; f1g.connect(voice); f2g.connect(voice); dry.connect(voice); voice.connect(audio.master);
+    const pulse = c.createGain(); pulse.gain.value = 0; lp.connect(pulse); pulse.connect(audio.master);
+    const buf = c.createBuffer(1, c.sampleRate, c.sampleRate), d = buf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    const noise = c.createBufferSource(); noise.buffer = buf; noise.loop = true; const nbp = band(4000, 1.4), ng = c.createGain(); ng.gain.value = 0; noise.connect(nbp).connect(ng).connect(audio.master);
+    [osc, osc2, trem, noise].forEach(x => x.start());
+    audio.v = { osc, osc2, lp, f1, f2, f1g, f2g, dry, voice, pulse, nbp, ng };
+  }
   audio.ctx.resume(); return true;
 }
-function buzzSound(p, dur, f0) {
-  if (!audio.on || !audio.ctx) return; const c = audio.ctx, t = c.currentTime + 0.01, P = PH[p], env = c.createGain(); env.connect(audio.master); env.gain.setValueAtTime(0, t);
-  const hold = (v, a = 0.03) => { env.gain.linearRampToValueAtTime(v, t + a); env.gain.setValueAtTime(v, t + dur - 0.05); env.gain.linearRampToValueAtTime(0, t + dur); };
-  const run = (...xs) => xs.forEach(x => { x.start(t); x.stop(t + dur + 0.03); });
-  if (P.kind === 'vowel' || P.kind === 'liquid') {
-    const o = c.createOscillator(); o.type = 'sawtooth'; o.frequency.setValueAtTime(f0, t); if (P.kind === 'liquid') o.frequency.linearRampToValueAtTime(f0 * 1.15, t + dur);
-    const lfo = c.createOscillator(); lfo.frequency.value = 7; const lg = c.createGain(); lg.gain.value = 5; lfo.connect(lg).connect(o.frequency);
-    [P.f1, P.f2].forEach((f, k) => { const bp = c.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = f; bp.Q.value = 6; const g = c.createGain(); g.gain.value = k ? 0.7 : 1.2; o.connect(bp).connect(g).connect(env); });
-    const hum = c.createOscillator(); hum.frequency.value = f0; const hg = c.createGain(); hg.gain.value = 0.3; hum.connect(hg).connect(env); hold(0.9); run(o, lfo, hum);
-  } else if (P.kind === 'nasal') {
-    const o = c.createOscillator(); o.type = 'triangle'; o.frequency.value = f0 * 0.8; const lp = c.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 500; o.connect(lp).connect(env); hold(0.9, 0.04); run(o);
-  } else {
-    const src = c.createBufferSource(); src.buffer = audio.noise; const bp = c.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = P.f; bp.Q.value = P.kind === 'stop' ? 3 : 1.5; src.connect(bp).connect(env);
-    if (P.kind === 'stop') for (let k = 0; k < 3; k++) { const s = t + k * 0.035; env.gain.setValueAtTime(0.001, s); env.gain.linearRampToValueAtTime(1, s + 0.004); env.gain.exponentialRampToValueAtTime(0.001, s + 0.022); }
-    else { const am = c.createOscillator(); am.frequency.value = f0; const ag = c.createGain(); ag.gain.value = 0.3; am.connect(ag).connect(env.gain); hold(0.5, 0.04); run(am); }
-    run(src);
-  }
+function updateVoice() {
+  const V = audio.v; if (!V) return; const c = audio.ctx, t = c.currentTime;
+  const live = audio.on && experiment === 8 && playing && view === 'simulate' && !document.hidden && agent.phase === 'p_buzz' && phon.stage === 'mic';
+  const s = live ? phon.plan[phon.cur] : null, P = s ? PH[s.q] : null, kind = P ? P.kind : null, amp = s ? flyState.songAmp : 0, vowel = kind === 'vowel' || kind === 'liquid';
+  const f0 = phon.f0 * (kind === 'nasal' ? 0.85 : 1);
+  V.osc.frequency.setTargetAtTime(f0, t, 0.02); V.osc2.frequency.setTargetAtTime(f0 * 1.008, t, 0.02);
+  V.voice.gain.setTargetAtTime(!kind || kind === 'stop' ? 0 : kind === 'fric' ? 0.3 * amp : 0.9 * amp, t, 0.012);
+  V.lp.frequency.setTargetAtTime(kind === 'nasal' ? 450 : 2400, t, 0.03);
+  if (vowel) { V.f1.frequency.setTargetAtTime(P.f1, t, 0.03); V.f2.frequency.setTargetAtTime(P.f2, t, 0.03); }
+  V.f1g.gain.setTargetAtTime(vowel ? 1.6 : 0, t, 0.03); V.f2g.gain.setTargetAtTime(vowel ? 1.1 : 0, t, 0.03); V.dry.gain.setTargetAtTime(vowel ? 0.4 : 1, t, 0.03);
+  if (kind === 'fric') V.nbp.frequency.setTargetAtTime(P.f, t, 0.02);
+  V.ng.gain.setTargetAtTime(kind === 'fric' ? 0.55 * amp : 0, t, 0.012);
+  if (!live) { V.pulse.gain.cancelScheduledValues(t); V.pulse.gain.setTargetAtTime(0, t, 0.01); }
 }
-function speakModel(word) { if (audio.on && 'speechSynthesis' in window) { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(word); u.rate = 0.7; speechSynthesis.speak(u); } catch (e) { /* no voice available */ } } }
+// pulse song for a stop consonant: three short bursts of the wingbeat, 35 ms apart in real time
+function pulseBurst() {
+  const V = audio.v; if (!V || !audio.on || experiment !== 8) return; const g = V.pulse.gain, t = audio.ctx.currentTime + 0.005;
+  g.cancelScheduledValues(t); for (let k = 0; k < 3; k++) { const s = t + k * 0.035; g.setValueAtTime(0, s); g.linearRampToValueAtTime(1.3, s + 0.003); g.linearRampToValueAtTime(0, s + 0.017); }
+}
+function syncSoundBtn() { $('soundBtn').setAttribute('aria-pressed', String(audio.on)); $('soundBtn').textContent = audio.on ? 'Sound on · buzz plays while it sings' : 'Sound off'; }
+document.addEventListener('visibilitychange', () => { if (audio.ctx) { if (document.hidden) audio.ctx.suspend(); else if (audio.on) audio.ctx.resume(); } });
 // ---------- spectrogram of the buzz (64 bands to 8 kHz), drawn from the same model that drives the synthesis ----------
 const spectro = document.createElement('canvas'); spectro.width = 240; spectro.height = 64; const spc = spectro.getContext('2d');
 function spectrumOf(p, k, amp, f0) {
@@ -2815,7 +2837,7 @@ function stepPhonics(dt, now) {
   const redraw = () => { if (now - P.drawAt > 80) { P.drawAt = now; redrawScreen(now); } };
   switch (agent.phase) {
     case 'p_look': st.headYaw = Math.sin(agent.t * 9) * 0.22; pulse(0, 0.9); pulse(1, 0.9); pulse(2, 0.5);
-      if (agent.t > 1.3) { st.headYaw = 0; P.stage = 'listen'; speakModel(P.word.word); setPhase('p_listen'); } break;
+      if (agent.t > 1.3) { st.headYaw = 0; P.stage = 'listen'; setPhase('p_listen'); } break;
     case 'p_listen': pulse(6, 0.9); pulse(7, 0.9); pulse(10, 0.4); redraw();
       if (agent.t > 1.4) { P.stage = 'go'; agent.goal = pxToWorld(...P_STAND); agent.goalYaw = Math.PI; setPhase('p_walk'); redrawScreen(now); } break;
     case 'p_walk': case 'p_back':
@@ -2830,7 +2852,7 @@ function stepPhonics(dt, now) {
     case 'p_buzz': {
       let acc = agent.t, i = 0; while (i < P.plan.length && acc > P.plan[i].dur + 0.07) { acc -= P.plan[i].dur + 0.07; i++; }
       if (i >= P.plan.length) { finishAttempt(); redrawScreen(now); renderTrial(); setPhase('p_react'); break; }
-      if (i !== P.cur) { if (P.cur >= 0) resolveSound(P.cur); P.cur = i; buzzSound(P.plan[i].q, P.plan[i].dur, P.f0); renderTrial(); }
+      if (i !== P.cur) { if (P.cur >= 0) resolveSound(P.cur); P.cur = i; if (PH[P.plan[i].q].kind === 'stop') pulseBurst(); renderTrial(); }
       const s = P.plan[i], gap = acc > s.dur, kind = PH[s.q].kind;
       st.headYaw += ((P.plan.length > 1 ? (i / (P.plan.length - 1) - 0.5) * -0.5 : 0) - st.headYaw) * Math.min(1, dt * 6); // eyes follow the letter being sung
       st.songAmp = gap ? 0 : kind === 'stop' ? ((acc * 1000) % 35 < 12 && acc < 0.105 ? 1 : 0.2) : Math.min(1, acc / 0.04, (s.dur - acc) / 0.05);
@@ -2838,7 +2860,7 @@ function stepPhonics(dt, now) {
       P.ringAcc += dt; if (!gap && P.ringAcc > 0.12) { P.ringAcc = 0; spawnRipple(kind); }
       pulse(13, 0.4 + 0.6 * st.songAmp); pulse(11, 0.75); pulse(2, 0.6); pulse(6, 0.5); pulse(7, 0.5); redraw(); break; }
     case 'p_react': st.headYaw *= 0.9; if (agent.t > 1.6) { const done = P.heard.length && P.plan.every(s => s.p === s.q);
-        if (done) setPhase('p_celebrate'); else if (P.attempt < 2) { P.stage = 'listen'; speakModel(P.word.word); setPhase('p_listen'); redrawScreen(now); }
+        if (done) setPhase('p_celebrate'); else if (P.attempt < 2) { P.stage = 'listen'; setPhase('p_listen'); redrawScreen(now); }
         else { nextPhonicsWord(); agent.goal = pxToWorld(...P_READ); agent.goalYaw = Math.PI; setPhase('p_back'); redrawScreen(now); renderTrial(); } } break;
     case 'p_celebrate': st.buzz = Math.max(st.buzz, 0.3); pulse(3, 0.9); pulse(4, 0.9);
       if (agent.t > 1.6) { nextPhonicsWord(); agent.goal = pxToWorld(...P_READ); agent.goalYaw = Math.PI; setPhase('p_back'); redrawScreen(now); renderTrial(); } break;
@@ -2943,7 +2965,7 @@ function setExperiment(n) {
   game.scrollY = 0; game.placed = Math.min(game.placed, 2); agent.wordDone = false; agent.swipe = null; currentTraj = [];
   buildTiles(); plantFeet(); redrawScreen(performance.now()); renderTrial(); setPhase(cfg.laptop ? 't_read' : 'look'); if (cfg.laptop) { agent.t = 0; agent.plan = []; agent.step = null; } setCamMode(cfg.classroom && !wasClass ? 'phone' : camMode);
   if (cfg.classroom) $('phasePill').textContent = 'Class in session';
-  if (n === 8) phonicsStart();
+  if (n === 8) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); phonicsStart(); }
   // the side panel follows the experiment to its most related dashboard (after start-up, once the dock code exists)
   requestAnimationFrame(() => { dockChoice = DOCK_FOR[n]; if (view === 'simulate') dock(dockChoice); });
 }
@@ -2952,7 +2974,7 @@ document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click',
 $('pathsBtn').addEventListener('click', () => { showPaths = !showPaths; $('pathsBtn').setAttribute('aria-pressed', String(showPaths)); $('pathsBtn').textContent = showPaths ? 'Hide paths' : 'Show paths'; Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === experiment; }); ghostLine.visible = showPaths && experiment !== 3 && !!agent.ghost; });
 $('seasonBtn').addEventListener('click', () => { cls.season = !cls.season; $('seasonBtn').setAttribute('aria-pressed', String(cls.season)); $('seasonBtn').textContent = cls.season ? 'Mating season on' : 'Mating season off'; clsLog(cls.season ? 'Mating season: courtship drive restored.' : 'Out of season: courtship drive drops to a tenth.'); drawBoard(); });
 $('visionBtn').addEventListener('click', () => { visionOn = !visionOn; $('visionBtn').setAttribute('aria-pressed', String(visionOn)); $('visionBtn').textContent = visionOn ? 'Hide vision overlay' : 'Show vision overlay'; $('vision').hidden = !visionOn; });
-$('soundBtn').addEventListener('click', () => { audio.on = !audio.on && audioInit(); if (!audio.on && 'speechSynthesis' in window) speechSynthesis.cancel(); $('soundBtn').setAttribute('aria-pressed', String(audio.on)); $('soundBtn').textContent = audio.on ? 'Turn sound off' : 'Turn sound on'; });
+$('soundBtn').addEventListener('click', () => { audio.on = !audio.on && audioInit(); audio.userOff = !audio.on; syncSoundBtn(); });
 $('overlayBtn').addEventListener('click', () => { clsOverlay = !clsOverlay; $('overlayBtn').setAttribute('aria-pressed', String(clsOverlay)); $('overlayBtn').textContent = clsOverlay ? 'Hide social overlay' : 'Show social overlay'; });
 $('heatBtn').addEventListener('click', () => { showHeat = !showHeat; if (EXP[experiment].laptop) drawLaptop(); $('heatBtn').setAttribute('aria-pressed', String(showHeat)); $('heatBtn').textContent = showHeat ? 'Hide landing heatmap' : 'Show landing heatmap'; redrawScreen(performance.now()); });
 
@@ -3042,7 +3064,7 @@ function frame(now) {
     hudAcc += raw; if (hudAcc > 0.07) { hudAcc = 0; renderBrainHud(); }
     if (experiment !== 7) { sampleTelemetry(now); sampleScenario(now, dt); }
   }
-  updateCamera(); controls2.update();
+  updateCamera(); controls2.update(); if (audio.v) updateVoice();
   if (view === 'simulate') { renderer.render(scene, camera); renderEye(); if (experiment === 7 && visionOn) drawVision(); if (BRAIN_EXPS.includes(experiment)) renderer2.render(scene2, camera2); if (drawDashboards(now)) drawStrip(); if (now - rpAt > 250) { rpAt = now; renderScenario(); } }
   else if (view === 'dash') drawDashboards(now);
 }
