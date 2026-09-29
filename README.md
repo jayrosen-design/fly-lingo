@@ -27,12 +27,12 @@ From a terminal with the Vercel CLI, `npx vercel` from the repository root does 
 
 The app is one page with four views, switched by the tabs in the header and by hash routes (`#home`, `#simulate`, `#dashboards`, `#about`). The home page explains the project and shows a card for each experiment; picking a card opens that experiment in the simulator.
 
-![The home page: a short explanation of the project and a grid of eight experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
+![The home page: a short explanation of the project and a grid of nine experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
 
 | | |
 | --- | --- |
 | ![The Simulate view: the fly taking off in Experiment 2, brain panel on the right](docs/screenshots/app-simulate.png) | ![The Dashboards view: psychometric cards with the Q-matrix, G-DINA mastery, Half-Life Regression and the Wright map](docs/screenshots/dashboards-3.png) |
-| **Simulate.** The arena with the fly-eye inset, a scenario panel on the right, a dockable dashboard panel on the left that switches to the running experiment's dashboard (1 Kinematic, 2 Curriculum, 3 Psychometric, 4 Connectomic, 5 Teacher, 6 Admin, 7 Classroom, 8 Phonics; a green dot marks it; pick another with the buttons at its top, or hide it; its header names the dashboard and offers Notes for the explanatory text, Collapse all, and Full view, and each card folds by clicking its title), and a bottom strip of six live charts. The right panel and the strip also change with the experiment; see the table below. | **Dashboards.** Four dashboards from the EDLS psychometric specification, fed by telemetry from the running simulation. |
+| **Simulate.** The arena with the fly-eye inset, a scenario panel on the right, a dockable dashboard panel on the left that switches to the running experiment's dashboard (1 Kinematic, 2 Curriculum, 3 Psychometric, 4 Connectomic, 5 Teacher, 6 Admin, 7 Classroom, 8 Phonics, 9 Reading; a green dot marks it; pick another with the buttons at its top, or hide it; its header names the dashboard and offers Notes for the explanatory text, Collapse all, and Full view, and each card folds by clicking its title), and a bottom strip of six live charts. The right panel and the strip also change with the experiment; see the table below. | **Dashboards.** Four dashboards from the EDLS psychometric specification, fed by telemetry from the running simulation. |
 | ![The Dashboards view on a phone: adhesion and contrast cards stacked](docs/screenshots/phone-dashboards.png) | ![The About view: research library with report thumbnails, page images and download buttons](docs/screenshots/about-library.png) |
 | **Phone layout.** Single-column cards, header controls in a strip. | **About.** What the app simulates and what it is trying to learn, the research library with downloadable PDFs and page images, and all 187 sources the reports cite. |
 
@@ -48,6 +48,7 @@ The left panel docks the most related dashboard. The right panel and the bottom 
 | 4 · Spelling | Live laptop screen, spelling card (letters so far, next part, key accuracy), brain, memory | Letters typed, keys right and wrong, flight speed, height above keys, Δw per letter, dopamine |
 | 5 · Teacher | Live gradebook screen, grading queue, the teacher's next actions, cursor and foreleg state; no brain | Cursor path, clicks and misclicks, movement time, grading error, keystrokes, students graded |
 | 6 · District admin | Live proctoring screen, open flags, FlyAI's latest recommendation, next actions; no brain | Mean attention, open flags, detections, flag precision, check-ins, response time |
+| 9 · Reading | Live copy of the storybook page, reading card (word now, voice, last page's rate and accuracy, hover height), brain, vocabulary memory | Reading voice, words per minute, reading accuracy, vocabulary memory, Stop & Think, dopamine |
 | 8 · Phonics | Live copy of the phonics app, wing-song card (sound being sung, song mode, carrier pitch, wing), brain, letter-sound memory | Wing song amplitude, sounds right per attempt, letter-sound memory, Δw per sound, antennal hearing, dopamine |
 | 7 · Classroom | Clickable seating chart of all 24 flies, a card for the followed fly, its brain, tablemates | On task, courting now, finished, mean mastery, male courtship drive, followed fly's attention |
 
@@ -100,6 +101,7 @@ Switch with the control at the top left of the header. All three share the same 
 | 4 · Spelling | Real-size laptop with a spelling activity | Hovers in front of the screen | Flies key to key and presses each letter with its body | Letter answers into the same trials, memory and dashboards |
 | 5 · Teacher | Fly-sized laptop with a gradebook, trackpad only, no touch | Reads from the trackpad | Steers the cursor with one foreleg on the pad, presses the pad to click, steps over to tap keys | Clicks, misclicks, keystrokes, Fitts' law, cursor heatmap, grading error |
 | 6 · District admin | Fly-sized laptop with nine webcam sessions, a vision overlay and FlyAI | Watches the grid | Steers to a flagged tile, opens it, clicks the check-in button | Flags scored against seeded cheating, precision, response time, attention, detections |
+| 9 · Reading | Tablet on a stand running an illustrated storybook app | Hovers in front of the page, bobbing, and reads each word aloud as it lights up | Flies up to tap Next, answers Stop & Think questions, taps the next story in the library | Words per minute and accuracy per page, miscues, vocabulary memory, questions right |
 | 8 · Phonics | Table-sized phone running a phonics app with a mic | Reads the word, listens to the app say it | Stands on the mic facing the word, holds it down with a foreleg, and sings each sound with one wing | Sounds right per attempt, letter-sound memory, confusion matrix, spectrogram |
 | 7 · Classroom | 24 fly-sized tablets on six round tables | Head sweeps over its own tablet, glances at a neighbour's | Taps one of four tiles with a foreleg, twelve items each, between courtship, rejection, rivalry and grooming | Time budget by sex, courtship network, rejections, male courtship drive, lesson completion time in and out of season |
 
@@ -134,6 +136,34 @@ Dashboard 6, District proctoring, scores the flags against the hidden seeding: c
 | --- | --- |
 | ![Experiment 6 screen: the 3 by 3 webcam grid with vision overlay and the FlyAI panel](docs/screenshots/exp6-screen.png) | ![Dashboard 6: proctoring counters, attention by student, detections, FlyAI log](docs/screenshots/dashboards-6.png) |
 | **The proctoring screen.** Boxes on flies and hands, gaze rays, eye-contact badges, a red flag on a suspected tile, FlyAI on the right. | **Dashboard 6.** Flags scored against the seeded truth, attention per student, detections over time. |
+
+### Reading
+
+Experiment 9 is a storybook app on a tablet standing in a stand, in the style of illustrated readers such as LitLab. Each spread has a picture on the left and a short passage on the right, with the story's vocabulary in bold and a strip of words to know underneath. A Stop & Think question follows page 3 and a comprehension question follows page 6. When a story ends, the library shows three more stories and the fly picks the next one.
+
+The fly hovers in front of the page, bobbing gently, and reads aloud at about 110 words a minute. The current word lights up, and the fly's head follows it along the line. It reads in the same live wing buzz as the phonics lesson: each word is a hum shaped by its vowels, with a pulse at a stop consonant, a rise at a question and a fall at the end of a sentence. The buzz plays only while it reads. To turn a page it flies up to the Next button and taps it with a foreleg; it answers questions and chooses stories the same way.
+
+Bold vocabulary words are read more slowly and misread more often until their memory grows; most misreadings are self-corrected. Each vocabulary memory learns with Δw = η(R − V). Questions are answered right with a probability that rises with the story's vocabulary memory.
+
+The library has four six-page stories for grades 3 to 5, set in a fruit fly's world where a peach is a mountain and a fan is a storm:
+
+| Story | Theme | Grade | Words to know |
+| --- | --- | --- | --- |
+| Rosa and the Ripening Banana | Patience, change over time | 3–4 | ripen, patient, fragrance, notice, change |
+| Flynn and the Giant Peach | Exploration, problem-solving | 3 | explore, discover, careful, helpful, safely |
+| Zig, Zag, and the Wind | Persistence, cause and effect | 3–4 | direction, powerful, predict, protect, return |
+| Dot and the Mystery Light | Science, investigation | 4–5 | observe, investigate, evidence, experiment, conclusion |
+
+Every page has an image prompt for a generated illustration, collected in [docs/stories/prompts.md](docs/stories/prompts.md). There is no image model in the browser, so each page is painted from a scene description with one consistent fly character until real images are added. To use generated images, save them as `docs/stories/<story>-p<page>.png` and list them in `docs/stories/manifest.json`; pages without an image keep their painting.
+
+These books are structured like decodable readers but are not aligned to a phonics scope and sequence. Mapping them to a grade 3 to 5 morphology progression is the next step.
+
+Dashboard 9, Reading stories aloud, shows stories finished, words read, words per minute and accuracy per page, miscues and self-corrections, questions answered, a vocabulary memory per bold word, the library and a reading log.
+
+| | |
+| --- | --- |
+| ![Experiment 9: the fly hovering in front of the tablet, reading a page aloud](docs/screenshots/exp9-reading.png) | ![Experiment 9: the library with three stories to choose from](docs/screenshots/exp9-library.png) |
+| **Reading aloud.** The word being read lights up; bold words are vocabulary. | **The library.** Three more stories after The End. |
 
 ### Phonics
 
@@ -409,7 +439,7 @@ The TRD describes a biologically grounded stack: a MuJoCo `flybody` model (102 D
 flowchart LR
   subgraph Now["In this repo today"]
     UI["3D language interface<br/>screen · tiles · trial card"]
-    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>eight experiments"]
+    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>nine experiments"]
     Policy["Behavioural policy<br/>memory-weighted tile choice"]
     BrainViz["Stylised CNS point cloud<br/>16 regions, act[]"]
     Eye["Fly-eye mosaic<br/>750 ommatidia, 4.5°"]

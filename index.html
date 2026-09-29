@@ -261,14 +261,15 @@ pre.mermaid svg{max-width:none;height:auto}
     </nav>
     <div class="simctl" id="simctl" aria-label="Simulation controls">
       <div class="seg" role="group" aria-label="Experiment">
-        <button type="button" data-exp="1" aria-pressed="true">1 · Walking</button>
-        <button type="button" data-exp="2" aria-pressed="false">2 · Flying</button>
-        <button type="button" data-exp="3" aria-pressed="false">3 · Touch</button>
-        <button type="button" data-exp="4" aria-pressed="false">4 · Spelling</button>
-        <button type="button" data-exp="5" aria-pressed="false">5 · Teacher</button>
-        <button type="button" data-exp="6" aria-pressed="false">6 · District admin</button>
-        <button type="button" data-exp="7" aria-pressed="false">7 · Classroom</button>
-        <button type="button" data-exp="8" aria-pressed="false">8 · Phonics</button>
+        <button type="button" data-exp="1" aria-pressed="true">Walking</button>
+        <button type="button" data-exp="2" aria-pressed="false">Flying</button>
+        <button type="button" data-exp="3" aria-pressed="false">Touch</button>
+        <button type="button" data-exp="4" aria-pressed="false">Spelling</button>
+        <button type="button" data-exp="5" aria-pressed="false">Teacher</button>
+        <button type="button" data-exp="6" aria-pressed="false">District admin</button>
+        <button type="button" data-exp="7" aria-pressed="false">Classroom</button>
+        <button type="button" data-exp="8" aria-pressed="false">Phonics</button>
+        <button type="button" data-exp="9" aria-pressed="false">Reading</button>
       </div>
       <div class="seg" role="group" aria-label="Speed">
         <button type="button" data-speed="1" aria-pressed="true">1×</button>
@@ -290,15 +291,15 @@ pre.mermaid svg{max-width:none;height:auto}
         <div style="display:flex;flex-direction:column;gap:12px">
           <span class="eyebrow">Embodied Drosophila literacy simulation</span>
           <h2>A fruit fly learning to read, and the flies who teach and proctor it</h2>
-          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid, a classroom of 24 flies with tablets in mating season, a phonics app that asks it to say the word, which it sings back with one wing. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
+          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid, a classroom of 24 flies with tablets in mating season, a phonics app that asks it to say the word, which it sings back with one wing, and a tablet of illustrated stories it reads aloud while hovering. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
           <div class="actions"><a class="btn btn-primary" href="#simulate">Open the simulator</a><a class="btn btn-tertiary" href="#dashboards">Dashboards</a><a class="btn btn-tertiary" href="#about">About the research</a></div>
         </div>
         <img src="docs/screenshots/app-simulate.png" alt="The simulator: a fruit fly on a smartphone screen with the brain panel and docked dashboards">
       </div>
 
       <div>
-        <h3 class="sec">Eight experiments</h3>
-        <p class="sub">Six student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all eight.</p>
+        <h3 class="sec">Nine experiments</h3>
+        <p class="sub">Seven student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all nine.</p>
       </div>
       <div class="expgrid">
         <a class="expcard" href="#simulate" data-run="1"><img loading="lazy" src="docs/screenshots/overview.png" alt="Experiment 1: the fly walking across the phone screen toward a tile"><div class="body"><span class="num">Experiment 1</span><h3>Walking</h3><p>The fly walks across a phone lying on the table, reads the meaning with head sweeps, and presses word-part tiles with a foreleg.</p><span class="role student">Student</span></div></a>
@@ -309,6 +310,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <a class="expcard" href="#simulate" data-run="6"><img loading="lazy" src="docs/screenshots/exp6-screen.png" alt="Experiment 6: a grid of nine webcam sessions with a vision overlay and the FlyAI panel"><div class="body"><span class="num">Experiment 6</span><h3>District admin</h3><p>Nine webcam sessions on one screen, a vision overlay on every fly, and FlyAI flagging suspected cheating for the admin to check in on.</p><span class="role staff">Staff</span></div></a>
         <a class="expcard" href="#simulate" data-run="7"><img loading="lazy" src="docs/screenshots/exp7-classroom.png" alt="Experiment 7: six round tables of fly students with tablets, coloured rings showing what each fly is doing"><div class="body"><span class="num">Experiment 7</span><h3>Classroom</h3><p>Twenty-four students at six round tables, one tablet each, in mating season. Courtship, rejection and rivalry compete with the lesson, and everyone still has to finish.</p><span class="role student">Student</span></div></a>
         <a class="expcard" href="#simulate" data-run="8"><img loading="lazy" src="docs/screenshots/exp8-phonics.png" alt="Experiment 8: the fly at the mic of a phonics app, one wing extended as it sings the sounds, a spectrogram of its buzz on the screen"><div class="body"><span class="num">Experiment 8</span><h3>Phonics</h3><p>The app says a word and the fly says it back, sound by sound, by singing with one wing: pulse song for consonants, a hum for vowels. The recogniser scores every sound.</p><span class="role student">Student</span></div></a>
+        <a class="expcard" href="#simulate" data-run="9"><img loading="lazy" src="docs/screenshots/exp9-reading.png" alt="Experiment 9: the fly hovering in front of a tablet on a stand, reading an illustrated storybook page aloud"><div class="body"><span class="num">Experiment 9</span><h3>Reading</h3><p>A tablet on a stand runs illustrated six-page stories. The fly hovers and reads aloud in its buzz, taps Next, answers Stop &amp; Think questions, and picks its next story.</p><span class="role student">Student</span></div></a>
       </div>
 
       <h3 class="sec">What you can measure</h3>
@@ -328,15 +330,16 @@ pre.mermaid svg{max-width:none;height:auto}
         <div class="dockacts"><button type="button" class="dockbtn" id="dockNotes" aria-pressed="false" title="Show the explanatory notes under each card">Notes</button><button type="button" class="dockbtn" id="dockFold" title="Collapse or expand every card">Collapse all</button><a class="dockbtn" id="dockFull" href="#dashboards" title="Open this dashboard full width">Full view</a></div>
       </div>
       <div class="docktabs" role="group" aria-label="Dashboard shown beside the arena">
-        <button type="button" data-dock="d-session" aria-pressed="true"><b>Now</b><span>Session</span></button>
-        <button type="button" data-dock="d-kinematic-sec" aria-pressed="false"><b>1</b><span>Kinematic</span></button>
-        <button type="button" data-dock="d-connectome-sec" aria-pressed="false"><b>2</b><span>Connectomic</span></button>
-        <button type="button" data-dock="d-psycho-sec" aria-pressed="false"><b>3</b><span>Psychometric</span></button>
-        <button type="button" data-dock="d-curriculum-sec" aria-pressed="false"><b>4</b><span>Curriculum</span></button>
-        <button type="button" data-dock="d-teacher-sec" aria-pressed="false"><b>5</b><span>Teacher</span></button>
-        <button type="button" data-dock="d-admin-sec" aria-pressed="false"><b>6</b><span>Admin</span></button>
-        <button type="button" data-dock="d-class-sec" aria-pressed="false"><b>7</b><span>Classroom</span></button>
-        <button type="button" data-dock="d-phonics-sec" aria-pressed="false"><b>8</b><span>Phonics</span></button>
+        <button type="button" data-dock="d-session" aria-pressed="true"><span>Session</span></button>
+        <button type="button" data-dock="d-kinematic-sec" aria-pressed="false"><span>Kinematic</span></button>
+        <button type="button" data-dock="d-connectome-sec" aria-pressed="false"><span>Connectomic</span></button>
+        <button type="button" data-dock="d-psycho-sec" aria-pressed="false"><span>Psychometric</span></button>
+        <button type="button" data-dock="d-curriculum-sec" aria-pressed="false"><span>Curriculum</span></button>
+        <button type="button" data-dock="d-teacher-sec" aria-pressed="false"><span>Teacher</span></button>
+        <button type="button" data-dock="d-admin-sec" aria-pressed="false"><span>Admin</span></button>
+        <button type="button" data-dock="d-class-sec" aria-pressed="false"><span>Classroom</span></button>
+        <button type="button" data-dock="d-phonics-sec" aria-pressed="false"><span>Phonics</span></button>
+        <button type="button" data-dock="d-reading-sec" aria-pressed="false"><span>Reading</span></button>
       </div>
       <div id="dockBody"></div>
     </aside>
@@ -367,27 +370,27 @@ pre.mermaid svg{max-width:none;height:auto}
 
     <aside id="brainPanel" aria-label="Scenario panel">
       <div id="nowLine" aria-live="polite">Walking · building a word</div>
-      <section id="rpScreen" data-rp="3 4 5 6 8" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
+      <section id="rpScreen" data-rp="3 4 5 6 8 9" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
       <section id="rpMap" data-rp="7" class="rp"><div class="rowlbl"><h3>Seating chart</h3><span class="sub">click a fly to follow it</span></div><canvas id="rpMapCv" aria-label="Top-down seating chart of the six tables; click a fly to follow it"></canvas></section>
       <section id="rpScen" class="rp"><h3 id="rpScenHead"></h3><div id="rpScenBody"></div></section>
-      <section data-rp="1 2 3 4 7 8" style="display:flex;flex-direction:column;gap:8px">
+      <section data-rp="1 2 3 4 7 8 9" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <h2>Central nervous system</h2>
           <span class="sub">Point cloud stylised after Drosophila anatomy, brain and ventral nerve cord. Drag to turn.</span>
         </div>
         <canvas id="brain" aria-label="Rotating point cloud of the fly's brain; regions brighten when active"></canvas>
       </section>
-      <section data-rp="1 2 3 4 7 8" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9" style="display:flex;flex-direction:column;gap:10px">
         <div class="rowlbl"><span>Dopamine · PAM cluster</span><span id="dopaVal">0.50</span></div>
         <div class="bar" id="dopaBar"><span style="width:50%"></span></div>
         <ul class="regions" id="regions"></ul>
       </section>
-      <section data-rp="1 2 3 4 7 8" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9" style="display:flex;flex-direction:column;gap:10px">
         <h3 id="memHead">Word part memory · Kenyon cell to MBON weights</h3>
         <div class="memory" id="memory"></div>
       </section>
       <section style="display:flex;flex-direction:column;gap:12px">
-        <div class="stat-row" data-rp="1 2 3 4 7 8">
+        <div class="stat-row" data-rp="1 2 3 4 7 8 9">
           <div class="stat good"><b id="stWords">0</b><span class="sub">words built</span></div>
           <div class="stat plain"><b id="stTaps">0</b><span class="sub">answers</span></div>
           <div class="stat"><b id="stAcc">0%</b><span class="sub">correct</span></div>
@@ -410,7 +413,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <p class="lead">Four dashboards from the psychometric specification, fed by the running fly. Values update while the simulation runs in the Simulate view. Where a quantity is a stand-in for a sensor or model the app does not yet have, the card says so.</p>
       </div>
       <nav class="subnav" aria-label="Dashboards">
-        <a href="#d-session">Session</a><a href="#d-kinematic">1 · Kinematic and sensorimotor</a><a href="#d-connectome">2 · Connectomic</a><a href="#d-psycho">3 · Psychometric</a><a href="#d-curriculum">4 · Curriculum</a><a href="#d-teacher">5 · Teacher navigation</a><a href="#d-admin">6 · District proctoring</a><a href="#d-class">7 · Classroom</a><a href="#d-phonics">8 · Phonics</a>
+        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a>
       </nav>
 
       <section id="d-session" class="grid" data-dockable>
@@ -524,6 +527,19 @@ pre.mermaid svg{max-width:none;height:auto}
             <tr><th scope="row">Nasals and liquids · /m n l r/</th><td>A low muffled hum, or a gliding one</td><td>Sine song variants</td></tr>
           </tbody></table></div><ul class="events" id="phLog" style="max-height:160px"></ul></article>
       </section>
+
+      <h3 class="sec" id="d-reading">Dashboard 9 · Reading stories aloud</h3>
+      <p class="sub">Experiment 9. The fly reads six-page illustrated stories from a tablet on a stand, aloud in its wing buzz, taps Next to turn pages, answers a Stop &amp; Think question after page 3 and a comprehension question after page 6, then chooses the next story from the library.</p>
+      <section class="grid" id="d-reading-sec" data-dockable>
+        <article class="card span4"><header><h3>Reading session</h3><span class="sub" id="rdMode">not running</span></header>
+          <div class="stat-row"><div class="stat good"><b id="rdStories">0</b><span class="sub">stories finished</span></div><div class="stat plain"><b id="rdWords">0</b><span class="sub">words read aloud</span></div><div class="stat"><b id="rdWpm">–</b><span class="sub">words/min, last page</span></div></div>
+          <div class="kv"><span>Now reading</span><b id="rdNow">–</b><span>Pages read</span><b id="rdPages">0</b><span>Miscues · self-corrected</span><b id="rdMiss">0 · 0</b><span>Accuracy</span><b id="rdAcc">–</b><span>Stop &amp; Think and comprehension</span><b id="rdChecks">0 of 0</b><span>Mean vocabulary memory</span><b id="rdVmem">–</b></div>
+          <p class="sub">A miscue is a word read wrong; most are self-corrected. Unfamiliar vocabulary words are read more slowly and misread more often until their memory grows.</p></article>
+        <article class="card span4"><header><h3>Vocabulary memory</h3><span class="sub">bold words, by story</span></header><div id="rdVocab" class="memory"></div><p class="sub">Each time the fly reads a bold word correctly its memory grows by Δw = η(R − V); a misread lowers it.</p></article>
+        <article class="card span4"><header><h3>Fluency by page</h3><span class="sub">words per minute, coloured by accuracy</span></header><canvas class="chart tall" id="cRdWpm" aria-label="Words per minute for each page read"></canvas><div class="legend"><span><i style="background:#22884c"></i>95% or better</span><span><i style="background:#f2a900"></i>below 95%</span></div><p class="sub">Timed in simulation seconds, so the rate does not change with the speed buttons.</p></article>
+        <article class="card span6"><header><h3>The library</h3><span class="sub">four stories, six pages each</span></header><div style="overflow-x:auto"><table class="q" id="rdBooks"><thead><tr><th>Story</th><th>Theme</th><th>Grade</th><th>Words to know</th><th>Read</th></tr></thead><tbody></tbody></table></div><p class="sub">Illustrations are painted in the browser from each page's image prompt until generated images are added to docs/stories.</p></article>
+        <article class="card span6"><header><h3>Reading log</h3><span class="sub">miscues, questions, stories</span></header><ul class="events" id="rdLog" style="max-height:260px"></ul></article>
+      </section>
     </div>
   </section>
 
@@ -535,7 +551,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <p class="lead">Fruit Fly Lingo is the interaction layer of the Embodied Drosophila Literacy Simulation (EDLS). It puts a simulated fruit fly in front of a smartphone that teaches word parts, and asks a simple question with a hard answer: can a nervous system that evolved for finding food and avoiding swatters be repurposed to assemble prefixes, roots and suffixes?</p>
       </div>
       <section class="two">
-        <article class="card tint"><h3>What the app simulates</h3><p>A procedural fly with six IK legs, wings and a head-mounted compound-eye camera lives on a table with a phone. The phone runs a small morphology curriculum in the style of LibreLingo and Word Root Workshop: build the word that means <em>able to be counted again</em> from <em>re-</em>, <em>count</em> and <em>-able</em>. The fly answers by touching tiles, and the student experiments vary how it gets there: walking on the glass, flying up to read and diving to land, holding a fly-sized phone and swiping, or spelling the word key by key on a laptop. Two more experiments put flies on the other side of the desk: a teacher grading those students from a fly-sized laptop, and a district admin proctoring nine of them through webcam sessions with a vision overlay and an assistant called FlyAI. A seventh puts twenty-four student flies in one classroom during mating season, where courtship, rejection and rivalry compete with the lesson. An eighth is a phonics lesson: the fly cannot speak, so it answers by singing each sound with one wing.</p><p>A stylised central nervous system, about 55,000 points laid out after Drosophila anatomy, lights up with what the fly does: optic lobes while it reads, central complex and leg neuropils while it moves, mushroom bodies and taste centres when a sugar reward arrives, lateral horn when it flinches from a wrong answer.</p></article>
+        <article class="card tint"><h3>What the app simulates</h3><p>A procedural fly with six IK legs, wings and a head-mounted compound-eye camera lives on a table with a phone. The phone runs a small morphology curriculum in the style of LibreLingo and Word Root Workshop: build the word that means <em>able to be counted again</em> from <em>re-</em>, <em>count</em> and <em>-able</em>. The fly answers by touching tiles, and the student experiments vary how it gets there: walking on the glass, flying up to read and diving to land, holding a fly-sized phone and swiping, or spelling the word key by key on a laptop. Two more experiments put flies on the other side of the desk: a teacher grading those students from a fly-sized laptop, and a district admin proctoring nine of them through webcam sessions with a vision overlay and an assistant called FlyAI. A seventh puts twenty-four student flies in one classroom during mating season, where courtship, rejection and rivalry compete with the lesson. An eighth is a phonics lesson: the fly cannot speak, so it answers by singing each sound with one wing. A ninth hands it a library of illustrated stories on a tablet, which it reads aloud in its buzz while hovering in front of the page.</p><p>A stylised central nervous system, about 55,000 points laid out after Drosophila anatomy, lights up with what the fly does: optic lobes while it reads, central complex and leg neuropils while it moves, mushroom bodies and taste centres when a sugar reward arrives, lateral horn when it flinches from a wrong answer.</p></article>
         <article class="card tint"><h3>What we are trying to learn</h3><p>Whether biological wiring is a useful <strong>inductive bias</strong> for symbolic learning. A random network can learn to tap tiles; the interesting result is a network constrained by the fly's actual circuits doing it, because then the solution has to route through the same sensorimotor pathways a real fly uses. The "Digital Sphinx" problem, a worm connectome driving a fly body, shows how easily a high-capacity learner fakes the behaviour without the biology.</p><p>How <strong>reward learning</strong> in the mushroom body maps onto a curriculum. The PAM dopamine cluster gates plasticity between Kenyon cells and output neurons; here that is the rule Δw = η(R − V) that strengthens a word part's memory after a correct answer, and the Half-Life Regression that schedules its review.</p><p>How to <strong>measure learning</strong> in a non-human agent. The dashboards apply G-DINA cognitive diagnosis, Half-Life Regression and the Many-Facet Rasch model so that "the fly learned re-" is a claim with a posterior, a half-life and a logit, not a feeling.</p></article>
       </section>
 
@@ -773,7 +789,7 @@ pre.mermaid svg{max-width:none;height:auto}
 </pre></article><article class="card"><h3>From this app to the full EDLS</h3><pre class="mermaid">flowchart LR
   subgraph Now[&quot;In this repo today&quot;]
     UI[&quot;3D language interface&lt;br/&gt;screen · tiles · trial card&quot;]
-    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;eight experiments&quot;]
+    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;nine experiments&quot;]
     Policy[&quot;Behavioural policy&lt;br/&gt;memory-weighted tile choice&quot;]
     BrainViz[&quot;Stylised CNS point cloud&lt;br/&gt;16 regions, act[]&quot;]
     Eye[&quot;Fly-eye mosaic&lt;br/&gt;750 ommatidia, 4.5°&quot;]
@@ -843,6 +859,15 @@ pre.mermaid svg{max-width:none;height:auto}
         <li>Göpfert, M. C., &amp; Robert, D. (2002). The mechanical basis of <em>Drosophila</em> audition. <em>Journal of Experimental Biology, 205</em>, 1199–1208.</li>
         <li>von Philipsborn, A. C., et al. (2011). Neuronal control of <em>Drosophila</em> courtship song. <em>Neuron, 69</em>(3), 509–522.</li>
       </ul><p class="sub">The mapping from speech sounds to song modes is an invention of this simulation, not a claim about flies.</p></article>
+
+      <h3 class="sec">Reading</h3>
+      <div class="shots">
+        <figure><img loading="lazy" src="docs/screenshots/exp9-reading.png" alt="Experiment 9: the fly hovering in front of a tablet on a stand, reading a storybook page aloud"><figcaption><strong>9 · Reading.</strong> The fly hovers and bobs in front of a tablet on a stand, reading aloud in its buzz while each word lights up. Bold words are the story's vocabulary.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/exp9-library.png" alt="Experiment 9 library: The End and three story cards to choose the next story"><figcaption><strong>9 · The library.</strong> After the comprehension question, three more stories appear; the fly flies up and taps one to start it.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/dashboards-9.png" alt="Dashboard 9: reading session counters, vocabulary memory, fluency by page"><figcaption><strong>Dashboard 9 · Reading stories aloud.</strong> Stories finished, words read, words per minute and accuracy per page, miscues and self-corrections, questions answered, and a vocabulary memory per bold word.</figcaption></figure>
+      </div>
+      <p>The reading app follows the pattern of illustrated readers such as LitLab: a picture and a short passage on each spread, a strip of words to know, and a comprehension check about every three pages. The four books are written for grades 3 to 5 and set in a fruit fly's world, where a peach is a mountain and a kitchen fan is a storm: <em>Rosa and the Ripening Banana</em> (patience and change over time), <em>Flynn and the Giant Peach</em> (exploration), <em>Zig, Zag, and the Wind</em> (cause and effect) and <em>Dot and the Mystery Light</em> (investigation and evidence). Every page carries an image prompt for a generated illustration. There is no image model in the browser, so until generated images are added, each page is painted from a scene description with one consistent fly character. The prompts, and how to add images, are in <a href="docs/stories/prompts.md" target="_blank" rel="noopener">docs/stories/prompts.md</a>.</p>
+      <p>The fly reads word by word at about 110 words a minute, slowing on the bold vocabulary words. Each word is voiced by the same wing buzz as the phonics lesson: a hum shaped by the word's vowels, a pulse at a stop consonant, rising at a question and falling at the end of a sentence. Unfamiliar vocabulary is misread more often, and most misreadings are self-corrected. Stop &amp; Think after page 3 and a comprehension question after page 6 are answered right with a probability that rises with the story's vocabulary memory. These books are structured like decodable readers but are not aligned to a phonics scope and sequence; mapping them to a grade 3 to 5 morphology progression is the next step.</p>
 
       <h3 class="sec">From this app to the full EDLS</h3>
       <section class="two">
@@ -958,6 +983,7 @@ const EXP = {
   5: { name: 'Teacher', note: 'Experiment 5 · Teacher. A fly-sized laptop with a gradebook of the flies from Experiments 1 to 4. The screen is not touchable: the teacher stays on the trackpad and steers the cursor with one foreleg, presses the pad to click, and steps over to tap keys.', phys: 'Fly-sized laptop · trackpad only, no touch', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   6: { name: 'District admin', note: 'Experiment 6 · District admin. The admin fly watches nine students on a 3 × 3 grid of webcam sessions. A vision overlay boxes each fly, its forelegs and its gaze; FlyAI flags suspected cheating and the admin steers the cursor to the tile and sends a check-in.', phys: 'Fly-sized laptop · trackpad only · vision overlay', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   7: { name: 'Classroom', note: 'Experiment 7 · Classroom. Twenty-four students, twelve female and twelve male, at six round tables with a fly-sized tablet each, in mating season. Every fly has to finish twelve items. Rings show what each fly is doing; the vision overlay boxes every fly, its forelegs and its gaze. Click a fly to follow it and see its brain.', phys: '24 flies · 6 tables', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 10, 17], classroom: true },
+  9: { name: 'Reading', note: 'Experiment 9 · Reading. A tablet on a stand runs an illustrated storybook app. The fly hovers in front of the page, bobbing, and reads aloud in its wing buzz as each word lights up; vocabulary words are in bold. It flies up to tap Next, answers Stop & Think questions, and when a story ends it picks the next one from the library.', phys: 'Tablet on a stand · hover flight', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-38, 9, 20], tablet: true },
   8: { name: 'Phonics', note: 'Experiment 8 · Phonics. The app shows a word, plays it, and asks the fly to say it back. A fly cannot speak, so it stands on the mic facing the word, holds the mic down with a foreleg, and sings each sound with one extended wing: pulse song for k, t, d, a formant-shaped hum for vowels, a fluttered hiss for s and sh. You hear the buzz only while it sings; the pill above the arena turns it off.', phys: 'Wing song · pulse and sine', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-13, 11, 20] },
 };
 let experiment = 1;
@@ -1275,6 +1301,7 @@ function renderTrial() {
   const w = cur();
   if (experiment === 7) return renderClassTrial();
   if (experiment === 8) return renderPhonicsTrial();
+  if (experiment === 9) return renderReadingTrial();
   if (experiment === 4 && typeof spell !== 'undefined' && spell.letters.length) {
     $('meaning').textContent = spell.word.meaning;
     $('chips').innerHTML = spell.letters.map((ch, i) => i < spell.typed.length ? `<span class="chip ${KINDS[partAtLetter(i)]}" style="padding:0 12px">${ch}</span>` : `<span class="chip empty" style="padding:0 10px">${KINDS[partAtLetter(i)][0]}</span>`).join('');
@@ -1309,6 +1336,7 @@ function redrawScreen(now) { drawScreen(now); screenTex.needsUpdate = true; }
 const agent = { phase: 'look', t: 0, target: null, standPos: null, tapLeg: null, tileIdx: -1, wordDone: false, hover: null, from: null, swipe: null, targetScroll: 0 };
 const PHASE_TEXT = { look: 'Looking at the screen', walk: 'Walking to a tile', tap: 'Pressing the glass', react: 'Reading the outcome', celebrate: 'Word complete',
   takeoff: 'Taking off', hover: 'Hovering, reading the meaning', dive: 'Diving to the answer', land: 'Landing', scroll: 'Swiping the answers into reach',
+  r_read: 'Hovering and reading aloud', r_think: 'Thinking about the question', r_fly: 'Flying to the button', r_tap: 'Tapping the screen', r_feedback: 'Checking the answer', r_browse: 'Browsing the library',
   p_look: 'Reading the word', p_listen: 'Listening to the app', p_walk: 'Settling on the mic', p_tap: 'Pressing the mic', p_buzz: 'Holding the mic and singing with one wing', p_react: 'Hearing the score', p_celebrate: 'Word said right', p_back: 'Settling on the mic',
   t_read: 'Reading the screen', t_fly: 'Flying', t_walk: 'Walking', t_arm: 'Steering the cursor with a foreleg', t_press: 'Clicking', t_dip: 'Pressing a key', t_done: 'All students graded', s_celebrate: 'Word spelled', a_watch: 'Watching the nine sessions' };
 function chooseTile() {
@@ -1397,6 +1425,7 @@ function beginTap(targetWorld) {
 function stepAgent(dt, now) {
   agent.t += dt;
   if (experiment === 8) return stepPhonics(dt, now);
+  if (experiment === 9) return stepReading(dt, now);
   if (EXP[experiment].laptop) return stepTeacher(dt, now);
   const st = flyState; const s = phone.scale.x;
   switch (agent.phase) {
@@ -1517,7 +1546,7 @@ function animateFly(dt) {
   const st = flyState;
   fly.position.copy(st.pos); fly.rotation.y = st.yaw; fly.updateMatrixWorld(true);
   head.rotation.y = st.headYaw;
-  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz') ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
+  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz' || agent.phase === 'r_tap') ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
   let stepping = legs.filter(L => L.step).length;
   legs.forEach(L => {
     if (L === busyLeg) return;
@@ -2555,7 +2584,7 @@ function drawVision() {
 }
 
 // ---------- scenario panels: the right panel and bottom strip follow the experiment ----------
-const BRAIN_EXPS = [1, 2, 3, 4, 7, 8]; // the teacher and admin panels show their screen and work queue instead of the brain
+const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9]; // the teacher and admin panels show their screen and work queue instead of the brain
 let rpAt = 0;
 // scenario history, 4 samples a second of the numbers the strip plots (the classroom keeps its own in cls.hist)
 const sh = []; let shAt = 0, shSim = 0; const shPrev = new THREE.Vector3();
@@ -2567,8 +2596,7 @@ function sampleScenario(now, dt) {
   sh.push({ t, exp: experiment, speed, h: Math.max(0, st.pos.y - ground), air: st.airborne ? 1 : 0, scroll: game.scrollY, typed: spell.typed.length,
     path: T.path, clicks: T.clicks, miss: T.miss, keys: T.keys, graded: T.graded.length,
     att: admin.students.length ? admin.students.reduce((a, s) => a + s.att, 0) / admin.students.length : null, flags: admin.flags.filter(f => f.open).length,
-    song: flyState.songAmp || 0, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
-    song: flyState.songAmp || 0, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
+    song: flyState.songAmp || 0, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
     prec: A.tp + A.fp ? A.tp / (A.tp + A.fp) : null, checkins: A.checkins, det: A.detections.filter(d => t - d.t < 5).reduce((a, d) => a + d.lookaway + d.helper + d.device + d.offscreen, 0) });
   if (sh.length > 480) sh.shift();
 }
@@ -2622,6 +2650,12 @@ const STRIPS = {
     sDw(8, 'sound'),
     { l: "Hearing · Johnston's organ", v: () => lastSample(s => s.act[6].toFixed(2)), d: id => lineChart(id, [{ name: 'Antennal hearing', color: CH.blue, get: s => s.act[6] }], { ymin: 0, ymax: 1, compact: true }) },
     sDopa],
+  9: [sHist('Reading voice', 'song', () => reading.speaking ? 'reading aloud' : 'quiet', { ymax: 1 }, '#f2a900'),
+    { l: 'Words per minute', v: () => { const p = reading.pageLog[reading.pageLog.length - 1]; return p ? String(Math.round(p.wpm)) : '–'; }, d: id => barChart(id, reading.pageLog.slice(-20).map(p => ({ v: p.wpm, color: CH.blue, label: `${p.story} page ${p.page}: ${Math.round(p.wpm)} words/min` })), { positive: true, compact: true, empty: 'No pages yet' }) },
+    { l: 'Reading accuracy', v: () => { const p = reading.pageLog[reading.pageLog.length - 1]; return p ? Math.round(p.acc * 100) + '%' : '–'; }, d: id => barChart(id, reading.pageLog.slice(-20).map(p => ({ v: p.acc, color: p.acc >= 0.95 ? CH.green : CH.amber, label: `${p.story} page ${p.page}: ${Math.round(p.acc * 100)}% of words read right` })), { ymax: 1, positive: true, compact: true, empty: 'No pages yet' }) },
+    sHist('Vocabulary memory', 'vmem', () => { const p = shLast(); return p && p.vmem != null ? p.vmem.toFixed(2) : '–'; }, { ymax: 1 }, '#22884c'),
+    { l: 'Stop & Think', v: () => `${reading.stats.checksRight} of ${reading.stats.checks}`, d: id => barChart(id, reading.checkLog.slice(-20).map(c => ({ v: 1, color: c.ok ? CH.green : CH.red, label: `${c.story}: ${c.q} · ${c.ok ? 'right' : 'wrong'}` })), { ymax: 1, positive: true, compact: true, empty: 'No questions yet' }) },
+    sDopa],
 };
 let stripExp = 0;
 function drawStrip() {
@@ -2654,6 +2688,8 @@ function scenarioCard() {
     return ['Proctoring', `<h3>Open flags</h3><ul>${open.map(f => `<li class="now">${admin.students[f.student].name}: ${REASON[f.reason] || f.reason} · ${Math.round(TDT() - f.t)} s ago</li>`).join('') || '<li>None open</li>'}</ul>` +
       (ai ? `<p class="sub" style="margin:0">FlyAI: ${ai.text}</p>` : '') + `<h3>Next actions</h3><ol>${next.map((s, i) => `<li class="${i ? '' : 'now'}">${stepText(s)}</li>`).join('')}</ol>` +
       kv([['Flags · confirmed · false alarms', `${admin.flags.length} · ${A.tp} · ${A.fp}`], ['Check-ins sent', A.checkins]])]; }
+  if (e === 9) { const R = reading, S = STORIES[R.si], W = R.speaking ? R.words[R.wi] : null, last = R.pageLog[R.pageLog.length - 1];
+    return ['Reading aloud', kv([['Story', S.title], ['Page', R.mode === 'library' ? 'the library' : `${R.pi + 1} of 6`], ['Word now', W ? W.w.replace(/[^A-Za-z'-]/g, '') + (W.vocab ? ' · vocabulary' : '') : '–'], ['Voice', W ? `humming /${PH[R.sound || 'a'].ipa}/ at ${Math.round(R.f0)} Hz` : 'quiet'], ['Last page', last ? `${Math.round(last.wpm)} words/min · ${Math.round(last.acc * 100)}% accurate` : '–'], ['Hover height', ((st.pos.y - TABLE_Y) / BL).toFixed(1) + ' body lengths'], ['Stop & Think right', `${R.stats.checksRight} of ${R.stats.checks}`], ['Sound', audio.on ? 'on' : 'off, use the pill above the arena']])]; }
   if (e === 8) { const P = phon, s = P.stage === 'mic' ? P.plan[P.cur] : null;
     return ['Wing song', kv([['Now singing', s ? `${slash(s.q)} for ${slash(s.p)}` : 'nothing, wings folded'], ['Song mode', s ? SONG[PH[s.q].kind] : '–'], ['Carrier pitch', Math.round(P.f0) + ' Hz'], ['Wing', st.songExt > 0.5 ? (st.songSide > 0 ? 'right wing out' : 'left wing out') : 'folded'], ['Word', `${P.word.word} · attempt ${Math.max(1, P.attempt)} of 2`], ['Sounds right overall', P.stats.sounds ? pct(P.stats.right / P.stats.sounds) : '–'], ['Sound', audio.on ? 'on' : 'off, use the pill above the arena']])]; }
   const s = cls.students[cls.focal]; const other = s.state === 'court' || s.state === 'fight' ? (s.rival && s.state === 'fight' ? s.rival : s.partner) : s.courtedBy;
@@ -2663,17 +2699,17 @@ function renderScenario(force) {
   if (view !== 'simulate' && !force) return;
   const [head, body] = scenarioCard(); if ($('rpScenHead').textContent !== head) $('rpScenHead').textContent = head;
   const B = $('rpScenBody'); if (B.innerHTML !== body) B.innerHTML = body;
-  if ([3, 4, 5, 6, 8].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
+  if ([3, 4, 5, 6, 8, 9].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
 }
 // a live copy of the phone or laptop screen
 function drawRpScreen() {
-  const cv = $('rpScreenCv'), w = cv.clientWidth; if (!w) return; const lap = EXP[experiment].laptop, src = lap ? lapCanvas : screenCanvas;
+  const cv = $('rpScreenCv'), w = cv.clientWidth; if (!w) return; const lap = EXP[experiment].laptop || experiment === 9, src = experiment === 9 ? bookCanvas : EXP[experiment].laptop ? lapCanvas : screenCanvas;
   const h = lap ? Math.round(w * 640 / 1024) : Math.min(300, Math.round(w * SH / SW)); const pr = Math.min(devicePixelRatio, 2);
   if (cv.height !== Math.round(h * pr) || cv.width !== Math.round(w * pr)) { cv.width = Math.round(w * pr); cv.height = Math.round(h * pr); cv.style.height = h + 'px'; }
   const g = cv.getContext('2d'); g.setTransform(pr, 0, 0, pr, 0, 0); g.fillStyle = '#0b0b0c'; g.fillRect(0, 0, w, h);
   const s = Math.min(w / src.width, h / src.height), dw = src.width * s, dh = src.height * s; g.drawImage(src, (w - dw) / 2, (h - dh) / 2, dw, dh);
-  $('rpScreenHead').textContent = experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
-  $('rpScreenSub').textContent = experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
+  $('rpScreenHead').textContent = experiment === 9 ? 'Storybook app' : experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
+  $('rpScreenSub').textContent = experiment === 9 ? 'the page the fly is reading' : experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
 }
 // classroom seating chart, top down
 const MAP = { x0: -56, x1: 56, z0: -40, z1: 32 };
@@ -2732,7 +2768,7 @@ function phLog(text) { phon.log.push({ t: TDT(), text }); if (phon.log.length > 
 // ---------- sound: a live fly buzz, heard only while the fly sings ----------
 // One persistent voice: a sawtooth wingbeat near 200 Hz with a slightly detuned second wing (the beating hum of two wings),
 // a wingstroke tremolo, formant filters that colour vowels, a noise band for fricatives, and a gated path for pulse song.
-// updateVoice() runs every frame and mutes everything unless Experiment 8 is playing and the fly is singing.
+// updateVoice() runs every frame and mutes everything unless the fly is singing (Phonics) or reading aloud (Reading).
 const audio = { ctx: null, on: false, userOff: false, master: null, v: null };
 window.__audio = audio; // debug hook, like window.__cls
 function audioInit() {
@@ -2758,9 +2794,10 @@ function audioInit() {
 }
 function updateVoice() {
   const V = audio.v; if (!V) return; const c = audio.ctx, t = c.currentTime;
-  const live = audio.on && experiment === 8 && playing && view === 'simulate' && !document.hidden && agent.phase === 'p_buzz' && phon.stage === 'mic';
-  const s = live ? phon.plan[phon.cur] : null, P = s ? PH[s.q] : null, kind = P ? P.kind : null, amp = s ? flyState.songAmp : 0, vowel = kind === 'vowel' || kind === 'liquid';
-  const f0 = phon.f0 * (kind === 'nasal' ? 0.85 : 1);
+  const src = experiment === 8 ? (agent.phase === 'p_buzz' && phon.stage === 'mic' && phon.plan[phon.cur] ? phon.plan[phon.cur].q : null) : experiment === 9 ? (agent.phase === 'r_read' ? reading.sound : null) : null;
+  const live = audio.on && playing && view === 'simulate' && !document.hidden && !!src;
+  const P = live ? PH[src] : null, kind = P ? P.kind : null, amp = P ? flyState.songAmp : 0, vowel = kind === 'vowel' || kind === 'liquid';
+  const f0 = (experiment === 9 ? reading.f0 : phon.f0) * (kind === 'nasal' ? 0.85 : 1);
   V.osc.frequency.setTargetAtTime(f0, t, 0.02); V.osc2.frequency.setTargetAtTime(f0 * 1.008, t, 0.02);
   V.voice.gain.setTargetAtTime(!kind || kind === 'stop' ? 0 : kind === 'fric' ? 0.3 * amp : 0.9 * amp, t, 0.012);
   V.lp.frequency.setTargetAtTime(kind === 'nasal' ? 450 : 2400, t, 0.03);
@@ -2772,7 +2809,7 @@ function updateVoice() {
 }
 // pulse song for a stop consonant: three short bursts of the wingbeat, 35 ms apart in real time
 function pulseBurst() {
-  const V = audio.v; if (!V || !audio.on || experiment !== 8) return; const g = V.pulse.gain, t = audio.ctx.currentTime + 0.005;
+  const V = audio.v; if (!V || !audio.on || (experiment !== 8 && experiment !== 9)) return; const g = V.pulse.gain, t = audio.ctx.currentTime + 0.005;
   g.cancelScheduledValues(t); for (let k = 0; k < 3; k++) { const s = t + k * 0.035; g.setValueAtTime(0, s); g.linearRampToValueAtTime(1.3, s + 0.003); g.linearRampToValueAtTime(0, s + 0.017); }
 }
 function syncSoundBtn() { $('soundBtn').setAttribute('aria-pressed', String(audio.on)); $('soundBtn').textContent = audio.on ? 'Sound on · buzz plays while it sings' : 'Sound off'; }
@@ -2911,6 +2948,372 @@ function renderPhonicsTrial() {
   $('memory').innerHTML = ps.map(p => { const m = P.mem.get(p); return `<div class="m"><span>${slash(p)}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${m >= 0.8 ? 'mastered' : Math.round(m * 100) + '% · ' + SONG[PH[p].kind].split(',')[0]}</span></div>`; }).join('') || '<p class="sub">Memories appear once the fly has buzzed a sound.</p>';
 }
 
+// =====================================================================
+// Experiment 9: Reading. An illustrated storybook app on a tablet stand; the fly hovers, reads aloud in its buzz and taps to turn pages.
+// =====================================================================
+// ---------- Experiment 9 stories: illustrated six-page books with vocabulary and comprehension checks ----------
+// Each page has an image prompt for a generated illustration. Until real images are dropped into docs/stories
+// (listed in docs/stories/manifest.json as <story>-p<page>.png), each page is painted from a scene list below.
+const STORY_STYLE = "Consistent character design: scientifically recognizable Drosophila fruit fly, large red compound eyes, tan segmented body, transparent wings, six thin legs, friendly expressive face without human clothing, miniature insect-scale world, colorful polished 3D children's educational illustration, ages 8-11, no text or letters in image.";
+const STORIES = [
+  { id: 'rosa', title: 'Rosa and the Ripening Banana', theme: 'Patience / change over time', grade: 'Grades 3–4', vocab: ['ripen', 'patient', 'fragrance', 'notice', 'change'],
+    pages: [
+      { text: ['Rosa was a young fruit fly who lived in a busy kitchen.', 'Every day, she flew to the fruit bowl to look for a snack.', 'Today she found a long green banana.', 'Rosa landed on its peel and sniffed.', 'It did not smell sweet at all.'],
+        prompt: 'A young friendly fruit fly named Rosa landing on a long green unripe banana in a giant fruit bowl, busy sunny kitchen from an insect-scale perspective, curious expression, children\'s educational storybook illustration, no text',
+        scene: { bg: 'kitchen', els: [['bowl', 248, 430, 440], ['apple', 110, 345, 48, '#d9412f'], ['banana', 255, 335, 1.9, 0.12, 'green'], ['fly', 262, 240, 1.15, { tint: 'rosa', dir: -1 }]] } },
+      { text: ['"This banana is not ready," said Rosa.', 'She wanted to eat right away.', 'But her grandmother, Nana Fly, shook her head.', '"Be patient," said Nana. "A banana needs time to ripen."', 'Rosa did not like to wait.'],
+        prompt: 'Rosa the young fruit fly frowning beside her kind grandmother fruit fly Nana on a giant green banana, grandmother gently explaining, warm kitchen light, children\'s educational picture book, no text',
+        scene: { bg: 'kitchen', els: [['banana', 250, 365, 2.5, 0.08, 'green'], ['fly', 185, 270, 1.2, { tint: 'rosa', mood: 'think' }], ['fly', 325, 262, 1.35, { tint: 'nana', dir: -1, mood: 'happy' }]] } },
+      { text: ['The next morning, Rosa checked the banana again.', 'The green peel had turned a little yellow.', 'A soft, sweet fragrance drifted into the air.', 'Rosa began to notice that the banana was changing.', 'She wondered what would happen next.'],
+        prompt: 'Morning light on a giant banana turning from green to yellow, visible sweet scent swirls drifting upward, Rosa the fruit fly sniffing the air with delight, macro kitchen world, children\'s science storybook illustration, no text',
+        check: { q: 'What clues showed Rosa that the banana was changing?', a: ['The peel turned yellow and it smelled sweet.', 'The banana grew much longer.', 'Nana Fly told her it had changed.'] },
+        scene: { bg: 'morning', els: [['banana', 250, 365, 2.5, 0.08, 'turning'], ['scent', 250, 250], ['fly', 250, 215, 1.2, { tint: 'rosa', mood: 'happy', wings: 'open' }]] } },
+      { text: ['Each day, Rosa watched and sniffed.', 'On day two, the peel was bright yellow.', 'On day three, small brown spots appeared.', 'The fragrance grew stronger and sweeter.', 'Rosa kept a list of every change she saw.'],
+        prompt: 'Three views of the same giant banana side by side showing it ripening from bright yellow to yellow with brown spots, Rosa the fruit fly observing and keeping tally marks, children\'s STEM storybook illustration, no text',
+        scene: { bg: 'kitchen', els: [['banana', 105, 330, 1.0, 0.1, 'yellow'], ['banana', 250, 330, 1.0, 0.1, 'spotted'], ['banana', 395, 330, 1.0, 0.1, 'ripe'], ['marks', 60, 405, 3], ['fly', 250, 170, 1.05, { tint: 'rosa', wings: 'open' }]] } },
+      { text: ['On day four, Rosa\'s friends buzzed over.', '"How did you know when to come?" asked Flynn.', '"I watched for the brown spots," said Rosa.', '"And I followed the sweet fragrance."', 'Now the banana was soft, ripe, and perfect.'],
+        prompt: 'Rosa welcoming two fruit fly friends who fly in toward a perfectly ripe spotted giant banana, sweet scent swirls, cheerful expressions, oversized kitchen world, children\'s educational illustration, no text',
+        scene: { bg: 'kitchen', els: [['banana', 250, 370, 2.4, 0.08, 'ripe'], ['scent', 300, 240], ['fly', 195, 262, 1.15, { tint: 'rosa' }], ['fly', 310, 205, 1.05, { dir: -1, wings: 'open' }], ['fly', 395, 150, 0.9, { tint: 'dark', dir: -1, wings: 'open' }]] } },
+      { text: ['Rosa and her friends shared the ripe banana.', 'It was the sweetest snack she had ever tasted.', 'Rosa learned that some good things take time.', 'When you are patient, you can notice how the world changes.'],
+        prompt: 'Rosa and her fruit fly friends sharing a ripe spotted banana at golden evening light in a giant kitchen, happy and content, wide cinematic children\'s storybook finale, no text',
+        check: { q: 'How did Rosa know the banana was finally ripe?', a: ['She saw brown spots and followed the sweet fragrance.', 'She tasted it every single day.', 'The banana stayed green.'] },
+        scene: { bg: 'sunset', els: [['banana', 250, 380, 2.4, 0.08, 'ripe'], ['fly', 130, 300, 1.0, { tint: 'rosa' }], ['fly', 250, 285, 1.0, { dir: -1 }], ['fly', 370, 300, 0.95, { tint: 'dark', dir: -1 }], ['sparkle', 250, 200]] } },
+    ] },
+  { id: 'flynn', title: 'Flynn and the Giant Peach', theme: 'Exploration / problem-solving', grade: 'Grade 3', vocab: ['explore', 'discover', 'careful', 'helpful', 'safely'],
+    pages: [
+      { text: ['Flynn was a tiny fruit fly with a big plan.', 'He had smelled something sweet from far away.', 'He flew past a cup, around a plant, and over a stack of books.', 'Then he saw it.', 'A giant peach sat on the table.'],
+        prompt: 'Children\'s educational storybook illustration, a tiny friendly fruit fly named Flynn with large expressive red eyes and translucent wings flying through a gigantic kitchen from an insect-scale perspective, enormous books and houseplant in background, a glowing ripe peach visible far ahead like a mountain, colorful 3D animated storybook style, warm lighting, whimsical but scientifically recognizable fruit fly, no text, landscape composition',
+        scene: { bg: 'kitchen', els: [['books', 70, 330, 1.2], ['cup', 175, 335, 1], ['plant', 300, 300, 1.1], ['glow', 410, 320, 120, 'rgba(255,190,120,0.4)'], ['peach', 410, 330, 72], ['path', [[20, 250], [80, 205], [150, 180]]], ['fly', 175, 170, 1.15, { wings: 'open' }]] } },
+      { text: ['The peach smelled wonderful.', 'Flynn landed on its soft skin.', '"This may be the biggest fruit I have ever found!" he said.', 'But the peach was so round that Flynn could not see the other side.', 'He decided to explore.'],
+        prompt: 'Flynn the tiny friendly fruit fly standing on the fuzzy surface of a gigantic ripe peach, peach curves upward like a hill, fruit fly looking excited and curious, macro-scale environment, children\'s educational picture book, bright warm kitchen in distant soft-focus background, consistent character design, no text',
+        scene: { bg: 'kitchen', els: [['peach', 248, 800, 560], ['fly', 250, 285, 1.6, { mood: 'happy', dir: -1 }]] } },
+      { text: ['Flynn climbed toward the top.', 'The peach became steeper and steeper.', 'Suddenly, his feet slipped.', 'Down he slid!', 'Flynn opened his wings just before he reached the table.', '"That was close," he said.', 'Next time, he would be more careful.'],
+        prompt: 'Tiny fruit fly Flynn sliding down the curved side of a giant peach like a steep hill, wings opening to stop his fall, surprised but playful expression, dramatic perspective, educational children\'s adventure illustration, colorful cinematic 3D storybook art, no text',
+        check: { q: 'Why did Flynn decide he needed to be more careful?', a: ['He slipped and slid down the steep peach.', 'He was hungry for a snack.', 'Another fly told him to.'] },
+        scene: { bg: 'kitchen', els: [['peach', 320, 250, 230], ['motion', 190, 250, -0.8], ['fly', 165, 320, 1.3, { mood: 'surprised', wings: 'open', ang: -0.5 }]] } },
+      { text: ['Flynn tried a new path.', 'Instead of climbing straight up, he flew from spot to spot.', 'Soon he discovered a small dent in the peach.', 'Inside the dent was a drop of sweet peach juice.', 'Flynn had found his snack.'],
+        prompt: 'Flynn discovering a sparkling drop of peach juice inside a small valley-like dent in a giant peach, fruit fly looking delighted, juice drop glowing like treasure, macro world, friendly science storybook illustration for elementary students, no text',
+        scene: { bg: 'kitchen', els: [['peach', 248, 720, 500, { dent: [250, 300] }], ['path', [[60, 330], [120, 260], [180, 300], [230, 280]]], ['drop', 250, 300, 22], ['sparkle', 250, 285], ['fly', 330, 262, 1.3, { mood: 'happy', dir: -1 }]] } },
+      { text: ['Then Flynn heard a buzz.', 'Another fruit fly was trying to climb the peach.', '"Come this way!" Flynn called.', 'Flynn showed her the safer path.', 'Together, they reached the sweet spot.', 'Exploring was better with a friend.'],
+        prompt: 'Two friendly fruit flies climbing and flying around a giant peach together, Flynn showing the second fly a safe route toward a sparkling juice drop, cooperative expressions, enormous peach landscape, children\'s educational book illustration, warm and inviting, no text',
+        scene: { bg: 'kitchen', els: [['peach', 260, 430, 330, { dent: [300, 170] }], ['drop', 300, 170, 14], ['path', [[340, 330], [300, 270], [300, 190]]], ['fly', 175, 245, 1.2, { wings: 'open' }], ['fly', 345, 330, 1.1, { tint: 'light', dir: -1 }]] } },
+      { text: ['Flynn had started the day looking for food.', 'Instead, he discovered something more important.', 'A good explorer does not just find new places.', 'A good explorer learns, adapts, and helps others along the way.'],
+        prompt: 'Flynn and his fruit fly friend sitting proudly near the top of a giant peach at sunset-like warm kitchen light, looking over the enormous tabletop landscape, adventurous triumphant mood, children\'s science storybook illustration, cinematic wide composition, no text',
+        check: { q: 'What problem did Flynn face, and how did he change his plan?', a: ['The peach was too steep, so he flew from spot to spot.', 'The peach was too small, so he found a bigger one.', 'He was lost, so he flew home.'] },
+        scene: { bg: 'sunset', els: [['peach', 248, 560, 300], ['fly', 170, 262, 1.15, {}], ['fly', 330, 264, 1.15, { tint: 'light', dir: -1 }], ['sparkle', 400, 120]] } },
+    ] },
+  { id: 'zig', title: 'Zig, Zag, and the Wind', theme: 'Persistence / cause and effect', grade: 'Grades 3–4', vocab: ['direction', 'powerful', 'predict', 'protect', 'return'],
+    pages: [
+      { text: ['Zig liked to fly fast.', 'He zipped around bananas, circled apples, and raced between grapes.', 'One afternoon, Zig felt something strange.', 'The air began to move.', 'A small breeze became a powerful wind.'],
+        prompt: 'Friendly fruit fly named Zig flying quickly through a giant fruit bowl filled with oversized bananas, apples, and grapes, air beginning to swirl around him, insect-scale perspective, expressive red eyes and translucent wings, educational animated children\'s storybook style, no text',
+        scene: { bg: 'kitchen', els: [['bowl', 248, 430, 440], ['banana', 150, 335, 1.2, 0.3, 'yellow'], ['apple', 300, 330, 58, '#d9412f'], ['grapes', 385, 330, 1], ['wind', 70, 120, 1], ['motion', 190, 180, 0], ['fly', 250, 170, 1.15, { tint: 'dark', wings: 'open' }]] } },
+      { text: ['WHOOSH!', 'Zig flew backward.', 'He beat his wings as fast as he could, but the wind was stronger.', 'He landed behind an apple.', 'From there, he watched a giant fan spin across the room.', '"So that is where the wind comes from," said Zig.'],
+        prompt: 'Tiny fruit fly Zig being pushed backward by a dramatic gust of air, then sheltering behind a huge red apple while a giant electric fan spins in the distant room, playful sense of scale, elementary science storybook illustration, no text',
+        scene: { bg: 'kitchen', els: [['fan', 390, 165, 90, 0], ['wind', 250, 140, -1], ['apple', 175, 320, 85, '#d9412f'], ['fly', 100, 300, 1.0, { tint: 'dark', mood: 'surprised' }]] } },
+      { text: ['Zig wanted to return to the bananas.', 'Flying straight toward them did not work.', 'The wind pushed him back again.', 'Zig stopped and watched a leaf beside the fruit bowl.', 'The leaf bent each time the wind blew.', 'Zig began to notice a pattern.'],
+        prompt: 'Fruit fly Zig observing a large green leaf bending repeatedly in gusts of wind beside an enormous fruit bowl, curious thoughtful expression, fan in background, visual emphasis on observation and pattern recognition, children\'s educational illustration, no text',
+        check: { q: 'What helped Zig understand the wind?', a: ['Watching a leaf bend each time the wind blew.', 'Flying straight at the bananas.', 'Asking the fan to stop.'] },
+        scene: { bg: 'kitchen', els: [['bowl', 320, 430, 360], ['banana', 330, 340, 1.1, -0.2, 'yellow'], ['leaf', 120, 300, 1.4, 0.5], ['fan', 430, 110, 55, 0], ['wind', 60, 230, -1], ['fly', 240, 215, 1.15, { tint: 'dark', dir: -1, mood: 'think' }]] } },
+      { text: ['The fan turned from side to side.', 'Wind.', 'Then calm.', 'Wind.', 'Then calm.', 'Zig waited.', 'When the fan turned away, he flew forward.', 'When it turned back, he hid behind the fruit.', 'His new plan worked.'],
+        prompt: 'Sequence-like children\'s illustration showing fruit fly Zig timing his flight between giant pieces of fruit while an oscillating fan turns away, visual sense of wind then calm, clever problem solving, bright educational storybook style, no text',
+        scene: { bg: 'kitchen', els: [['fan', 430, 110, 60, 0.9], ['apple', 150, 335, 60, '#d9412f'], ['banana', 350, 340, 1.1, -0.15, 'yellow'], ['path', [[150, 270], [210, 230], [270, 250], [340, 290]]], ['fly', 250, 240, 1.1, { tint: 'dark', wings: 'open' }]] } },
+      { text: ['Zig reached the bananas.', 'His friend Dot was waiting there.', '"How did you fly through that wind?" she asked.', '"I did not fight it," Zig said.', '"I watched it. Then I predicted when it would change."'],
+        prompt: 'Zig safely arriving on a giant yellow banana and talking with another friendly fruit fly named Dot, both expressive and cheerful, distant fan still spinning, oversized kitchen world, science-themed children\'s illustration, no text',
+        scene: { bg: 'kitchen', els: [['fan', 440, 90, 40, 0], ['banana', 250, 340, 2.3, 0.08, 'yellow'], ['fly', 190, 255, 1.2, { tint: 'dark', mood: 'happy' }], ['fly', 310, 255, 1.2, { tint: 'light', dir: -1, mood: 'happy' }]] } },
+      { text: ['Zig still liked to fly fast.', 'But now he knew that speed was not always the answer.', 'Sometimes the best way forward was to stop, observe, and make a plan.', 'Then Zig and Dot zipped away together.'],
+        prompt: 'Two tiny fruit flies flying together above a giant colorful fruit bowl, weaving confidently through gentle air currents, joyful ending, wide cinematic children\'s educational book illustration, consistent character designs, no text',
+        check: { q: 'How did observing the fan help Zig solve his problem?', a: ['He predicted when the wind would stop and flew then.', 'He flew faster than the wind.', 'He turned the fan off.'] },
+        scene: { bg: 'sunset', els: [['bowl', 248, 440, 440], ['banana', 170, 350, 1.2, 0.3, 'yellow'], ['apple', 300, 345, 55, '#d9412f'], ['grapes', 380, 350, 1], ['wind', 60, 110, 1], ['fly', 190, 170, 1.1, { tint: 'dark', wings: 'open' }], ['fly', 290, 150, 1.1, { tint: 'light', wings: 'open', dir: -1 }]] } },
+    ] },
+  { id: 'dot', title: 'Dot and the Mystery Light', theme: 'Science / investigation', grade: 'Grades 4–5', vocab: ['observe', 'investigate', 'evidence', 'experiment', 'conclusion'],
+    pages: [
+      { text: ['Dot lived near a window.', 'Every morning, bright light filled the room.', 'Every evening, the room became dark.', 'Dot thought she understood the pattern.', 'Then one night, a strange blue light appeared.', '"What is that?" Dot wondered.'],
+        prompt: 'Friendly female fruit fly named Dot perched on a windowsill at night, looking toward a mysterious blue glowing light across a dark room, moon visible outside, huge indoor environment from insect perspective, elementary science mystery storybook illustration, no text',
+        scene: { bg: 'night', els: [['window', 290, 40, 180, 220], ['glow', 430, 330, 80, 'rgba(90,170,255,0.55)'], ['sill', 0, 330, 300], ['fly', 130, 300, 1.3, { tint: 'light', mood: 'think' }]] } },
+      { text: ['Dot flew toward the light.', 'It was not the moon.', 'It was not a lamp.', 'The glow came from a large glass box on a desk.', 'Inside the box were plants, soil, and another fruit fly.', 'Dot had discovered a small science habitat.'],
+        prompt: 'Dot flying toward a glowing transparent classroom science habitat on a desk, miniature plants and soil visible inside with another fruit fly, blue-white research light above enclosure, curious educational science storybook art, no text',
+        scene: { bg: 'night', els: [['glow', 290, 230, 170, 'rgba(120,190,255,0.35)'], ['habitat', 290, 250, 240, 170, 0], ['fly', 330, 335, 0.55, { dir: -1 }], ['path', [[30, 120], [80, 150], [120, 165]]], ['fly', 125, 165, 1.1, { tint: 'light', wings: 'open' }]] } },
+      { text: ['Dot landed on the glass.', 'The fly inside waved.', '"My name is Pip," he said.', '"Scientists are observing me."', '"Why?" Dot asked.', '"They change things in my habitat and watch what happens."', 'Dot became curious.', 'Could she investigate something too?'],
+        prompt: 'Dot outside a clear glass science habitat talking with Pip, another fruit fly inside among tiny plants and fruit, vague silhouettes of notebooks and science equipment in background, friendly rather than laboratory-scary, children\'s educational illustration, no text',
+        check: { q: 'What made Dot want to conduct her own investigation?', a: ['Pip said scientists change things and watch what happens.', 'The blue light scared her away.', 'She wanted to live in the habitat.'] },
+        scene: { bg: 'night', els: [['glow', 270, 200, 190, 'rgba(120,190,255,0.3)'], ['habitat', 270, 230, 320, 210, 0], ['fly', 330, 320, 0.95, { dir: -1, mood: 'happy' }], ['fly', 135, 270, 1.2, { tint: 'light', mood: 'happy' }]] } },
+      { text: ['Dot chose a question.', 'Did Pip prefer the bright side of the habitat or the shaded side?', 'She watched him for several minutes.', 'Pip flew to the bright side twice.', 'He flew to the shaded side five times.', 'Dot recorded what she observed.'],
+        prompt: 'Dot acting as a tiny scientist watching Pip move between a brightly lit side and shaded side of a transparent habitat, tiny notebook-style observation marks represented visually without readable text, children\'s STEM story illustration, no text',
+        scene: { bg: 'night', els: [['habitat', 270, 220, 380, 230, 1], ['fly', 360, 320, 0.8, { dir: -1 }], ['marks', 40, 395, 2], ['marks', 140, 395, 5], ['fly', 95, 150, 1.0, { tint: 'light', mood: 'think' }]] } },
+      { text: ['Dot had an idea.', '"Pip likes the shade!"', 'But she stopped herself.', 'One short test was not enough evidence.', 'She would observe again tomorrow.', 'A scientist should test an idea more than once.'],
+        prompt: 'Thoughtful fruit fly Dot looking at the habitat with one side bright and one side shaded, expression shifting from excitement to careful consideration, visual theme of scientific thinking and evidence, elementary STEM picture book, no text',
+        scene: { bg: 'night', els: [['habitat', 300, 230, 330, 220, 1], ['fly', 380, 320, 0.65, { dir: -1 }], ['fly', 140, 210, 1.45, { tint: 'light', mood: 'think' }]] } },
+      { text: ['The next evening, Dot returned.', 'She was no longer just searching for strange lights.', 'She was searching for answers.', 'Dot had discovered something exciting:', 'The smallest scientist could still ask very big questions.'],
+        prompt: 'Dot flying toward the glowing science habitat at night carrying a confident curious expression, stars visible through nearby window, tiny fly contrasted with vast room and scientific environment, inspiring children\'s STEM storybook finale, cinematic illustration, no text',
+        check: { q: 'Why didn\'t Dot decide that Pip preferred shade after only one observation?', a: ['One short test was not enough evidence.', 'Pip told her the answer.', 'The light was turned off.'] },
+        scene: { bg: 'night', els: [['window', 30, 40, 150, 180], ['glow', 380, 300, 140, 'rgba(120,190,255,0.4)'], ['habitat', 380, 320, 170, 120, 0], ['path', [[120, 260], [200, 220], [260, 215]]], ['fly', 265, 205, 1.2, { tint: 'light', wings: 'open', mood: 'happy' }]] } },
+    ] },
+];
+// ---------- storybook painter: paints a page's scene list (496 x 456), cached; replaced by a real image when one is supplied ----------
+const PW = 496, PHH = 456;
+const pageArt = new Map(), storyImgs = new Map();
+fetch('docs/stories/manifest.json').then(r => r.ok ? r.json() : []).then(list => (list || []).forEach(name => { const im = new Image(); im.onload = () => { storyImgs.set(name, im); pageArt.clear(); if (typeof drawBook === 'function') drawBook(); }; im.src = 'docs/stories/' + name; })).catch(() => {});
+const FLY_TINT = { base: '#b8895a', light: '#d2a878', dark: '#8a643f', rosa: '#c98f66', nana: '#a39485' };
+function artFor(si, pi) {
+  const key = `${si}:${pi}`; if (pageArt.has(key)) return pageArt.get(key);
+  const cv = document.createElement('canvas'); cv.width = PW; cv.height = PHH; const g = cv.getContext('2d');
+  const img = storyImgs.get(`${STORIES[si].id}-p${pi + 1}.png`);
+  if (img) { const s = Math.max(PW / img.width, PHH / img.height); g.drawImage(img, (PW - img.width * s) / 2, (PHH - img.height * s) / 2, img.width * s, img.height * s); }
+  else paintScene(g, STORIES[si].pages[pi].scene);
+  pageArt.set(key, cv); return cv;
+}
+function paintScene(g, sc) {
+  const bgs = { kitchen: ['#fdeccd', '#f3d3a2', '#c98f5a', '#b27a48'], morning: ['#fff6df', '#fbe3b4', '#d49c66', '#bf8654'], sunset: ['#ffc98a', '#f48d6f', '#b9744a', '#9a5d3a'], night: ['#1b2551', '#0c1333', '#3b3552', '#2b2640'] }[sc.bg];
+  let gr = g.createLinearGradient(0, 0, 0, PHH); gr.addColorStop(0, bgs[0]); gr.addColorStop(1, bgs[1]); g.fillStyle = gr; g.fillRect(0, 0, PW, PHH);
+  if (sc.bg === 'night') { for (let i = 0; i < 40; i++) { const x = (i * 97) % PW, y = (i * 53) % 200; g.fillStyle = `rgba(255,255,255,${0.2 + (i % 5) * 0.12})`; g.fillRect(x, y, 2, 2); } }
+  else { g.fillStyle = 'rgba(255,255,255,0.18)'; for (let i = 0; i < 6; i++) { g.beginPath(); g.arc(60 + i * 80, 60 + (i % 2) * 30, 50, 0, Math.PI * 2); g.fill(); } }
+  gr = g.createLinearGradient(0, 360, 0, PHH); gr.addColorStop(0, bgs[2]); gr.addColorStop(1, bgs[3]); g.fillStyle = gr; g.fillRect(0, 372, PW, PHH - 372);
+  g.fillStyle = 'rgba(0,0,0,0.08)'; g.fillRect(0, 372, PW, 4);
+  sc.els.forEach(e => PAINT[e[0]] && PAINT[e[0]](g, ...e.slice(1)));
+  gr = g.createRadialGradient(PW / 2, PHH / 2, PHH * 0.3, PW / 2, PHH / 2, PHH * 0.8); gr.addColorStop(0, 'rgba(0,0,0,0)'); gr.addColorStop(1, 'rgba(40,20,0,0.25)'); g.fillStyle = gr; g.fillRect(0, 0, PW, PHH);
+}
+const shade = (g, x, y, r, c0, c1, ox = -0.35, oy = -0.4) => { const gr = g.createRadialGradient(x + ox * r, y + oy * r, r * 0.1, x, y, r); gr.addColorStop(0, c0); gr.addColorStop(1, c1); return gr; };
+const PAINT = {
+  peach(g, x, y, r, o = {}) { g.save(); g.fillStyle = shade(g, x, y, r, '#ffd3a1', '#e8704f'); g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
+    g.fillStyle = 'rgba(214,72,70,0.35)'; g.beginPath(); g.ellipse(x + r * 0.25, y + r * 0.1, r * 0.55, r * 0.7, 0.3, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = 'rgba(160,60,40,0.35)'; g.lineWidth = Math.max(2, r * 0.03); g.beginPath(); g.arc(x - r * 0.1, y, r * 0.95, -1.2, 0.9); g.stroke();
+    g.fillStyle = 'rgba(255,255,255,0.10)'; for (let i = 0; i < 160; i++) { const a = i * 2.39, d = r * Math.sqrt((i % 97) / 97); g.fillRect(x + Math.cos(a) * d, y + Math.sin(a) * d, 1.5, 1.5); }
+    if (r < 120) { g.strokeStyle = '#6b4a2a'; g.lineWidth = r * 0.08; g.beginPath(); g.moveTo(x, y - r); g.lineTo(x + r * 0.08, y - r * 1.18); g.stroke(); g.fillStyle = '#4f9a3c'; g.beginPath(); g.ellipse(x + r * 0.28, y - r * 1.1, r * 0.26, r * 0.1, -0.4, 0, Math.PI * 2); g.fill(); }
+    if (o.dent) { g.fillStyle = 'rgba(150,50,30,0.35)'; g.beginPath(); g.ellipse(o.dent[0], o.dent[1] + 6, 46, 18, 0, 0, Math.PI * 2); g.fill(); }
+    g.restore(); },
+  apple(g, x, y, r, c) { g.fillStyle = shade(g, x, y, r, '#ff8a70', c); g.beginPath(); g.arc(x - r * 0.3, y, r * 0.75, 0, Math.PI * 2); g.arc(x + r * 0.3, y, r * 0.75, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = '#5a3b1c'; g.lineWidth = r * 0.07; g.beginPath(); g.moveTo(x, y - r * 0.55); g.lineTo(x + r * 0.08, y - r * 0.95); g.stroke(); g.fillStyle = 'rgba(255,255,255,0.35)'; g.beginPath(); g.ellipse(x - r * 0.45, y - r * 0.3, r * 0.14, r * 0.25, 0.4, 0, Math.PI * 2); g.fill(); },
+  banana(g, x, y, s, rot, stage) { g.save(); g.translate(x, y); g.rotate(rot); g.scale(s, s);
+    const col = { green: ['#b7d65a', '#6f9b2c'], turning: ['#e8e36a', '#9cb33d'], yellow: ['#ffe36b', '#e0b22c'], spotted: ['#ffd95a', '#d9a526'], ripe: ['#f7c948', '#c98a1e'] }[stage];
+    const gr = g.createLinearGradient(0, -40, 0, 30); gr.addColorStop(0, col[0]); gr.addColorStop(1, col[1]); g.fillStyle = gr;
+    g.beginPath(); g.moveTo(-95, -10); g.quadraticCurveTo(0, 55, 95, -18); g.quadraticCurveTo(0, 20, -95, -10); g.closePath(); g.fill();
+    g.beginPath(); g.moveTo(-95, -10); g.quadraticCurveTo(0, 45, 95, -18); g.lineTo(98, -26); g.quadraticCurveTo(0, 5, -98, -18); g.closePath(); g.fill();
+    g.fillStyle = '#5b4020'; g.fillRect(-104, -20, 12, 8); g.fillRect(93, -28, 8, 8);
+    if (stage === 'spotted' || stage === 'ripe') { g.fillStyle = 'rgba(110,70,20,0.75)'; for (let i = 0; i < (stage === 'ripe' ? 16 : 7); i++) { g.beginPath(); g.arc(-70 + i * 9.5, 4 + Math.sin(i * 1.7) * 6 + Math.abs(i - 7) * -0.8, 2 + (i % 3), 0, Math.PI * 2); g.fill(); } }
+    g.restore(); },
+  grapes(g, x, y, s) { for (let i = 0; i < 9; i++) { const gx = x + ((i % 3) - 1) * 22 * s, gy = y + Math.floor(i / 3) * 20 * s - (i % 3 === 1 ? 6 : 0); g.fillStyle = shade(g, gx, gy, 13 * s, '#c79be0', '#6b2f8c'); g.beginPath(); g.arc(gx, gy, 13 * s, 0, Math.PI * 2); g.fill(); } },
+  bowl(g, x, y, w) { const gr = g.createLinearGradient(x - w / 2, 0, x + w / 2, 0); gr.addColorStop(0, '#4a73b0'); gr.addColorStop(0.45, '#a9cbf2'); gr.addColorStop(1, '#3e66a3'); g.fillStyle = gr;
+    g.beginPath(); g.ellipse(x, y - 62, w / 2, 70, 0, 0, Math.PI); g.closePath(); g.fill(); g.fillStyle = '#35598f'; g.fillRect(x - w * 0.14, y + 4, w * 0.28, 12);
+    g.strokeStyle = '#d7e7fb'; g.lineWidth = 5; g.beginPath(); g.ellipse(x, y - 62, w / 2, 14, 0, 0, Math.PI); g.stroke(); },
+  fan(g, x, y, r, turn) { g.save(); g.fillStyle = '#9aa3ad'; g.fillRect(x - r * 0.06, y, r * 0.12, r * 2.2); g.fillStyle = '#7d858f'; g.beginPath(); g.ellipse(x, y + r * 2.2, r * 0.6, r * 0.14, 0, 0, Math.PI * 2); g.fill();
+    g.translate(x, y); g.scale(Math.cos(turn || 0) * 0.8 + 0.2, 1); g.strokeStyle = 'rgba(200,210,220,0.9)'; g.lineWidth = 3; g.beginPath(); g.arc(0, 0, r, 0, Math.PI * 2); g.stroke();
+    for (let k = 0; k < 8; k++) { g.beginPath(); g.moveTo(0, 0); g.lineTo(Math.cos(k * Math.PI / 4) * r, Math.sin(k * Math.PI / 4) * r); g.stroke(); }
+    g.fillStyle = 'rgba(170,200,230,0.55)'; for (let k = 0; k < 3; k++) { g.beginPath(); g.ellipse(Math.cos(k * 2.09) * r * 0.45, Math.sin(k * 2.09) * r * 0.45, r * 0.42, r * 0.2, k * 2.09, 0, Math.PI * 2); g.fill(); } g.fillStyle = '#5b636d'; g.beginPath(); g.arc(0, 0, r * 0.14, 0, Math.PI * 2); g.fill(); g.restore(); },
+  wind(g, x, y, dir) { g.strokeStyle = 'rgba(255,255,255,0.8)'; g.lineWidth = 4; g.lineCap = 'round'; for (let k = 0; k < 4; k++) { const yy = y + k * 34; g.beginPath(); g.moveTo(x, yy); g.bezierCurveTo(x + dir * 60, yy - 20, x + dir * 110, yy + 20, x + dir * 170, yy); if (k % 2) g.arc(x + dir * 170, yy - 10, 10, Math.PI / 2, -Math.PI, dir < 0); g.stroke(); } },
+  leaf(g, x, y, s, bend) { g.save(); g.translate(x, y + 60 * s); g.strokeStyle = '#3f7a2c'; g.lineWidth = 6 * s; g.beginPath(); g.moveTo(0, 0); g.quadraticCurveTo(10 * s, -60 * s, 40 * bend * s, -110 * s); g.stroke(); g.translate(40 * bend * s, -110 * s); g.rotate(bend); g.fillStyle = '#5ea83f'; g.beginPath(); g.ellipse(0, -35 * s, 26 * s, 50 * s, 0, 0, Math.PI * 2); g.fill(); g.strokeStyle = '#3f7a2c'; g.lineWidth = 2; g.beginPath(); g.moveTo(0, 12 * s); g.lineTo(0, -80 * s); g.stroke(); g.restore(); },
+  cup(g, x, y, s) { g.fillStyle = '#e6eef5'; g.beginPath(); g.moveTo(x - 30 * s, y - 60 * s); g.lineTo(x + 30 * s, y - 60 * s); g.lineTo(x + 24 * s, y + 20 * s); g.lineTo(x - 24 * s, y + 20 * s); g.closePath(); g.fill(); g.strokeStyle = '#c9d6e2'; g.lineWidth = 6 * s; g.beginPath(); g.arc(x + 34 * s, y - 20 * s, 16 * s, -1.4, 1.4); g.stroke(); },
+  plant(g, x, y, s) { g.fillStyle = '#c0663c'; g.fillRect(x - 28 * s, y, 56 * s, 50 * s); g.fillStyle = '#4f9a3c'; for (let k = 0; k < 7; k++) { g.save(); g.translate(x, y); g.rotate(-1.2 + k * 0.4); g.beginPath(); g.ellipse(0, -60 * s, 14 * s, 60 * s, 0, 0, Math.PI * 2); g.fill(); g.restore(); } },
+  books(g, x, y, s) { ['#d9534f', '#3b6fb6', '#f2a900', '#2f8a57'].forEach((c, k) => { g.fillStyle = c; g.fillRect(x - 50 * s + k * 3, y - k * 22 * s, 100 * s, 20 * s); g.fillStyle = 'rgba(255,255,255,0.3)'; g.fillRect(x - 46 * s + k * 3, y - k * 22 * s + 4, 6, 12 * s); }); },
+  glow(g, x, y, r, c) { const gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, c); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2); },
+  window(g, x, y, w, h) { g.fillStyle = '#0a1030'; g.fillRect(x, y, w, h); g.fillStyle = '#f4f1d0'; g.beginPath(); g.arc(x + w * 0.65, y + h * 0.3, w * 0.13, 0, Math.PI * 2); g.fill(); g.fillStyle = '#0a1030'; g.beginPath(); g.arc(x + w * 0.7, y + h * 0.27, w * 0.11, 0, Math.PI * 2); g.fill();
+    for (let i = 0; i < 12; i++) { g.fillStyle = 'rgba(255,255,255,0.8)'; g.fillRect(x + (i * 37) % w, y + (i * 23) % (h * 0.6), 2, 2); } g.strokeStyle = '#6b5a4a'; g.lineWidth = 8; g.strokeRect(x, y, w, h); g.beginPath(); g.moveTo(x + w / 2, y); g.lineTo(x + w / 2, y + h); g.moveTo(x, y + h / 2); g.lineTo(x + w, y + h / 2); g.stroke(); },
+  sill(g, x, y, w) { g.fillStyle = '#5a4a5e'; g.fillRect(x, y, w, 14); g.fillStyle = 'rgba(0,0,0,0.25)'; g.fillRect(x, y + 14, w, 6); },
+  habitat(g, x, y, w, h, split) { g.fillStyle = '#6b4a2a'; g.fillRect(x - w / 2, y + h * 0.35, w, h * 0.15); g.fillStyle = '#3d7a2f'; for (let k = 0; k < 7; k++) { g.beginPath(); g.ellipse(x - w * 0.4 + k * w * 0.13, y + h * 0.3, w * 0.03, h * 0.18, (k % 2 ? 0.3 : -0.3), 0, Math.PI * 2); g.fill(); }
+    if (split) { g.fillStyle = 'rgba(255,245,200,0.35)'; g.fillRect(x - w / 2, y - h / 2, w / 2, h); g.fillStyle = 'rgba(10,20,50,0.45)'; g.fillRect(x, y - h / 2, w / 2, h); }
+    g.fillStyle = 'rgba(180,220,255,0.18)'; g.fillRect(x - w / 2, y - h / 2, w, h); g.strokeStyle = 'rgba(210,235,255,0.9)'; g.lineWidth = 3; g.strokeRect(x - w / 2, y - h / 2, w, h); g.fillStyle = 'rgba(255,255,255,0.35)'; g.fillRect(x - w / 2 + 8, y - h / 2 + 8, 6, h - 16);
+    g.fillStyle = 'rgba(160,210,255,0.9)'; g.fillRect(x - w * 0.3, y - h / 2 - 14, w * 0.6, 8); },
+  drop(g, x, y, r) { g.fillStyle = shade(g, x, y, r, '#fff7d1', '#f5a524'); g.beginPath(); g.moveTo(x, y - r * 1.5); g.quadraticCurveTo(x + r, y - r * 0.2, x, y + r); g.quadraticCurveTo(x - r, y - r * 0.2, x, y - r * 1.5); g.fill(); },
+  sparkle(g, x, y) { g.fillStyle = 'rgba(255,255,255,0.95)'; for (let k = 0; k < 5; k++) { const a = k * 1.26, d = 26 + (k % 2) * 12, px = x + Math.cos(a) * d, py = y + Math.sin(a) * d; g.beginPath(); g.moveTo(px, py - 7); g.lineTo(px + 2, py); g.lineTo(px, py + 7); g.lineTo(px - 2, py); g.closePath(); g.fill(); g.beginPath(); g.moveTo(px - 7, py); g.lineTo(px, py + 2); g.lineTo(px + 7, py); g.lineTo(px, py - 2); g.closePath(); g.fill(); } },
+  scent(g, x, y) { g.strokeStyle = 'rgba(255,140,170,0.7)'; g.lineWidth = 4; g.lineCap = 'round'; for (let k = 0; k < 3; k++) { g.beginPath(); for (let t = 0; t <= 1; t += 0.05) { const px = x - 40 + k * 40 + Math.sin(t * 9 + k) * 10, py = y + 40 - t * 120; t ? g.lineTo(px, py) : g.moveTo(px, py); } g.stroke(); } },
+  path(g, pts) { g.strokeStyle = 'rgba(255,255,255,0.9)'; g.lineWidth = 3; g.setLineDash([6, 8]); g.beginPath(); pts.forEach((p, i) => i ? g.lineTo(...p) : g.moveTo(...p)); g.stroke(); g.setLineDash([]); },
+  motion(g, x, y, ang) { g.save(); g.translate(x, y); g.rotate(ang); g.strokeStyle = 'rgba(255,255,255,0.85)'; g.lineWidth = 3; g.lineCap = 'round'; for (let k = -1; k <= 1; k++) { g.beginPath(); g.moveTo(-30, k * 12); g.lineTo(-70 + Math.abs(k) * 12, k * 12); g.stroke(); } g.restore(); },
+  marks(g, x, y, n) { g.strokeStyle = '#f7f1e3'; g.lineWidth = 4; g.lineCap = 'round'; for (let k = 0; k < n; k++) { g.beginPath(); if (k === 4) { g.moveTo(x - 6, y - 22); g.lineTo(x + 58, y - 2); } else { g.moveTo(x + k * 13, y - 26); g.lineTo(x + k * 13, y + 2); } g.stroke(); } },
+  // the storybook fly: 3/4 view, big red compound eyes, tan segmented body, clear wings, six thin legs, a small friendly mouth
+  fly(g, x, y, s, o = {}) {
+    const body = FLY_TINT[o.tint] || FLY_TINT.base; g.save(); g.translate(x, y); g.rotate(o.ang || 0); g.scale((o.dir || 1) * s, s);
+    g.fillStyle = 'rgba(0,0,0,0.15)'; g.beginPath(); g.ellipse(4, 40, 34, 7, 0, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = '#3a2716'; g.lineWidth = 2.2; g.lineCap = 'round';
+    [[-10, 8, -26, 26, -30, 40], [-2, 10, -10, 30, -12, 42], [8, 10, 12, 30, 12, 42], [16, 6, 30, 22, 36, 38], [-18, 4, -36, 16, -44, 30], [22, 2, 40, 12, 48, 26]].forEach(([a, b, c, d, e, f]) => { g.beginPath(); g.moveTo(a, b); g.lineTo(c, d); g.lineTo(e, f); g.stroke(); });
+    const open = o.wings === 'open'; g.fillStyle = 'rgba(225,238,255,0.55)'; g.strokeStyle = 'rgba(150,170,200,0.8)'; g.lineWidth = 1;
+    [[-6, -10, open ? -1.9 : -2.5], [4, -12, open ? -0.9 : -0.55]].forEach(([wx, wy, a]) => { g.save(); g.translate(wx, wy); g.rotate(a); g.beginPath(); g.ellipse(0, -26, 12, 30, 0, 0, Math.PI * 2); g.fill(); g.stroke(); g.beginPath(); g.moveTo(0, 0); g.lineTo(0, -52); g.moveTo(0, -18); g.lineTo(-7, -40); g.moveTo(0, -18); g.lineTo(7, -40); g.stroke(); g.restore(); });
+    g.fillStyle = shade(g, -22, 4, 22, '#e2bf93', body); g.beginPath(); g.ellipse(-22, 6, 24, 17, -0.15, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = 'rgba(70,45,25,0.55)'; g.lineWidth = 3.5; for (let k = 0; k < 3; k++) { g.beginPath(); g.ellipse(-30 + k * 9, 6, 3, 15 - k * 2, 0, -1.3, 1.3); g.stroke(); }
+    g.fillStyle = shade(g, 4, -2, 16, '#e8c9a0', body); g.beginPath(); g.ellipse(4, -2, 16, 14, 0, 0, Math.PI * 2); g.fill();
+    g.fillStyle = shade(g, 24, -8, 13, '#ecd0a8', body); g.beginPath(); g.arc(24, -8, 13, 0, Math.PI * 2); g.fill();
+    [[20, -12, 9], [33, -10, 7.5]].forEach(([ex, ey, er]) => { g.fillStyle = shade(g, ex, ey, er, '#ff6a5c', '#8e1414'); g.beginPath(); g.arc(ex, ey, er, 0, Math.PI * 2); g.fill(); g.fillStyle = 'rgba(0,0,0,0.18)'; for (let k = 0; k < 10; k++) g.fillRect(ex - er * 0.6 + (k % 4) * er * 0.4, ey - er * 0.5 + Math.floor(k / 4) * er * 0.45, 1.4, 1.4); g.fillStyle = '#fff'; g.beginPath(); g.arc(ex - er * 0.35, ey - er * 0.4, er * 0.28, 0, Math.PI * 2); g.fill(); });
+    g.strokeStyle = '#3a2716'; g.lineWidth = 2; g.beginPath(); g.moveTo(24, -20); g.quadraticCurveTo(22, -32, 16, -36); g.moveTo(29, -19); g.quadraticCurveTo(32, -32, 38, -36); g.stroke();
+    g.strokeStyle = '#5a1f14'; g.lineWidth = 1.8; g.beginPath(); if (o.mood === 'surprised') g.arc(30, 0, 2.6, 0, Math.PI * 2); else if (o.mood === 'think') { g.moveTo(26, 1); g.lineTo(33, 0); } else g.arc(29, -1, 4, 0.3, Math.PI - 0.3); g.stroke();
+    g.restore();
+  },
+};
+// ---------- the tablet on a stand ----------
+const TAB = { w: 170, h: 106, d: 3, tilt: 0.22, lift: 16, scrW: 162, scrH: 101.25 };
+const tabletRig = new THREE.Group(); tabletRig.visible = false; scene.add(tabletRig);
+const bookCanvas = document.createElement('canvas'); bookCanvas.width = 1024; bookCanvas.height = 640; const bk = bookCanvas.getContext('2d');
+const bookTex = new THREE.CanvasTexture(bookCanvas); bookTex.colorSpace = THREE.SRGBColorSpace; bookTex.anisotropy = 8;
+const tabletBody = new THREE.Group(); // pivots about the bottom edge
+{
+  const steel = new THREE.MeshStandardMaterial({ color: 0x3a3f47, roughness: 0.45, metalness: 0.6 });
+  const base = new THREE.Mesh(new THREE.BoxGeometry(110, 3, 60), steel); base.position.set(0, TABLE_Y + 1.5, -8); base.castShadow = true; base.receiveShadow = true; tabletRig.add(base);
+  const lip = new THREE.Mesh(new THREE.BoxGeometry(110, 6, 5), steel); lip.position.set(0, TABLE_Y + TAB.lift - 3, 10); lip.castShadow = true; tabletRig.add(lip);
+  const post = new THREE.Mesh(new THREE.BoxGeometry(14, TAB.lift + 40, 4), steel); post.position.set(0, TABLE_Y + (TAB.lift + 40) / 2, -18); post.rotation.x = -TAB.tilt; post.castShadow = true; tabletRig.add(post);
+  tabletBody.position.set(0, TABLE_Y + TAB.lift, 8); tabletBody.rotation.x = -TAB.tilt; tabletRig.add(tabletBody);
+  const shell = new THREE.Mesh(new THREE.BoxGeometry(TAB.w, TAB.h, TAB.d), new THREE.MeshStandardMaterial({ color: 0x1b1b1e, roughness: 0.35, metalness: 0.5 })); shell.position.set(0, TAB.h / 2, 0); shell.castShadow = true; tabletBody.add(shell);
+  const scr = new THREE.Mesh(new THREE.PlaneGeometry(TAB.scrW, TAB.scrH), new THREE.MeshBasicMaterial({ map: bookTex })); scr.position.set(0, TAB.h / 2, TAB.d / 2 + 0.05); tabletBody.add(scr);
+}
+// book pixels (1024 x 640) to a world point on the glass, and the glass normal
+function bookPoint(px, py, out = new THREE.Vector3()) { return tabletBody.localToWorld(out.set((px / 1024 - 0.5) * TAB.scrW, TAB.h / 2 + (0.5 - py / 640) * TAB.scrH, TAB.d / 2 + 0.06)); }
+function bookNormal() { return new THREE.Vector3(0, Math.sin(TAB.tilt), Math.cos(TAB.tilt)).normalize(); }
+
+// ---------- reading state ----------
+const reading = { si: 0, pi: 0, mode: 'page', words: [], lines: [], wi: -1, wordT: 0, wordDur: 0, gap: 0, sound: null, f0: 190, syl: [], sylI: 0, miscue: null, choice: -1, answered: -1, order: [], chosenCard: -1,
+  vocab: new Map(), stats: { stories: 0, pages: 0, words: 0, miscues: 0, selfCorrect: 0, checks: 0, checksRight: 0, readTime: 0 }, pageStart: 0, pageMiss: 0, pageWords: 0, pageLog: [], log: [], storyLog: [], checkLog: [], speaking: false, pageSim: 0, drawAt: 0, hoverBase: null, flight: null, after: null };
+const vocabOf = w => { const n = w.toLowerCase().replace(/[^a-z]/g, ''); return STORIES[reading.si].vocab.find(v => n.startsWith(v.slice(0, Math.max(4, v.length - 2)))) || null; };
+const vMem = v => { if (!reading.vocab.has(v)) reading.vocab.set(v, 0.2); return reading.vocab.get(v); };
+function rdLog(text) { reading.log.push({ t: TDT(), text }); if (reading.log.length > 80) reading.log.shift(); game.feedback = text; }
+// lay out the page text in the right half of the spread and remember where every word sits
+function layoutPage() {
+  const S = STORIES[reading.si], P = S.pages[reading.pi]; bk.font = `400 25px ${BODY}`;
+  const words = [], x0 = 548, x1 = 996, lh = 37; let x = x0, y = 118;
+  P.text.forEach(sentence => { sentence.split(' ').forEach(w => { const wd = bk.measureText(w).width; if (x + wd > x1) { x = x0; y += lh; } words.push({ w, x, y, wd, vocab: vocabOf(w) }); x += wd + bk.measureText(' ').width; }); x = x0; y += lh + 6; });
+  reading.words = words; reading.wi = -1; reading.speaking = false; reading.gap = 0.5; reading.pageSim = 0; reading.pageMiss = 0; reading.pageWords = 0;
+}
+window.__reading = reading; window.__layoutPage = () => layoutPage(); // debug hooks, like window.__cls
+function readingStart() {
+  reading.mode = 'page'; layoutPage(); const st = flyState; reading.hoverBase = readSpot(); st.pos.copy(reading.hoverBase); st.airborne = true; st.buzz = 1; st.walking = false;
+  const n = bookNormal(); st.yaw = Math.atan2(-n.x, -n.z); plantFeet(); setPhase('r_read'); drawBook(); renderTrial();
+  game.feedback = `The fly opens "${STORIES[reading.si].title}" and starts reading aloud.`;
+}
+function readSpot() { return bookPoint(770, 300).addScaledVector(bookNormal(), 24).add(new THREE.Vector3(0, -2, 0)); }
+function tapSpot(px, py) { return bookPoint(px, py).addScaledVector(bookNormal(), 3.4).add(new THREE.Vector3(0, -1.2, 0)); }
+function readFlyTo(target, after) { const st = flyState, from = st.pos.clone(), d = from.distanceTo(target); const ctrl = from.clone().lerp(target, 0.5); ctrl.y += 4 + d * 0.15; reading.flight = { from, to: target.clone(), ctrl, t: 0, dur: Math.max(0.6, Math.min(1.6, d / 30)) }; reading.after = after; setPhase('r_fly'); }
+// syllables of a word for the voice: each vowel group becomes a hum shaped by that vowel
+function syllablesOf(w) { const s = w.toLowerCase().replace(/[^a-z]/g, ''); const groups = s.match(/[aeiouy]+/g) || ['u']; return groups.map(v => ({ v: { a: 'a', e: 'e', i: 'i', o: 'o', u: 'u', y: 'i' }[v[0]] })); }
+function startWord() {
+  const W = reading.words[reading.wi]; const syl = syllablesOf(W.w); reading.syl = syl; reading.sylI = 0; const vm = W.vocab ? vMem(W.vocab) : 0.9;
+  // about 110 words a minute with pauses, a fluent grade 3 pace; bold vocabulary is read more slowly
+  reading.wordDur = (0.22 + 0.12 * syl.length) * (W.vocab ? 1.5 : 1); reading.wordT = 0;
+  reading.miscue = Math.random() < (W.vocab ? 0.04 + 0.3 * (1 - vm) : 0.02) ? (Math.random() < 0.7 ? 'self' : 'miss') : null; if (reading.miscue) reading.wordDur *= 1.8;
+  const c0 = W.w.toLowerCase().replace(/[^a-z]/g, '')[0]; if ('bdgkptcq'.includes(c0)) pulseBurst();
+  reading.f0 = 185 + (/[?]$/.test(W.w) ? 30 : /[.!]$/.test(W.w) ? -15 : 0) + Math.random() * 10;
+}
+function finishWord() {
+  const W = reading.words[reading.wi], R = reading.stats; R.words++; reading.pageWords++;
+  if (reading.miscue) { R.miscues++; reading.pageMiss++; if (reading.miscue === 'self') R.selfCorrect++; rdLog(reading.miscue === 'self' ? `Stumbled on "${W.w.replace(/[^A-Za-z']/g, '')}" and self-corrected.` : `Misread "${W.w.replace(/[^A-Za-z']/g, '')}".`); }
+  if (W.vocab) { const V = vMem(W.vocab), ok = reading.miscue !== 'miss', dw = 0.18 * ((ok ? 1 : 0) - V); reading.vocab.set(W.vocab, V + dw);
+    tele.trials.push({ t: TDT(), exp: 9, correct: ok, pos: 1, needed: W.vocab, chosen: W.w, sameKind: true, offset: 0, R: ok ? 1 : 0, V, dw, level: tele.ddt.level, divergence: 0, dwell: 0, word: W.vocab }); if (tele.trials.length > 400) tele.trials.shift();
+    pulse(3, 0.8); pulse(4, 0.8); }
+  reading.gap = /[.!?]["”]?$/.test(W.w) ? 0.35 : /[,:]$/.test(W.w) ? 0.18 : 0.07;
+}
+function pageDone() {
+  const secs = reading.pageSim, wpm = reading.pageWords / Math.max(1e-3, secs) * 60, acc = 1 - reading.pageMiss / Math.max(1, reading.pageWords);
+  reading.pageLog.push({ t: TDT(), story: STORIES[reading.si].id, page: reading.pi + 1, wpm, acc, words: reading.pageWords }); if (reading.pageLog.length > 80) reading.pageLog.shift(); reading.stats.pages++;
+}
+function comprehensionP() { const S = STORIES[reading.si]; const m = S.vocab.reduce((a, v) => a + vMem(v), 0) / S.vocab.length; return Math.min(0.95, 0.45 + 0.5 * m); }
+const CHOICE_Y = [250, 340, 430], CARD_X = [40, 368, 696];
+function stepReading(dt, now) {
+  const st = flyState, R = reading; stepRipples(dt); R.stats.readTime += dt;
+  st.buzz = 1; st.airborne = true;
+  const redraw = (ms = 90) => { if (now - R.drawAt > ms) { R.drawAt = now; drawBook(); } };
+  // gentle bobbing hover in front of the page
+  const bob = (base, t) => { st.pos.copy(base); st.pos.y += Math.sin(t * 2.3) * 1.1; st.pos.x += Math.sin(t * 1.1) * 0.9; };
+  st.songAmp = 0; R.sound = null;
+  switch (agent.phase) {
+    case 'r_read': {
+      bob(R.hoverBase, performance.now() / 1000); pulse(0, 0.9); pulse(1, 0.9); pulse(2, 0.55); pulse(13, 0.7);
+      if (R.mode !== 'page') break;
+      R.pageSim += dt;
+      if (R.speaking) {
+        R.wordT += dt; const W = R.words[R.wi]; st.headYaw += ((770 - (W.x + W.wd / 2)) / 1024 * 0.9 - st.headYaw) * Math.min(1, dt * 8);
+        const n = R.syl.length, pos = R.wordT / R.wordDur * n, k = Math.min(n - 1, Math.floor(pos));
+        R.sound = R.syl[k].v; st.songAmp = Math.sin(Math.min(1, pos - k) * Math.PI) * 0.85 + 0.15; pulse(11, 0.6); pulse(6, 0.5); pulse(7, 0.5); if (W.vocab) { pulse(3, 0.6); pulse(4, 0.6); }
+        if (R.wordT >= R.wordDur) { finishWord(); R.speaking = false; R.wi++; if (R.wi >= R.words.length) { pageDone(); R.gap = 0.6; } }
+        redraw();
+      } else if ((R.gap -= dt) <= 0) {
+        if (R.wi < 0) R.wi = 0;
+        if (R.wi < R.words.length) { startWord(); R.speaking = true; redraw(0); }
+        else { const P = STORIES[R.si].pages[R.pi]; if (P.check && R.answered !== R.pi) { R.mode = 'check'; R.choice = -1; R.order = shuffle([0, 1, 2]); drawBook(); setPhase('r_think'); } else readFlyTo(tapSpot(930, 608), () => tapAt(930, 608, 'next')); }
+      }
+      break; }
+    case 'r_think': bob(R.hoverBase, performance.now() / 1000); st.headYaw = Math.sin(agent.t * 3) * 0.3; pulse(0, 0.9); pulse(1, 0.9); pulse(3, 0.7); pulse(4, 0.7); pulse(5, 0.6);
+      if (agent.t > 2.6) { const ok = Math.random() < comprehensionP(); R.choice = ok ? R.order.indexOf(0) : R.order.findIndex(i => i !== 0); readFlyTo(tapSpot(512, CHOICE_Y[R.choice] + 30), () => tapAt(512, CHOICE_Y[R.choice] + 30, 'choice')); } break;
+    case 'r_browse': bob(R.hoverBase, performance.now() / 1000); st.headYaw = Math.sin(agent.t * 2) * 0.5; pulse(0, 0.9); pulse(1, 0.9);
+      if (agent.t > 2.4) { R.chosenCard = 0; drawBook(); const c = cardRect(0); readFlyTo(tapSpot(c[0] + c[2] / 2, c[1] + c[3] / 2), () => tapAt(c[0] + c[2] / 2, c[1] + c[3] / 2, 'card')); } break;
+    case 'r_fly': { const F = R.flight; F.t += dt / F.dur; const k = Math.min(1, F.t), e = ease(k), u = 1 - e; st.pos.copy(F.from).multiplyScalar(u * u).addScaledVector(F.ctrl, 2 * u * e).addScaledVector(F.to, e * e); st.headYaw *= 0.9; pulse(13, 1); pulse(5, 0.7); pulse(11, 0.7);
+      if (k >= 1) { const a = R.after; R.after = null; a && a(); } break; }
+    case 'r_tap': { const L = agent.tapLeg, T = agent.t; pulse(12, 0.95); st.pos.y += Math.sin(performance.now() / 300) * 0.01;
+      if (T < 0.25) L.foot.lerpVectors(agent.tapFrom, agent.target, T / 0.25); else if (T < 0.4) { L.foot.copy(agent.target); if (!agent.tapped) { agent.tapped = true; onTap(agent.tapKind, now); } } else if (T < 0.6) L.foot.lerpVectors(agent.target, agent.tapFrom, (T - 0.4) / 0.2); else afterTap(agent.tapKind); break; }
+    case 'r_feedback': bob(R.hoverBase, performance.now() / 1000); if (agent.t > 1.6) { R.answered = R.pi; R.mode = 'page'; readFlyTo(tapSpot(930, 608), () => tapAt(930, 608, 'next')); drawBook(); } break;
+  }
+  redraw(250);
+}
+function tapAt(px, py, kind) { agent.target = bookPoint(px, py); agent.tapKind = kind; const local = fly.worldToLocal(agent.target.clone()); agent.tapLeg = local.x < 0 ? legs[0] : legs[1]; agent.tapLeg.step = null; agent.tapFrom = agent.tapLeg.foot.clone(); agent.tapped = false; setPhase('r_tap'); }
+function onTap(kind) {
+  const R = reading, S = STORIES[R.si];
+  if (kind === 'choice') { const ok = R.order[R.choice] === 0; R.stats.checks++; if (ok) R.stats.checksRight++; R.checkLog.push({ t: TDT(), ok, story: S.title, q: S.pages[R.pi].check.q }); if (R.checkLog.length > 60) R.checkLog.shift(); R.mode = 'feedback'; drawBook();
+    tele.trials.push({ t: TDT(), exp: 9, correct: ok, pos: 2, needed: 'comprehension', chosen: S.pages[R.pi].check.a[R.order[R.choice]], sameKind: true, offset: 0, R: ok ? 1 : 0, V: comprehensionP(), dw: 0, level: tele.ddt.level, divergence: 0, dwell: 0, word: S.id });
+    game.dopamine = Math.min(1, game.dopamine + (ok ? 0.3 : -0.1)); ok ? (pulse(3, 1), pulse(4, 1), pulse(10, 0.9)) : (pulse(8, 0.8), pulse(9, 0.8));
+    rdLog(`${R.pi === 5 ? 'Comprehension' : 'Stop & Think'}: ${ok ? 'answered correctly' : 'chose a wrong answer'}. "${S.pages[R.pi].check.q}"`); }
+  else if (kind === 'next') { if (R.pi < 5) { R.pi++; layoutPage(); R.mode = 'page'; } else { R.stats.stories++; R.storyLog.push({ t: TDT(), story: S.title }); R.mode = 'library'; R.chosenCard = -1; rdLog(`Finished "${S.title}".`); } drawBook(); }
+  else if (kind === 'card') { const nxt = libraryOrder()[R.chosenCard]; R.si = nxt; R.pi = 0; R.answered = -1; layoutPage(); R.mode = 'page'; rdLog(`Chose "${STORIES[nxt].title}" from the library.`); drawBook(); renderTrial(); }
+}
+function afterTap(kind) {
+  const R = reading; agent.tapLeg = null;
+  if (kind === 'choice') { R.hoverBase = flyState.pos.clone(); setPhase('r_feedback'); return; }
+  if (R.mode === 'library') { readFlyTo(readSpot(), () => { R.hoverBase = readSpot(); setPhase('r_browse'); }); return; }
+  readFlyTo(readSpot(), () => { R.hoverBase = readSpot(); if (R.wi < 0) R.gap = 0.5; setPhase('r_read'); renderTrial(); });
+}
+const libraryOrder = () => [1, 2, 3].map(k => (reading.si + k) % STORIES.length);
+const cardRect = i => [CARD_X[i], 170, 288, 330];
+
+// ---------- the e-book screen ----------
+function drawBook() {
+  const g = bk, R = reading, S = STORIES[R.si], P = S.pages[R.pi]; g.setTransform(1, 0, 0, 1, 0, 0);
+  g.fillStyle = '#fbfaf8'; g.fillRect(0, 0, 1024, 640);
+  g.fillStyle = C.darkBlue; g.fillRect(0, 0, 1024, 50); g.fillStyle = '#fff'; g.font = `700 20px ${DISPLAY}`; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText('Fruit Fly Lingo · Library', 24, 26);
+  g.textAlign = 'right'; g.fillStyle = C.onDarkMuted; g.font = `700 17px ${DISPLAY}`; g.fillText(R.mode === 'library' ? 'Choose your next story' : `${S.title} · page ${R.pi + 1} of 6`, 1000, 26);
+  if (R.mode === 'library') return drawLibrary(g), (bookTex.needsUpdate = true);
+  // left: the picture
+  g.save(); g.beginPath(); g.roundRect(24, 66, 496, 456, 16); g.clip(); g.drawImage(artFor(R.si, R.pi), 24, 66); g.restore();
+  if (R.mode === 'check' || R.mode === 'feedback') { drawCheck(g); bookTex.needsUpdate = true; return; }
+  // right: the text, with the word being read highlighted and vocabulary in bold blue
+  g.textAlign = 'left'; g.textBaseline = 'alphabetic'; g.fillStyle = C.inkMuted; g.font = `700 13px ${DISPLAY}`; g.fillText(S.theme.toUpperCase() + ' · ' + S.grade.toUpperCase(), 548, 88);
+  R.words.forEach((W, i) => { const now = i === R.wi && agent.phase === 'r_read';
+    if (now) { g.fillStyle = R.miscue ? '#fde8ea' : C.warnTint; g.beginPath(); g.roundRect(W.x - 4, W.y - 25, W.wd + 8, 34, 6); g.fill(); }
+    g.font = `${W.vocab ? 700 : 400} 25px ${BODY}`; g.fillStyle = W.vocab ? C.coreBlue : i < R.wi ? C.darkBlue : '#4b5563'; g.fillText(W.w, W.x, W.y);
+    if (W.vocab) { g.fillStyle = C.coreBlue; g.fillRect(W.x, W.y + 4, W.wd, 2); } });
+  // vocabulary strip
+  g.font = `700 12px ${DISPLAY}`; g.fillStyle = C.inkMuted; g.fillText('WORDS TO KNOW', 548, 548);
+  let vx = 548; S.vocab.forEach(v => { const seen = R.words.some((W, i) => W.vocab === v && i < R.wi); g.font = `700 15px ${DISPLAY}`; const w = g.measureText(v).width + 22; g.fillStyle = seen ? C.successTint : C.blueTint; g.beginPath(); g.roundRect(vx, 558, w, 28, 14); g.fill(); g.fillStyle = seen ? C.gatorInk : C.coreBlue; g.fillText(v, vx + 11, 578); vx += w + 8; });
+  // page dots and buttons
+  for (let i = 0; i < 6; i++) { g.fillStyle = i === R.pi ? C.coreBlue : C.track; g.beginPath(); g.arc(512 - 50 + i * 20, 608, 6, 0, Math.PI * 2); g.fill(); }
+  g.fillStyle = R.pi ? C.card : C.sunken; g.strokeStyle = C.control; g.lineWidth = 2; g.beginPath(); g.roundRect(24, 586, 140, 44, 22); g.fill(); g.stroke(); g.fillStyle = R.pi ? C.darkBlue : C.inkMuted; g.font = `700 18px ${DISPLAY}`; g.textAlign = 'center'; g.fillText('‹ Back', 94, 614);
+  const pressed = agent.phase === 'r_tap' && agent.tapKind === 'next'; g.fillStyle = pressed ? C.darkBlue : C.coreBlue; g.beginPath(); g.roundRect(860, 586, 140, 44, 22); g.fill(); g.fillStyle = '#fff'; g.fillText(R.pi < 5 || R.mode !== 'page' ? 'Next ›' : 'Finish ›', 930, 614);
+  bookTex.needsUpdate = true;
+}
+function wrapLines(g, text, maxW) { const out = []; let line = ''; text.split(' ').forEach(w => { const t = line ? line + ' ' + w : w; if (g.measureText(t).width > maxW && line) { out.push(line); line = w; } else line = t; }); if (line) out.push(line); return out; }
+function drawCheck(g) {
+  const R = reading, S = STORIES[R.si], C0 = S.pages[R.pi].check; g.fillStyle = 'rgba(0,38,87,0.55)'; g.fillRect(0, 50, 1024, 590);
+  g.fillStyle = '#fff'; g.beginPath(); g.roundRect(192, 80, 640, 520, 20); g.fill();
+  g.textAlign = 'left'; g.fillStyle = C.alachua; g.font = `700 14px ${DISPLAY}`; g.fillText(R.pi === 5 ? 'COMPREHENSION' : 'STOP & THINK', 224, 120);
+  g.fillStyle = C.darkBlue; g.font = `700 24px ${DISPLAY}`; wrapLines(g, C0.q, 576).forEach((l, i) => g.fillText(l, 224, 160 + i * 32));
+  R.order.forEach((ai, k) => { const y = CHOICE_Y[k], picked = R.choice === k, fb = R.mode === 'feedback', right = ai === 0;
+    g.fillStyle = fb && right ? C.successTint : fb && picked ? '#fde8ea' : picked ? C.blueTint : C.sunken; g.strokeStyle = fb && right ? C.gator : fb && picked ? C.bottlebrush : C.border; g.lineWidth = 2; g.beginPath(); g.roundRect(224, y, 576, 72, 14); g.fill(); g.stroke();
+    g.fillStyle = C.darkBlue; g.font = `400 20px ${BODY}`; wrapLines(g, C0.a[ai], 520).forEach((l, i) => g.fillText(l, 248, y + 32 + i * 26)); });
+  if (R.mode === 'feedback') { const ok = R.order[R.choice] === 0; g.fillStyle = ok ? C.gatorInk : C.bottlebrush; g.font = `700 20px ${DISPLAY}`; g.fillText(ok ? 'Yes! That is what the story says.' : 'Not quite. The highlighted answer matches the story.', 224, 540); }
+}
+function drawLibrary(g) {
+  g.textAlign = 'left'; g.fillStyle = C.darkBlue; g.font = `700 30px ${DISPLAY}`; g.fillText('The End', 40, 104); g.fillStyle = C.inkMuted; g.font = `400 18px ${BODY}`; g.fillText('Read another story', 40, 138);
+  libraryOrder().forEach((si, i) => { const [x, y, w, h] = cardRect(i), S = STORIES[si], sel = reading.chosenCard === i;
+    g.fillStyle = C.card; g.strokeStyle = sel ? C.coreBlue : C.border; g.lineWidth = sel ? 4 : 2; g.beginPath(); g.roundRect(x, y, w, h, 16); g.fill(); g.stroke();
+    g.save(); g.beginPath(); g.roundRect(x + 10, y + 10, w - 20, 170, 10); g.clip(); g.drawImage(artFor(si, 0), x + 10, y + 10, w - 20, (w - 20) * 456 / 496); g.restore();
+    g.fillStyle = C.darkBlue; g.font = `700 19px ${DISPLAY}`; wrapLines(g, S.title, w - 28).forEach((l, k) => g.fillText(l, x + 14, y + 210 + k * 24));
+    g.fillStyle = C.inkMuted; g.font = `400 14px ${BODY}`; g.fillText(S.theme, x + 14, y + 270); g.fillText(`${S.grade} · 6 pages`, x + 14, y + 292);
+    g.fillStyle = sel ? C.coreBlue : C.blueTint; g.beginPath(); g.roundRect(x + 14, y + h - 44, 100, 30, 15); g.fill(); g.fillStyle = sel ? '#fff' : C.coreBlue; g.font = `700 14px ${DISPLAY}`; g.fillText('Read ›', x + 38, y + h - 24); });
+}
+function renderReadingTrial() {
+  const R = reading, S = STORIES[R.si], P = S.pages[R.pi], W = R.words[R.wi];
+  $('meaning').textContent = R.mode === 'library' ? 'Choosing the next story' : `${S.title}, page ${R.pi + 1} of 6`;
+  $('chips').innerHTML = S.vocab.map(v => `<span class="chip ${vMem(v) >= 0.8 ? 'root' : 'empty'}">${v}</span>`).join('');
+  $('placedCount').textContent = R.mode === 'library' ? 'story finished' : `${Math.max(0, Math.min(R.wi, R.words.length))} of ${R.words.length} words`;
+  $('placedBar').classList.toggle('done', R.wi >= R.words.length); $('placedBar').firstElementChild.style.width = `${R.words.length ? Math.max(0, Math.min(1, R.wi / R.words.length)) * 100 : 0}%`;
+  $('feedback').textContent = game.feedback;
+  $('nowLine').textContent = `Reading · ${S.title} · ${R.mode === 'library' ? 'library' : 'page ' + (R.pi + 1) + ' of 6'}`;
+  const T = R.stats; $('stWords').textContent = T.stories; $('stTaps').textContent = T.words; $('stAcc').textContent = T.words ? Math.round(100 * (1 - (T.miscues - T.selfCorrect) / T.words)) + '%' : '0%';
+  const vs = [...R.vocab.keys()].sort((a, b) => R.vocab.get(b) - R.vocab.get(a));
+  $('memory').innerHTML = vs.map(v => { const m = R.vocab.get(v); return `<div class="m"><span>${v}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${m >= 0.8 ? 'known' : Math.round(m * 100) + '% · learning'}</span></div>`; }).join('') || '<p class="sub">Vocabulary memories appear as the fly reads the bold words.</p>';
+}
+
 // ---------- Cameras ----------
 let camMode = 'follow';
 let view = 'simulate';
@@ -2926,7 +3329,8 @@ function setCamMode(m) {
   camMode = m;
   document.querySelectorAll('[data-cam]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === m)));
   const s = phone.scale.x;
-  if (m === 'phone' && EXP[experiment].classroom) { controls.target.set(0, CLS.topY - 2, -10); camera.position.set(0, CLS.topY + 78, 104); }
+  if (m === 'phone' && EXP[experiment].tablet) { const c = bookPoint(512, 320); controls.target.copy(c); camera.position.copy(c).addScaledVector(bookNormal(), 150).add(new THREE.Vector3(-40, 20, 0)); }
+  else if (m === 'phone' && EXP[experiment].classroom) { controls.target.set(0, CLS.topY - 2, -10); camera.position.set(0, CLS.topY + 78, 104); }
   else if (m === 'phone' && EXP[experiment].laptop) { const L = laptop.position; controls.target.set(L.x, TABLE_Y + 60 * s, -30 * s); camera.position.set(L.x, TABLE_Y + 190 * s + (experiment === 5 ? 3 : 0), 300 * s + (experiment === 5 ? 5 : 0)); }
   else if (m === 'phone') { controls.target.set(0, screenTopY(), 0); camera.position.set(0, 120 * s + (experiment === 3 ? 2 : 0), 150 * s + (experiment === 3 ? 4 : 0)); }
   else { controls.target.copy(flyState.pos); camera.position.copy(flyState.pos).add(new THREE.Vector3(...EXP[experiment].camOffset)); }
@@ -2938,16 +3342,16 @@ function setExperiment(n) {
   experiment = n; const cfg = EXP[n]; const s = cfg.phoneScale;
   document.querySelectorAll('[data-exp]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.exp) === n)));
   $('expNote').textContent = cfg.note; $('physPill').textContent = cfg.phys;
-  $('gripPill').textContent = n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
-  document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
+  $('gripPill').textContent = n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
+  document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
   const wasClass = classroom.visible; classroom.visible = !!cfg.classroom; fly.visible = !cfg.classroom;
-  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n === 8; $('soundBtn').hidden = n !== 8; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom; $('vision').hidden = !(cfg.classroom && visionOn);
-  $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : n === 8 ? 'words said right' : 'words built';
-  $('memHead').textContent = cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
+  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n >= 8; $('soundBtn').hidden = n !== 8 && n !== 9; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom; $('vision').hidden = !(cfg.classroom && visionOn);
+  $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : 'answers';
+  $('memHead').textContent = cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : n === 9 ? 'Vocabulary memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
   document.querySelectorAll('#brainPanel [data-rp]').forEach(el => { el.hidden = !el.dataset.rp.split(' ').includes(String(n)); }); requestAnimationFrame(() => { sizeCharts(); resize(); renderScenario(true); }); // right panel sections for this scenario
   if (cfg.classroom) { setFocal(cls.focal); classroomStart(); } else head.add(eyeCam);
   phone.scale.setScalar(s); phone.position.set(0, TABLE_Y + 4 * s, 0); phone.updateMatrixWorld(true);
-  phone.visible = !cfg.laptop && !cfg.classroom; laptop.visible = !!cfg.laptop;
+  phone.visible = !cfg.laptop && !cfg.classroom && !cfg.tablet; laptop.visible = !!cfg.laptop; tabletRig.visible = !!cfg.tablet;
   if (cfg.laptop) { laptop.scale.setScalar(s); laptop.position.set(0, TABLE_Y, 0); laptop.updateMatrixWorld(true); }
   Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === n; });
   ghostLine.visible = false; agent.ghost = null;
@@ -2966,10 +3370,11 @@ function setExperiment(n) {
   buildTiles(); plantFeet(); redrawScreen(performance.now()); renderTrial(); setPhase(cfg.laptop ? 't_read' : 'look'); if (cfg.laptop) { agent.t = 0; agent.plan = []; agent.step = null; } setCamMode(cfg.classroom && !wasClass ? 'phone' : camMode);
   if (cfg.classroom) $('phasePill').textContent = 'Class in session';
   if (n === 8) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); phonicsStart(); }
+  if (n === 9) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); readingStart(); }
   // the side panel follows the experiment to its most related dashboard (after start-up, once the dock code exists)
   requestAnimationFrame(() => { dockChoice = DOCK_FOR[n]; if (view === 'simulate') dock(dockChoice); });
 }
-const DOCK_FOR = { 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
+const DOCK_FOR = { 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
 document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => setExperiment(Number(b.dataset.exp))));
 $('pathsBtn').addEventListener('click', () => { showPaths = !showPaths; $('pathsBtn').setAttribute('aria-pressed', String(showPaths)); $('pathsBtn').textContent = showPaths ? 'Hide paths' : 'Show paths'; Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === experiment; }); ghostLine.visible = showPaths && experiment !== 3 && !!agent.ghost; });
 $('seasonBtn').addEventListener('click', () => { cls.season = !cls.season; $('seasonBtn').setAttribute('aria-pressed', String(cls.season)); $('seasonBtn').textContent = cls.season ? 'Mating season on' : 'Mating season off'; clsLog(cls.season ? 'Mating season: courtship drive restored.' : 'Out of season: courtship drive drops to a tenth.'); drawBoard(); });
@@ -2985,7 +3390,7 @@ $('playBtn').addEventListener('click', () => { playing = !playing; $('playBtn').
 $('resetBtn').addEventListener('click', () => {
   game.memory.clear(); game.taps = 0; game.correct = 0; game.wordsBuilt = 0; game.dopamine = 0.5; game.placed = 0; game.wordIdx = 0; game.lesson = 1;
   for (const e of [1, 2, 3, 4, 5, 6]) heat[e].getContext('2d').clearRect(0, 0, heat[e].width, heat[e].height);
-  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; });
+  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; }); reading.vocab.clear(); reading.pageLog = []; reading.checkLog = []; reading.log = []; reading.storyLog = []; reading.si = 0; reading.pi = 0; reading.answered = -1; reading.mode = 'page'; Object.keys(reading.stats).forEach(k => { reading.stats[k] = 0; });
   Object.values(trajGroups).forEach(g => { while (g.children.length) { const c = g.children[0]; g.remove(c); c.geometry.dispose(); } });
   game.feedback = 'Memory cleared. The fly is looking for the prefix.'; cur().parts.forEach(memoryOf); setExperiment(experiment);
 });
@@ -3340,6 +3745,19 @@ function drawDashboards(now, force) {
     const pct = x => Math.round(x * 100) + '%';
     const rows = St.map(s => { const T = s.stats, tt = T.onTask + T.courtT + T.groomT + T.away; return `<tr><th scope="row">${s.name} ${SEXSYM(s)}</th><td>${doing(s)}</td><td class="${s.progress >= CLS.items ? 'yes' : ''}">${Math.min(s.progress, CLS.items)} / ${CLS.items}</td><td>${T.taps ? pct(T.correct / T.taps) : '–'}</td><td>${tt ? pct(T.onTask / tt) : '–'}</td><td>${T.courted} · ${T.court}</td><td>${T.rejections} · ${T.rejectedBy}</td><td>${s.sex === 'M' ? s.drive.toFixed(2) : s.receptive.toFixed(2)}</td><td>${s.attention.toFixed(2)}</td></tr>`; }).join('');
     const tb = document.querySelector('#cRoster tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
+  }
+  // ---- dashboard 9: reading ----
+  { const R = reading, T = R.stats, S0 = STORIES[R.si], last = R.pageLog[R.pageLog.length - 1];
+    $t('rdMode', experiment === 9 ? `Experiment 9 · Reading · ${S0.title}` : 'switch to Experiment 9 to run');
+    $t('rdStories', T.stories); $t('rdWords', T.words); $t('rdWpm', last ? Math.round(last.wpm) : '–'); $t('rdNow', R.mode === 'library' ? 'choosing a story' : `${S0.title}, page ${R.pi + 1}`); $t('rdPages', T.pages);
+    $t('rdMiss', `${T.miscues} · ${T.selfCorrect}`); $t('rdAcc', T.words ? Math.round(100 * (1 - (T.miscues - T.selfCorrect) / T.words)) + '%' : '–'); $t('rdChecks', `${T.checksRight} of ${T.checks}`);
+    $t('rdVmem', R.vocab.size ? ([...R.vocab.values()].reduce((a, b) => a + b, 0) / R.vocab.size).toFixed(2) : '–');
+    const vl = STORIES.flatMap(s => s.vocab.filter(v => R.vocab.has(v)).map(v => { const m = R.vocab.get(v); return `<div class="m" style="grid-template-columns:96px 1fr 90px"><span>${v}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${s.id === 'rosa' ? 'Rosa' : s.id === 'flynn' ? 'Flynn' : s.id === 'zig' ? 'Zig' : 'Dot'}</span></div>`; })).join('') || '<p class="sub">Runs in Experiment 9.</p>';
+    const ve = document.getElementById('rdVocab'); if (ve.innerHTML !== vl) ve.innerHTML = vl;
+    barChart('cRdWpm', R.pageLog.slice(-24).map(p => ({ v: p.wpm, color: p.acc >= 0.95 ? CH.green : CH.amber, label: `${p.story} page ${p.page}: ${Math.round(p.wpm)} words/min, ${Math.round(p.acc * 100)}% accurate` })), { positive: true, empty: 'No pages read yet' });
+    const rows = STORIES.map(s => `<tr><th scope="row">${s.title}</th><td>${s.theme}</td><td>${s.grade}</td><td>${s.vocab.join(', ')}</td><td>${R.storyLog.filter(x => x.story === s.title).length}×</td></tr>`).join('');
+    const tb = document.querySelector('#rdBooks tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
+    document.getElementById('rdLog').innerHTML = R.log.slice(-10).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing read yet</li>';
   }
   // ---- dashboard 8: phonics ----
   { const P = phon, St = P.stats;
