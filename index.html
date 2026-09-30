@@ -24,6 +24,12 @@ header h1{margin:0;font:700 20px/26px var(--display);white-space:nowrap}
 .eyebrow{font:700 12px/16px var(--display);letter-spacing:.08em;text-transform:uppercase}
 header .eyebrow{color:var(--ink-on-dark-muted)}
 header .brand{display:flex;flex-direction:column;gap:2px;min-width:0}
+.brandrow{display:flex;align-items:center;gap:10px;min-width:0}
+.species{display:flex;gap:2px;padding:2px;border-radius:10px;background:rgba(255,255,255,0.12);flex-shrink:0}
+.species button{all:unset;cursor:pointer;width:30px;height:28px;border-radius:8px;display:grid;place-items:center;opacity:0.55}
+.species button svg{width:24px;height:24px}
+.species button[aria-pressed="true"]{background:#fff;opacity:1}
+.species button:focus-visible{outline:2px solid var(--alachua);outline-offset:1px}
 .tabs{display:flex;gap:4px;justify-self:center}
 .tabs a{display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:10px;color:#fff;text-decoration:none;font:700 16px/20px var(--display);border:2px solid transparent}
 .tabs a[aria-current="page"]{background:#fff;color:var(--dark-blue)}
@@ -213,6 +219,7 @@ pre.mermaid svg{max-width:none;height:auto}
 }
 @media (max-width:1180px){
   header .eyebrow{display:none}header h1{font-size:17px;line-height:24px}
+  .brandrow{gap:6px}.species button{width:24px;height:24px}.species button svg{width:19px;height:19px}.brandrow h1{font-size:15px}
   .span4{grid-column:span 6}
 }
 @media (max-width:1280px){
@@ -250,7 +257,13 @@ pre.mermaid svg{max-width:none;height:auto}
 <div id="app">
   <header>
     <div class="brand">
-      <h1><a href="#home" style="color:inherit;text-decoration:none">Fruit Fly Lingo</a></h1>
+      <div class="brandrow">
+        <div class="species" role="group" aria-label="Insect">
+          <button type="button" data-species="fly" aria-pressed="true" title="Fruit fly" aria-label="Fruit fly"><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="10" cy="12" rx="8" ry="4.2" transform="rotate(-35 10 12)" fill="#dfe8ff" fill-opacity=".75" stroke="#b9c7e6" stroke-width=".8"/><ellipse cx="22" cy="12" rx="8" ry="4.2" transform="rotate(35 22 12)" fill="#dfe8ff" fill-opacity=".75" stroke="#b9c7e6" stroke-width=".8"/><ellipse cx="16" cy="19" rx="4" ry="7" fill="#c8894e"/><path d="M12.4 19h7.2M12.3 22h7.4M13 25h6" stroke="#5a3a1e" stroke-width="1.1"/><circle cx="16" cy="10.5" r="3.4" fill="#c8894e"/><circle cx="13.6" cy="10" r="2.3" fill="#d4262c"/><circle cx="18.4" cy="10" r="2.3" fill="#d4262c"/></svg></button>
+          <button type="button" data-species="butterfly" aria-pressed="false" title="Blue Morpho butterfly" aria-label="Blue Morpho butterfly"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><radialGradient id="morphoG" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#0b3fc4"/><stop offset=".6" stop-color="#1f8bff"/><stop offset="1" stop-color="#5fd8ff"/></radialGradient></defs><path d="M15 14C11 5 4 3 2 6s1 9 5 10c-4 2-5 7-2 9s8-2 10-8z" fill="url(#morphoG)" stroke="#07080c" stroke-width="1.6"/><path d="M17 14c4-9 11-11 13-8s-1 9-5 10c4 2 5 7 2 9s-8-2-10-8z" fill="url(#morphoG)" stroke="#07080c" stroke-width="1.6"/><rect x="15" y="9" width="2" height="15" rx="1" fill="#1b120b"/><path d="M15.5 9 13 4M16.5 9 19 4" stroke="#1b120b" stroke-width=".9"/><circle cx="4" cy="7" r=".8" fill="#fff"/><circle cx="28" cy="7" r=".8" fill="#fff"/></svg></button>
+        </div>
+        <h1><a href="#home" style="color:inherit;text-decoration:none">Fruit Fly Lingo</a></h1>
+      </div>
       <span class="eyebrow">Embodied Drosophila literacy simulation</span>
     </div>
     <nav class="tabs" aria-label="Views">
@@ -917,6 +930,13 @@ pre.mermaid svg{max-width:none;height:auto}
       </div>
       <p>The fly stands on a ball that floats on a cushion of air, so each step turns the ball instead of carrying the fly anywhere. Its headset is a single curved visor wrapped over both compound eyes, with a glossy faceplate, a light strip, foam gasket and straps. A cable runs from the back of the strap up a tether boom and down to a control box, which is also wired to the ball's tracking and to a laptop that shows what the headset shows. A teacher fly stands on a second, identical rig, and its headset puts it at the front of the same virtual room: it steps along the chalkboard as it writes, with its right foreleg tracing the chalk, then turns to look across the desks. Its laptop shows the class from the teacher's eyes. The student's headset seats it at a desk in a third grade class: sixteen desks, classmates who fidget, windows, and a teacher at a chalkboard. The teacher chalks one item at a time, either a word to build from its parts (<em>re + count + able = ?</em>) or a prefix to define (<em>pre- means ?</em>). The student looks down at its open booklet and writes the answer in cursive pencil, and the fly's right foreleg traces the same strokes in small. The teacher marks it with a tick or a cross, and after six items the board is erased for a new page. Walking bobs the view; now and then the fly turns on the ball and the student glances at a classmate. Answers train the same word part memory as the other experiments.</p>
 
+      <h3 class="sec">Butterfly mode</h3>
+      <div class="shots">
+        <figure><img loading="lazy" src="docs/screenshots/butterfly-flying.png" alt="Butterfly mode: a Blue Morpho flying over the phone in Experiment 2"><figcaption><strong>Flying as a Blue Morpho.</strong> Slow, deep wingbeats, a bob with each downstroke, a weaving path.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/butterfly-classroom.png" alt="Butterfly mode: 24 Blue Morphos at the classroom tables"><figcaption><strong>A classroom of butterflies.</strong> Wings closed over the back at rest, opened now and then to bask.</figcaption></figure>
+      </div>
+      <p>The two logos at the left of the header switch the insect. In butterfly mode every fly in every experiment gets Blue Morpho wings: iridescent blue on top with a black margin and white spots, brown with eyespots underneath. The body, brain and behaviour are unchanged, but the big wings change the movement. At rest they are held closed over the back and opened now and then to bask; in flight they beat about four times a second instead of two hundred, and each downstroke lifts the body so the flight bobs and weaves.</p>
+
       <h3 class="sec">From this app to the full EDLS</h3>
       <section class="two">
         <article class="card"><h3>In the browser today</h3><p>Procedural body and behaviour, a memory-weighted policy, a stylised brain, the fly-eye mosaic, the curriculum, and the four dashboards running on live telemetry from the scene.</p></article>
@@ -1234,6 +1254,57 @@ mesh(new THREE.SphereGeometry(0.62, 20, 16), cuticle, head);
 [-1, 1].forEach(s => { const a = mesh(new THREE.CylinderGeometry(0.03, 0.05, 0.6, 6), dark, head); a.position.set(s * 0.18, -0.1, 0.72); a.rotation.x = Math.PI / 2 - 0.5; });
 const proboscis = mesh(new THREE.CylinderGeometry(0.1, 0.14, 1, 8), dark, head); proboscis.position.set(0, -0.6, 0.3); proboscis.scale.y = 0.35;
 const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); const wg = new THREE.CircleGeometry(1, 24); wg.scale(0.55, 1.5, 1); const w = mesh(wg, wingMat, g); w.castShadow = false; w.rotation.x = -Math.PI / 2; w.position.set(s * 0.55, 0, -1.45); g.userData.side = s; return g; });
+// ---------- Butterfly mode: every fly can swap its wings for Blue Morpho wings ----------
+// Each wing group carries both: the fly's clear wing (its first child) and a morpho forewing + hindwing. The morpho is
+// iridescent blue on top with a black margin and white spots, brown with eyespots underneath. At rest it holds its
+// wings closed over its back and now and then opens them to bask; in flight it flaps slowly and deeply and bobs.
+let butterfly = false;
+const WING_GROUPS = [];
+const MORPHO = (() => {
+  const K = 1.25, U = 6.5, V0 = -5.6, V1 = 3.2, W = 512, H = Math.round(W * (V1 - V0) / U);
+  const FORE = [[0, 0.3], [1.5, 1.6], [3.6, 2.6], [5.8, 3.0], [6.3, 2.2], [5.9, 0.4], [4.8, -1.0], [2.4, -0.9], [0.4, -0.3]];
+  const HIND = [[0, -0.2], [2.6, -0.6], [4.6, -1.4], [5.2, -2.9], [4.4, -4.6], [2.8, -5.4], [1.2, -4.8], [0.3, -2.6], [0, -0.8]];
+  const px = ([u, v]) => [u / U * W, (V1 - v) / (V1 - V0) * H], R = r => r / U * W;
+  const outline = (g, pts, c, k) => { const P = pts.map(([u, v]) => px([c[0] + (u - c[0]) * k, c[1] + (v - c[1]) * k])); g.beginPath(); P.forEach((p, i) => { const q = P[(i + 1) % P.length], m = [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2]; i ? g.quadraticCurveTo(p[0], p[1], m[0], m[1]) : g.moveTo(m[0], m[1]); }); const p0 = P[0], p1 = P[1]; g.quadraticCurveTo(p0[0], p0[1], (p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2); g.closePath(); };
+  const canvas = paint => { const c = document.createElement('canvas'); c.width = W; c.height = H; paint(c.getContext('2d')); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t; };
+  const WINGS = [[FORE, [2.4, 0.9]], [HIND, [1.9, -2.3]]];
+  const top = canvas(g => {
+    g.fillStyle = '#07080c'; g.fillRect(0, 0, W, H);
+    WINGS.forEach(([pts, c]) => { outline(g, pts, c, 0.8); const [rx, ry] = px([0, 0]); const gr = g.createRadialGradient(rx, ry, R(0.3), rx, ry, R(6)); gr.addColorStop(0, '#061a55'); gr.addColorStop(0.18, '#0b3fc4'); gr.addColorStop(0.55, '#1f8bff'); gr.addColorStop(1, '#5fd8ff'); g.fillStyle = gr; g.fill();
+      g.strokeStyle = 'rgba(2,12,45,0.45)'; g.lineWidth = 2.2; pts.forEach(p => { const [a, b] = px([0.2, (p[1] > 0 ? 0.1 : -0.3)]), [x, y] = px([p[0] * 0.82, p[1] * 0.82]); g.beginPath(); g.moveTo(a, b); g.quadraticCurveTo((a + x) / 2 + 6, (b + y) / 2 - 6, x, y); g.stroke(); }); });
+    g.fillStyle = '#f4f4f0'; [[5.45, 2.45, 0.13], [5.8, 1.7, 0.11], [5.6, 0.9, 0.1], [4.9, 2.72, 0.09], [4.7, -2.7, 0.1], [4.05, -4.15, 0.1], [2.95, -4.85, 0.09]].forEach(([u, v, r]) => { const [x, y] = px([u, v]); g.beginPath(); g.arc(x, y, R(r), 0, Math.PI * 2); g.fill(); });
+  });
+  const under = canvas(g => {
+    g.fillStyle = '#4a3220'; g.fillRect(0, 0, W, H);
+    WINGS.forEach(([pts, c]) => { outline(g, pts, c, 0.9); const [rx, ry] = px([0, 0]); const gr = g.createRadialGradient(rx, ry, R(0.3), rx, ry, R(6)); gr.addColorStop(0, '#5a3d24'); gr.addColorStop(0.6, '#9a7148'); gr.addColorStop(1, '#6e4d2e'); g.fillStyle = gr; g.fill(); });
+    g.strokeStyle = 'rgba(235,205,150,0.55)'; g.lineWidth = R(0.14); g.beginPath(); [[0.8, 1.4], [2.6, 1.9], [4.4, 1.2], [5.3, -0.4]].forEach((p, i) => { const [x, y] = px(p); i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.stroke();
+    g.beginPath(); [[0.6, -1.2], [2.2, -1.6], [3.8, -1.9], [4.6, -3.1]].forEach((p, i) => { const [x, y] = px(p); i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.stroke();
+    [[4.3, 1.7, 0.45], [3.3, 0.3, 0.33], [3.6, -2.4, 0.55], [2.8, -3.8, 0.5], [1.8, -4.4, 0.34]].forEach(([u, v, r]) => { const [x, y] = px([u, v]); [['#e8b64a', 1], ['#1b120b', 0.78], ['#7a2a1c', 0.55]].forEach(([c, k]) => { g.fillStyle = c; g.beginPath(); g.arc(x, y, R(r * k), 0, Math.PI * 2); g.fill(); }); g.fillStyle = '#f7f2e6'; g.beginPath(); g.arc(x - R(r * 0.18), y - R(r * 0.18), R(r * 0.16), 0, Math.PI * 2); g.fill(); });
+  });
+  const geo = pts => { const sh = new THREE.Shape(), P = pts.map(([u, v]) => new THREE.Vector2(u * K, -v * K)); sh.moveTo(P[0].x, P[0].y); sh.splineThru([...P.slice(1), P[0].clone()]); const g = new THREE.ShapeGeometry(sh, 16);
+    const pos = g.attributes.position, uv = g.attributes.uv; for (let i = 0; i < pos.count; i++) { const u = pos.getX(i) / K, v = -pos.getY(i) / K; uv.setXY(i, u / U, (v - V0) / (V1 - V0)); } uv.needsUpdate = true; return g; };
+  return { fore: geo(FORE), hind: geo(HIND),
+    topMat: new THREE.MeshPhysicalMaterial({ map: top, roughness: 0.3, metalness: 0.25, iridescence: 0.9, iridescenceIOR: 1.4, iridescenceThicknessRange: [180, 420], side: THREE.FrontSide }),
+    underMat: new THREE.MeshStandardMaterial({ map: under, roughness: 0.8, side: THREE.BackSide }) };
+})();
+// give a wing group its morpho wing; the group's first child is the fly's own wing
+function addMorpho(g) {
+  const s = g.userData.side, out = new THREE.Group(); out.scale.set(s, 1, 1); out.position.set(-s * 0.35, 0.02, 0.35); out.visible = butterfly; g.add(out);
+  const flat = new THREE.Group(); flat.rotation.x = -Math.PI / 2; out.add(flat);
+  [[MORPHO.fore, 0.01], [MORPHO.hind, -0.01]].forEach(([geo, lift]) => [MORPHO.topMat, MORPHO.underMat].forEach(mat => { const m = new THREE.Mesh(geo, mat); m.position.z = lift; m.castShadow = true; flat.add(m); }));
+  g.userData.flyWing = g.children[0]; g.userData.bf = out; WING_GROUPS.push(g);
+}
+// o: fly (0 to 1, flapping), song (0 to 1, this wing held open and vibrating), flick, threat, seed (desynchronises flies)
+function morphoPose(g, t, o) {
+  const s = g.userData.side; t += o.seed || 0;
+  const rest = 1.5 - 1.3 * Math.pow(Math.max(0, Math.sin(t / 2300)), 3); // closed over the back, now and then opened to bask
+  let z = rest + (0.45 + 0.9 * Math.sin(t / 45) - rest) * (o.fly || 0); // about 3.5 beats a second, deep strokes
+  if (o.flick) z += (rest - 1.2 * Math.abs(Math.sin(t / 60)) - z) * o.flick;
+  if (o.threat) z += (0.05 - z) * o.threat;
+  if (o.song) z += (0.1 + Math.sin(t / 9) * 0.08 - z) * o.song;
+  g.rotation.set(0, 0, s * z);
+}
+wings.forEach(addMorpho);
 const legDefs = [
   { hip: [-0.6, 0.85, 0.75], rest: [-1.7, 0, 1.6] }, { hip: [0.6, 0.85, 0.75], rest: [1.7, 0, 1.6] },
   { hip: [-0.8, 0.8, 0.0], rest: [-2.2, 0, 0.1] }, { hip: [0.8, 0.8, 0.0], rest: [2.2, 0, 0.1] },
@@ -1602,7 +1673,7 @@ function stepAgent(dt, now) {
 // ---------- Fly animation ----------
 function animateFly(dt) {
   const st = flyState;
-  fly.position.copy(st.pos); fly.rotation.y = st.yaw; fly.updateMatrixWorld(true);
+  fly.position.copy(st.pos); fly.rotation.y = st.yaw + (butterfly && st.airborne ? Math.sin(performance.now() / 260) * 0.12 : 0); fly.updateMatrixWorld(true); // a butterfly weaves as it flies
   head.rotation.y = st.headYaw;
   const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz' || agent.phase === 'r_tap' || agent.phase === 'w_tap' || agent.phase === 'v_write') ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
   let stepping = legs.filter(L => L.step).length;
@@ -1634,7 +1705,10 @@ function animateFly(dt) {
   body.rotation.x += (pitch - body.rotation.x) * Math.min(1, dt * 6);
   proboscis.scale.y = 0.35 + st.proboscis * 0.9; proboscis.position.y = -0.6 - st.proboscis * 0.35;
   const flap = st.buzz > 0 ? Math.sin(performance.now() / 6) * 0.6 * Math.min(1, st.buzz * 2) : 0;
-  wings.forEach(g => { g.rotation.z = g.userData.side * (0.25 + flap); g.rotation.y = g.userData.side * -0.35;
+  if (butterfly) { const now = performance.now(), fl = st.airborne ? 1 : Math.min(1, st.buzz * 1.5);
+    wings.forEach(g => morphoPose(g, now, { fly: fl, song: st.songExt > 0.01 && g.userData.side === st.songSide ? st.songExt : 0 }));
+    if (st.airborne) { body.position.y += Math.sin(now / 45 - 0.6) * 0.35; body.rotation.x += Math.cos(now / 45) * 0.06; } } // each downstroke lifts the body: a bobbing flight
+  else wings.forEach(g => { g.rotation.z = g.userData.side * (0.25 + flap); g.rotation.y = g.userData.side * -0.35;
     if (st.songExt > 0.01 && g.userData.side === st.songSide) { g.rotation.y = g.userData.side * (-0.35 - 1.25 * st.songExt); g.rotation.z += g.userData.side * Math.sin(performance.now() / 4) * 0.18 * st.songAmp; } }); // one wing out to sing (Experiment 8)
   legs.forEach(L => solveLeg(L, lift));
 }
@@ -2229,7 +2303,7 @@ function makeRig(sex) {
   const head = new THREE.Group(); head.position.set(0, 1.25, 1.25); body.add(head);
   head.add(new THREE.Mesh(SG.head, cut));
   [-1, 1].forEach(s => { const e = new THREE.Mesh(SG.eye, eyeMat); e.position.set(s * 0.46, 0.05, 0.25); head.add(e); const a = new THREE.Mesh(SG.ant, dark); a.position.set(s * 0.18, -0.1, 0.72); a.rotation.x = Math.PI / 2 - 0.5; head.add(a); });
-  const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); const w = new THREE.Mesh(SG.wing, wingMat); w.rotation.x = -Math.PI / 2; w.position.set(s * 0.55, 0, -1.45); g.add(w); g.userData.side = s; return g; });
+  const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); const w = new THREE.Mesh(SG.wing, wingMat); w.rotation.x = -Math.PI / 2; w.position.set(s * 0.55, 0, -1.45); g.add(w); g.userData.side = s; addMorpho(g); return g; });
   const lg = legDefs.map((d, i) => { const L = { hip: new THREE.Vector3(...d.hip), rest: new THREE.Vector3(...d.rest), foot: new THREE.Vector3(), step: null, front: i < 2,
     femur: new THREE.Mesh(SG.femur, dark), tibia: new THREE.Mesh(SG.tibia, dark) }; group.add(L.femur, L.tibia);
     if (sex === 'M' && i < 2) { L.comb = new THREE.Mesh(SG.comb, dark); group.add(L.comb); } return L; });
@@ -2466,7 +2540,8 @@ function poseStudent(s, now) {
   const bob = s.walking ? Math.sin(s.gait * 2) * 0.04 : 0, lift = bob + (s.airborne ? -0.3 : 0);
   R.body.position.y = lift; R.body.position.z = s.lunge * 0.5; R.body.rotation.x = -0.35 * s.lunge;
   const flap = s.buzz > 0 ? Math.sin(now / 6 + s.i) * 0.6 * Math.min(1, s.buzz * 2) : 0;
-  R.wings.forEach(g => { const side = g.userData.side; let z = 0.25 + flap, y = -0.35;
+  if (butterfly) R.wings.forEach(g => morphoPose(g, now, { seed: s.i * 700, fly: s.airborne ? 1 : Math.min(1, s.buzz * 1.5), flick: s.flick, threat: s.threat, song: s.state === 'court' && s.cs === 'sing' && g.userData.side === s.wingSide ? s.wingExt : 0 }));
+  else R.wings.forEach(g => { const side = g.userData.side; let z = 0.25 + flap, y = -0.35;
     if (s.threat > 0) { z += 0.9 * s.threat; y -= 0.5 * s.threat; }
     if (s.flick > 0) { y -= Math.abs(Math.sin(now / 45)) * 0.9 * s.flick; }
     if (s.state === 'court' && s.cs === 'sing' && side === s.wingSide) { y -= 1.25 * s.wingExt; z += Math.sin(now / 8) * 0.12 * s.wingExt; } // one wing out, vibrating: the courtship song
@@ -2746,7 +2821,7 @@ function scenarioCard() {
   const e = experiment, st = flyState, p = shLast(), T = trialsOf(e), acc = T.length ? T.filter(x => x.correct).length / T.length : null;
   if (e === 1) return ['Gait · tripod stepping', `<div class="feet">${legs.map((L, i) => `<span><i class="${!L.step && Math.abs(L.foot.y - L.groundY) < 0.05 ? 'on' : ''}"></i>${LEG_NAMES[i]}</span>`).join('')}</div>` +
     kv([['Walking speed', p ? (p.speed / BL).toFixed(1) + ' body lengths/s' : '–'], ['Legs swinging now', legs.filter(L => L.step).length], ['Presses', T.length], ['Mean press offset', T.length ? Math.round(meanOf(T.map(x => x.offset))) + ' px' : '–']])];
-  if (e === 2) return ['Flight', kv([['Height above glass', p ? (p.h / BL).toFixed(1) + ' body lengths' : '–'], ['Airspeed', p ? (p.speed / BL).toFixed(1) + ' body lengths/s' : '–'], ['Wings', st.buzz > 0 ? 'beating, about 200 Hz' : 'folded'], ['Doing', PHASE_TEXT[agent.phase] || agent.phase], ['Landings', T.length], ['Mean landing error', T.length ? Math.round(meanOf(T.map(x => x.offset))) + ' px' : '–'], ['Landed on the right tile', pct(acc)]])];
+  if (e === 2) return ['Flight', kv([['Height above glass', p ? (p.h / BL).toFixed(1) + ' body lengths' : '–'], ['Airspeed', p ? (p.speed / BL).toFixed(1) + ' body lengths/s' : '–'], ['Wings', st.buzz > 0 ? (butterfly ? 'flapping, about 4 Hz' : 'beating, about 200 Hz') : butterfly ? 'closed over the back' : 'folded'], ['Doing', PHASE_TEXT[agent.phase] || agent.phase], ['Landings', T.length], ['Mean landing error', T.length ? Math.round(meanOf(T.map(x => x.offset))) + ' px' : '–'], ['Landed on the right tile', pct(acc)]])];
   if (e === 3) { const max = LAYOUTS.list.height - SH; return ['Touch · fly-sized phone', kv([['Scroll position', `${Math.round(game.scrollY)} of ${max} px`], ['Forelegs', agent.phase === 'scroll' ? 'swiping' : agent.phase === 'tap' ? 'one pressing' : 'holding the edge'], ['Taps', T.length], ['Right answers', pct(acc)], ['Mean tap offset', T.length ? Math.round(meanOf(T.map(x => x.offset))) + ' px' : '–']])]; }
   if (e === 4) return ['Spelling', `<div class="chips">${spell.letters.map((ch, i) => i < spell.typed.length ? `<span class="chip ${KINDS[partAtLetter(i)]}" style="padding:0 10px">${ch}</span>` : `<span class="chip empty" style="padding:0 8px">·</span>`).join('')}</div>` +
     kv([['Word', spell.word.word], ['Next letter belongs to the', spell.done ? 'word is done' : KINDS[partAtLetter(spell.typed.length)]], ['Keys pressed', T.length], ['Right keys', pct(acc)], ['Doing', PHASE_TEXT[agent.phase] || agent.phase]])];
@@ -3640,6 +3715,7 @@ function stepTeacherFly(dt, now, writing, look) {
     else if (L.foot.distanceTo(rest) > 0.5 && stepping < 3) { L.step = { from: L.foot.clone(), to: rest.addScaledVector(fw, 0.6), t: 0 }; stepping++; }
   });
   const bob = Math.sin(T.gait * 2) * 0.04; R.body.position.y = bob; R.legs.forEach(L => solveStudentLeg(R, L, bob));
+  R.wings.forEach(w => { if (butterfly) morphoPose(w, now, { seed: 900 }); else { const sd = w.userData.side; w.rotation.set(0, -sd * 0.35, sd * 0.25); } });
   T.turn += (look - T.turn) * Math.min(1, dt * 2);
   STT.ball.rotateOnWorldAxis(V3(1, 0, 0), T.speed * dt / BALL_R); STT.ball.rotateOnWorldAxis(V3(0, 1, 0), -(look - T.turn) * dt * 4);
 }
@@ -3698,14 +3774,14 @@ function renderVR() {
 // ---------- the lesson ----------
 const VRI = 6; // items per booklet page
 const vr = { tYaw: 0, items: [], ii: 0, lesson: 1, stage: 'board', boardP: 0, write: null, writeP: 0, yaw: 0, yawT: 0, pitch: -0.05, speed: 2, turn: 0, glance: 0, answers: [], stats: { answers: 0, right: 0, board: 0, booklet: 0, around: 0, ballDist: 0, turns: 0 }, log: [], history: [], drawAt: 0 };
-function vrLog(text) { vr.log.push({ t: TDT(), text }); if (vr.log.length > 80) vr.log.shift(); game.feedback = text; }
+function vrLog(text) { vr.log.push({ t: TDT(), text }); if (vr.log.length > 80) vr.log.shift(); vr.feedback = text; }
 function vrItems() { // alternate building a word from its parts and giving a prefix's meaning
   return shuffle(WORDS.slice()).slice(0, VRI).map((w, k) => k % 2 === 0 ? { kind: 'build', w, board: `${w.parts.map(p => p.replace(/-/g, '')).join(' + ')} = ?`, answer: w.word }
     : { kind: 'mean', w, board: `${w.parts[0]} means ?`, answer: w.glosses[0].split(',')[0] });
 }
 function vrStart() {
   const st = flyState; st.airborne = false; st.buzz = 0; st.pos.set(0, BALL_TOP - 0.15, 0); st.groundY = BALL_TOP - 0.15; legs.forEach(L => { L.groundY = st.groundY; }); st.yaw = Math.PI; plantFeet();
-  vr.items = vrItems(); vr.ii = 0; vr.answers = []; vr.stage = 'board'; vr.boardP = 0; drawChalk(); drawBooklet(); updateHeadCable(); setPhase('v_board'); renderTrial(); game.feedback = 'Headset on. The teacher is writing on the board.';
+  vr.items = vrItems(); vr.ii = 0; vr.answers = []; vr.stage = 'board'; vr.boardP = 0; drawChalk(); drawBooklet(); updateHeadCable(); setPhase('v_board'); renderTrial(); vr.feedback = 'Headset on. The teacher is writing on the board.';
 }
 // cursive for the booklet: the same Hershey glyphs, laid out at a given place and size
 function cursiveSamples(word, x0, base, k) { const out = []; let x = x0; [...word.toLowerCase()].forEach(ch => { if (ch === ' ') { x += 12 * k; return; } const g = CURSIVE[ch]; if (!g) return; g[0].split('M').filter(Boolean).forEach(part => { const pts = part.replace('L', ' ').trim().split(/\s+/).map(q => { const [a, b] = q.split(',').map(Number); return [x + a * k, base + (b - 22) * k]; }); out.push(pts); }); x += 2 * g[1] * k; }); return out; }
@@ -3793,7 +3869,7 @@ function renderVRTrial() {
   $('meaning').textContent = it ? (it.kind === 'build' ? `On the board: ${it.board}` : `On the board: ${it.w.parts[0]} means what?`) : 'New page';
   $('chips').innerHTML = it ? it.w.parts.map((p, i) => `<span class="chip ${KINDS[i]}">${p}<small>${it.w.glosses[i]}</small></span>`).join('<span class="plus" aria-hidden="true">+</span>') : '';
   $('placedCount').textContent = `${Math.min(vr.ii, VRI)} of ${VRI} answered`; $('placedBar').classList.toggle('done', vr.ii >= VRI); $('placedBar').firstElementChild.style.width = `${Math.min(1, vr.ii / VRI) * 100}%`;
-  $('feedback').textContent = game.feedback; $('nowLine').textContent = `VR classroom · lesson ${vr.lesson} · question ${Math.min(vr.ii + 1, VRI)} of ${VRI}`;
+  $('feedback').textContent = vr.feedback || ''; $('nowLine').textContent = `VR classroom · lesson ${vr.lesson} · question ${Math.min(vr.ii + 1, VRI)} of ${VRI}`;
   $('stWords').textContent = T.right; $('stTaps').textContent = T.answers; $('stAcc').textContent = T.answers ? Math.round(100 * T.right / T.answers) + '%' : '0%';
   const parts = [...new Set(WORDS.flatMap(x => x.parts))].filter(p => game.memory.has(p)).sort((a, b) => game.memory.get(b) - game.memory.get(a));
   $('memory').innerHTML = parts.map(p => { const m = game.memory.get(p); return `<div class="m"><span>${p}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${m >= 0.8 ? 'mastered' : Math.round(m * 100) + '% · learning'}</span></div>`; }).join('');
@@ -3865,6 +3941,15 @@ function setExperiment(n) {
 }
 const DOCK_FOR = { 11: 'd-vr-sec', 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
 document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => setExperiment(Number(b.dataset.exp))));
+// fruit fly or Blue Morpho butterfly: swaps the wings on every fly in every experiment
+function setSpecies(b) {
+  butterfly = b; const now = performance.now();
+  WING_GROUPS.forEach(g => { g.userData.flyWing.visible = !b; g.userData.bf.visible = b; const sd = g.userData.side; if (b) morphoPose(g, now, {}); else g.rotation.set(0, -sd * 0.35, sd * 0.25); });
+  document.querySelectorAll('[data-species]').forEach(x => x.setAttribute('aria-pressed', String((x.dataset.species === 'butterfly') === b)));
+  try { localStorage.setItem('ffl-species', b ? 'butterfly' : 'fly'); } catch (e) { /* storage blocked: the choice lasts this visit */ }
+}
+document.querySelectorAll('[data-species]').forEach(x => x.addEventListener('click', () => setSpecies(x.dataset.species === 'butterfly')));
+{ let saved = null; try { saved = localStorage.getItem('ffl-species'); } catch (e) { /* storage blocked */ } if (saved === 'butterfly') setSpecies(true); }
 $('pathsBtn').addEventListener('click', () => { showPaths = !showPaths; $('pathsBtn').setAttribute('aria-pressed', String(showPaths)); $('pathsBtn').textContent = showPaths ? 'Hide paths' : 'Show paths'; Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === experiment; }); ghostLine.visible = showPaths && experiment !== 3 && !!agent.ghost; });
 $('seasonBtn').addEventListener('click', () => { cls.season = !cls.season; $('seasonBtn').setAttribute('aria-pressed', String(cls.season)); $('seasonBtn').textContent = cls.season ? 'Mating season on' : 'Mating season off'; clsLog(cls.season ? 'Mating season: courtship drive restored.' : 'Out of season: courtship drive drops to a tenth.'); drawBoard(); });
 $('visionBtn').addEventListener('click', () => { visionOn = !visionOn; $('visionBtn').setAttribute('aria-pressed', String(visionOn)); $('visionBtn').textContent = visionOn ? 'Hide vision overlay' : 'Show vision overlay'; $('vision').hidden = !visionOn; });

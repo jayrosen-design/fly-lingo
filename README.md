@@ -36,6 +36,15 @@ The app is one page with four views, switched by the tabs in the header and by h
 | ![The Dashboards view on a phone: adhesion and contrast cards stacked](docs/screenshots/phone-dashboards.png) | ![The About view: research library with report thumbnails, page images and download buttons](docs/screenshots/about-library.png) |
 | **Phone layout.** Single-column cards, header controls in a strip. | **About.** What the app simulates and what it is trying to learn, the research library with downloadable PDFs and page images, and all 187 sources the reports cite. |
 
+### Butterfly mode
+
+The two logos at the left of the header switch the insect. The fruit fly is the default. The Blue Morpho swaps the wings on every fly in every experiment (the student, the 24 classroom flies and the VR teacher) for much larger butterfly wings: iridescent blue on top with a black margin and white spots, brown with eyespots underneath. The body, legs, brain and behaviour stay the same, but the wings change how it moves. At rest it holds them closed over its back, showing the brown undersides, and now and then opens them to bask. It flies with slow, deep strokes, about four a second instead of a fly's two hundred, bobbing up with each downstroke and weaving from side to side. In Phonics it sings by holding one blue wing open, and in the classroom its rejection flicks and threat displays open and close the big wings. The choice is remembered in the browser.
+
+| | |
+| --- | --- |
+| ![Butterfly mode: a Blue Morpho flying over the phone in Experiment 2](docs/screenshots/butterfly-flying.png) | ![Butterfly mode: 24 Blue Morphos at the classroom tables, most with wings closed](docs/screenshots/butterfly-classroom.png) |
+| **Flying.** Slow, deep wingbeats and a bobbing path. | **The classroom.** Wings closed at rest, opened to bask. |
+
 ### Panels by experiment
 
 The left panel docks the most related dashboard. The right panel and the bottom strip show what matters for the scenario in front of you, so the three together cover different ground instead of repeating the same numbers.
