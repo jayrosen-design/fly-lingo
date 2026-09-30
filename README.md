@@ -27,12 +27,12 @@ From a terminal with the Vercel CLI, `npx vercel` from the repository root does 
 
 The app is one page with four views, switched by the tabs in the header and by hash routes (`#home`, `#simulate`, `#dashboards`, `#about`). The home page explains the project and shows a card for each experiment; picking a card opens that experiment in the simulator.
 
-![The home page: a short explanation of the project and a grid of thirteen experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
+![The home page: a short explanation of the project and a grid of fourteen experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
 
 | | |
 | --- | --- |
 | ![The Simulate view: the fly taking off in Experiment 2, brain panel on the right](docs/screenshots/app-simulate.png) | ![The Dashboards view: psychometric cards with the Q-matrix, G-DINA mastery, Half-Life Regression and the Wright map](docs/screenshots/dashboards-3.png) |
-| **Simulate.** The arena with the fly-eye inset, a scenario panel on the right, a dockable dashboard panel on the left that switches to the running experiment's dashboard (1 Kinematic, 2 Curriculum, 3 Psychometric, 4 Connectomic, 5 Teacher, 6 Admin, 7 Classroom, 8 Phonics, 9 Reading, 10 Writing, 11 VR, 12 AR, 13 Scrabble; a green dot marks it; pick another with the buttons at its top, or hide it; its header names the dashboard and offers Notes for the explanatory text, Collapse all, and Full view, and each card folds by clicking its title), and a bottom strip of six live charts. The right panel and the strip also change with the experiment; see the table below. | **Dashboards.** Four dashboards from the EDLS psychometric specification, fed by telemetry from the running simulation. |
+| **Simulate.** The arena with the fly-eye inset, a scenario panel on the right, a dockable dashboard panel on the left that switches to the running experiment's dashboard (1 Kinematic, 2 Curriculum, 3 Psychometric, 4 Connectomic, 5 Teacher, 6 Admin, 7 Classroom, 8 Phonics, 9 Reading, 10 Writing, 11 VR, 12 AR, 13 Scrabble, 14 Paper book; a green dot marks it; pick another with the buttons at its top, or hide it; its header names the dashboard and offers Notes for the explanatory text, Collapse all, and Full view, and each card folds by clicking its title), and a bottom strip of six live charts. The right panel and the strip also change with the experiment; see the table below. | **Dashboards.** Four dashboards from the EDLS psychometric specification, fed by telemetry from the running simulation. |
 | ![The Dashboards view on a phone: adhesion and contrast cards stacked](docs/screenshots/phone-dashboards.png) | ![The About view: research library with report thumbnails, page images and download buttons](docs/screenshots/about-library.png) |
 | **Phone layout.** Single-column cards, header controls in a strip. | **About.** What the app simulates and what it is trying to learn, the research library with downloadable PDFs and page images, and all 187 sources the reports cite. |
 
@@ -59,6 +59,7 @@ The left panel docks the most related dashboard. The right panel and the bottom 
 | 4 · Spelling | Live laptop screen, spelling card (letters so far, next part, key accuracy), brain, memory | Letters typed, keys right and wrong, flight speed, height above keys, Δw per letter, dopamine |
 | 5 · Teacher | Live gradebook screen, grading queue, the teacher's next actions, cursor and foreleg state; no brain | Cursor path, clicks and misclicks, movement time, grading error, keystrokes, students graded |
 | 6 · District admin | Live proctoring screen, open flags, FlyAI's latest recommendation, next actions; no brain | Mean attention, open flags, detections, flag precision, check-ins, response time |
+| 14 · Paper book | Live copy of the open spread, reading card (spread, word now, voice, page state while turning, last page's rate and accuracy, last page turn), brain, vocabulary memory | Reading voice, words per minute, height above the page, seconds to lift a page, reading accuracy, dopamine |
 | 13 · Scrabble | Live scoreboard (board, both racks, scores, wins), Scrabble card (game, score, turn, word being played, last word, bag, words known), brain, words known by each player | Score over the game, points per word, tiles in the bag, words known by each player, fly walking speed, dopamine |
 | 12 · AR | Mixed-reality card (word, next slot, block held, rotation to go, walking around a block, last block), brain, word part memory | Walking speed, holding a block, block rotation error, blocks right, word part memory, dopamine |
 | 11 · VR | Live student headset view with the teacher's view as an inset, headset card (what is on the board, where the student looks, ball speed and distance, turns, pencil, last answer), brain, word part memory | Ball speed, where the student looks, pencil on the paper, answers right, word part memory, dopamine |
@@ -116,6 +117,7 @@ Switch with the control at the top left of the header. All three share the same 
 | 4 · Spelling | Real-size laptop with a spelling activity | Hovers in front of the screen | Flies key to key and presses each letter with its body | Letter answers into the same trials, memory and dashboards |
 | 5 · Teacher | Fly-sized laptop with a gradebook, trackpad only, no touch | Reads from the trackpad | Steers the cursor with one foreleg on the pad, presses the pad to click, steps over to tap keys | Clicks, misclicks, keystrokes, Fitts' law, cursor heatmap, grading error |
 | 6 · District admin | Fly-sized laptop with nine webcam sessions, a vision overlay and FlyAI | Watches the grid | Steers to a flagged tile, opens it, clicks the check-in button | Flags scored against seeded cheating, precision, response time, attention, detections |
+| 14 · Paper book | A hardback picture book lying open on the table | Flies from word to word above the text, buzzing each word aloud | Grips the page corner with both forelegs, lifts the page with its wings until it falls over | Words per minute and accuracy per page, miscues, seconds to lift each page, vocabulary memory |
 | 13 · Scrabble | A 15 by 15 Scrabble board with racks, against a Blue Morpho | Looks over the board and its rack | Walks each tile from its rack to its square and sets it down with a foreleg; the butterfly flies its tiles in | Points per word, wins, words known and learned from the opponent |
 | 12 · AR | No screen: a glass AR headset overlays a word frame and holographic blocks on the table | Reads the floating word frame | Walks around the blocks, pinches one with a foreleg, carries it to the frame, rotates it and snaps it into a slot | Blocks right, words built, distance walked, time spent walking around blocks, rotation per block, word part memory |
 | 11 · VR | No screen to touch: a VR headset on a ball treadmill, cabled to a laptop that mirrors it; a teacher fly on a second rig teaches the class | Watches the teacher chalk word parts on the board in a virtual third grade class | Looks down at its booklet and writes the answer in pencil; its right foreleg traces the strokes while it walks on an air-supported ball | Answers right, distance walked, turns, where the student looked, word part memory |
@@ -156,11 +158,22 @@ Dashboard 6, District proctoring, scores the flags against the hidden seeding: c
 | ![Experiment 6 screen: the 3 by 3 webcam grid with vision overlay and the FlyAI panel](docs/screenshots/exp6-screen.png) | ![Dashboard 6: proctoring counters, attention by student, detections, FlyAI log](docs/screenshots/dashboards-6.png) |
 | **The proctoring screen.** Boxes on flies and hands, gaze rays, eye-contact badges, a red flag on a suspected tile, FlyAI on the right. | **Dashboard 6.** Flags scored against the seeded truth, attention per student, detections over time. |
 
+### Paper book
+
+Experiment 14 is the Reading story, *Flynn and the Giant Peach*, with the same text and pictures, printed as a hardback picture book lying open on the table: the picture on the left page, the text on the right, the vocabulary in bold. The fly looks over the picture, then flies from word to word above the text, its position a spring chasing each word with a hop onto it, buzzing every word aloud in the same wing voice as Reading and Phonics (the sound pill above the arena turns it off).
+
+At the foot of the page it flies to the outer corner, grips it with both forelegs and beats its wings. The page comes up slowly, the lift wavering with each wingbeat, and curls up from the spine with the corner leading; the next picture shows on its back. Past upright the fly lets go and the page falls over onto the left, the corner now lagging. After the last page and The End, the pages flip back to the beginning and it reads the book again. The Book camera button looks straight down on the spread, and Dashboard 14 keeps pages and words read, words per minute and accuracy by page, miscues and self-corrections, and the seconds each page took to lift.
+
+| | |
+| --- | --- |
+| ![Experiment 14: the fly reading over the open picture book](docs/screenshots/exp14-paper-book.png) | ![Experiment 14: the fly lifting a page by its corner](docs/screenshots/exp14-page-turn.png) |
+| **Reading aloud.** Word by word over the text page. | **Turning the page.** Both forelegs on the corner, wings beating. |
+
 ### Scrabble
 
 Experiment 13 is a match: the fruit fly against a Blue Morpho butterfly on a full 15 by 15 board, with the standard premium squares, letter values and a 98-tile bag (no blanks). The first word goes through the centre star; every later word must cross a word already on the board without touching any other, and using all seven tiles scores 50 more. On its turn the fly walks to its rack, takes a tile with a foreleg, walks it to its square and sets it down, one tile at a time, then walks back to its side. The butterfly flies to its rack, picks a tile up, flies it over the board and drops it on its square.
 
-Each player starts knowing the two- and three-letter words and about half of the rest of a 400-word list, and finds every legal placement of the words it knows. It plays its best-scoring word six times in ten and one of its top five otherwise, swaps three tiles when it finds nothing, and learns seven in ten of the words its opponent plays. A game ends when the bag and one rack are empty, or after four passes in a row; racks left over count against their owners. In this experiment the student is always the fruit fly, whatever the header toggle says. The Board camera button looks straight down, and Dashboard 13 keeps wins, points per word, words known and learned, and every word played.
+Each player starts knowing the two- and three-letter words and about half of the rest of a 500-word list, and finds every legal placement of the words it knows. It plays its best-scoring word six times in ten and one of its top five otherwise, swaps three tiles when it finds nothing, and learns seven in ten of the words its opponent plays. A game ends when the bag and one rack are empty, or after four passes in a row; racks left over count against their owners. In this experiment the student is always the fruit fly, whatever the header toggle says. The Board camera button looks straight down, and Dashboard 13 keeps wins, points per word, words known and learned, and every word played.
 
 | | |
 | --- | --- |
@@ -514,7 +527,7 @@ The TRD describes a biologically grounded stack: a MuJoCo `flybody` model (102 D
 flowchart LR
   subgraph Now["In this repo today"]
     UI["3D language interface<br/>screen · tiles · trial card"]
-    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>thirteen experiments"]
+    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>fourteen experiments"]
     Policy["Behavioural policy<br/>memory-weighted tile choice"]
     BrainViz["Stylised CNS point cloud<br/>16 regions, act[]"]
     Eye["Fly-eye mosaic<br/>750 ommatidia, 4.5°"]
