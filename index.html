@@ -270,6 +270,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <button type="button" data-exp="7" aria-pressed="false">Classroom</button>
         <button type="button" data-exp="8" aria-pressed="false">Phonics</button>
         <button type="button" data-exp="9" aria-pressed="false">Reading</button>
+        <button type="button" data-exp="10" aria-pressed="false">Writing</button>
       </div>
       <div class="seg" role="group" aria-label="Speed">
         <button type="button" data-speed="1" aria-pressed="true">1×</button>
@@ -291,15 +292,15 @@ pre.mermaid svg{max-width:none;height:auto}
         <div style="display:flex;flex-direction:column;gap:12px">
           <span class="eyebrow">Embodied Drosophila literacy simulation</span>
           <h2>A fruit fly learning to read, and the flies who teach and proctor it</h2>
-          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid, a classroom of 24 flies with tablets in mating season, a phonics app that asks it to say the word, which it sings back with one wing, and a tablet of illustrated stories it reads aloud while hovering. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
+          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid, a classroom of 24 flies with tablets in mating season, a phonics app that asks it to say the word, which it sings back with one wing, a tablet of illustrated stories it reads aloud while hovering, and a writing app where it answers in cursive with the tip of its abdomen. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
           <div class="actions"><a class="btn btn-primary" href="#simulate">Open the simulator</a><a class="btn btn-tertiary" href="#dashboards">Dashboards</a><a class="btn btn-tertiary" href="#about">About the research</a></div>
         </div>
         <img src="docs/screenshots/app-simulate.png" alt="The simulator: a fruit fly on a smartphone screen with the brain panel and docked dashboards">
       </div>
 
       <div>
-        <h3 class="sec">Nine experiments</h3>
-        <p class="sub">Seven student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all nine.</p>
+        <h3 class="sec">Ten experiments</h3>
+        <p class="sub">Eight student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all ten.</p>
       </div>
       <div class="expgrid">
         <a class="expcard" href="#simulate" data-run="1"><img loading="lazy" src="docs/screenshots/overview.png" alt="Experiment 1: the fly walking across the phone screen toward a tile"><div class="body"><span class="num">Experiment 1</span><h3>Walking</h3><p>The fly walks across a phone lying on the table, reads the meaning with head sweeps, and presses word-part tiles with a foreleg.</p><span class="role student">Student</span></div></a>
@@ -311,6 +312,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <a class="expcard" href="#simulate" data-run="7"><img loading="lazy" src="docs/screenshots/exp7-classroom.png" alt="Experiment 7: six round tables of fly students with tablets, coloured rings showing what each fly is doing"><div class="body"><span class="num">Experiment 7</span><h3>Classroom</h3><p>Twenty-four students at six round tables, one tablet each, in mating season. Courtship, rejection and rivalry compete with the lesson, and everyone still has to finish.</p><span class="role student">Student</span></div></a>
         <a class="expcard" href="#simulate" data-run="8"><img loading="lazy" src="docs/screenshots/exp8-phonics.png" alt="Experiment 8: the fly at the mic of a phonics app, one wing extended as it sings the sounds, a spectrogram of its buzz on the screen"><div class="body"><span class="num">Experiment 8</span><h3>Phonics</h3><p>The app says a word and the fly says it back, sound by sound, by singing with one wing: pulse song for consonants, a hum for vowels. The recogniser scores every sound.</p><span class="role student">Student</span></div></a>
         <a class="expcard" href="#simulate" data-run="9"><img loading="lazy" src="docs/screenshots/exp9-reading.png" alt="Experiment 9: the fly hovering in front of a tablet on a stand, reading an illustrated storybook page aloud"><div class="body"><span class="num">Experiment 9</span><h3>Reading</h3><p>A tablet on a stand runs illustrated six-page stories. The fly hovers and reads aloud in its buzz, taps Next, answers Stop &amp; Think questions, and picks its next story.</p><span class="role student">Student</span></div></a>
+        <a class="expcard" href="#simulate" data-run="10"><img loading="lazy" src="docs/screenshots/exp10-writing.png" alt="Experiment 10: the fly flying nose-up over a phone, writing a Greek root answer in cursive with the tip of its abdomen"><div class="body"><span class="num">Experiment 10</span><h3>Writing</h3><p>Greek root questions answered in joined cursive. The fly flies nose-up and drags the tip of its abdomen across the glass, then taps Submit to have its handwriting read.</p><span class="role student">Student</span></div></a>
       </div>
 
       <h3 class="sec">What you can measure</h3>
@@ -340,6 +342,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <button type="button" data-dock="d-class-sec" aria-pressed="false"><span>Classroom</span></button>
         <button type="button" data-dock="d-phonics-sec" aria-pressed="false"><span>Phonics</span></button>
         <button type="button" data-dock="d-reading-sec" aria-pressed="false"><span>Reading</span></button>
+        <button type="button" data-dock="d-writing-sec" aria-pressed="false"><span>Writing</span></button>
       </div>
       <div id="dockBody"></div>
     </aside>
@@ -370,27 +373,27 @@ pre.mermaid svg{max-width:none;height:auto}
 
     <aside id="brainPanel" aria-label="Scenario panel">
       <div id="nowLine" aria-live="polite">Walking · building a word</div>
-      <section id="rpScreen" data-rp="3 4 5 6 8 9" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
+      <section id="rpScreen" data-rp="3 4 5 6 8 9 10" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
       <section id="rpMap" data-rp="7" class="rp"><div class="rowlbl"><h3>Seating chart</h3><span class="sub">click a fly to follow it</span></div><canvas id="rpMapCv" aria-label="Top-down seating chart of the six tables; click a fly to follow it"></canvas></section>
       <section id="rpScen" class="rp"><h3 id="rpScenHead"></h3><div id="rpScenBody"></div></section>
-      <section data-rp="1 2 3 4 7 8 9" style="display:flex;flex-direction:column;gap:8px">
+      <section data-rp="1 2 3 4 7 8 9 10" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <h2>Central nervous system</h2>
           <span class="sub">Point cloud stylised after Drosophila anatomy, brain and ventral nerve cord. Drag to turn.</span>
         </div>
         <canvas id="brain" aria-label="Rotating point cloud of the fly's brain; regions brighten when active"></canvas>
       </section>
-      <section data-rp="1 2 3 4 7 8 9" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9 10" style="display:flex;flex-direction:column;gap:10px">
         <div class="rowlbl"><span>Dopamine · PAM cluster</span><span id="dopaVal">0.50</span></div>
         <div class="bar" id="dopaBar"><span style="width:50%"></span></div>
         <ul class="regions" id="regions"></ul>
       </section>
-      <section data-rp="1 2 3 4 7 8 9" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9 10" style="display:flex;flex-direction:column;gap:10px">
         <h3 id="memHead">Word part memory · Kenyon cell to MBON weights</h3>
         <div class="memory" id="memory"></div>
       </section>
       <section style="display:flex;flex-direction:column;gap:12px">
-        <div class="stat-row" data-rp="1 2 3 4 7 8 9">
+        <div class="stat-row" data-rp="1 2 3 4 7 8 9 10">
           <div class="stat good"><b id="stWords">0</b><span class="sub">words built</span></div>
           <div class="stat plain"><b id="stTaps">0</b><span class="sub">answers</span></div>
           <div class="stat"><b id="stAcc">0%</b><span class="sub">correct</span></div>
@@ -413,7 +416,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <p class="lead">Four dashboards from the psychometric specification, fed by the running fly. Values update while the simulation runs in the Simulate view. Where a quantity is a stand-in for a sensor or model the app does not yet have, the card says so.</p>
       </div>
       <nav class="subnav" aria-label="Dashboards">
-        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a>
+        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a><a href="#d-writing">Writing</a>
       </nav>
 
       <section id="d-session" class="grid" data-dockable>
@@ -540,6 +543,19 @@ pre.mermaid svg{max-width:none;height:auto}
         <article class="card span6"><header><h3>The library</h3><span class="sub">four stories, six pages each</span></header><div style="overflow-x:auto"><table class="q" id="rdBooks"><thead><tr><th>Story</th><th>Theme</th><th>Grade</th><th>Words to know</th><th>Read</th></tr></thead><tbody></tbody></table></div><p class="sub">Illustrations are AI-generated from each page's image prompt; a page without an image is painted in the browser instead.</p></article>
         <article class="card span6"><header><h3>Reading log</h3><span class="sub">miscues, questions, stories</span></header><ul class="events" id="rdLog" style="max-height:260px"></ul></article>
       </section>
+
+      <h3 class="sec" id="d-writing">Dashboard 10 · Writing Greek roots in cursive</h3>
+      <p class="sub">Experiment 10. The fly answers Greek root questions by writing in cursive with the tip of its abdomen while it flies, then taps Submit and the app reads the handwriting. Right answers depend on a memory per root; legibility depends on a motor skill that grows with practice.</p>
+      <section class="grid" id="d-writing-sec" data-dockable>
+        <article class="card span4"><header><h3>Writing session</h3><span class="sub" id="wrMode">not running</span></header>
+          <div class="stat-row"><div class="stat good"><b id="wrRight">0</b><span class="sub">answers right</span></div><div class="stat plain"><b id="wrAnswers">0</b><span class="sub">answers written</span></div><div class="stat"><b id="wrLeg">–</b><span class="sub">legibility, last</span></div></div>
+          <div class="kv"><span>Letters written</span><b id="wrLetters">0</b><span>Ink laid down</span><b id="wrInk">0 px</b><span>Letters per minute, last</span><b id="wrLpm">–</b><span>Motor skill · wobble</span><b id="wrSkill">–</b><span>Misread by the recogniser</span><b id="wrMisread">0</b></div>
+          <p class="sub">Legibility falls as the wobble of the abdomen tip grows. Below about 55% the recogniser can read one letter as another, so a right answer can be marked wrong.</p></article>
+        <article class="card span4"><header><h3>Greek root memory</h3><span class="sub">per root, with its meaning</span></header><div id="wrMem" class="memory"></div><p class="sub">The chance of writing the right answer is 0.3 + 0.65 × the root's memory, which learns with Δw = η(R − V).</p></article>
+        <article class="card span4"><header><h3>Legibility over answers</h3><span class="sub">green 80% or better</span></header><canvas class="chart tall" id="cWrLeg" aria-label="Legibility of each written answer"></canvas><p class="sub">The fly's tail control improves a little with every answer.</p></article>
+        <article class="card span6"><header><h3>The roots</h3><span class="sub">twelve Greek roots</span></header><div style="overflow-x:auto"><table class="q" id="wrRoots"><thead><tr><th>Root</th><th>Meaning</th><th>As in</th><th>Tries</th><th>Right</th></tr></thead><tbody></tbody></table></div></article>
+        <article class="card span6"><header><h3>Writing log</h3><span class="sub">what was written and how it was read</span></header><ul class="events" id="wrLog" style="max-height:300px"></ul></article>
+      </section>
     </div>
   </section>
 
@@ -551,7 +567,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <p class="lead">Fruit Fly Lingo is the interaction layer of the Embodied Drosophila Literacy Simulation (EDLS). It puts a simulated fruit fly in front of a smartphone that teaches word parts, and asks a simple question with a hard answer: can a nervous system that evolved for finding food and avoiding swatters be repurposed to assemble prefixes, roots and suffixes?</p>
       </div>
       <section class="two">
-        <article class="card tint"><h3>What the app simulates</h3><p>A procedural fly with six IK legs, wings and a head-mounted compound-eye camera lives on a table with a phone. The phone runs a small morphology curriculum in the style of LibreLingo and Word Root Workshop: build the word that means <em>able to be counted again</em> from <em>re-</em>, <em>count</em> and <em>-able</em>. The fly answers by touching tiles, and the student experiments vary how it gets there: walking on the glass, flying up to read and diving to land, holding a fly-sized phone and swiping, or spelling the word key by key on a laptop. Two more experiments put flies on the other side of the desk: a teacher grading those students from a fly-sized laptop, and a district admin proctoring nine of them through webcam sessions with a vision overlay and an assistant called FlyAI. A seventh puts twenty-four student flies in one classroom during mating season, where courtship, rejection and rivalry compete with the lesson. An eighth is a phonics lesson: the fly cannot speak, so it answers by singing each sound with one wing. A ninth hands it a library of illustrated stories on a tablet, which it reads aloud in its buzz while hovering in front of the page.</p><p>A stylised central nervous system, about 55,000 points laid out after Drosophila anatomy, lights up with what the fly does: optic lobes while it reads, central complex and leg neuropils while it moves, mushroom bodies and taste centres when a sugar reward arrives, lateral horn when it flinches from a wrong answer.</p></article>
+        <article class="card tint"><h3>What the app simulates</h3><p>A procedural fly with six IK legs, wings and a head-mounted compound-eye camera lives on a table with a phone. The phone runs a small morphology curriculum in the style of LibreLingo and Word Root Workshop: build the word that means <em>able to be counted again</em> from <em>re-</em>, <em>count</em> and <em>-able</em>. The fly answers by touching tiles, and the student experiments vary how it gets there: walking on the glass, flying up to read and diving to land, holding a fly-sized phone and swiping, or spelling the word key by key on a laptop. Two more experiments put flies on the other side of the desk: a teacher grading those students from a fly-sized laptop, and a district admin proctoring nine of them through webcam sessions with a vision overlay and an assistant called FlyAI. A seventh puts twenty-four student flies in one classroom during mating season, where courtship, rejection and rivalry compete with the lesson. An eighth is a phonics lesson: the fly cannot speak, so it answers by singing each sound with one wing. A ninth hands it a library of illustrated stories on a tablet, which it reads aloud in its buzz, flying from word to word. A tenth asks it to write: it answers Greek root questions in cursive with the tip of its abdomen.</p><p>A stylised central nervous system, about 55,000 points laid out after Drosophila anatomy, lights up with what the fly does: optic lobes while it reads, central complex and leg neuropils while it moves, mushroom bodies and taste centres when a sugar reward arrives, lateral horn when it flinches from a wrong answer.</p></article>
         <article class="card tint"><h3>What we are trying to learn</h3><p>Whether biological wiring is a useful <strong>inductive bias</strong> for symbolic learning. A random network can learn to tap tiles; the interesting result is a network constrained by the fly's actual circuits doing it, because then the solution has to route through the same sensorimotor pathways a real fly uses. The "Digital Sphinx" problem, a worm connectome driving a fly body, shows how easily a high-capacity learner fakes the behaviour without the biology.</p><p>How <strong>reward learning</strong> in the mushroom body maps onto a curriculum. The PAM dopamine cluster gates plasticity between Kenyon cells and output neurons; here that is the rule Δw = η(R − V) that strengthens a word part's memory after a correct answer, and the Half-Life Regression that schedules its review.</p><p>How to <strong>measure learning</strong> in a non-human agent. The dashboards apply G-DINA cognitive diagnosis, Half-Life Regression and the Many-Facet Rasch model so that "the fly learned re-" is a claim with a posterior, a half-life and a logit, not a feeling.</p></article>
       </section>
 
@@ -789,7 +805,7 @@ pre.mermaid svg{max-width:none;height:auto}
 </pre></article><article class="card"><h3>From this app to the full EDLS</h3><pre class="mermaid">flowchart LR
   subgraph Now[&quot;In this repo today&quot;]
     UI[&quot;3D language interface&lt;br/&gt;screen · tiles · trial card&quot;]
-    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;nine experiments&quot;]
+    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;ten experiments&quot;]
     Policy[&quot;Behavioural policy&lt;br/&gt;memory-weighted tile choice&quot;]
     BrainViz[&quot;Stylised CNS point cloud&lt;br/&gt;16 regions, act[]&quot;]
     Eye[&quot;Fly-eye mosaic&lt;br/&gt;750 ommatidia, 4.5°&quot;]
@@ -862,12 +878,20 @@ pre.mermaid svg{max-width:none;height:auto}
 
       <h3 class="sec">Reading</h3>
       <div class="shots">
-        <figure><img loading="lazy" src="docs/screenshots/exp9-reading.png" alt="Experiment 9: the fly hovering in front of a tablet on a stand, reading a storybook page aloud"><figcaption><strong>9 · Reading.</strong> The fly hovers and bobs in front of a tablet on a stand, reading aloud in its buzz while each word lights up. Bold words are the story's vocabulary.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/exp9-reading.png" alt="Experiment 9: the fly hovering in front of a tablet on a stand, reading a storybook page aloud"><figcaption><strong>9 · Reading.</strong> The fly flies from word to word in front of a tablet on a stand, with a springy hop onto each one, reading aloud in its buzz while the word lights up. Bold words are the story's vocabulary.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/exp9-library.png" alt="Experiment 9 library: The End and three story cards to choose the next story"><figcaption><strong>9 · The library.</strong> The app opens on a grid of all four books, and after each story it shows the other three; the fly flies up and taps the one it has read least.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/dashboards-9.png" alt="Dashboard 9: reading session counters, vocabulary memory, fluency by page"><figcaption><strong>Dashboard 9 · Reading stories aloud.</strong> Stories finished, words read, words per minute and accuracy per page, miscues and self-corrections, questions answered, and a vocabulary memory per bold word.</figcaption></figure>
       </div>
       <p>The reading app follows the pattern of illustrated readers such as LitLab: a picture and a short passage on each spread, a strip of words to know, and a comprehension check about every three pages. The four books are written for grades 3 to 5 and set in a fruit fly's world, where a peach is a mountain and a kitchen fan is a storm: <em>Rosa and the Ripening Banana</em> (patience and change over time), <em>Flynn and the Giant Peach</em> (exploration), <em>Zig, Zag, and the Wind</em> (cause and effect) and <em>Dot and the Mystery Light</em> (investigation and evidence). Every page is illustrated with an AI-generated image made from that page's prompt, with one consistent fly character; the app loads web-sized copies from docs/stories. If an image is missing, the page is painted in the browser from a scene description instead. The prompts, and how to add or replace images, are in <a href="docs/stories/prompts.md" target="_blank" rel="noopener">docs/stories/prompts.md</a>.</p>
-      <p>The fly reads word by word at about 110 words a minute, slowing on the bold vocabulary words. Each word is voiced by the same wing buzz as the phonics lesson: a hum shaped by the word's vowels, a pulse at a stop consonant, rising at a question and falling at the end of a sentence. Unfamiliar vocabulary is misread more often, and most misreadings are self-corrected. Stop &amp; Think after page 3 and a comprehension question after page 6 are answered right with a probability that rises with the story's vocabulary memory. These books are structured like decodable readers but are not aligned to a phonics scope and sequence; mapping them to a grade 3 to 5 morphology progression is the next step.</p>
+      <p>The fly reads word by word at about 110 words a minute, slowing on the bold vocabulary words. It flies to each word as it reads it: its position is a spring chasing a point just in front of the word, so it carries momentum from word to word, overshoots a little, hops onto each new word and swoops back at the end of a line. Each word is voiced by the same wing buzz as the phonics lesson: a hum shaped by the word's vowels, a pulse at a stop consonant, rising at a question and falling at the end of a sentence. Unfamiliar vocabulary is misread more often, and most misreadings are self-corrected. Stop &amp; Think after page 3 and a comprehension question after page 6 are answered right with a probability that rises with the story's vocabulary memory. These books are structured like decodable readers but are not aligned to a phonics scope and sequence; mapping them to a grade 3 to 5 morphology progression is the next step.</p>
+
+      <h3 class="sec">Writing</h3>
+      <div class="shots">
+        <figure><img loading="lazy" src="docs/screenshots/exp10-writing.png" alt="Experiment 10: the fly flying nose-up, the tip of its abdomen on the glass, writing in cursive"><figcaption><strong>10 · Writing.</strong> Flying nose-up, the fly drags the tip of its abdomen across the glass and writes its answer in joined cursive, lifting it for dots and crosses.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/exp10-screen.png" alt="Experiment 10 writing app: a Greek root question, lined handwriting paper with cursive ink, Clear and Submit buttons"><figcaption><strong>10 · The writing app.</strong> A Greek root question with example words, lined handwriting paper, what the recogniser read, and the Submit button the fly taps.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/dashboards-10.png" alt="Dashboard 10: writing counters, Greek root memory, legibility over answers"><figcaption><strong>Dashboard 10 · Writing Greek roots in cursive.</strong> Answers right, legibility and writing speed per answer, motor skill, a memory per root, and a log of what was written and how it was read.</figcaption></figure>
+      </div>
+      <p>The writing app asks about twelve Greek roots, alternating between "What does the Greek root <em>bio</em> mean?" and "Which Greek root means <em>light</em>?", with example words such as <em>biology</em> and <em>photograph</em>. The fly answers in joined cursive, traced from the Hershey single-stroke script font, a public-domain set of pen-plotter letters. To write, it flies pitched about 29° nose-up so that the tip of its abdomen rests on the glass, follows each letter's stroke at about 90 pixels a second, and lifts the tip to hop to the dot of an <em>i</em> or the cross of a <em>t</em>. The abdominal ganglion lights up in the brain panel while it writes. A small wobble from hovering flight shakes the line; it shrinks as the fly's tail control improves with practice. When it taps Submit, the recogniser reads the handwriting: very shaky writing can turn one letter into another. Whether the answer itself is right depends on a memory per root, learned with the same Δw = η(R − V) rule.</p>
 
       <h3 class="sec">From this app to the full EDLS</h3>
       <section class="two">
@@ -983,6 +1007,7 @@ const EXP = {
   5: { name: 'Teacher', note: 'Experiment 5 · Teacher. A fly-sized laptop with a gradebook of the flies from Experiments 1 to 4. The screen is not touchable: the teacher stays on the trackpad and steers the cursor with one foreleg, presses the pad to click, and steps over to tap keys.', phys: 'Fly-sized laptop · trackpad only, no touch', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   6: { name: 'District admin', note: 'Experiment 6 · District admin. The admin fly watches nine students on a 3 × 3 grid of webcam sessions. A vision overlay boxes each fly, its forelegs and its gaze; FlyAI flags suspected cheating and the admin steers the cursor to the tile and sends a check-in.', phys: 'Fly-sized laptop · trackpad only · vision overlay', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   7: { name: 'Classroom', note: 'Experiment 7 · Classroom. Twenty-four students, twelve female and twelve male, at six round tables with a fly-sized tablet each, in mating season. Every fly has to finish twelve items. Rings show what each fly is doing; the vision overlay boxes every fly, its forelegs and its gaze. Click a fly to follow it and see its brain.', phys: '24 flies · 6 tables', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 10, 17], classroom: true },
+  10: { name: 'Writing', note: 'Experiment 10 · Writing. A cursive writing app on the phone asks Greek root questions. The fly answers by flying nose-up and dragging the tip of its abdomen across the glass, writing the answer in joined cursive, lifting it for dots and crosses. Then it taps Submit and the app reads the handwriting.', phys: 'Hover flight · abdomen tip on the glass', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 9, 14] },
   9: { name: 'Reading', note: 'Experiment 9 · Reading. A tablet on a stand runs an illustrated storybook app. The fly hovers in front of the page, bobbing, and reads aloud in its wing buzz as each word lights up; vocabulary words are in bold. It starts at the library and flies up to tap a book, taps Next to turn pages, answers Stop & Think questions, and when a story ends it picks the next one.', phys: 'Tablet on a stand · hover flight', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-38, 9, 20], tablet: true },
   8: { name: 'Phonics', note: 'Experiment 8 · Phonics. The app shows a word, plays it, and asks the fly to say it back. A fly cannot speak, so it stands on the mic facing the word, holds the mic down with a foreleg, and sings each sound with one extended wing: pulse song for k, t, d, a formant-shaped hum for vowels, a fluttered hiss for s and sh. You hear the buzz only while it sings; the pill above the arena turns it off.', phys: 'Wing song · pulse and sine', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-13, 11, 20] },
 };
@@ -1052,6 +1077,7 @@ const sc = screenCanvas.getContext('2d');
 function rrect(x, y, w, h, r) { sc.beginPath(); sc.roundRect(x, y, w, h, r); }
 function drawScreen(now) {
   if (experiment === 8) return drawPhonics(now);
+  if (experiment === 10) return drawWriting(now);
   const w = cur(); const L = layout(); const scroll = L.tapY ? game.scrollY : 0;
   sc.setTransform(1, 0, 0, 1, 0, 0);
   sc.fillStyle = C.page; sc.fillRect(0, 0, SW, SH);
@@ -1209,7 +1235,7 @@ function solveLeg(L, bodyLift) {
   const footL = hip.clone().add(d);
   setBone(L.femur, hip, knee); setBone(L.tibia, knee, footL); L.pad.position.copy(footL);
 }
-const flyState = { songExt: 0, songAmp: 0, songSide: 1, pos: new THREE.Vector3(0, SCREEN_Y, 40), vel: new THREE.Vector3(), yaw: 0, groundY: SCREEN_Y, headYaw: 0, buzz: 0, flinch: 0, proboscis: 0, walking: false, airborne: false, gaitPhase: 0 };
+const flyState = { pitchOverride: null, songExt: 0, songAmp: 0, songSide: 1, pos: new THREE.Vector3(0, SCREEN_Y, 40), vel: new THREE.Vector3(), yaw: 0, groundY: SCREEN_Y, headYaw: 0, buzz: 0, flinch: 0, proboscis: 0, walking: false, airborne: false, gaitPhase: 0 };
 function plantFeet() { fly.position.copy(flyState.pos); fly.rotation.y = flyState.yaw; fly.updateMatrixWorld(true); legs.forEach(L => { L.step = null; L.foot.copy(restWorld(L)); }); }
 
 // ---------- Brain point cloud ----------
@@ -1302,6 +1328,7 @@ function renderTrial() {
   if (experiment === 7) return renderClassTrial();
   if (experiment === 8) return renderPhonicsTrial();
   if (experiment === 9) return renderReadingTrial();
+  if (experiment === 10) return renderWritingTrial();
   if (experiment === 4 && typeof spell !== 'undefined' && spell.letters.length) {
     $('meaning').textContent = spell.word.meaning;
     $('chips').innerHTML = spell.letters.map((ch, i) => i < spell.typed.length ? `<span class="chip ${KINDS[partAtLetter(i)]}" style="padding:0 12px">${ch}</span>` : `<span class="chip empty" style="padding:0 10px">${KINDS[partAtLetter(i)][0]}</span>`).join('');
@@ -1336,6 +1363,7 @@ function redrawScreen(now) { drawScreen(now); screenTex.needsUpdate = true; }
 const agent = { phase: 'look', t: 0, target: null, standPos: null, tapLeg: null, tileIdx: -1, wordDone: false, hover: null, from: null, swipe: null, targetScroll: 0 };
 const PHASE_TEXT = { look: 'Looking at the screen', walk: 'Walking to a tile', tap: 'Pressing the glass', react: 'Reading the outcome', celebrate: 'Word complete',
   takeoff: 'Taking off', hover: 'Hovering, reading the meaning', dive: 'Diving to the answer', land: 'Landing', scroll: 'Swiping the answers into reach',
+  w_read: 'Reading the question', w_fly: 'Flying', w_write: 'Writing with the abdomen tip', w_tap: 'Tapping Submit', w_react: 'Checking the answer',
   r_read: 'Hovering and reading aloud', r_think: 'Thinking about the question', r_fly: 'Flying to the button', r_tap: 'Tapping the screen', r_feedback: 'Checking the answer', r_browse: 'Browsing the library',
   p_look: 'Reading the word', p_listen: 'Listening to the app', p_walk: 'Settling on the mic', p_tap: 'Pressing the mic', p_buzz: 'Holding the mic and singing with one wing', p_react: 'Hearing the score', p_celebrate: 'Word said right', p_back: 'Settling on the mic',
   t_read: 'Reading the screen', t_fly: 'Flying', t_walk: 'Walking', t_arm: 'Steering the cursor with a foreleg', t_press: 'Clicking', t_dip: 'Pressing a key', t_done: 'All students graded', s_celebrate: 'Word spelled', a_watch: 'Watching the nine sessions' };
@@ -1426,6 +1454,7 @@ function stepAgent(dt, now) {
   agent.t += dt;
   if (experiment === 8) return stepPhonics(dt, now);
   if (experiment === 9) return stepReading(dt, now);
+  if (experiment === 10) return stepWriting(dt, now);
   if (EXP[experiment].laptop) return stepTeacher(dt, now);
   const st = flyState; const s = phone.scale.x;
   switch (agent.phase) {
@@ -1546,7 +1575,7 @@ function animateFly(dt) {
   const st = flyState;
   fly.position.copy(st.pos); fly.rotation.y = st.yaw; fly.updateMatrixWorld(true);
   head.rotation.y = st.headYaw;
-  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz' || agent.phase === 'r_tap') ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
+  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz' || agent.phase === 'r_tap' || agent.phase === 'w_tap') ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
   let stepping = legs.filter(L => L.step).length;
   legs.forEach(L => {
     if (L === busyLeg) return;
@@ -1572,7 +1601,7 @@ function animateFly(dt) {
   const lift = bob - st.flinch * 0.32 + (st.airborne ? -0.3 : 0);
   body.position.y = lift;
   body.rotation.z = st.flinch * Math.sin(performance.now() / 40) * 0.08;
-  const pitch = st.airborne ? Math.max(-0.6, Math.min(0.5, -st.vel.y * 0.04)) : 0;
+  const pitch = st.pitchOverride != null ? st.pitchOverride : st.airborne ? Math.max(-0.6, Math.min(0.5, -st.vel.y * 0.04)) : 0; // Writing pitches nose-up to put the abdomen tip on the glass
   body.rotation.x += (pitch - body.rotation.x) * Math.min(1, dt * 6);
   proboscis.scale.y = 0.35 + st.proboscis * 0.9; proboscis.position.y = -0.6 - st.proboscis * 0.35;
   const flap = st.buzz > 0 ? Math.sin(performance.now() / 6) * 0.6 * Math.min(1, st.buzz * 2) : 0;
@@ -2584,7 +2613,7 @@ function drawVision() {
 }
 
 // ---------- scenario panels: the right panel and bottom strip follow the experiment ----------
-const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9]; // the teacher and admin panels show their screen and work queue instead of the brain
+const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9, 10]; // the teacher and admin panels show their screen and work queue instead of the brain
 let rpAt = 0;
 // scenario history, 4 samples a second of the numbers the strip plots (the classroom keeps its own in cls.hist)
 const sh = []; let shAt = 0, shSim = 0; const shPrev = new THREE.Vector3();
@@ -2596,7 +2625,7 @@ function sampleScenario(now, dt) {
   sh.push({ t, exp: experiment, speed, h: Math.max(0, st.pos.y - ground), air: st.airborne ? 1 : 0, scroll: game.scrollY, typed: spell.typed.length,
     path: T.path, clicks: T.clicks, miss: T.miss, keys: T.keys, graded: T.graded.length,
     att: admin.students.length ? admin.students.reduce((a, s) => a + s.att, 0) / admin.students.length : null, flags: admin.flags.filter(f => f.open).length,
-    song: flyState.songAmp || 0, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
+    song: flyState.songAmp || 0, pen: experiment === 10 && agent.phase === 'w_write' && wr.path[Math.floor(wr.s)] && wr.path[Math.floor(wr.s)].down ? 1 : 0, rmem: wr.mem.size ? [...wr.mem.values()].reduce((a, b) => a + b, 0) / wr.mem.size : null, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
     prec: A.tp + A.fp ? A.tp / (A.tp + A.fp) : null, checkins: A.checkins, det: A.detections.filter(d => t - d.t < 5).reduce((a, d) => a + d.lookaway + d.helper + d.device + d.offscreen, 0) });
   if (sh.length > 480) sh.shift();
 }
@@ -2656,6 +2685,12 @@ const STRIPS = {
     sHist('Vocabulary memory', 'vmem', () => { const p = shLast(); return p && p.vmem != null ? p.vmem.toFixed(2) : '–'; }, { ymax: 1 }, '#22884c'),
     { l: 'Stop & Think', v: () => `${reading.stats.checksRight} of ${reading.stats.checks}`, d: id => barChart(id, reading.checkLog.slice(-20).map(c => ({ v: 1, color: c.ok ? CH.green : CH.red, label: `${c.story}: ${c.q} · ${c.ok ? 'right' : 'wrong'}` })), { ymax: 1, positive: true, compact: true, empty: 'No questions yet' }) },
     sDopa],
+  10: [sHist('Abdomen tip on the glass', 'pen', () => agent.phase === 'w_write' ? 'writing' : 'lifted', { ymax: 1 }, '#002657'),
+    { l: 'Letters per minute', v: () => { const h = wr.history[wr.history.length - 1]; return h ? String(Math.round(h.lpm)) : '–'; }, d: id => barChart(id, wr.history.slice(-20).map(h => ({ v: h.lpm, color: CH.blue, label: `"${h.written}": ${Math.round(h.lpm)} letters/min` })), { positive: true, compact: true, empty: 'No answers yet' }) },
+    { l: 'Legibility', v: () => { const h = wr.history[wr.history.length - 1]; return h ? Math.round(h.legibility * 100) + '%' : '–'; }, d: id => barChart(id, wr.history.slice(-20).map(h => ({ v: h.legibility, color: h.legibility >= 0.8 ? CH.green : CH.amber, label: `"${h.written}" read as "${h.read}": ${Math.round(h.legibility * 100)}% legible` })), { ymax: 1, positive: true, compact: true, empty: 'No answers yet' }) },
+    sHist('Greek root memory', 'rmem', () => { const p = shLast(); return p && p.rmem != null ? p.rmem.toFixed(2) : '–'; }, { ymax: 1 }, '#22884c'),
+    { l: 'Answers right', v: () => `${wr.stats.right} of ${wr.stats.answers}`, d: id => barChart(id, wr.history.slice(-20).map(h => ({ v: 1, color: h.ok ? CH.green : CH.red, label: `${h.root}: wrote "${h.written}", ${h.ok ? 'right' : 'answer ' + h.answer}` })), { ymax: 1, positive: true, compact: true, empty: 'No answers yet' }) },
+    sDopa],
 };
 let stripExp = 0;
 function drawStrip() {
@@ -2688,6 +2723,8 @@ function scenarioCard() {
     return ['Proctoring', `<h3>Open flags</h3><ul>${open.map(f => `<li class="now">${admin.students[f.student].name}: ${REASON[f.reason] || f.reason} · ${Math.round(TDT() - f.t)} s ago</li>`).join('') || '<li>None open</li>'}</ul>` +
       (ai ? `<p class="sub" style="margin:0">FlyAI: ${ai.text}</p>` : '') + `<h3>Next actions</h3><ol>${next.map((s, i) => `<li class="${i ? '' : 'now'}">${stepText(s)}</li>`).join('')}</ol>` +
       kv([['Flags · confirmed · false alarms', `${admin.flags.length} · ${A.tp} · ${A.fp}`], ['Check-ins sent', A.checkins]])]; }
+  if (e === 10) { const G = GREEK[wr.qi], P = wr.path, p = P[Math.min(P.length - 1, Math.floor(wr.s))], last = wr.history[wr.history.length - 1];
+    return ['Writing with the tail', kv([['Question', wr.type === 'meaning' ? `What does ${G.root} mean?` : `Which root means ${G.meaning}?`], ['Writing', agent.phase === 'w_write' ? `"${wr.written}" · ${Math.round(Math.min(1, wr.s / Math.max(1, P.length - 1)) * 100)}%` : '–'], ['Abdomen tip', agent.phase === 'w_write' && p ? (p.down ? 'on the glass, inking' : 'lifted, moving to the next stroke') : 'lifted'], ['Body pitch', agent.phase === 'w_write' ? 'nose up ' + Math.round(-TAIL_PITCH * 57) + '°' : 'level'], ['Motor skill', wr.skill.toFixed(2) + ' · wobble ' + wr.wobble.toFixed(1) + ' px'], ['Last answer', last ? `"${last.read}" · ${last.ok ? 'right' : 'wrong'} · ${Math.round(last.legibility * 100)}% legible` : '–'], ['Right so far', `${wr.stats.right} of ${wr.stats.answers}`]])]; }
   if (e === 9) { const R = reading, S = STORIES[R.si], W = R.speaking ? R.words[R.wi] : null, last = R.pageLog[R.pageLog.length - 1];
     return ['Reading aloud', kv([['Story', R.opening ? 'choosing one' : S.title], ['Page', R.mode === 'library' ? 'the library' : `${R.pi + 1} of 6`], ['Word now', W ? W.w.replace(/[^A-Za-z'-]/g, '') + (W.vocab ? ' · vocabulary' : '') : '–'], ['Voice', W ? `humming /${PH[R.sound || 'a'].ipa}/ at ${Math.round(R.f0)} Hz` : 'quiet'], ['Last page', last ? `${Math.round(last.wpm)} words/min · ${Math.round(last.acc * 100)}% accurate` : '–'], ['Hover height', ((st.pos.y - TABLE_Y) / BL).toFixed(1) + ' body lengths'], ['Stop & Think right', `${R.stats.checksRight} of ${R.stats.checks}`], ['Sound', audio.on ? 'on' : 'off, use the pill above the arena']])]; }
   if (e === 8) { const P = phon, s = P.stage === 'mic' ? P.plan[P.cur] : null;
@@ -2699,7 +2736,7 @@ function renderScenario(force) {
   if (view !== 'simulate' && !force) return;
   const [head, body] = scenarioCard(); if ($('rpScenHead').textContent !== head) $('rpScenHead').textContent = head;
   const B = $('rpScenBody'); if (B.innerHTML !== body) B.innerHTML = body;
-  if ([3, 4, 5, 6, 8, 9].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
+  if ([3, 4, 5, 6, 8, 9, 10].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
 }
 // a live copy of the phone or laptop screen
 function drawRpScreen() {
@@ -2708,8 +2745,8 @@ function drawRpScreen() {
   if (cv.height !== Math.round(h * pr) || cv.width !== Math.round(w * pr)) { cv.width = Math.round(w * pr); cv.height = Math.round(h * pr); cv.style.height = h + 'px'; }
   const g = cv.getContext('2d'); g.setTransform(pr, 0, 0, pr, 0, 0); g.fillStyle = '#0b0b0c'; g.fillRect(0, 0, w, h);
   const s = Math.min(w / src.width, h / src.height), dw = src.width * s, dh = src.height * s; g.drawImage(src, (w - dw) / 2, (h - dh) / 2, dw, dh);
-  $('rpScreenHead').textContent = experiment === 9 ? 'Storybook app' : experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
-  $('rpScreenSub').textContent = experiment === 9 ? 'the page the fly is reading' : experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
+  $('rpScreenHead').textContent = experiment === 10 ? 'Writing app' : experiment === 9 ? 'Storybook app' : experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
+  $('rpScreenSub').textContent = experiment === 10 ? 'ink from the abdomen tip' : experiment === 9 ? 'the page the fly is reading' : experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
 }
 // classroom seating chart, top down
 const MAP = { x0: -56, x1: 56, z0: -40, z1: 32 };
@@ -3188,6 +3225,7 @@ function startWord() {
   reading.wordDur = (0.22 + 0.12 * syl.length) * (W.vocab ? 1.5 : 1); reading.wordT = 0;
   reading.miscue = Math.random() < (W.vocab ? 0.04 + 0.3 * (1 - vm) : 0.02) ? (Math.random() < 0.7 ? 'self' : 'miss') : null; if (reading.miscue) reading.wordDur *= 1.8;
   const c0 = W.w.toLowerCase().replace(/[^a-z]/g, '')[0]; if ('bdgkptcq'.includes(c0)) pulseBurst();
+  if (reading.vel) reading.vel.y += 7; // a little hop onto each new word
   reading.f0 = 185 + (/[?]$/.test(W.w) ? 30 : /[.!]$/.test(W.w) ? -15 : 0) + Math.random() * 10;
 }
 function finishWord() {
@@ -3213,11 +3251,16 @@ function stepReading(dt, now) {
   st.songAmp = 0; R.sound = null;
   switch (agent.phase) {
     case 'r_read': {
-      bob(R.hoverBase, performance.now() / 1000); pulse(0, 0.9); pulse(1, 0.9); pulse(2, 0.55); pulse(13, 0.7);
+      // fly to the word being read: a spring with momentum that overshoots a little, a hop at each new word, a light wingbeat bob
+      { const W = R.words[Math.max(0, Math.min(R.words.length - 1, R.wi))], tgt = W ? bookPoint(W.x + W.wd / 2, W.y - 30).addScaledVector(bookNormal(), 12) : R.hoverBase;
+        if (!R.fp) { R.fp = st.pos.clone(); R.vel = new THREE.Vector3(); }
+        const acc = tgt.clone().sub(R.fp).multiplyScalar(26).addScaledVector(R.vel, -6.5); R.vel.addScaledVector(acc, dt); R.fp.addScaledVector(R.vel, dt);
+        st.pos.copy(R.fp); st.pos.y += Math.sin(performance.now() / 95) * 0.12; st.vel.copy(R.vel); }
+      pulse(0, 0.9); pulse(1, 0.9); pulse(2, 0.55); pulse(13, 0.7);
       if (R.mode !== 'page') break;
       R.pageSim += dt;
       if (R.speaking) {
-        R.wordT += dt; const W = R.words[R.wi]; st.headYaw += ((770 - (W.x + W.wd / 2)) / 1024 * 0.9 - st.headYaw) * Math.min(1, dt * 8);
+        R.wordT += dt; const W = R.words[R.wi]; st.headYaw += (Math.sin(R.wordT * 9) * 0.08 - st.headYaw) * Math.min(1, dt * 8); // the body is over the word, so the head only scans it
         const n = R.syl.length, pos = R.wordT / R.wordDur * n, k = Math.min(n - 1, Math.floor(pos));
         R.sound = R.syl[k].v; st.songAmp = Math.sin(Math.min(1, pos - k) * Math.PI) * 0.85 + 0.15; pulse(11, 0.6); pulse(6, 0.5); pulse(7, 0.5); if (W.vocab) { pulse(3, 0.6); pulse(4, 0.6); }
         if (R.wordT >= R.wordDur) { finishWord(); R.speaking = false; R.wi++; if (R.wi >= R.words.length) { pageDone(); R.gap = 0.6; } }
@@ -3254,7 +3297,7 @@ function afterTap(kind) {
   const R = reading; agent.tapLeg = null;
   if (kind === 'choice') { R.hoverBase = flyState.pos.clone(); setPhase('r_feedback'); return; }
   if (R.mode === 'library') { readFlyTo(readSpot(), () => { R.hoverBase = readSpot(); setPhase('r_browse'); }); return; }
-  readFlyTo(readSpot(), () => { R.hoverBase = readSpot(); if (R.wi < 0) R.gap = 0.5; setPhase('r_read'); renderTrial(); });
+  readFlyTo(readSpot(), () => { R.hoverBase = readSpot(); R.fp = null; if (R.wi < 0) R.gap = 0.5; setPhase('r_read'); renderTrial(); });
 }
 // on opening every book is on offer; after a story, the other three
 const libraryOrder = () => reading.opening ? STORIES.map((s, i) => i) : [1, 2, 3].map(k => (reading.si + k) % STORIES.length);
@@ -3322,6 +3365,139 @@ function renderReadingTrial() {
   $('memory').innerHTML = vs.map(v => { const m = R.vocab.get(v); return `<div class="m"><span>${v}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${m >= 0.8 ? 'known' : Math.round(m * 100) + '% · learning'}</span></div>`; }).join('') || '<p class="sub">Vocabulary memories appear as the fly reads the bold words.</p>';
 }
 
+// =====================================================================
+// Experiment 10: Writing. The fly answers Greek root questions by flying nose-up and dragging the tip of its
+// abdomen across the touch screen, writing the answer in joined cursive.
+// Cursive letters are the Hershey "Script 1-stroke" single-stroke font (public domain Hershey data, via the
+// MIT-licensed hersheytext package, (c) 2014 James T); only the lowercase letters are embedded, as SVG path strings with a half-width.
+// =====================================================================
+const CURSIVE = {"a":["M9,16 L8,14 6,13 4,13 2,14 1,15 0,17 0,19 1,21 3,22 5,22 7,21 8,19 10,13 9,18 9,21 10,22 11,22 13,21 14,20 16,17",10],"b":["M0,17 L2,14 5,9 6,7 7,4 7,2 6,1 4,2 3,4 2,8 1,15 1,21 2,22 3,22 5,21 7,19 8,16 8,13 9,17 10,18 12,18 14,17",9],"c":["M7,15 L7,14 6,13 4,13 2,14 1,15 0,17 0,19 1,21 3,22 6,22 9,20 11,17",6],"d":["M9,16 L8,14 6,13 4,13 2,14 1,15 0,17 0,19 1,21 3,22 5,22 7,21 8,19 14,1 M10,13 L9,18 9,21 10,22 11,22 13,21 14,20 16,17",10],"e":["M1,20 L3,19 4,18 5,16 5,14 4,13 3,13 1,14 0,16 0,19 1,21 3,22 5,22 7,21 8,20 10,17",6],"f":["M0,17 L4,12 6,9 7,7 8,4 8,2 7,1 5,2 4,4 2,12 -1,21 -4,28 -5,31 -5,33 -4,34 -2,33 -1,30 0,21 1,22 3,22 5,21 6,20 8,17",5],"g":["M9,16 L8,14 6,13 4,13 2,14 1,15 0,17 0,19 1,21 3,22 5,22 7,21 8,20 M10,13 L8,20 4,31 3,33 1,34 0,33 0,31 1,28 4,25 7,23 9,22 12,20 15,17",9],"h":["M0,17 L2,14 5,9 6,7 7,4 7,2 6,1 4,2 3,4 2,8 1,14 0,22 M0,22 L1,19 2,17 4,14 6,13 8,13 9,14 9,16 8,19 8,21 9,22 10,22 12,21 13,20 15,17",10],"i":["M3,8 L3,9 4,9 4,8 3,8 M0,17 L2,13 0,19 0,21 1,22 2,22 4,21 5,20 7,17",5],"j":["M3,8 L3,9 4,9 4,8 3,8 M0,17 L2,13 -4,31 -5,33 -7,34 -8,33 -8,31 -7,28 -4,25 -1,23 1,22 4,20 7,17",5],"k":["M0,17 L2,14 5,9 6,7 7,4 7,2 6,1 4,2 3,4 2,8 1,14 0,22 M0,22 L1,19 2,17 4,14 6,13 8,13 9,14 9,16 7,17 4,17 M4,17 L6,18 7,21 8,22 9,22 11,21 12,20 14,17",9],"l":["M0,17 L2,14 5,9 6,7 7,4 7,2 6,1 4,2 3,4 2,8 1,15 1,21 2,22 3,22 5,21 6,20 8,17",5],"m":["M0,17 L2,14 4,13 5,14 5,15 4,19 3,22 M4,19 L5,17 7,14 9,13 11,13 12,14 12,15 11,19 10,22 M11,19 L12,17 14,14 16,13 18,13 19,14 19,16 18,19 18,21 19,22 20,22 22,21 23,20 25,17",12],"n":["M0,17 L2,14 4,13 5,14 5,15 4,19 3,22 M4,19 L5,17 7,14 9,13 11,13 12,14 12,16 11,19 11,21 12,22 13,22 15,21 16,20 18,17",10],"o":["M6,13 L4,13 2,14 1,15 0,17 0,19 1,21 3,22 5,22 7,21 8,20 9,18 9,16 8,14 6,13 5,14 5,16 6,18 8,19 11,19 13,18 14,17",8],"p":["M0,17 L2,14 3,12 2,16 -4,34 M2,16 L3,14 5,13 7,13 9,14 10,16 10,18 9,20 8,21 6,22 M2,21 L4,22 7,22 10,21 12,20 15,17",8],"q":["M9,16 L8,14 6,13 4,13 2,14 1,15 0,17 0,19 1,21 3,22 5,22 7,21 M10,13 L9,16 7,21 4,28 3,31 3,33 4,34 6,33 7,30 7,23 9,22 12,20 15,17",9],"r":["M0,17 L2,14 3,12 3,14 6,14 7,15 7,17 6,20 6,21 7,22 8,22 10,21 11,20 13,17",8],"s":["M0,17 L2,14 3,12 3,14 5,17 6,19 6,21 4,22 M0,21 L2,22 6,22 8,21 9,20 11,17",7],"t":["M0,17 L2,14 4,10 M7,1 L1,19 1,21 2,22 4,22 6,21 7,20 9,17 M1,9 L8,9",6],"u":["M0,17 L2,13 0,19 0,21 1,22 3,22 5,21 7,19 9,16 M10,13 L8,19 8,21 9,22 10,22 12,21 13,20 15,17",9],"v":["M0,17 L2,13 1,18 1,21 2,22 3,22 6,21 8,19 9,16 9,13 M9,13 L10,17 11,18 13,18 15,17",9],"w":["M3,13 L1,15 0,18 0,20 1,22 3,22 5,21 7,19 M9,13 L7,19 7,21 8,22 10,22 12,21 14,19 15,16 15,13 M15,13 L16,17 17,18 19,18 21,17",12],"x":["M0,17 L2,14 4,13 6,13 7,14 7,21 8,22 11,22 14,20 16,17 M13,14 L12,13 10,13 9,14 5,21 4,22 2,22 1,21",8],"y":["M0,17 L2,13 0,19 0,21 1,22 3,22 5,21 7,19 9,16 M10,13 L4,31 3,33 1,34 0,33 0,31 1,28 4,25 7,23 9,22 12,20 15,17",9],"z":["M0,17 L2,14 4,13 6,13 8,15 8,17 7,19 5,21 2,22 4,23 5,25 5,28 4,31 3,33 1,34 0,33 0,31 1,28 4,25 7,23 11,20 14,17",8]};
+const GREEK = [
+  { root: 'bio', meaning: 'life', ex: 'biology, biography' }, { root: 'geo', meaning: 'earth', ex: 'geography, geology' },
+  { root: 'photo', meaning: 'light', ex: 'photograph, photosynthesis' }, { root: 'phon', meaning: 'sound', ex: 'phonics, telephone' },
+  { root: 'tele', meaning: 'far', ex: 'telescope, television' }, { root: 'micro', meaning: 'small', ex: 'microscope, microbe' },
+  { root: 'hydro', meaning: 'water', ex: 'hydrant, dehydrate' }, { root: 'astro', meaning: 'star', ex: 'astronaut, astronomy' },
+  { root: 'therm', meaning: 'heat', ex: 'thermometer, thermal' }, { root: 'auto', meaning: 'self', ex: 'automatic, autobiography' },
+  { root: 'chrono', meaning: 'time', ex: 'chronicle, synchronize' }, { root: 'graph', meaning: 'write', ex: 'autograph, paragraph' },
+];
+const wr = { qi: 0, type: 'meaning', answer: '', written: '', path: [], s: 0, total: 0, stage: 'read', prev: null, lesson: 1, seed: 0,
+  mem: new Map(), skill: 0.35, stats: { answers: 0, right: 0, letters: 0, inkPx: 0, writeTime: 0 }, history: [], log: [], wobble: 0, legibility: 1, read: '', drawAt: 0, startT: 0 };
+const wMem = r => { if (!wr.mem.has(r)) wr.mem.set(r, 0.25); return wr.mem.get(r); };
+function wrLog(text) { wr.log.push({ t: TDT(), text }); if (wr.log.length > 80) wr.log.shift(); game.feedback = text; }
+const inkCanvas = document.createElement('canvas'); inkCanvas.width = SW; inkCanvas.height = SH; const ink = inkCanvas.getContext('2d');
+const WR = { top: 330, mid: 385, base: 440, left: 24, right: 366 };
+// the question: alternate between "what does the root mean" and "which root means ..."
+function newQuestion() {
+  const G = GREEK[wr.qi]; wr.type = wr.qi % 2 ? 'root' : 'meaning'; const target = wr.type === 'meaning' ? G.meaning : G.root;
+  const m = wMem(G.root), ok = Math.random() < 0.3 + 0.65 * m;
+  let word = target;
+  if (!ok) { if (Math.random() < 0.6) { const other = GREEK[(wr.qi + 1 + Math.floor(Math.random() * (GREEK.length - 1))) % GREEK.length]; word = wr.type === 'meaning' ? other.meaning : other.root; }
+    else { const k = 1 + Math.floor(Math.random() * (target.length - 1)); word = target.slice(0, k) + target.slice(k + 1); } }
+  wr.answer = target; wr.written = word; wr.read = ''; wr.stage = 'read'; ink.clearRect(0, 0, SW, SH); buildPath(word);
+}
+// lay the word out on the handwriting lines and resample every stroke at 2 px, marking pen-up hops between strokes
+function buildPath(word) {
+  const glyphs = [...word].map(ch => CURSIVE[ch]); const adv = glyphs.reduce((a, g) => a + 2 * g[1], 0);
+  const k = Math.min(4.6, (WR.right - WR.left) / adv), x0 = (SW - adv * k) / 2; let x = x0; const strokes = [];
+  glyphs.forEach(g => { g[0].split('M').filter(Boolean).forEach(part => { const pts = part.replace('L', ' ').trim().split(/\s+/).map(p => { const [a, b] = p.split(',').map(Number); return [x + a * k, WR.base + (b - 22) * k]; }); strokes.push(pts); }); x += 2 * g[1] * k; });
+  const path = []; let prev = null;
+  strokes.forEach(st => { if (prev) { const d = Math.hypot(st[0][0] - prev[0], st[0][1] - prev[1]); const n = Math.max(1, Math.round(d / 6)); for (let i = 1; i <= n; i++) path.push({ x: prev[0] + (st[0][0] - prev[0]) * i / n, y: prev[1] + (st[0][1] - prev[1]) * i / n, down: false }); }
+    for (let i = 0; i < st.length - 1; i++) { const [a, b] = [st[i], st[i + 1]], d = Math.hypot(b[0] - a[0], b[1] - a[1]), n = Math.max(1, Math.round(d / 2)); for (let j = 0; j < n; j++) path.push({ x: a[0] + (b[0] - a[0]) * j / n, y: a[1] + (b[1] - a[1]) * j / n, down: true }); }
+    const last = st[st.length - 1]; path.push({ x: last[0], y: last[1], down: true }); prev = last; });
+  wr.path = path; wr.s = 0; wr.prev = null; wr.seed = Math.random() * 100;
+}
+// where the abdomen tip sits for a flying fly pitched nose-up by `pitch` (body frame tip at y 1.0, z -3.06; body lowered 0.3 in flight)
+const TAIL_PITCH = -0.5;
+function tailOffset(pitch) { const c = Math.cos(pitch), s = Math.sin(pitch); return { up: -(1.0 * c + 3.06 * s) + 0.3, back: -(1.0 * s - 3.06 * c) }; }
+function placeTail(px, py, lift) {
+  const st = flyState, Q = pxToWorld(px, py); Q.y = screenTopY() + 0.02 + lift; const o = tailOffset(TAIL_PITCH), fw = new THREE.Vector3(Math.sin(st.yaw), 0, Math.cos(st.yaw));
+  st.pos.copy(Q).addScaledVector(fw, o.back); st.pos.y += o.up; return Q;
+}
+function writingStart() {
+  const st = flyState; st.airborne = true; st.buzz = 1; st.yaw = Math.PI; st.pitchOverride = null; newQuestion(); wr.hover = pxToWorld(195, 250); wr.hover.y = screenTopY() + 9;
+  st.pos.copy(wr.hover); plantFeet(); setPhase('w_read'); redrawScreen(performance.now()); renderTrial(); game.feedback = 'The fly reads the Greek root question.';
+}
+function wrFly(to, after) { const st = flyState, from = st.pos.clone(), ctrl = from.clone().lerp(to, 0.5); ctrl.y = Math.max(from.y, to.y) + 3; wr.flight = { from, to: to.clone(), ctrl, t: 0, dur: Math.max(0.5, Math.min(1.4, from.distanceTo(to) / 25)) }; wr.after = after; setPhase('w_fly'); }
+function stepWriting(dt, now) {
+  const st = flyState; st.airborne = true; st.buzz = 1; stepRipples(dt);
+  const redraw = (ms = 70) => { if (now - wr.drawAt > ms) { wr.drawAt = now; redrawScreen(now); } };
+  switch (agent.phase) {
+    case 'w_read': st.pitchOverride = null; st.pos.copy(wr.hover); st.pos.y += Math.sin(now / 420) * 0.6; st.headYaw = Math.sin(agent.t * 7) * 0.25; pulse(0, 0.9); pulse(1, 0.9); pulse(2, 0.6); pulse(3, 0.5); pulse(4, 0.5); pulse(13, 0.7);
+      if (agent.t > 1.8) { st.headYaw = 0; const p0 = wr.path[0]; const o = tailOffset(TAIL_PITCH), Q = pxToWorld(p0.x, p0.y); Q.y = screenTopY() + 1.2; const fw = new THREE.Vector3(Math.sin(st.yaw), 0, Math.cos(st.yaw)); const to = Q.clone().addScaledVector(fw, o.back); to.y += o.up;
+        wr.stage = 'write'; wrFly(to, () => { st.pitchOverride = TAIL_PITCH; wr.startT = 0; setPhase('w_write'); }); } break;
+    case 'w_fly': { const F = wr.flight; F.t += dt / F.dur; const k = Math.min(1, F.t), e = ease(k), u = 1 - e; st.pos.copy(F.from).multiplyScalar(u * u).addScaledVector(F.ctrl, 2 * u * e).addScaledVector(F.to, e * e); if (wr.stage === 'write') st.pitchOverride = TAIL_PITCH * e; pulse(13, 1); pulse(5, 0.7);
+      if (k >= 1) { const a = wr.after; wr.after = null; a && a(); } break; }
+    case 'w_write': {
+      const P = wr.path; if (!P.length) break; const i0 = Math.min(P.length - 1, Math.floor(wr.s)), cur = P[i0];
+      wr.s += dt * (cur.down ? 90 / 2 : 330 / 6); wr.startT += dt; wr.stats.writeTime += dt; // 90 px/s on the glass (samples 2 px apart), 330 px/s while the tail is lifted (samples 6 px apart)
+      const i = Math.min(P.length - 1, Math.floor(wr.s)), p = P[i];
+      // motor noise: a smooth wobble that shrinks as the tail skill grows
+      wr.wobble = 0.4 + 5 * (1 - wr.skill); const t = wr.startT + wr.seed, jx = (Math.sin(t * 7.3) + 0.6 * Math.sin(t * 17.1)) * wr.wobble * 0.5, jy = (Math.sin(t * 5.9 + 1) + 0.6 * Math.sin(t * 13.7)) * wr.wobble * 0.5;
+      const x = p.x + jx, y = p.y + jy; placeTail(x, y, p.down ? 0 : 1.2);
+      if (p.down && wr.prev && wr.prev.down) { ink.strokeStyle = '#002657'; ink.lineWidth = 3.2; ink.lineCap = ink.lineJoin = 'round'; ink.beginPath(); ink.moveTo(wr.prev.x, wr.prev.y); ink.lineTo(x, y); ink.stroke(); wr.stats.inkPx += Math.hypot(x - wr.prev.x, y - wr.prev.y); }
+      wr.prev = { x, y, down: p.down }; st.headYaw = Math.sin(now / 500) * 0.15;
+      pulse(15, p.down ? 0.95 : 0.4); pulse(11, 0.7); pulse(5, 0.6); pulse(13, 0.8); pulse(0, 0.7); pulse(1, 0.7); if (p.down) st.songAmp = 0; redraw();
+      if (wr.s >= P.length - 1) { st.pitchOverride = null; wr.stage = 'submit'; const to = pxToWorld(290, 730).add(new THREE.Vector3(0, 0, 3)); to.y = screenTopY() + 1.2; /* just below the button, forelegs reaching up the screen */ wrFly(to, () => wrTap(290, 730)); redrawScreen(now); }
+      break; }
+    case 'w_tap': { const L = agent.tapLeg, T = agent.t; pulse(12, 0.95);
+      if (T < 0.25) L.foot.lerpVectors(agent.tapFrom, agent.target, T / 0.25); else if (T < 0.4) { L.foot.copy(agent.target); if (!agent.tapped) { agent.tapped = true; wrSubmit(now); } } else if (T < 0.6) L.foot.lerpVectors(agent.target, agent.tapFrom, (T - 0.4) / 0.2); else { agent.tapLeg = null; setPhase('w_react'); } break; }
+    case 'w_react': st.pos.y += Math.sin(now / 400) * 0.004; if (agent.t > 1.8) { wr.qi = (wr.qi + 1) % GREEK.length; if (!wr.qi) wr.lesson++; newQuestion(); wrFly(wr.hover, () => setPhase('w_read')); redrawScreen(now); renderTrial(); } break;
+  }
+}
+function wrTap(px, py) { agent.target = pxToWorld(px, py); agent.target.y = screenTopY(); const local = fly.worldToLocal(agent.target.clone()); agent.tapLeg = local.x < 0 ? legs[0] : legs[1]; agent.tapLeg.step = null; agent.tapFrom = agent.tapLeg.foot.clone(); agent.tapped = false; setPhase('w_tap'); }
+function wrSubmit(now) {
+  const G = GREEK[wr.qi], W = wr.stats;
+  // the recogniser reads the cursive; very shaky writing can turn one letter into another
+  wr.legibility = Math.max(0.2, Math.min(1, 1.05 - wr.wobble / 7 + (Math.random() - 0.5) * 0.08));
+  let read = wr.written; if (wr.legibility < 0.55 && read.length > 2 && Math.random() < 0.6) { const k = Math.floor(Math.random() * read.length), sub = 'aceilmnorsuv'[Math.floor(Math.random() * 12)]; read = read.slice(0, k) + sub + read.slice(k + 1); }
+  wr.read = read; const ok = read === wr.answer, V = wMem(G.root), dw = ETA * ((ok ? 1 : 0) - V); wr.mem.set(G.root, V + dw);
+  wr.skill = Math.min(0.95, wr.skill + 0.05 * (1 - wr.skill)); W.answers++; if (ok) W.right++; W.letters += wr.written.length;
+  wr.history.push({ t: TDT(), root: G.root, type: wr.type, answer: wr.answer, written: wr.written, read, ok, legibility: wr.legibility, lpm: wr.written.length / Math.max(0.1, wr.startT) * 60 }); if (wr.history.length > 80) wr.history.shift();
+  tele.trials.push({ t: TDT(), exp: 10, correct: ok, pos: wr.type === 'meaning' ? 1 : 0, needed: G.root, chosen: read, sameKind: true, offset: 0, R: ok ? 1 : 0, V, dw, level: tele.ddt.level, divergence: 0, dwell: 0, word: G.root }); if (tele.trials.length > 400) tele.trials.shift();
+  game.dopamine = Math.max(0, Math.min(1, game.dopamine + (ok ? 0.3 : -0.1))); ok ? (pulse(3, 1), pulse(4, 1), pulse(10, 0.9)) : (pulse(8, 0.8), pulse(9, 0.8));
+  wrLog(ok ? `Wrote "${wr.written}" for ${wr.type === 'meaning' ? `the meaning of ${G.root}` : `the root meaning ${G.meaning}`}. Correct.` : `Wrote "${wr.written}"${read !== wr.written ? `, read as "${read}"` : ''}; the answer is "${wr.answer}".`);
+  wr.stage = 'result'; redrawScreen(now); renderTrial();
+}
+// ---------- the writing app screen ----------
+function drawWriting(now) {
+  const g = sc, G = GREEK[wr.qi]; g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = C.page; g.fillRect(0, 0, SW, SH);
+  g.fillStyle = C.darkBlue; g.fillRect(0, 0, SW, 64); g.fillStyle = '#fff'; g.font = `700 17px ${DISPLAY}`; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText('Fruit Fly Lingo', 16, 32);
+  g.fillStyle = C.onDarkMuted; g.font = `700 14px ${DISPLAY}`; g.textAlign = 'right'; g.fillText(`Writing · Lesson ${wr.lesson}`, SW - 16, 32);
+  g.textAlign = 'center'; g.fillStyle = C.alachua; g.font = `700 12px ${DISPLAY}`; g.fillText('GREEK ROOTS · WRITE IT IN CURSIVE', SW / 2, 90);
+  g.fillStyle = C.darkBlue; g.font = `700 48px ${DISPLAY}`; g.fillText(wr.type === 'meaning' ? G.root : `“${G.meaning}”`, SW / 2, 142);
+  g.font = `700 19px ${DISPLAY}`; g.fillText(wr.type === 'meaning' ? `What does the Greek root ${G.root} mean?` : `Which Greek root means ${G.meaning}?`, SW / 2, 196);
+  g.fillStyle = C.inkMuted; g.font = `italic 400 15px ${BODY}`; g.fillText(`as in ${G.ex}`, SW / 2, 224);
+  for (let i = 0; i < GREEK.length; i++) { g.fillStyle = i === wr.qi ? C.coreBlue : i < wr.qi ? C.gator : C.track; g.beginPath(); g.arc(SW / 2 + (i - (GREEK.length - 1) / 2) * 16, 256, 4.5, 0, Math.PI * 2); g.fill(); }
+  // handwriting paper
+  g.fillStyle = '#fffdf6'; g.beginPath(); g.roundRect(12, 286, SW - 24, 250, 14); g.fill(); g.strokeStyle = C.border; g.lineWidth = 1.5; g.stroke();
+  g.strokeStyle = '#8fb2e0'; g.lineWidth = 2; [WR.top, WR.base].forEach(y => { g.beginPath(); g.moveTo(24, y); g.lineTo(SW - 24, y); g.stroke(); });
+  g.setLineDash([8, 7]); g.strokeStyle = '#b7cbe8'; g.beginPath(); g.moveTo(24, WR.mid); g.lineTo(SW - 24, WR.mid); g.stroke(); g.setLineDash([]);
+  g.strokeStyle = 'rgba(211,39,55,0.35)'; g.beginPath(); g.moveTo(40, 292); g.lineTo(40, 530); g.stroke();
+  g.drawImage(inkCanvas, 0, 0);
+  if (wr.stage === 'write' && wr.prev) { g.fillStyle = wr.prev.down ? 'rgba(0,33,165,0.25)' : 'rgba(117,123,133,0.2)'; g.beginPath(); g.arc(wr.prev.x, wr.prev.y, 9, 0, Math.PI * 2); g.fill(); }
+  // what the recogniser read
+  g.textAlign = 'center';
+  if (wr.stage === 'result') { const ok = wr.read === wr.answer; g.fillStyle = ok ? C.successTint : '#fde8ea'; g.beginPath(); g.roundRect(24, 556, SW - 48, 96, 14); g.fill();
+    g.fillStyle = ok ? C.gatorInk : C.bottlebrush; g.font = `700 20px ${DISPLAY}`; g.fillText(ok ? `Read as “${wr.read}”. Correct!` : `Read as “${wr.read}”.`, SW / 2, 586);
+    g.fillStyle = C.darkBlue; g.font = `400 15px ${BODY}`; g.fillText(ok ? `${G.root} means ${G.meaning}.` : `The answer is “${wr.answer}”: ${G.root} means ${G.meaning}.`, SW / 2, 612); g.fillStyle = C.inkMuted; g.fillText(`Legibility ${Math.round(wr.legibility * 100)}%`, SW / 2, 636); }
+  else { g.fillStyle = C.inkMuted; g.font = `700 15px ${DISPLAY}`; g.fillText(wr.stage === 'write' ? 'Writing…' : wr.stage === 'submit' ? 'Tap Submit to check' : 'Read the question', SW / 2, 600); }
+  // buttons
+  g.fillStyle = C.card; g.strokeStyle = C.control; g.lineWidth = 2; g.beginPath(); g.roundRect(24, 706, 150, 48, 24); g.fill(); g.stroke(); g.fillStyle = C.darkBlue; g.font = `700 18px ${DISPLAY}`; g.fillText('Clear', 99, 731);
+  const pressed = agent.phase === 'w_tap'; g.fillStyle = pressed ? C.darkBlue : wr.stage === 'submit' || pressed ? C.coreBlue : '#7f8fc9'; g.beginPath(); g.roundRect(216, 706, 150, 48, 24); g.fill(); g.fillStyle = '#fff'; g.fillText('Submit ✓', 291, 731);
+}
+function renderWritingTrial() {
+  const G = GREEK[wr.qi], W = wr.stats, done = wr.path.length ? Math.min(1, wr.s / (wr.path.length - 1)) : 0;
+  $('meaning').textContent = wr.type === 'meaning' ? `What does the Greek root "${G.root}" mean?` : `Which Greek root means "${G.meaning}"?`;
+  $('chips').innerHTML = [...wr.answer].map((ch, i) => `<span class="chip ${wr.stage === 'result' ? (wr.read[i] === ch ? 'root' : 'suffix') : 'empty'}" style="padding:0 10px">${wr.stage === 'result' ? (wr.read[i] || '·') : ch}</span>`).join('');
+  $('placedCount').textContent = wr.stage === 'result' ? (wr.read === wr.answer ? 'correct' : 'wrong') : `${Math.round(done * 100)}% written`;
+  $('placedBar').classList.toggle('done', wr.stage === 'result' && wr.read === wr.answer); $('placedBar').firstElementChild.style.width = `${(wr.stage === 'result' ? 1 : done) * 100}%`;
+  $('feedback').textContent = game.feedback; $('nowLine').textContent = `Writing · question ${wr.qi + 1} of ${GREEK.length} · lesson ${wr.lesson}`;
+  $('stWords').textContent = W.right; $('stTaps').textContent = W.answers; $('stAcc').textContent = W.answers ? Math.round(100 * W.right / W.answers) + '%' : '0%';
+  const rs = [...wr.mem.keys()].sort((a, b) => wr.mem.get(b) - wr.mem.get(a));
+  $('memory').innerHTML = rs.map(r => { const m = wr.mem.get(r), G2 = GREEK.find(x => x.root === r); return `<div class="m"><span>${r}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${m >= 0.8 ? 'known · ' : ''}${G2.meaning}</span></div>`; }).join('') || '<p class="sub">Root memories appear as the fly answers.</p>';
+}
+window.__wr = wr; // debug hook, like window.__reading
+
 // ---------- Cameras ----------
 let camMode = 'follow';
 let view = 'simulate';
@@ -3350,12 +3526,12 @@ function setExperiment(n) {
   experiment = n; const cfg = EXP[n]; const s = cfg.phoneScale;
   document.querySelectorAll('[data-exp]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.exp) === n)));
   $('expNote').textContent = cfg.note; $('physPill').textContent = cfg.phys;
-  $('gripPill').textContent = n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
+  $('gripPill').textContent = n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
   document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
   const wasClass = classroom.visible; classroom.visible = !!cfg.classroom; fly.visible = !cfg.classroom;
-  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n >= 8; $('soundBtn').hidden = n !== 8 && n !== 9; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom; $('vision').hidden = !(cfg.classroom && visionOn);
-  $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : 'answers';
-  $('memHead').textContent = cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : n === 9 ? 'Vocabulary memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
+  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n >= 8; $('soundBtn').hidden = n !== 8 && n !== 9; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; flyState.pitchOverride = null; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom; $('vision').hidden = !(cfg.classroom && visionOn);
+  $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : n === 10 ? 'answers right' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : n === 10 ? 'answers written' : 'answers';
+  $('memHead').textContent = cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : n === 9 ? 'Vocabulary memory · Kenyon cell to MBON weights' : n === 10 ? 'Greek root memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
   document.querySelectorAll('#brainPanel [data-rp]').forEach(el => { el.hidden = !el.dataset.rp.split(' ').includes(String(n)); }); requestAnimationFrame(() => { sizeCharts(); resize(); renderScenario(true); }); // right panel sections for this scenario
   if (cfg.classroom) { setFocal(cls.focal); classroomStart(); } else head.add(eyeCam);
   phone.scale.setScalar(s); phone.position.set(0, TABLE_Y + 4 * s, 0); phone.updateMatrixWorld(true);
@@ -3379,10 +3555,11 @@ function setExperiment(n) {
   if (cfg.classroom) $('phasePill').textContent = 'Class in session';
   if (n === 8) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); phonicsStart(); }
   if (n === 9) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); readingStart(); }
+  if (n === 10) writingStart();
   // the side panel follows the experiment to its most related dashboard (after start-up, once the dock code exists)
   requestAnimationFrame(() => { dockChoice = DOCK_FOR[n]; if (view === 'simulate') dock(dockChoice); });
 }
-const DOCK_FOR = { 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
+const DOCK_FOR = { 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
 document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => setExperiment(Number(b.dataset.exp))));
 $('pathsBtn').addEventListener('click', () => { showPaths = !showPaths; $('pathsBtn').setAttribute('aria-pressed', String(showPaths)); $('pathsBtn').textContent = showPaths ? 'Hide paths' : 'Show paths'; Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === experiment; }); ghostLine.visible = showPaths && experiment !== 3 && !!agent.ghost; });
 $('seasonBtn').addEventListener('click', () => { cls.season = !cls.season; $('seasonBtn').setAttribute('aria-pressed', String(cls.season)); $('seasonBtn').textContent = cls.season ? 'Mating season on' : 'Mating season off'; clsLog(cls.season ? 'Mating season: courtship drive restored.' : 'Out of season: courtship drive drops to a tenth.'); drawBoard(); });
@@ -3398,7 +3575,7 @@ $('playBtn').addEventListener('click', () => { playing = !playing; $('playBtn').
 $('resetBtn').addEventListener('click', () => {
   game.memory.clear(); game.taps = 0; game.correct = 0; game.wordsBuilt = 0; game.dopamine = 0.5; game.placed = 0; game.wordIdx = 0; game.lesson = 1;
   for (const e of [1, 2, 3, 4, 5, 6]) heat[e].getContext('2d').clearRect(0, 0, heat[e].width, heat[e].height);
-  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; }); reading.vocab.clear(); reading.pageLog = []; reading.checkLog = []; reading.log = []; reading.storyLog = []; reading.si = 0; reading.pi = 0; reading.answered = -1; reading.mode = 'library'; reading.opening = true; Object.keys(reading.stats).forEach(k => { reading.stats[k] = 0; });
+  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; }); reading.vocab.clear(); reading.pageLog = []; reading.checkLog = []; reading.log = []; reading.storyLog = []; reading.si = 0; reading.pi = 0; reading.answered = -1; reading.mode = 'library'; reading.opening = true; Object.keys(reading.stats).forEach(k => { reading.stats[k] = 0; }); wr.mem.clear(); wr.history = []; wr.log = []; wr.qi = 0; wr.lesson = 1; wr.skill = 0.35; Object.keys(wr.stats).forEach(k => { wr.stats[k] = 0; });
   Object.values(trajGroups).forEach(g => { while (g.children.length) { const c = g.children[0]; g.remove(c); c.geometry.dispose(); } });
   game.feedback = 'Memory cleared. The fly is looking for the prefix.'; cur().parts.forEach(memoryOf); setExperiment(experiment);
 });
@@ -3753,6 +3930,18 @@ function drawDashboards(now, force) {
     const pct = x => Math.round(x * 100) + '%';
     const rows = St.map(s => { const T = s.stats, tt = T.onTask + T.courtT + T.groomT + T.away; return `<tr><th scope="row">${s.name} ${SEXSYM(s)}</th><td>${doing(s)}</td><td class="${s.progress >= CLS.items ? 'yes' : ''}">${Math.min(s.progress, CLS.items)} / ${CLS.items}</td><td>${T.taps ? pct(T.correct / T.taps) : '–'}</td><td>${tt ? pct(T.onTask / tt) : '–'}</td><td>${T.courted} · ${T.court}</td><td>${T.rejections} · ${T.rejectedBy}</td><td>${s.sex === 'M' ? s.drive.toFixed(2) : s.receptive.toFixed(2)}</td><td>${s.attention.toFixed(2)}</td></tr>`; }).join('');
     const tb = document.querySelector('#cRoster tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
+  }
+  // ---- dashboard 10: writing ----
+  { const W = wr.stats, H = wr.history, last = H[H.length - 1];
+    $t('wrMode', experiment === 10 ? `Experiment 10 · Writing · lesson ${wr.lesson}` : 'switch to Experiment 10 to run');
+    $t('wrRight', W.right); $t('wrAnswers', W.answers); $t('wrLeg', last ? Math.round(last.legibility * 100) + '%' : '–'); $t('wrLetters', W.letters); $t('wrInk', Math.round(W.inkPx) + ' px');
+    $t('wrLpm', last ? Math.round(last.lpm) : '–'); $t('wrSkill', `${wr.skill.toFixed(2)} · ${wr.wobble.toFixed(1)} px`); $t('wrMisread', H.filter(h => h.read !== h.written).length);
+    const ml = GREEK.filter(G => wr.mem.has(G.root)).map(G => { const m = wr.mem.get(G.root); return `<div class="m" style="grid-template-columns:70px 1fr 70px"><span>${G.root}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${G.meaning}</span></div>`; }).join('') || '<p class="sub">Runs in Experiment 10.</p>';
+    const me = document.getElementById('wrMem'); if (me.innerHTML !== ml) me.innerHTML = ml;
+    barChart('cWrLeg', H.slice(-24).map(h => ({ v: h.legibility, color: h.legibility >= 0.8 ? CH.green : CH.amber, label: `"${h.written}": ${Math.round(h.legibility * 100)}% legible` })), { ymax: 1, positive: true, empty: 'No answers yet' });
+    const rows = GREEK.map(G => { const T = H.filter(h => h.root === G.root); return `<tr><th scope="row">${G.root}</th><td>${G.meaning}</td><td>${G.ex}</td><td>${T.length}</td><td>${T.filter(h => h.ok).length}</td></tr>`; }).join('');
+    const tb = document.querySelector('#wrRoots tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
+    document.getElementById('wrLog').innerHTML = wr.log.slice(-10).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing written yet</li>';
   }
   // ---- dashboard 9: reading ----
   { const R = reading, T = R.stats, S0 = STORIES[R.si], last = R.pageLog[R.pageLog.length - 1];
