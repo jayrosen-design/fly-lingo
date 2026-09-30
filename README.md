@@ -27,23 +27,25 @@ From a terminal with the Vercel CLI, `npx vercel` from the repository root does 
 
 The app is one page with four views, switched by the tabs in the header and by hash routes (`#home`, `#simulate`, `#dashboards`, `#about`). The home page explains the project and shows a card for each experiment; picking a card opens that experiment in the simulator.
 
-![The home page: a short explanation of the project and a grid of eleven experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
+![The home page: a short explanation of the project and a grid of twelve experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
 
 | | |
 | --- | --- |
 | ![The Simulate view: the fly taking off in Experiment 2, brain panel on the right](docs/screenshots/app-simulate.png) | ![The Dashboards view: psychometric cards with the Q-matrix, G-DINA mastery, Half-Life Regression and the Wright map](docs/screenshots/dashboards-3.png) |
-| **Simulate.** The arena with the fly-eye inset, a scenario panel on the right, a dockable dashboard panel on the left that switches to the running experiment's dashboard (1 Kinematic, 2 Curriculum, 3 Psychometric, 4 Connectomic, 5 Teacher, 6 Admin, 7 Classroom, 8 Phonics, 9 Reading, 10 Writing, 11 VR; a green dot marks it; pick another with the buttons at its top, or hide it; its header names the dashboard and offers Notes for the explanatory text, Collapse all, and Full view, and each card folds by clicking its title), and a bottom strip of six live charts. The right panel and the strip also change with the experiment; see the table below. | **Dashboards.** Four dashboards from the EDLS psychometric specification, fed by telemetry from the running simulation. |
+| **Simulate.** The arena with the fly-eye inset, a scenario panel on the right, a dockable dashboard panel on the left that switches to the running experiment's dashboard (1 Kinematic, 2 Curriculum, 3 Psychometric, 4 Connectomic, 5 Teacher, 6 Admin, 7 Classroom, 8 Phonics, 9 Reading, 10 Writing, 11 VR, 12 AR; a green dot marks it; pick another with the buttons at its top, or hide it; its header names the dashboard and offers Notes for the explanatory text, Collapse all, and Full view, and each card folds by clicking its title), and a bottom strip of six live charts. The right panel and the strip also change with the experiment; see the table below. | **Dashboards.** Four dashboards from the EDLS psychometric specification, fed by telemetry from the running simulation. |
 | ![The Dashboards view on a phone: adhesion and contrast cards stacked](docs/screenshots/phone-dashboards.png) | ![The About view: research library with report thumbnails, page images and download buttons](docs/screenshots/about-library.png) |
 | **Phone layout.** Single-column cards, header controls in a strip. | **About.** What the app simulates and what it is trying to learn, the research library with downloadable PDFs and page images, and all 187 sources the reports cite. |
 
 ### Butterfly mode
 
-The two logos at the left of the header switch the insect. The fruit fly is the default. The Blue Morpho swaps the wings on every fly in every experiment (the student, the 24 classroom flies and the VR teacher) for much larger butterfly wings: iridescent blue on top with a black margin and white spots, brown with eyespots underneath. The body, legs, brain and behaviour stay the same, but the wings change how it moves. At rest it holds them closed over its back, showing the brown undersides, and now and then opens them to bask. It flies with slow, deep strokes, about four a second instead of a fly's two hundred, bobbing up with each downstroke and weaving from side to side. In Phonics it sings by holding one blue wing open, and in the classroom its rejection flicks and threat displays open and close the big wings. The choice is remembered in the browser.
+The two logos at the left of the header switch the insect. The fruit fly is the default. In butterfly mode every fly in every experiment gets butterfly wings and a bigger body: the student and the VR teacher become Blue Morphos at 1.8 times the fly's size, iridescent blue on top with a black margin and white spots, brown with eyespots underneath. The 24 classroom flies, at 1.3 times, become six species common around Gainesville, Florida, four of each and mixed across the tables: Zebra Longwing (*Heliconius charithonia*, Florida's state butterfly), Gulf Fritillary (*Dione vanillae*), Monarch (*Danaus plexippus*), Eastern Tiger Swallowtail (*Papilio glaucus*), Cloudless Sulphur (*Phoebis sennae*) and Common Buckeye (*Junonia coenia*), each with its own wing shape and upper and under side patterns; the classroom card names the followed butterfly's species. The legs, brain and behaviour stay the same, but the wings change how it moves. At rest it holds them closed over its back, showing the brown undersides, and now and then opens them to bask. It flies with slow, deep strokes, about four a second instead of a fly's two hundred, bobbing up with each downstroke and weaving from side to side. In Phonics it sings by holding one blue wing open, and in the classroom its rejection flicks and threat displays open and close the big wings. The choice is remembered in the browser.
 
 | | |
 | --- | --- |
-| ![Butterfly mode: a Blue Morpho flying over the phone in Experiment 2](docs/screenshots/butterfly-flying.png) | ![Butterfly mode: 24 Blue Morphos at the classroom tables, most with wings closed](docs/screenshots/butterfly-classroom.png) |
-| **Flying.** Slow, deep wingbeats and a bobbing path. | **The classroom.** Wings closed at rest, opened to bask. |
+| ![Butterfly mode: a Blue Morpho flying over the phone in Experiment 2](docs/screenshots/butterfly-flying.png) | ![Butterfly mode: 24 butterflies of six Gainesville species at the classroom tables](docs/screenshots/butterfly-classroom.png) |
+| **Flying.** Slow, deep wingbeats and a bobbing path. | **The classroom.** Six Gainesville species, wings closed at rest, opened to bask. |
+
+![Butterfly mode: one classroom table with four species](docs/screenshots/butterfly-species.png)
 
 ### Panels by experiment
 
@@ -57,6 +59,7 @@ The left panel docks the most related dashboard. The right panel and the bottom 
 | 4 · Spelling | Live laptop screen, spelling card (letters so far, next part, key accuracy), brain, memory | Letters typed, keys right and wrong, flight speed, height above keys, Δw per letter, dopamine |
 | 5 · Teacher | Live gradebook screen, grading queue, the teacher's next actions, cursor and foreleg state; no brain | Cursor path, clicks and misclicks, movement time, grading error, keystrokes, students graded |
 | 6 · District admin | Live proctoring screen, open flags, FlyAI's latest recommendation, next actions; no brain | Mean attention, open flags, detections, flag precision, check-ins, response time |
+| 12 · AR | Mixed-reality card (word, next slot, block held, rotation to go, walking around a block, last block), brain, word part memory | Walking speed, holding a block, block rotation error, blocks right, word part memory, dopamine |
 | 11 · VR | Live student headset view with the teacher's view as an inset, headset card (what is on the board, where the student looks, ball speed and distance, turns, pencil, last answer), brain, word part memory | Ball speed, where the student looks, pencil on the paper, answers right, word part memory, dopamine |
 | 10 · Writing | Live copy of the writing app with the ink, writing card (question, progress, abdomen tip, pitch, motor skill, last answer), brain, Greek root memory | Abdomen tip on the glass, letters per minute, legibility, root memory, answers right, dopamine |
 | 9 · Reading | Live copy of the storybook page, reading card (word now, voice, last page's rate and accuracy, hover height), brain, vocabulary memory | Reading voice, words per minute, reading accuracy, vocabulary memory, Stop & Think, dopamine |
@@ -112,6 +115,7 @@ Switch with the control at the top left of the header. All three share the same 
 | 4 · Spelling | Real-size laptop with a spelling activity | Hovers in front of the screen | Flies key to key and presses each letter with its body | Letter answers into the same trials, memory and dashboards |
 | 5 · Teacher | Fly-sized laptop with a gradebook, trackpad only, no touch | Reads from the trackpad | Steers the cursor with one foreleg on the pad, presses the pad to click, steps over to tap keys | Clicks, misclicks, keystrokes, Fitts' law, cursor heatmap, grading error |
 | 6 · District admin | Fly-sized laptop with nine webcam sessions, a vision overlay and FlyAI | Watches the grid | Steers to a flagged tile, opens it, clicks the check-in button | Flags scored against seeded cheating, precision, response time, attention, detections |
+| 12 · AR | No screen: a glass AR headset overlays a word frame and holographic blocks on the table | Reads the floating word frame | Walks around the blocks, pinches one with a foreleg, carries it to the frame, rotates it and snaps it into a slot | Blocks right, words built, distance walked, time spent walking around blocks, rotation per block, word part memory |
 | 11 · VR | No screen to touch: a VR headset on a ball treadmill, cabled to a laptop that mirrors it; a teacher fly on a second rig teaches the class | Watches the teacher chalk word parts on the board in a virtual third grade class | Looks down at its booklet and writes the answer in pencil; its right foreleg traces the strokes while it walks on an air-supported ball | Answers right, distance walked, turns, where the student looked, word part memory |
 | 10 · Writing | Table-sized phone running a cursive writing app | Hovers over the Greek root question | Flies nose-up and writes the answer in cursive with its abdomen tip, then taps Submit | Answers right, legibility, letters per minute, root memory |
 | 9 · Reading | Tablet on a stand running an illustrated storybook app | Flies from word to word in front of the page and reads each one aloud as it lights up | Flies up to tap Next, answers Stop & Think questions, taps the next story in the library | Words per minute and accuracy per page, miscues, vocabulary memory, questions right |
@@ -149,6 +153,19 @@ Dashboard 6, District proctoring, scores the flags against the hidden seeding: c
 | --- | --- |
 | ![Experiment 6 screen: the 3 by 3 webcam grid with vision overlay and the FlyAI panel](docs/screenshots/exp6-screen.png) | ![Dashboard 6: proctoring counters, attention by student, detections, FlyAI log](docs/screenshots/dashboards-6.png) |
 | **The proctoring screen.** Boxes on flies and hands, gaze rays, eye-contact badges, a red flag on a suspected tile, FlyAI on the right. | **Dashboard 6.** Flags scored against the seeded truth, attention per student, detections over time. |
+
+### AR
+
+Experiment 12 swaps the screen for mixed reality, and there is no treadmill: the fly really walks, on the table. Its headset is glass, a clear visor over both eyes under a slim frame with a sensor bar and a projector line, and the overlays it draws are part of the scene, so the arena camera sees them too. A spatial grid covers the table. A word frame floats ahead with a meaning to build and three slots, prefix, root and suffix. Six holographic blocks float at head height around the fly, three carrying the word's parts and three carrying parts of other words, each set at a random angle.
+
+The fly reads the frame, picks a block and walks to it, steering around the other blocks, which are obstacles at head height. It points its right foreleg at the block to pinch it, and the headset draws a ray from the foreleg to the block. It carries the block to the frame, then twists it with a circling foreleg until the label faces out, and snaps it in. A right block locks in green and the next slot lights up; a wrong one flashes red and drifts back. The chance of fetching the right block is 0.35 + 0.6 × the memory of the part the slot needs, learned with Δw = η(R − V). The Headset camera button shows the fly's own view through the glass.
+
+Dashboard 12, AR word blocks, shows words built, blocks right, distance walked, time spent walking around blocks, total rotation, rotation per block, word part memory, every placement and a log.
+
+| | |
+| --- | --- |
+| ![Experiment 12: the fly in a glass AR headset carrying a holographic block](docs/screenshots/exp12-ar.png) | ![Experiment 12: the view through the glass headset](docs/screenshots/exp12-headset.png) |
+| **Mixed reality.** Blocks at head height, the word frame and slots, a foreleg ray. | **Through the headset.** The overlays over the real table. |
 
 ### VR
 
@@ -484,7 +501,7 @@ The TRD describes a biologically grounded stack: a MuJoCo `flybody` model (102 D
 flowchart LR
   subgraph Now["In this repo today"]
     UI["3D language interface<br/>screen · tiles · trial card"]
-    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>eleven experiments"]
+    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>twelve experiments"]
     Policy["Behavioural policy<br/>memory-weighted tile choice"]
     BrainViz["Stylised CNS point cloud<br/>16 regions, act[]"]
     Eye["Fly-eye mosaic<br/>750 ommatidia, 4.5°"]

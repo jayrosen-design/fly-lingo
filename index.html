@@ -285,6 +285,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <button type="button" data-exp="9" aria-pressed="false">Reading</button>
         <button type="button" data-exp="10" aria-pressed="false">Writing</button>
         <button type="button" data-exp="11" aria-pressed="false">VR</button>
+        <button type="button" data-exp="12" aria-pressed="false">AR</button>
       </div>
       <div class="seg" role="group" aria-label="Speed">
         <button type="button" data-speed="1" aria-pressed="true">1×</button>
@@ -306,15 +307,15 @@ pre.mermaid svg{max-width:none;height:auto}
         <div style="display:flex;flex-direction:column;gap:12px">
           <span class="eyebrow">Embodied Drosophila literacy simulation</span>
           <h2>A fruit fly learning to read, and the flies who teach and proctor it</h2>
-          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid, a classroom of 24 flies with tablets in mating season, a phonics app that asks it to say the word, which it sings back with one wing, a tablet of illustrated stories it reads aloud while hovering, a writing app where it answers in cursive with the tip of its abdomen, and a VR headset that seats it at a desk in a third grade class taught by another fly. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
+          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid, a classroom of 24 flies with tablets in mating season, a phonics app that asks it to say the word, which it sings back with one wing, a tablet of illustrated stories it reads aloud while hovering, a writing app where it answers in cursive with the tip of its abdomen, a VR headset that seats it at a desk in a third grade class taught by another fly, and a glass AR headset that fills the table with holographic word blocks. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
           <div class="actions"><a class="btn btn-primary" href="#simulate">Open the simulator</a><a class="btn btn-tertiary" href="#dashboards">Dashboards</a><a class="btn btn-tertiary" href="#about">About the research</a></div>
         </div>
         <img src="docs/screenshots/app-simulate.png" alt="The simulator: a fruit fly on a smartphone screen with the brain panel and docked dashboards">
       </div>
 
       <div>
-        <h3 class="sec">Eleven experiments</h3>
-        <p class="sub">Nine student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all eleven.</p>
+        <h3 class="sec">Twelve experiments</h3>
+        <p class="sub">Ten student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all twelve.</p>
       </div>
       <div class="expgrid">
         <a class="expcard" href="#simulate" data-run="1"><img loading="lazy" src="docs/screenshots/overview.png" alt="Experiment 1: the fly walking across the phone screen toward a tile"><div class="body"><span class="num">Experiment 1</span><h3>Walking</h3><p>The fly walks across a phone lying on the table, reads the meaning with head sweeps, and presses word-part tiles with a foreleg.</p><span class="role student">Student</span></div></a>
@@ -328,6 +329,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <a class="expcard" href="#simulate" data-run="9"><img loading="lazy" src="docs/screenshots/exp9-reading.png" alt="Experiment 9: the fly hovering in front of a tablet on a stand, reading an illustrated storybook page aloud"><div class="body"><span class="num">Experiment 9</span><h3>Reading</h3><p>A tablet on a stand runs illustrated six-page stories. The fly hovers and reads aloud in its buzz, taps Next, answers Stop &amp; Think questions, and picks its next story.</p><span class="role student">Student</span></div></a>
         <a class="expcard" href="#simulate" data-run="10"><img loading="lazy" src="docs/screenshots/exp10-writing.png" alt="Experiment 10: the fly flying nose-up over a phone, writing a Greek root answer in cursive with the tip of its abdomen"><div class="body"><span class="num">Experiment 10</span><h3>Writing</h3><p>Greek root questions answered in joined cursive. The fly flies nose-up and drags the tip of its abdomen across the glass, then taps Submit to have its handwriting read.</p><span class="role student">Student</span></div></a>
         <a class="expcard" href="#simulate" data-run="11"><img loading="lazy" src="docs/screenshots/exp11-vr.png" alt="Experiment 11: the fly in a VR headset on an air-supported ball, a laptop beside it showing a classroom seen from a student's desk"><div class="body"><span class="num">Experiment 11</span><h3>VR</h3><p>A fly-sized visor, cabled to a ball treadmill and a laptop. Inside, the student sits at a desk in a third grade class and answers in pencil, while a teacher fly on a second rig chalks word parts on the board.</p><span class="role student">Student</span></div></a>
+        <a class="expcard" href="#simulate" data-run="12"><img loading="lazy" src="docs/screenshots/exp12-ar.png" alt="Experiment 12: the fly in a glass AR headset carrying a holographic word block toward a floating word frame"><div class="body"><span class="num">Experiment 12</span><h3>AR</h3><p>A glass headset puts holographic word blocks in the room. The fly walks around them, pinches one with a foreleg, carries it to the word frame, rotates it and snaps it in.</p><span class="role student">Student</span></div></a>
       </div>
 
       <h3 class="sec">What you can measure</h3>
@@ -359,6 +361,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <button type="button" data-dock="d-reading-sec" aria-pressed="false"><span>Reading</span></button>
         <button type="button" data-dock="d-writing-sec" aria-pressed="false"><span>Writing</span></button>
         <button type="button" data-dock="d-vr-sec" aria-pressed="false"><span>VR</span></button>
+        <button type="button" data-dock="d-ar-sec" aria-pressed="false"><span>AR</span></button>
       </div>
       <div id="dockBody"></div>
     </aside>
@@ -392,24 +395,24 @@ pre.mermaid svg{max-width:none;height:auto}
       <section id="rpScreen" data-rp="3 4 5 6 8 9 10 11" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
       <section id="rpMap" data-rp="7" class="rp"><div class="rowlbl"><h3>Seating chart</h3><span class="sub">click a fly to follow it</span></div><canvas id="rpMapCv" aria-label="Top-down seating chart of the six tables; click a fly to follow it"></canvas></section>
       <section id="rpScen" class="rp"><h3 id="rpScenHead"></h3><div id="rpScenBody"></div></section>
-      <section data-rp="1 2 3 4 7 8 9 10 11" style="display:flex;flex-direction:column;gap:8px">
+      <section data-rp="1 2 3 4 7 8 9 10 11 12" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <h2>Central nervous system</h2>
           <span class="sub">Point cloud stylised after Drosophila anatomy, brain and ventral nerve cord. Drag to turn.</span>
         </div>
         <canvas id="brain" aria-label="Rotating point cloud of the fly's brain; regions brighten when active"></canvas>
       </section>
-      <section data-rp="1 2 3 4 7 8 9 10 11" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9 10 11 12" style="display:flex;flex-direction:column;gap:10px">
         <div class="rowlbl"><span>Dopamine · PAM cluster</span><span id="dopaVal">0.50</span></div>
         <div class="bar" id="dopaBar"><span style="width:50%"></span></div>
         <ul class="regions" id="regions"></ul>
       </section>
-      <section data-rp="1 2 3 4 7 8 9 10 11" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9 10 11 12" style="display:flex;flex-direction:column;gap:10px">
         <h3 id="memHead">Word part memory · Kenyon cell to MBON weights</h3>
         <div class="memory" id="memory"></div>
       </section>
       <section style="display:flex;flex-direction:column;gap:12px">
-        <div class="stat-row" data-rp="1 2 3 4 7 8 9 10 11">
+        <div class="stat-row" data-rp="1 2 3 4 7 8 9 10 11 12">
           <div class="stat good"><b id="stWords">0</b><span class="sub">words built</span></div>
           <div class="stat plain"><b id="stTaps">0</b><span class="sub">answers</span></div>
           <div class="stat"><b id="stAcc">0%</b><span class="sub">correct</span></div>
@@ -432,7 +435,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <p class="lead">Four dashboards from the psychometric specification, fed by the running fly. Values update while the simulation runs in the Simulate view. Where a quantity is a stand-in for a sensor or model the app does not yet have, the card says so.</p>
       </div>
       <nav class="subnav" aria-label="Dashboards">
-        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a><a href="#d-writing">Writing</a><a href="#d-vr">VR</a>
+        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a><a href="#d-writing">Writing</a><a href="#d-vr">VR</a><a href="#d-ar">AR</a>
       </nav>
 
       <section id="d-session" class="grid" data-dockable>
@@ -584,6 +587,19 @@ pre.mermaid svg{max-width:none;height:auto}
         <article class="card span4"><header><h3>Word part memory</h3><span class="sub">shared with the other experiments</span></header><div id="vrMem" class="memory"></div><p class="sub">The chance of writing the right answer is 0.35 + 0.6 × the memory of the parts on the board, which learns with Δw = η(R − V).</p></article>
         <article class="card span6"><header><h3>The booklet</h3><span class="sub">what the student wrote</span></header><div style="overflow-x:auto"><table class="q" id="vrBook"><thead><tr><th>On the board</th><th>Answer</th><th>Written</th><th>Right</th></tr></thead><tbody></tbody></table></div></article>
         <article class="card span6"><header><h3>VR log</h3><span class="sub">what happened in the class</span></header><ul class="events" id="vrLogL" style="max-height:300px"></ul></article>
+      </section>
+
+      <h3 class="sec" id="d-ar">Dashboard 12 · AR word blocks</h3>
+      <p class="sub">Experiment 12. The fly walks on the table in a glass mixed-reality headset. Holographic blocks, each carrying a word part, float around it; it walks around them, pinches one with a foreleg, carries it to the word frame, rotates it until its label faces out and snaps it into a slot. Placements train the same word part memory as the other experiments.</p>
+      <section class="grid" id="d-ar-sec" data-dockable>
+        <article class="card span4"><header><h3>AR session</h3><span class="sub" id="arMode">not running</span></header>
+          <div class="stat-row"><div class="stat good"><b id="arWords">0</b><span class="sub">words built</span></div><div class="stat plain"><b id="arPlaced">0</b><span class="sub">blocks placed</span></div><div class="stat"><b id="arAcc">–</b><span class="sub">blocks right</span></div></div>
+          <div class="kv"><span>Walked on the table</span><b id="arDist">0 body lengths</b><span>Walking around blocks</span><b id="arDetour">0 s</b><span>Rotated in total</span><b id="arRotT">0°</b><span>Now</span><b id="arNow">–</b></div>
+          <p class="sub">The holograms float at head height, so the blocks it is not fetching are obstacles: it steers around them on the way to a block and on the way to the frame.</p></article>
+        <article class="card span4"><header><h3>Rotation per block</h3><span class="sub">degrees turned to face the label out</span></header><canvas class="chart tall" id="cArRot" aria-label="Degrees each block was rotated before it was placed"></canvas><p class="sub">Green placed right, red sent back. Blocks start at a random angle, so each needs a twist of the foreleg.</p></article>
+        <article class="card span4"><header><h3>Word part memory</h3><span class="sub">shared with the other experiments</span></header><div id="arMem" class="memory"></div><p class="sub">The chance of fetching the right block is 0.35 + 0.6 × the memory of the part the slot needs, which learns with Δw = η(R − V).</p></article>
+        <article class="card span6"><header><h3>Placements</h3><span class="sub">every block snapped or sent back</span></header><div style="overflow-x:auto"><table class="q" id="arTable"><thead><tr><th>Word</th><th>Slot</th><th>Block</th><th>Rotated</th><th>Walked</th><th>Right</th></tr></thead><tbody></tbody></table></div></article>
+        <article class="card span6"><header><h3>AR log</h3><span class="sub">what the fly did</span></header><ul class="events" id="arLogL" style="max-height:300px"></ul></article>
       </section>
     </div>
   </section>
@@ -834,7 +850,7 @@ pre.mermaid svg{max-width:none;height:auto}
 </pre></article><article class="card"><h3>From this app to the full EDLS</h3><pre class="mermaid">flowchart LR
   subgraph Now[&quot;In this repo today&quot;]
     UI[&quot;3D language interface&lt;br/&gt;screen · tiles · trial card&quot;]
-    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;eleven experiments&quot;]
+    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;twelve experiments&quot;]
     Policy[&quot;Behavioural policy&lt;br/&gt;memory-weighted tile choice&quot;]
     BrainViz[&quot;Stylised CNS point cloud&lt;br/&gt;16 regions, act[]&quot;]
     Eye[&quot;Fly-eye mosaic&lt;br/&gt;750 ommatidia, 4.5°&quot;]
@@ -930,12 +946,21 @@ pre.mermaid svg{max-width:none;height:auto}
       </div>
       <p>The fly stands on a ball that floats on a cushion of air, so each step turns the ball instead of carrying the fly anywhere. Its headset is a single curved visor wrapped over both compound eyes, with a glossy faceplate, a light strip, foam gasket and straps. A cable runs from the back of the strap up a tether boom and down to a control box, which is also wired to the ball's tracking and to a laptop that shows what the headset shows. A teacher fly stands on a second, identical rig, and its headset puts it at the front of the same virtual room: it steps along the chalkboard as it writes, with its right foreleg tracing the chalk, then turns to look across the desks. Its laptop shows the class from the teacher's eyes. The student's headset seats it at a desk in a third grade class: sixteen desks, classmates who fidget, windows, and a teacher at a chalkboard. The teacher chalks one item at a time, either a word to build from its parts (<em>re + count + able = ?</em>) or a prefix to define (<em>pre- means ?</em>). The student looks down at its open booklet and writes the answer in cursive pencil, and the fly's right foreleg traces the same strokes in small. The teacher marks it with a tick or a cross, and after six items the board is erased for a new page. Walking bobs the view; now and then the fly turns on the ball and the student glances at a classmate. Answers train the same word part memory as the other experiments.</p>
 
+      <h3 class="sec">AR</h3>
+      <div class="shots">
+        <figure><img loading="lazy" src="docs/screenshots/exp12-ar.png" alt="Experiment 12: the fly in a glass AR headset carrying a holographic block, other blocks floating around it and a word frame with three slots"><figcaption><strong>12 · AR.</strong> Holographic blocks float at head height around the fly; the arena camera sees the overlays too.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/exp12-headset.png" alt="Experiment 12: the view through the glass headset, the word frame and slots ahead"><figcaption><strong>12 · Through the headset.</strong> What the fly sees: the room, with the word frame, slots and blocks overlaid.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/dashboards-12.png" alt="Dashboard 12: AR session counters, rotation per block, word part memory"><figcaption><strong>Dashboard 12 · AR word blocks.</strong> Words built, blocks right, distance walked and time spent walking around blocks, rotation per block, and every placement.</figcaption></figure>
+      </div>
+      <p>No treadmill here: the fly really walks, on the table, in a glass headset with a clear visor under a slim frame. The headset overlays a spatial grid on the table, a floating word frame with prefix, root and suffix slots, and six holographic blocks at head height, three carrying the word's parts and three carrying parts of other words. The blocks it is not fetching are obstacles, so it steers around them. It points its right foreleg at a block to pinch it (the headset draws the ray), carries it to the frame, and twists it with a circling foreleg until the label faces out. A right block snaps in green; a wrong one flashes red and drifts back to where it was. The chance of fetching the right block rises with the memory of that part, which learns with every placement.</p>
+
       <h3 class="sec">Butterfly mode</h3>
       <div class="shots">
         <figure><img loading="lazy" src="docs/screenshots/butterfly-flying.png" alt="Butterfly mode: a Blue Morpho flying over the phone in Experiment 2"><figcaption><strong>Flying as a Blue Morpho.</strong> Slow, deep wingbeats, a bob with each downstroke, a weaving path.</figcaption></figure>
-        <figure><img loading="lazy" src="docs/screenshots/butterfly-classroom.png" alt="Butterfly mode: 24 Blue Morphos at the classroom tables"><figcaption><strong>A classroom of butterflies.</strong> Wings closed over the back at rest, opened now and then to bask.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/butterfly-classroom.png" alt="Butterfly mode: 24 butterflies of six Gainesville species at the classroom tables"><figcaption><strong>A classroom of butterflies.</strong> Six Gainesville species, wings closed over the back at rest, opened now and then to bask.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/butterfly-species.png" alt="Butterfly mode: a close view of one classroom table with four species"><figcaption><strong>Four species at one table.</strong> The scenario card names the followed butterfly's species.</figcaption></figure>
       </div>
-      <p>The two logos at the left of the header switch the insect. In butterfly mode every fly in every experiment gets Blue Morpho wings: iridescent blue on top with a black margin and white spots, brown with eyespots underneath. The body, brain and behaviour are unchanged, but the big wings change the movement. At rest they are held closed over the back and opened now and then to bask; in flight they beat about four times a second instead of two hundred, and each downstroke lifts the body so the flight bobs and weaves.</p>
+      <p>The two logos at the left of the header switch the insect. In butterfly mode the fly becomes a Blue Morpho, 1.8 times the fly's size, with iridescent blue wings with a black margin and white spots, brown with eyespots underneath. The classroom becomes six species common around Gainesville, Florida: Zebra Longwing, Gulf Fritillary, Monarch, Eastern Tiger Swallowtail, Cloudless Sulphur and Common Buckeye, four of each, mixed across the tables. The brain and behaviour are unchanged, but the big wings change the movement. At rest they are held closed over the back and opened now and then to bask; in flight they beat about four times a second instead of two hundred, and each downstroke lifts the body so the flight bobs and weaves.</p>
 
       <h3 class="sec">From this app to the full EDLS</h3>
       <section class="two">
@@ -1053,6 +1078,7 @@ const EXP = {
   7: { name: 'Classroom', note: 'Experiment 7 · Classroom. Twenty-four students, twelve female and twelve male, at six round tables with a fly-sized tablet each, in mating season. Every fly has to finish twelve items. Rings show what each fly is doing; the vision overlay boxes every fly, its forelegs and its gaze. Click a fly to follow it and see its brain.', phys: '24 flies · 6 tables', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 10, 17], classroom: true },
   10: { name: 'Writing', note: 'Experiment 10 · Writing. A cursive writing app on the phone asks Greek root questions. The fly answers by flying nose-up and dragging the tip of its abdomen across the glass, writing the answer in joined cursive, lifting it for dots and crosses. Then it taps Submit and the app reads the handwriting.', phys: 'Hover flight · abdomen tip on the glass', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 9, 14] },
   11: { name: 'VR', note: 'Experiment 11 · VR. The fly wears a headset made for its head and stands on an air-supported ball, the omnidirectional treadmill of fly VR rigs. The headset puts it at a desk in a third grade class. The teacher writes word parts on the chalkboard, and the student answers in pencil in an open booklet. Walking and turning on the ball move the student\'s view. A teacher fly on a second ball, in its own headset, teaches the same class from the front of the room; each rig is cabled through a control box to its laptop, which shows what that headset shows.', phys: 'Ball treadmill · VR headset', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-6, 32, -112], vrRig: true },
+  12: { name: 'AR', note: 'Experiment 12 · AR. The fly wears a glass mixed-reality headset and walks on the table among floating holographic blocks, each carrying a word part. The overlays are shown to the arena camera too. It walks around the blocks, points a foreleg to pinch one, carries it to the floating word frame, twists it until its label faces out, and snaps it into the prefix, root or suffix slot.', phys: 'Walking · glass AR headset', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [16, 20, 30], ar: true },
   9: { name: 'Reading', note: 'Experiment 9 · Reading. A tablet on a stand runs an illustrated storybook app. The fly hovers in front of the page, bobbing, and reads aloud in its wing buzz as each word lights up; vocabulary words are in bold. It starts at the library and flies up to tap a book, taps Next to turn pages, answers Stop & Think questions, and when a story ends it picks the next one.', phys: 'Tablet on a stand · hover flight', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-38, 9, 20], tablet: true },
   8: { name: 'Phonics', note: 'Experiment 8 · Phonics. The app shows a word, plays it, and asks the fly to say it back. A fly cannot speak, so it stands on the mic facing the word, holds the mic down with a foreleg, and sings each sound with one extended wing: pulse song for k, t, d, a formant-shaped hum for vowels, a fluttered hiss for s and sh. You hear the buzz only while it sings; the pill above the arena turns it off.', phys: 'Wing song · pulse and sine', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-13, 11, 20] },
 };
@@ -1123,7 +1149,7 @@ function rrect(x, y, w, h, r) { sc.beginPath(); sc.roundRect(x, y, w, h, r); }
 function drawScreen(now) {
   if (experiment === 8) return drawPhonics(now);
   if (experiment === 10) return drawWriting(now);
-  if (experiment === 11) return;
+  if (experiment === 11 || experiment === 12) return;
   const w = cur(); const L = layout(); const scroll = L.tapY ? game.scrollY : 0;
   sc.setTransform(1, 0, 0, 1, 0, 0);
   sc.fillStyle = C.page; sc.fillRect(0, 0, SW, SH);
@@ -1259,39 +1285,80 @@ const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s *
 // iridescent blue on top with a black margin and white spots, brown with eyespots underneath. At rest it holds its
 // wings closed over its back and now and then opens them to bask; in flight it flaps slowly and deeply and bobs.
 let butterfly = false;
+const BF_SCALE = 1.8, BF_SCALE_CLASS = 1.3; // a butterfly is bigger than a fruit fly; the classroom ones a little less, so the tables stay readable
 const WING_GROUPS = [];
-const MORPHO = (() => {
-  const K = 1.25, U = 6.5, V0 = -5.6, V1 = 3.2, W = 512, H = Math.round(W * (V1 - V0) / U);
-  const FORE = [[0, 0.3], [1.5, 1.6], [3.6, 2.6], [5.8, 3.0], [6.3, 2.2], [5.9, 0.4], [4.8, -1.0], [2.4, -0.9], [0.4, -0.3]];
-  const HIND = [[0, -0.2], [2.6, -0.6], [4.6, -1.4], [5.2, -2.9], [4.4, -4.6], [2.8, -5.4], [1.2, -4.8], [0.3, -2.6], [0, -0.8]];
+// wing sets: an outline for the forewing and hindwing (u outward, v forward, in body units), a scale, and painters for
+// the upper and under sides. All share one texture box so the painters can work in wing coordinates.
+const WBOX = { U: 7, V0: -7, V1: 3.4 };
+function makeWingSet(def) {
+  const { U, V0, V1 } = WBOX, K = def.k, W = 512, H = Math.round(W * (V1 - V0) / U);
   const px = ([u, v]) => [u / U * W, (V1 - v) / (V1 - V0) * H], R = r => r / U * W;
-  const outline = (g, pts, c, k) => { const P = pts.map(([u, v]) => px([c[0] + (u - c[0]) * k, c[1] + (v - c[1]) * k])); g.beginPath(); P.forEach((p, i) => { const q = P[(i + 1) % P.length], m = [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2]; i ? g.quadraticCurveTo(p[0], p[1], m[0], m[1]) : g.moveTo(m[0], m[1]); }); const p0 = P[0], p1 = P[1]; g.quadraticCurveTo(p0[0], p0[1], (p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2); g.closePath(); };
-  const canvas = paint => { const c = document.createElement('canvas'); c.width = W; c.height = H; paint(c.getContext('2d')); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t; };
-  const WINGS = [[FORE, [2.4, 0.9]], [HIND, [1.9, -2.3]]];
-  const top = canvas(g => {
-    g.fillStyle = '#07080c'; g.fillRect(0, 0, W, H);
-    WINGS.forEach(([pts, c]) => { outline(g, pts, c, 0.8); const [rx, ry] = px([0, 0]); const gr = g.createRadialGradient(rx, ry, R(0.3), rx, ry, R(6)); gr.addColorStop(0, '#061a55'); gr.addColorStop(0.18, '#0b3fc4'); gr.addColorStop(0.55, '#1f8bff'); gr.addColorStop(1, '#5fd8ff'); g.fillStyle = gr; g.fill();
-      g.strokeStyle = 'rgba(2,12,45,0.45)'; g.lineWidth = 2.2; pts.forEach(p => { const [a, b] = px([0.2, (p[1] > 0 ? 0.1 : -0.3)]), [x, y] = px([p[0] * 0.82, p[1] * 0.82]); g.beginPath(); g.moveTo(a, b); g.quadraticCurveTo((a + x) / 2 + 6, (b + y) / 2 - 6, x, y); g.stroke(); }); });
-    g.fillStyle = '#f4f4f0'; [[5.45, 2.45, 0.13], [5.8, 1.7, 0.11], [5.6, 0.9, 0.1], [4.9, 2.72, 0.09], [4.7, -2.7, 0.1], [4.05, -4.15, 0.1], [2.95, -4.85, 0.09]].forEach(([u, v, r]) => { const [x, y] = px([u, v]); g.beginPath(); g.arc(x, y, R(r), 0, Math.PI * 2); g.fill(); });
-  });
-  const under = canvas(g => {
-    g.fillStyle = '#4a3220'; g.fillRect(0, 0, W, H);
-    WINGS.forEach(([pts, c]) => { outline(g, pts, c, 0.9); const [rx, ry] = px([0, 0]); const gr = g.createRadialGradient(rx, ry, R(0.3), rx, ry, R(6)); gr.addColorStop(0, '#5a3d24'); gr.addColorStop(0.6, '#9a7148'); gr.addColorStop(1, '#6e4d2e'); g.fillStyle = gr; g.fill(); });
-    g.strokeStyle = 'rgba(235,205,150,0.55)'; g.lineWidth = R(0.14); g.beginPath(); [[0.8, 1.4], [2.6, 1.9], [4.4, 1.2], [5.3, -0.4]].forEach((p, i) => { const [x, y] = px(p); i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.stroke();
-    g.beginPath(); [[0.6, -1.2], [2.2, -1.6], [3.8, -1.9], [4.6, -3.1]].forEach((p, i) => { const [x, y] = px(p); i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.stroke();
-    [[4.3, 1.7, 0.45], [3.3, 0.3, 0.33], [3.6, -2.4, 0.55], [2.8, -3.8, 0.5], [1.8, -4.4, 0.34]].forEach(([u, v, r]) => { const [x, y] = px([u, v]); [['#e8b64a', 1], ['#1b120b', 0.78], ['#7a2a1c', 0.55]].forEach(([c, k]) => { g.fillStyle = c; g.beginPath(); g.arc(x, y, R(r * k), 0, Math.PI * 2); g.fill(); }); g.fillStyle = '#f7f2e6'; g.beginPath(); g.arc(x - R(r * 0.18), y - R(r * 0.18), R(r * 0.16), 0, Math.PI * 2); g.fill(); });
-  });
+  const mid = pts => pts.reduce((a, p) => [a[0] + p[0] / pts.length, a[1] + p[1] / pts.length], [0, 0]);
+  const outline = (g, pts, k = 1) => { const c = mid(pts), P = pts.map(([u, v]) => px([c[0] + (u - c[0]) * k, c[1] + (v - c[1]) * k])); g.beginPath(); P.forEach((p, i) => { const q = P[(i + 1) % P.length], m = [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2]; i ? g.quadraticCurveTo(p[0], p[1], m[0], m[1]) : g.moveTo(m[0], m[1]); }); g.quadraticCurveTo(P[0][0], P[0][1], (P[0][0] + P[1][0]) / 2, (P[0][1] + P[1][1]) / 2); g.closePath(); };
+  // painting helpers in wing coordinates
+  const h = { px, R, fore: def.fore, hind: def.hind,
+    base(g, margin, fill, k = 0.86) { g.fillStyle = margin; g.fillRect(0, 0, W, H); [def.fore, def.hind].forEach(p => { outline(g, p, k); g.fillStyle = typeof fill === 'function' ? fill(g, p) : fill; g.fill(); }); },
+    radial(g, stops, r = 6) { const [x, y] = px([0, 0]), gr = g.createRadialGradient(x, y, R(0.2), x, y, R(r)); stops.forEach(([o, c]) => gr.addColorStop(o, c)); return gr; },
+    dot(g, u, v, r, c) { const [x, y] = px([u, v]); g.fillStyle = c; g.beginPath(); g.arc(x, y, R(r), 0, Math.PI * 2); g.fill(); },
+    line(g, pts, w, c) { g.strokeStyle = c; g.lineWidth = R(w); g.lineCap = g.lineJoin = 'round'; g.beginPath(); pts.forEach((p, i) => { const [x, y] = px(p); i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.stroke(); },
+    veins(g, w, c) { [def.fore, def.hind].forEach(pts => pts.forEach(p => { if (Math.hypot(p[0], p[1]) > 1.5) h.line(g, [[0.2, p[1] > 0 ? 0.1 : -0.3], [p[0] * 0.5, p[1] * 0.55], [p[0] * 0.93, p[1] * 0.93]], w, c); })); },
+    eye(g, u, v, r, rings) { rings.forEach(([c, k]) => h.dot(g, u, v, r * k, c)); },
+    marginDots(g, pts, k, r, c) { pts.forEach((p, i) => { const q = pts[(i + 1) % pts.length]; if (Math.hypot(p[0], p[1]) < 2 || Math.hypot(q[0], q[1]) < 2) return; const m = mid(pts); [0.25, 0.75].forEach(t => { const u = p[0] + (q[0] - p[0]) * t, v = p[1] + (q[1] - p[1]) * t; h.dot(g, m[0] + (u - m[0]) * k, m[1] + (v - m[1]) * k, r, c); }); }); } };
+  const tex = paint => { const c = document.createElement('canvas'); c.width = W; c.height = H; paint(c.getContext('2d'), h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t; };
   const geo = pts => { const sh = new THREE.Shape(), P = pts.map(([u, v]) => new THREE.Vector2(u * K, -v * K)); sh.moveTo(P[0].x, P[0].y); sh.splineThru([...P.slice(1), P[0].clone()]); const g = new THREE.ShapeGeometry(sh, 16);
     const pos = g.attributes.position, uv = g.attributes.uv; for (let i = 0; i < pos.count; i++) { const u = pos.getX(i) / K, v = -pos.getY(i) / K; uv.setXY(i, u / U, (v - V0) / (V1 - V0)); } uv.needsUpdate = true; return g; };
-  return { fore: geo(FORE), hind: geo(HIND),
-    topMat: new THREE.MeshPhysicalMaterial({ map: top, roughness: 0.3, metalness: 0.25, iridescence: 0.9, iridescenceIOR: 1.4, iridescenceThicknessRange: [180, 420], side: THREE.FrontSide }),
-    underMat: new THREE.MeshStandardMaterial({ map: under, roughness: 0.8, side: THREE.BackSide }) };
-})();
-// give a wing group its morpho wing; the group's first child is the fly's own wing
-function addMorpho(g) {
+  return { name: def.name, latin: def.latin, fore: geo(def.fore), hind: geo(def.hind),
+    topMat: new THREE.MeshPhysicalMaterial(Object.assign({ map: tex(def.top), roughness: 0.55, side: THREE.FrontSide }, def.shine || {})),
+    underMat: new THREE.MeshStandardMaterial({ map: tex(def.under), roughness: 0.8, side: THREE.BackSide }) };
+}
+const MORPHO = makeWingSet({ name: 'Blue Morpho', latin: 'Morpho peleides', k: 1.25, shine: { roughness: 0.3, metalness: 0.25, iridescence: 0.9, iridescenceIOR: 1.4, iridescenceThicknessRange: [180, 420] },
+  fore: [[0, 0.3], [1.5, 1.6], [3.6, 2.6], [5.8, 3.0], [6.3, 2.2], [5.9, 0.4], [4.8, -1.0], [2.4, -0.9], [0.4, -0.3]],
+  hind: [[0, -0.2], [2.6, -0.6], [4.6, -1.4], [5.2, -2.9], [4.4, -4.6], [2.8, -5.4], [1.2, -4.8], [0.3, -2.6], [0, -0.8]],
+  top: (g, h) => { h.base(g, '#07080c', (g2) => h.radial(g2, [[0, '#061a55'], [0.18, '#0b3fc4'], [0.55, '#1f8bff'], [1, '#5fd8ff']]), 0.8); h.veins(g, 0.03, 'rgba(2,12,45,0.45)');
+    [[5.45, 2.45, 0.13], [5.8, 1.7, 0.11], [5.6, 0.9, 0.1], [4.9, 2.72, 0.09], [4.7, -2.7, 0.1], [4.05, -4.15, 0.1], [2.95, -4.85, 0.09]].forEach(([u, v, r]) => h.dot(g, u, v, r, '#f4f4f0')); },
+  under: (g, h) => { h.base(g, '#4a3220', (g2) => h.radial(g2, [[0, '#5a3d24'], [0.6, '#9a7148'], [1, '#6e4d2e']]), 0.9); h.line(g, [[0.8, 1.4], [2.6, 1.9], [4.4, 1.2], [5.3, -0.4]], 0.14, 'rgba(235,205,150,0.55)'); h.line(g, [[0.6, -1.2], [2.2, -1.6], [3.8, -1.9], [4.6, -3.1]], 0.14, 'rgba(235,205,150,0.55)');
+    [[4.3, 1.7, 0.45], [3.3, 0.3, 0.33], [3.6, -2.4, 0.55], [2.8, -3.8, 0.5], [1.8, -4.4, 0.34]].forEach(([u, v, r]) => { h.eye(g, u, v, r, [['#e8b64a', 1], ['#1b120b', 0.78], ['#7a2a1c', 0.55]]); h.dot(g, u - r * 0.18, v + r * 0.18, r * 0.16, '#f7f2e6'); }); } });
+// six butterflies common in Gainesville, Florida, for the classroom
+const GNV_BUTTERFLIES = [
+  makeWingSet({ name: 'Zebra Longwing', latin: 'Heliconius charithonia', k: 1.05,
+    fore: [[0, 0.2], [1.8, 1.2], [4.2, 1.9], [6.4, 2.2], [6.8, 1.6], [6.0, 0.6], [3.6, -0.2], [1.2, -0.4], [0.3, -0.2]],
+    hind: [[0, -0.3], [2.2, -0.5], [4.2, -0.9], [5.0, -1.8], [4.2, -2.8], [2.4, -3.0], [0.9, -2.4], [0.2, -1.2]],
+    top: (g, h) => { h.base(g, '#0c0b0a', '#141210', 0.95); const Y = '#f6e04a'; h.line(g, [[0.6, 0.5], [3.6, 1.35], [6.1, 1.75]], 0.28, Y); h.line(g, [[1.4, 0.0], [3.4, 0.35], [4.6, 0.45]], 0.24, Y); h.line(g, [[3.8, 0.9], [5.4, 0.8]], 0.18, Y); h.line(g, [[0.5, -0.8], [2.6, -1.1], [4.3, -1.6]], 0.26, Y); h.marginDots(g, h.hind, 0.9, 0.07, Y); },
+    under: (g, h) => { h.base(g, '#2a2420', '#3a322b', 0.95); const Y = '#f3e7a8'; h.line(g, [[0.6, 0.5], [3.6, 1.35], [6.1, 1.75]], 0.26, Y); h.line(g, [[1.4, 0.0], [3.4, 0.35], [4.6, 0.45]], 0.22, Y); h.line(g, [[0.5, -0.8], [2.6, -1.1], [4.3, -1.6]], 0.24, Y); [[0.3, 0.1], [0.5, -0.4], [0.3, -0.9]].forEach(([u, v]) => h.dot(g, u, v, 0.12, '#d3262c')); } }),
+  makeWingSet({ name: 'Gulf Fritillary', latin: 'Dione vanillae', k: 1.0,
+    fore: [[0, 0.3], [1.6, 1.5], [3.8, 2.3], [5.6, 2.6], [6.0, 1.8], [5.2, 0.2], [4.0, -0.8], [2.0, -0.8], [0.4, -0.3]],
+    hind: [[0, -0.2], [2.4, -0.6], [4.2, -1.3], [4.6, -2.6], [3.8, -3.8], [2.4, -4.2], [1.0, -3.6], [0.3, -2.0]],
+    top: (g, h) => { h.base(g, '#231409', (g2) => h.radial(g2, [[0, '#c4450f'], [0.5, '#ef7a1c'], [1, '#f59a2c']]), 0.9); h.veins(g, 0.035, 'rgba(60,25,5,0.6)');
+      [[2.2, 1.1], [3.0, 1.4], [2.6, 0.5]].forEach(([u, v]) => { h.dot(g, u, v, 0.2, '#150a04'); h.dot(g, u, v, 0.1, '#f4f1e8'); }); [[4.2, 1.6], [4.8, 0.8], [3.6, -0.3], [2.6, -1.8], [3.3, -2.6]].forEach(([u, v]) => h.dot(g, u, v, 0.14, '#150a04')); h.marginDots(g, h.hind, 0.9, 0.12, '#150a04'); },
+    under: (g, h) => { h.base(g, '#7a4a22', (g2) => h.radial(g2, [[0, '#d98a3a'], [1, '#a8683a']]), 0.94); [[4.6, 1.8, 0.3], [4.2, 0.7, 0.26], [3.4, -2.0, 0.34], [2.4, -2.9, 0.32], [3.5, -3.3, 0.28], [1.6, -3.4, 0.26], [2.6, -1.4, 0.24]].forEach(([u, v, r]) => { h.dot(g, u, v, r * 1.12, '#3a2210'); h.dot(g, u, v, r, '#e9edf2'); h.dot(g, u - r * 0.3, v + r * 0.3, r * 0.35, '#ffffff'); }); } }),
+  makeWingSet({ name: 'Monarch', latin: 'Danaus plexippus', k: 1.1,
+    fore: [[0, 0.3], [1.6, 1.6], [3.8, 2.5], [5.8, 2.8], [6.3, 2.0], [5.6, 0.4], [4.4, -0.9], [2.2, -0.9], [0.4, -0.3]],
+    hind: [[0, -0.2], [2.5, -0.6], [4.4, -1.4], [5.0, -2.8], [4.2, -4.2], [2.7, -4.8], [1.1, -4.2], [0.3, -2.2]],
+    top: (g, h) => { h.base(g, '#0d0b09', '#e8781a', 0.82); h.veins(g, 0.13, '#0d0b09'); h.marginDots(g, h.fore, 0.93, 0.08, '#f6f2e8'); h.marginDots(g, h.hind, 0.93, 0.08, '#f6f2e8'); [[5.2, 2.3], [5.6, 1.7], [4.8, 2.5]].forEach(([u, v]) => h.dot(g, u, v, 0.13, '#f2a24a')); },
+    under: (g, h) => { h.base(g, '#0d0b09', '#e7a44c', 0.82); h.veins(g, 0.13, '#0d0b09'); h.marginDots(g, h.fore, 0.93, 0.08, '#f6f2e8'); h.marginDots(g, h.hind, 0.93, 0.08, '#f6f2e8'); } }),
+  makeWingSet({ name: 'Eastern Tiger Swallowtail', latin: 'Papilio glaucus', k: 1.2,
+    fore: [[0, 0.3], [1.8, 1.8], [4.2, 2.8], [6.4, 3.1], [6.6, 2.4], [5.4, 0.4], [3.8, -0.8], [1.8, -0.8], [0.4, -0.3]],
+    hind: [[0, -0.2], [2.4, -0.7], [4.2, -1.5], [4.5, -2.8], [3.9, -3.8], [3.4, -4.1], [3.3, -6.2], [2.9, -6.3], [2.7, -4.4], [1.8, -4.6], [0.8, -3.8], [0.2, -2.0]],
+    top: (g, h) => { h.base(g, '#12100c', '#f5cf2a', 0.84); [[0.9, 1.0, 0.4, -0.3], [2.1, 1.9, 1.5, -0.6], [3.3, 2.5, 2.9, -0.2], [4.6, 2.95, 4.4, 0.8]].forEach(([a, b, c, d]) => h.line(g, [[a, b], [c, d]], 0.26, '#12100c')); h.line(g, [[0.4, -0.5], [1.2, -2.8]], 0.3, '#12100c');
+      h.marginDots(g, h.fore, 0.92, 0.09, '#f5cf2a'); [[2.0, -3.9], [2.8, -3.7]].forEach(([u, v]) => h.dot(g, u, v, 0.22, '#3f7fd8')); h.dot(g, 3.1, -4.2, 0.18, '#f28a1e'); },
+    under: (g, h) => { h.base(g, '#2a241a', '#f3dc78', 0.86); [[0.9, 1.0, 0.4, -0.3], [2.1, 1.9, 1.5, -0.6], [3.3, 2.5, 2.9, -0.2]].forEach(([a, b, c, d]) => h.line(g, [[a, b], [c, d]], 0.2, '#2a241a')); h.marginDots(g, h.hind, 0.9, 0.12, '#f28a1e'); h.dot(g, 2.4, -3.9, 0.24, '#5a8ee0'); } }),
+  makeWingSet({ name: 'Cloudless Sulphur', latin: 'Phoebis sennae', k: 1.0,
+    fore: [[0, 0.3], [1.6, 1.7], [3.8, 2.6], [5.4, 2.6], [5.8, 1.6], [5.2, 0.0], [3.8, -0.9], [1.8, -0.8], [0.4, -0.3]],
+    hind: [[0, -0.2], [2.4, -0.6], [4.2, -1.4], [4.6, -2.8], [3.8, -4.0], [2.4, -4.3], [1.0, -3.7], [0.3, -2.0]],
+    top: (g, h) => { h.base(g, '#f2d21c', (g2) => h.radial(g2, [[0, '#f7e46a'], [1, '#f9e23c']]), 0.97); h.veins(g, 0.02, 'rgba(170,140,20,0.35)'); },
+    under: (g, h) => { h.base(g, '#d8d44a', '#e6e27a', 0.95); [[3.0, 1.2, 0.16], [2.6, -2.0, 0.13], [3.2, -2.5, 0.11]].forEach(([u, v, r]) => { h.dot(g, u, v, r, '#b26a4a'); h.dot(g, u, v, r * 0.5, '#f1efe0'); }); h.marginDots(g, h.fore, 0.93, 0.05, '#a8703e'); } }),
+  makeWingSet({ name: 'Common Buckeye', latin: 'Junonia coenia', k: 0.95,
+    fore: [[0, 0.3], [1.5, 1.5], [3.4, 2.2], [5.0, 2.4], [5.4, 1.6], [5.0, 0.3], [3.8, -0.7], [1.8, -0.7], [0.4, -0.3]],
+    hind: [[0, -0.2], [2.2, -0.6], [4.0, -1.4], [4.4, -2.6], [3.8, -3.7], [2.4, -4.0], [1.0, -3.4], [0.3, -1.8]],
+    top: (g, h) => { h.base(g, '#3a2818', '#6b4a2e', 0.92); h.line(g, [[3.4, 2.0], [4.4, 1.0], [4.8, 0.5]], 0.35, '#efe6d2'); h.line(g, [[1.4, 1.1], [2.0, 1.4]], 0.16, '#e2742a'); h.line(g, [[1.8, 0.6], [2.4, 0.8]], 0.16, '#e2742a');
+      const eye = [['#e8b64a', 1], ['#1b120b', 0.8], ['#3a64c8', 0.55], ['#1b120b', 0.3]]; h.eye(g, 4.0, 0.2, 0.42, eye); h.eye(g, 3.4, -2.2, 0.6, eye); h.eye(g, 2.4, -3.1, 0.34, eye); h.marginDots(g, h.hind, 0.88, 0.14, '#e2742a'); },
+    under: (g, h) => { h.base(g, '#6e5a44', '#a58e70', 0.93); h.line(g, [[3.4, 2.0], [4.4, 1.0]], 0.28, '#e5dcc6'); h.eye(g, 4.0, 0.2, 0.3, [['#e8b64a', 1], ['#1b120b', 0.7]]); [[3.3, -2.3], [2.4, -3.0]].forEach(([u, v]) => h.dot(g, u, v, 0.1, '#1b120b')); } }),
+];
+// give a wing group its butterfly wing (the Blue Morpho unless a species is given); the group's first child is the fly's own wing
+function addMorpho(g, set = MORPHO) {
   const s = g.userData.side, out = new THREE.Group(); out.scale.set(s, 1, 1); out.position.set(-s * 0.35, 0.02, 0.35); out.visible = butterfly; g.add(out);
   const flat = new THREE.Group(); flat.rotation.x = -Math.PI / 2; out.add(flat);
-  [[MORPHO.fore, 0.01], [MORPHO.hind, -0.01]].forEach(([geo, lift]) => [MORPHO.topMat, MORPHO.underMat].forEach(mat => { const m = new THREE.Mesh(geo, mat); m.position.z = lift; m.castShadow = true; flat.add(m); }));
+  [[set.fore, 0.01], [set.hind, -0.01]].forEach(([geo, lift]) => [set.topMat, set.underMat].forEach(mat => { const m = new THREE.Mesh(geo, mat); m.position.z = lift; m.castShadow = true; flat.add(m); }));
   g.userData.flyWing = g.children[0]; g.userData.bf = out; WING_GROUPS.push(g);
 }
 // o: fly (0 to 1, flapping), song (0 to 1, this wing held open and vibrating), flick, threat, seed (desynchronises flies)
@@ -1304,7 +1371,7 @@ function morphoPose(g, t, o) {
   if (o.song) z += (0.1 + Math.sin(t / 9) * 0.08 - z) * o.song;
   g.rotation.set(0, 0, s * z);
 }
-wings.forEach(addMorpho);
+wings.forEach(g => addMorpho(g));
 const legDefs = [
   { hip: [-0.6, 0.85, 0.75], rest: [-1.7, 0, 1.6] }, { hip: [0.6, 0.85, 0.75], rest: [1.7, 0, 1.6] },
   { hip: [-0.8, 0.8, 0.0], rest: [-2.2, 0, 0.1] }, { hip: [0.8, 0.8, 0.0], rest: [2.2, 0, 0.1] },
@@ -1427,6 +1494,7 @@ function renderTrial() {
   if (experiment === 9) return renderReadingTrial();
   if (experiment === 10) return renderWritingTrial();
   if (experiment === 11) return renderVRTrial();
+  if (experiment === 12) return renderARTrial();
   if (experiment === 4 && typeof spell !== 'undefined' && spell.letters.length) {
     $('meaning').textContent = spell.word.meaning;
     $('chips').innerHTML = spell.letters.map((ch, i) => i < spell.typed.length ? `<span class="chip ${KINDS[partAtLetter(i)]}" style="padding:0 12px">${ch}</span>` : `<span class="chip empty" style="padding:0 10px">${KINDS[partAtLetter(i)][0]}</span>`).join('');
@@ -1463,6 +1531,7 @@ const PHASE_TEXT = { look: 'Looking at the screen', walk: 'Walking to a tile', t
   takeoff: 'Taking off', hover: 'Hovering, reading the meaning', dive: 'Diving to the answer', land: 'Landing', scroll: 'Swiping the answers into reach',
   w_read: 'Reading the question', w_fly: 'Flying', w_write: 'Writing with the abdomen tip', w_tap: 'Tapping Submit', w_react: 'Checking the answer',
   v_board: 'Watching the chalkboard', v_look: 'Looking down at the booklet', v_write: 'Writing in the booklet', v_mark: 'Teacher checks the answer', v_erase: 'The board is erased',
+  a_look: 'Reading the word frame', a_walk: 'Walking around the blocks', a_grab: 'Pinching a block', a_carry: 'Carrying the block', a_rotate: 'Rotating the block', a_place: 'Snapping it in', a_done: 'Word built',
   r_read: 'Hovering and reading aloud', r_think: 'Thinking about the question', r_fly: 'Flying to the button', r_tap: 'Tapping the screen', r_feedback: 'Checking the answer', r_browse: 'Browsing the library',
   p_look: 'Reading the word', p_listen: 'Listening to the app', p_walk: 'Settling on the mic', p_tap: 'Pressing the mic', p_buzz: 'Holding the mic and singing with one wing', p_react: 'Hearing the score', p_celebrate: 'Word said right', p_back: 'Settling on the mic',
   t_read: 'Reading the screen', t_fly: 'Flying', t_walk: 'Walking', t_arm: 'Steering the cursor with a foreleg', t_press: 'Clicking', t_dip: 'Pressing a key', t_done: 'All students graded', s_celebrate: 'Word spelled', a_watch: 'Watching the nine sessions' };
@@ -1555,6 +1624,7 @@ function stepAgent(dt, now) {
   if (experiment === 9) return stepReading(dt, now);
   if (experiment === 10) return stepWriting(dt, now);
   if (experiment === 11) return stepVR(dt, now);
+  if (experiment === 12) return stepAR(dt, now);
   if (EXP[experiment].laptop) return stepTeacher(dt, now);
   const st = flyState; const s = phone.scale.x;
   switch (agent.phase) {
@@ -1675,7 +1745,7 @@ function animateFly(dt) {
   const st = flyState;
   fly.position.copy(st.pos); fly.rotation.y = st.yaw + (butterfly && st.airborne ? Math.sin(performance.now() / 260) * 0.12 : 0); fly.updateMatrixWorld(true); // a butterfly weaves as it flies
   head.rotation.y = st.headYaw;
-  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz' || agent.phase === 'r_tap' || agent.phase === 'w_tap' || agent.phase === 'v_write') ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
+  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz' || agent.phase === 'r_tap' || agent.phase === 'w_tap' || agent.phase === 'v_write' || ['a_grab', 'a_carry', 'a_rotate', 'a_place'].includes(agent.phase)) ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
   let stepping = legs.filter(L => L.step).length;
   legs.forEach(L => {
     if (L === busyLeg) return;
@@ -2293,7 +2363,7 @@ let clsOverlay = true;
 const linkGeo = new THREE.BufferGeometry(); linkGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(24 * 6), 3));
 const links = new THREE.LineSegments(linkGeo, new THREE.LineDashedMaterial({ color: 0xd32737, dashSize: 0.8, gapSize: 0.5, transparent: true, opacity: 0.9 })); links.frustumCulled = false; classroom.add(links);
 
-function makeRig(sex) {
+function makeRig(sex, species) {
   const group = new THREE.Group(); classroom.add(group); const cut = SM[sex];
   const body = new THREE.Group(); group.add(body);
   const th = new THREE.Mesh(SG.thorax, cut); th.position.set(0, 1.1, 0); th.scale.set(1, 0.85, 1.15); th.castShadow = true; body.add(th);
@@ -2303,11 +2373,11 @@ function makeRig(sex) {
   const head = new THREE.Group(); head.position.set(0, 1.25, 1.25); body.add(head);
   head.add(new THREE.Mesh(SG.head, cut));
   [-1, 1].forEach(s => { const e = new THREE.Mesh(SG.eye, eyeMat); e.position.set(s * 0.46, 0.05, 0.25); head.add(e); const a = new THREE.Mesh(SG.ant, dark); a.position.set(s * 0.18, -0.1, 0.72); a.rotation.x = Math.PI / 2 - 0.5; head.add(a); });
-  const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); const w = new THREE.Mesh(SG.wing, wingMat); w.rotation.x = -Math.PI / 2; w.position.set(s * 0.55, 0, -1.45); g.add(w); g.userData.side = s; addMorpho(g); return g; });
+  const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); const w = new THREE.Mesh(SG.wing, wingMat); w.rotation.x = -Math.PI / 2; w.position.set(s * 0.55, 0, -1.45); g.add(w); g.userData.side = s; addMorpho(g, species); return g; });
   const lg = legDefs.map((d, i) => { const L = { hip: new THREE.Vector3(...d.hip), rest: new THREE.Vector3(...d.rest), foot: new THREE.Vector3(), step: null, front: i < 2,
     femur: new THREE.Mesh(SG.femur, dark), tibia: new THREE.Mesh(SG.tibia, dark) }; group.add(L.femur, L.tibia);
     if (sex === 'M' && i < 2) { L.comb = new THREE.Mesh(SG.comb, dark); group.add(L.comb); } return L; });
-  if (sex === 'F') group.scale.setScalar(1.06); else group.scale.setScalar(0.94);
+  group.userData.base = sex === 'F' ? 1.06 : 0.94; group.scale.setScalar(group.userData.base);
   const ring = new THREE.Mesh(SG.ring, ringMats.task); ring.rotation.x = -Math.PI / 2; ring.renderOrder = 2; classroom.add(ring);
   const glyph = new THREE.Sprite(glyphMats.sing); glyph.scale.set(2.2, 2.2, 1); glyph.visible = false; classroom.add(glyph);
   return { group, body, head, wings, legs: lg, ring, glyph };
@@ -2322,7 +2392,7 @@ const cls = { students: [], focal: 0, time: 0, lesson: 1, season: true, bellAt: 
     const t = Math.floor(i / 4), k = i % 4, a = seatAngle(t, k), c = tableCenter(t);
     const home = new THREE.Vector3(c.x + Math.sin(a) * CLS.seatR, CLS.topY, c.z + Math.cos(a) * CLS.seatR);
     const s = { i, name: `${'ABCDEF'[t]}${k + 1}`, sex: sexes[i], table: t, seat: k, at: t, home, homeYaw: a + Math.PI, pos: home.clone(), yaw: a + Math.PI,
-      rig: makeRig(sexes[i]), tablet: makeTablet(i, t, k), state: 'read', t: 0, dur: 1 + clsRand(), progress: 0, item: null, mastery: 0.15 + 0.35 * clsRand(), attention: 0.85,
+      species: GNV_BUTTERFLIES[i % 6], rig: makeRig(sexes[i], GNV_BUTTERFLIES[i % 6]), tablet: makeTablet(i, t, k), state: 'read', t: 0, dur: 1 + clsRand(), progress: 0, item: null, mastery: 0.15 + 0.35 * clsRand(), attention: 0.85,
       drive: 0, receptive: 0, partner: null, courtedBy: null, response: null, flash: null, wingExt: 0, wingSide: 1, flick: 0, threat: 0, lunge: 0, buzz: 0, headYaw: 0, walking: false, gait: 0,
       airborne: false, flight: null, goal: null, after: null, tapLeg: null, tapAt: null, pressed: false, peekBonus: false, glyph: null, glyphT: 0, doneAt: null,
       stats: { onTask: 0, courtT: 0, groomT: 0, court: 0, courted: 0, groom: 0, peek: 0, away: 0, rejectedBy: 0, rejections: 0, fights: 0, taps: 0, correct: 0, interruptions: 0 } };
@@ -2717,7 +2787,7 @@ function drawVision() {
 }
 
 // ---------- scenario panels: the right panel and bottom strip follow the experiment ----------
-const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9, 10, 11]; // the teacher and admin panels show their screen and work queue instead of the brain
+const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9, 10, 11, 12]; // the teacher and admin panels show their screen and work queue instead of the brain
 let rpAt = 0;
 // scenario history, 4 samples a second of the numbers the strip plots (the classroom keeps its own in cls.hist)
 const sh = []; let shAt = 0, shSim = 0; const shPrev = new THREE.Vector3();
@@ -2729,7 +2799,7 @@ function sampleScenario(now, dt) {
   sh.push({ t, exp: experiment, speed, h: Math.max(0, st.pos.y - ground), air: st.airborne ? 1 : 0, scroll: game.scrollY, typed: spell.typed.length,
     path: T.path, clicks: T.clicks, miss: T.miss, keys: T.keys, graded: T.graded.length,
     att: admin.students.length ? admin.students.reduce((a, s) => a + s.att, 0) / admin.students.length : null, flags: admin.flags.filter(f => f.open).length,
-    song: flyState.songAmp || 0, pen: (experiment === 10 && agent.phase === 'w_write' && wr.path[Math.floor(wr.s)] && wr.path[Math.floor(wr.s)].down) || (experiment === 11 && agent.phase === 'v_write') ? 1 : 0, ball: vr.speed, pmem: game.memory.size ? [...game.memory.values()].reduce((a, b) => a + b, 0) / game.memory.size : null, rmem: wr.mem.size ? [...wr.mem.values()].reduce((a, b) => a + b, 0) / wr.mem.size : null, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
+    song: flyState.songAmp || 0, pen: (experiment === 10 && agent.phase === 'w_write' && wr.path[Math.floor(wr.s)] && wr.path[Math.floor(wr.s)].down) || (experiment === 11 && agent.phase === 'v_write') ? 1 : 0, ball: vr.speed, arHold: experiment === 12 && ['a_carry', 'a_rotate'].includes(agent.phase) ? 1 : 0, arRot: experiment === 12 && ar.pick ? Math.abs(arWrap(ar.pick.g.rotation.y)) * 57.3 : null, pmem: game.memory.size ? [...game.memory.values()].reduce((a, b) => a + b, 0) / game.memory.size : null, rmem: wr.mem.size ? [...wr.mem.values()].reduce((a, b) => a + b, 0) / wr.mem.size : null, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
     prec: A.tp + A.fp ? A.tp / (A.tp + A.fp) : null, checkins: A.checkins, det: A.detections.filter(d => t - d.t < 5).reduce((a, d) => a + d.lookaway + d.helper + d.device + d.offscreen, 0) });
   if (sh.length > 480) sh.shift();
 }
@@ -2801,6 +2871,12 @@ const STRIPS = {
     { l: 'Answers right', v: () => `${vr.stats.right} of ${vr.stats.answers}`, d: id => barChart(id, vr.history.slice(-20).map(h => ({ v: 1, color: h.ok ? CH.green : CH.red, label: `${h.board}: wrote "${h.text}", ${h.ok ? 'right' : 'answer ' + h.answer}` })), { ymax: 1, positive: true, compact: true, empty: 'No answers yet' }) },
     sHist('Word part memory', 'pmem', () => { const p = shLast(); return p && p.pmem != null ? p.pmem.toFixed(2) : '–'; }, { ymax: 1 }, '#22884c'),
     sDopa],
+  12: [sSpeed('Walking speed'),
+    sHist('Holding a block', 'arHold', () => ['a_carry', 'a_rotate'].includes(agent.phase) ? 'holding' : agent.phase === 'a_grab' ? 'pinching' : 'hands free', { ymax: 1 }, '#f2a900'),
+    sHist('Block rotation error', 'arRot', () => { const p = shLast(); return p && p.arRot != null ? Math.round(p.arRot) + '°' : '–'; }, { ymax: 180 }),
+    { l: 'Blocks right', v: () => `${ar.stats.right} of ${ar.stats.placed}`, d: id => barChart(id, ar.history.slice(-20).map(h => ({ v: 1, color: h.ok ? CH.green : CH.red, label: `${h.word}, ${h.slot}: "${h.part}", ${h.ok ? 'right' : 'wrong, needed ' + h.need}` })), { ymax: 1, positive: true, compact: true, empty: 'No blocks placed yet' }) },
+    sHist('Word part memory', 'pmem', () => { const p = shLast(); return p && p.pmem != null ? p.pmem.toFixed(2) : '–'; }, { ymax: 1 }, '#22884c'),
+    sDopa],
 };
 let stripExp = 0;
 function drawStrip() {
@@ -2833,6 +2909,8 @@ function scenarioCard() {
     return ['Proctoring', `<h3>Open flags</h3><ul>${open.map(f => `<li class="now">${admin.students[f.student].name}: ${REASON[f.reason] || f.reason} · ${Math.round(TDT() - f.t)} s ago</li>`).join('') || '<li>None open</li>'}</ul>` +
       (ai ? `<p class="sub" style="margin:0">FlyAI: ${ai.text}</p>` : '') + `<h3>Next actions</h3><ol>${next.map((s, i) => `<li class="${i ? '' : 'now'}">${stepText(s)}</li>`).join('')}</ol>` +
       kv([['Flags · confirmed · false alarms', `${admin.flags.length} · ${A.tp} · ${A.fp}`], ['Check-ins sent', A.checkins]])]; }
+  if (e === 12) { const B = ar.pick, S = ar.stats, last = ar.history[ar.history.length - 1];
+    return ['Mixed reality', kv([['Word', ar.word ? ar.word.meaning : '–'], ['Next slot', ar.need < 3 ? KINDS[ar.need] : 'word built'], ['Block', B ? `"${B.part}" · ${B.state === 'held' ? 'held by a foreleg' : 'targeted'}` : 'none'], ['Rotation to go', B ? Math.round(Math.abs(arWrap(B.g.rotation.y)) * 57.3) + '°' : '–'], ['Walking around a block', ar.detour ? 'yes' : 'no'], ['Last block', last ? `"${last.part}" as ${last.slot} · ${last.ok ? 'right' : 'wrong'}` : '–'], ['Right so far', `${S.right} of ${S.placed}`], ['Words built', S.words]])]; }
   if (e === 11) { const it = vr.items[vr.ii], S = vr.stats, look = vr.glance ? 'a classmate' : ['v_look', 'v_write', 'v_mark'].includes(agent.phase) ? 'the booklet' : 'the chalkboard', last = vr.history[vr.history.length - 1];
     return ['In the headset', kv([['On the board', it ? it.board : 'being erased'], ['Looking at', look], ['Ball', `${(vr.speed / BL).toFixed(1)} body lengths/s · ${Math.round(S.ballDist / BL)} walked`], ['Turns to look around', S.turns], ['Pencil', agent.phase === 'v_write' && vr.write ? `writing "${vr.write.text}"` : 'resting'], ['Last answer', last ? `"${last.text}" · ${last.ok ? 'right' : 'wrong'}` : '–'], ['Right so far', `${S.right} of ${S.answers}`], ['Lesson', vr.lesson]])]; }
   if (e === 10) { const G = GREEK[wr.qi], P = wr.path, p = P[Math.min(P.length - 1, Math.floor(wr.s))], last = wr.history[wr.history.length - 1];
@@ -2842,7 +2920,7 @@ function scenarioCard() {
   if (e === 8) { const P = phon, s = P.stage === 'mic' ? P.plan[P.cur] : null;
     return ['Wing song', kv([['Now singing', s ? `${slash(s.q)} for ${slash(s.p)}` : 'nothing, wings folded'], ['Song mode', s ? SONG[PH[s.q].kind] : '–'], ['Carrier pitch', Math.round(P.f0) + ' Hz'], ['Wing', st.songExt > 0.5 ? (st.songSide > 0 ? 'right wing out' : 'left wing out') : 'folded'], ['Word', `${P.word.word} · attempt ${Math.max(1, P.attempt)} of 2`], ['Sounds right overall', P.stats.sounds ? pct(P.stats.right / P.stats.sounds) : '–'], ['Sound', audio.on ? 'on' : 'off, use the pill above the arena']])]; }
   const s = cls.students[cls.focal]; const other = s.state === 'court' || s.state === 'fight' ? (s.rival && s.state === 'fight' ? s.rival : s.partner) : s.courtedBy;
-  return [`Following ${s.name} ${SEXSYM(s)}`, kv([['Doing', doing(s)], ['Table', 'ABCDEF'[s.table] + (s.at !== s.table ? ` · visiting ${'ABCDEF'[s.at]}` : '')], ['Items', `${Math.min(s.progress, CLS.items)} of ${CLS.items}`], ['First-try accuracy', s.stats.taps ? pct(s.stats.correct / s.stats.taps) : '–'], ['Attention', s.attention.toFixed(2)], [s.sex === 'M' ? 'Courtship drive' : 'Receptivity', (s.sex === 'M' ? s.drive : s.receptive).toFixed(2)], [s.state === 'fight' ? 'Rival' : s.sex === 'M' ? 'Courting' : 'Courted by', other ? `${other.name} ${SEXSYM(other)}` : 'nobody']])];
+  return [`Following ${s.name} ${SEXSYM(s)}`, kv([['Doing', doing(s)], ['Table', 'ABCDEF'[s.table] + (s.at !== s.table ? ` · visiting ${'ABCDEF'[s.at]}` : '')], ['Items', `${Math.min(s.progress, CLS.items)} of ${CLS.items}`], ['First-try accuracy', s.stats.taps ? pct(s.stats.correct / s.stats.taps) : '–'], ['Attention', s.attention.toFixed(2)], ...(butterfly ? [['Species', `${s.species.name} · <i>${s.species.latin}</i>`]] : []), [s.sex === 'M' ? 'Courtship drive' : 'Receptivity', (s.sex === 'M' ? s.drive : s.receptive).toFixed(2)], [s.state === 'fight' ? 'Rival' : s.sex === 'M' ? 'Courting' : 'Courted by', other ? `${other.name} ${SEXSYM(other)}` : 'nobody']])];
 }
 function renderScenario(force) {
   if (view !== 'simulate' && !force) return;
@@ -3521,7 +3599,7 @@ function buildPath(word) {
 }
 // where the abdomen tip sits for a flying fly pitched nose-up by `pitch` (body frame tip at y 1.0, z -3.06; body lowered 0.3 in flight)
 const TAIL_PITCH = -0.5;
-function tailOffset(pitch) { const c = Math.cos(pitch), s = Math.sin(pitch); return { up: -(1.0 * c + 3.06 * s) + 0.3, back: -(1.0 * s - 3.06 * c) }; }
+function tailOffset(pitch) { const c = Math.cos(pitch), s = Math.sin(pitch), k = fly.scale.x; return { up: (-(1.0 * c + 3.06 * s) + 0.3) * k, back: -(1.0 * s - 3.06 * c) * k }; } // scales with the body in butterfly mode
 function placeTail(px, py, lift) {
   const st = flyState, Q = pxToWorld(px, py); Q.y = screenTopY() + 0.02 + lift; const o = tailOffset(TAIL_PITCH), fw = new THREE.Vector3(Math.sin(st.yaw), 0, Math.cos(st.yaw));
   st.pos.copy(Q).addScaledVector(fw, o.back); st.pos.y += o.up; return Q;
@@ -3876,10 +3954,139 @@ function renderVRTrial() {
 }
 window.__vr = vr; // debug hook
 
+// =====================================================================
+// Experiment 12: AR. The fly wears a glass mixed-reality headset and walks on the table among floating holographic
+// word-part blocks. The overlays live in the shared scene, so the arena camera and the fly's eye both see them. It walks
+// around the blocks, points a foreleg at one to pinch it, carries it to the floating word frame, twists it until its
+// label faces out, and snaps it into a slot. No treadmill: here the fly really moves.
+// =====================================================================
+const arGroup = new THREE.Group(); arGroup.visible = false; scene.add(arGroup);
+const AR = { body: 0x3ad4ff, edge: 0x0098d8, sel: 0xf2a900, ok: 0x22b35e, bad: 0xe0344a, Y: TABLE_Y + 4.2, W: 7, H: 3, D: 3 };
+const arWrap = a => Math.atan2(Math.sin(a), Math.cos(a));
+// the glass headset: a clear visor over both eyes under a slim frame, a sensor bar, a projector line and a strap
+const arHeadset = new THREE.Group(); arHeadset.visible = false; head.add(arHeadset);
+{ const band = (r, half, t0, t1, mat) => { const m = new THREE.Mesh(new THREE.SphereGeometry(r, 40, 12, Math.PI / 2 - half, half * 2, t0, t1 - t0), mat); arHeadset.add(m); return m; };
+  const glass = new THREE.MeshPhysicalMaterial({ color: 0xa8ecff, transparent: true, opacity: 0.3, roughness: 0.04, metalness: 0.1, clearcoat: 1, side: THREE.DoubleSide, depthWrite: false }),
+    frame = new THREE.MeshStandardMaterial({ color: 0x2b2f38, roughness: 0.4, metalness: 0.5, side: THREE.DoubleSide });
+  band(VISOR_R, 1.6, 1.02, 1.95, glass); band(VISOR_R + 0.02, 1.7, 0.94, 1.04, frame); band(VISOR_R + 0.005, 1.25, 1.3, 1.325, new THREE.MeshBasicMaterial({ color: 0x43e0ff, transparent: true, opacity: 0.7, side: THREE.DoubleSide }));
+  const bar = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.12, 0.16), frame); bar.position.set(0, 0.57, 0.83); bar.rotation.x = 0.55; arHeadset.add(bar);
+  [-0.22, 0, 0.22].forEach((x, i) => { const s = new THREE.Mesh(new THREE.CircleGeometry(0.035, 10), new THREE.MeshBasicMaterial({ color: i === 1 ? 0x43e0ff : 0x0b0e18 })); s.position.set(x, 0.62, 0.92); s.rotation.x = -0.55; arHeadset.add(s); });
+  const strap = new THREE.Mesh(new THREE.TorusGeometry(0.8, 0.05, 6, 30, Math.PI * 0.95), frame); strap.rotation.x = Math.PI / 2; strap.rotation.z = Math.PI * 1.025; strap.position.y = 0.05; arHeadset.add(strap); }
+// spatial map on the table, the word frame and its three slots
+const arGrid = new THREE.GridHelper(120, 40, 0x0098d8, 0x0098d8); arGrid.material.transparent = true; arGrid.material.opacity = 0.18; arGrid.position.y = TABLE_Y + 0.03; arGroup.add(arGrid);
+const arCanvas = (w, h) => { const c = document.createElement('canvas'); c.width = w; c.height = h; const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return { c, g: c.getContext('2d'), t }; };
+const arFrameC = arCanvas(1024, 300);
+const arFrame = new THREE.Mesh(new THREE.PlaneGeometry(40, 11.7), new THREE.MeshBasicMaterial({ map: arFrameC.t, transparent: true, depthWrite: false, side: THREE.DoubleSide })); arFrame.position.set(0, TABLE_Y + 14, -27); arGroup.add(arFrame);
+const AR_SLOT = [-9, 0, 9].map(x => V3(x, TABLE_Y + 6.4, -25));
+const arSlotLines = AR_SLOT.map((p, i) => { const l = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(AR.W + 0.5, AR.H + 0.5, AR.D + 0.5)), new THREE.LineBasicMaterial({ color: AR.edge, transparent: true, opacity: 0.55 })); l.position.copy(p); arGroup.add(l);
+  const k = arCanvas(256, 64); k.g.fillStyle = 'rgba(0,38,87,0.7)'; k.g.beginPath(); k.g.roundRect(4, 4, 248, 56, 28); k.g.fill(); k.g.fillStyle = '#bff4ff'; k.g.font = `700 34px ${DISPLAY}`; k.g.textAlign = 'center'; k.g.textBaseline = 'middle'; k.g.fillText(KINDS[i], 128, 34);
+  const lab = new THREE.Mesh(new THREE.PlaneGeometry(5, 1.25), new THREE.MeshBasicMaterial({ map: k.t, transparent: true, depthWrite: false })); lab.position.set(p.x, p.y - AR.H / 2 - 1.3, p.z + 0.2); arGroup.add(lab); return l; });
+const arTether = new THREE.Line(new THREE.BufferGeometry().setFromPoints([V3(0, 0, 0), V3(0, 1, 0)]), new THREE.LineBasicMaterial({ color: AR.sel })); arTether.visible = false; arGroup.add(arTether);
+function arMakeBlock(part, kind) {
+  const g = new THREE.Group(), geo = new THREE.BoxGeometry(AR.W, AR.H, AR.D);
+  const body = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color: AR.body, transparent: true, opacity: 0.22, depthWrite: false }));
+  const edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo), new THREE.LineBasicMaterial({ color: AR.edge })), edges2 = edges.clone(); edges2.scale.setScalar(1.015); edges2.material = edges.material;
+  const k = arCanvas(512, 220); k.g.font = `700 120px ${DISPLAY}`; k.g.textAlign = 'center'; k.g.textBaseline = 'middle'; k.g.lineWidth = 14; k.g.strokeStyle = 'rgba(0,38,87,0.85)'; k.g.strokeText(part, 256, 118); k.g.fillStyle = '#ffffff'; k.g.fillText(part, 256, 118);
+  const lab = new THREE.Mesh(new THREE.PlaneGeometry(AR.W * 0.94, AR.H * 0.8), new THREE.MeshBasicMaterial({ map: k.t, transparent: true, depthWrite: false })); lab.position.z = AR.D / 2 + 0.03;
+  g.add(body, edges, edges2, lab); arGroup.add(g);
+  return { g, body, edges, lab, part, kind, home: V3(0, 0, 0), yaw0: 0, state: 'free', seed: Math.random() * 6 };
+}
+const arTint = (b, c) => { b.edges.material.color.set(c); b.body.material.color.set(c === AR.edge ? AR.body : c); };
+const ar = { order: shuffle(WORDS.slice()), wi: -1, word: null, blocks: [], need: 0, pick: null, stand: null, walked: 0, rot: 0, detour: false, feedback: '',
+  stats: { words: 0, placed: 0, right: 0, wrong: 0, dist: 0, detourT: 0, rotDeg: 0 }, history: [], log: [] };
+function arLog(text) { ar.log.push({ t: TDT(), text }); if (ar.log.length > 80) ar.log.shift(); ar.feedback = text; }
+function arNewWord() {
+  ar.blocks.forEach(b => { arGroup.remove(b.g); b.g.traverse(o => { if (o.geometry) o.geometry.dispose(); if (o.material && o.material.map) o.material.map.dispose(); }); });
+  ar.wi = (ar.wi + 1) % ar.order.length; const w = ar.word = ar.order[ar.wi];
+  const others = shuffle(WORDS.filter(x => x !== w).flatMap(x => x.parts.map((p, i) => ({ p, i })))).filter((o, i, a) => !w.parts.includes(o.p) && a.findIndex(q => q.p === o.p) === i).slice(0, 3);
+  ar.blocks = shuffle([...w.parts.map((p, i) => arMakeBlock(p, i)), ...others.map(o => arMakeBlock(o.p, o.i))]);
+  ar.blocks.forEach((b, i) => { let p, tries = 0; do { p = V3(-30 + Math.random() * 60, AR.Y, -12 + Math.random() * 38); tries++; } while (tries < 200 && (Math.hypot(p.x, p.z - 20) < 8 || ar.blocks.slice(0, i).some(o => o.home.distanceTo(p) < 11)));
+    b.home.copy(p); b.g.position.copy(p); b.yaw0 = (Math.random() < 0.5 ? 1 : -1) * (0.9 + Math.random() * 2.2); b.g.rotation.y = b.yaw0; });
+  ar.need = 0; ar.pick = null; arSlotLines.forEach((l, i) => l.material.color.set(i === 0 ? AR.sel : AR.edge)); drawARFrame(); arLog(`New word: build the word that means "${w.meaning}".`);
+}
+function arStart() {
+  const st = flyState; st.pos.set(0, TABLE_Y, 20); st.groundY = TABLE_Y; legs.forEach(L => { L.groundY = TABLE_Y; }); st.yaw = Math.PI; plantFeet();
+  if (!ar.word || ar.need >= 3) arNewWord(); else ar.blocks.forEach(b => { if (b.state !== 'locked') { b.state = 'free'; arTint(b, AR.edge); b.g.position.copy(b.home); b.g.rotation.y = b.yaw0; } });
+  ar.pick = null; arTether.visible = false; drawARFrame(); setPhase('a_look'); renderTrial();
+}
+function drawARFrame() {
+  const g = arFrameC.g, w = ar.word, done = ar.need >= 3; g.clearRect(0, 0, 1024, 300);
+  g.fillStyle = 'rgba(0,38,87,0.62)'; g.strokeStyle = done ? '#22b35e' : '#43e0ff'; g.lineWidth = 6; g.beginPath(); g.roundRect(6, 6, 1012, 288, 30); g.fill(); g.stroke();
+  g.fillStyle = '#9ff6ff'; g.font = `700 26px ${DISPLAY}`; g.textAlign = 'left'; g.textBaseline = 'alphabetic'; g.fillText('MIXED REALITY · WORD BUILDER', 40, 58);
+  g.textAlign = 'right'; g.fillText(`${Math.min(ar.need, 3)} of 3 placed`, 984, 58); g.textAlign = 'left';
+  if (!w) return void (arFrameC.t.needsUpdate = true);
+  if (done) { g.fillStyle = '#7dffb0'; g.font = `700 96px ${DISPLAY}`; g.fillText(`${w.word} ✓`, 40, 190); g.fillStyle = '#e6fbff'; g.font = `400 34px ${BODY}`; g.fillText(w.meaning, 40, 250); }
+  else { g.fillStyle = '#e6fbff'; g.font = `400 34px ${BODY}`; g.fillText('Build the word that means', 40, 130); g.font = `700 64px ${DISPLAY}`; g.fillText(w.meaning, 40, 210); g.fillStyle = '#9ff6ff'; g.font = `400 28px ${BODY}`; g.fillText(`Next: the ${KINDS[ar.need]}`, 40, 262); }
+  arFrameC.t.needsUpdate = true;
+}
+// walk toward goal, around any floating block in the way; true once there and facing `face`
+function arWalkTo(goal, face, dt) {
+  const st = flyState, to = goal.clone().sub(st.pos).setY(0), dist = to.length(), dir = dist > 1e-3 ? to.clone().normalize() : V3(0, 0, 0), push = V3(0, 0, 0); ar.detour = false;
+  if (dist > 3) ar.blocks.forEach(b => { if (b === ar.pick || b.state === 'locked') return; const d = st.pos.clone().sub(b.g.position).setY(0), L = d.length(); if (L < 7.5) { const side = V3(-dir.z, 0, dir.x); push.addScaledVector(d.normalize(), (7.5 - L) / 7.5 * 1.2).addScaledVector(side, Math.sign(side.dot(d) || 1) * (7.5 - L) / 7.5); ar.detour = true; } });
+  if (ar.detour) { dir.add(push).normalize(); ar.stats.detourT += dt; pulse(2, 0.9); }
+  const tgtYaw = dist > 0.4 ? Math.atan2(dir.x, dir.z) : Math.atan2(face.x - st.pos.x, face.z - st.pos.z), dy = arWrap(tgtYaw - st.yaw); st.yaw += Math.max(-4 * dt, Math.min(4 * dt, dy));
+  if (dist > 0.4) { const v = Math.min(dist, 7 * dt) * (Math.abs(dy) > 1.2 ? 0.3 : 1); st.pos.addScaledVector(dir, v); ar.walked += v; ar.stats.dist += v; st.walking = true; st.gaitPhase += dt * 10; recordTraj(st.pos);
+    pulse(5, 0.8); pulse(11, 0.6); pulse(12, 0.55 + 0.4 * Math.abs(Math.sin(st.gaitPhase))); pulse(13, 0.55 + 0.4 * Math.abs(Math.cos(st.gaitPhase))); pulse(14, 0.5 + 0.4 * Math.abs(Math.sin(st.gaitPhase + 1))); return false; }
+  st.walking = false; return Math.abs(dy) < 0.08;
+}
+// the right foreleg pinches: it reaches up toward the block, and the headset draws a ray from its tip
+function arPoint(B, now, circle) {
+  const L = legs[1]; agent.tapLeg = L; L.step = null; const q = V3(0.9, 2.3, 2.5); if (circle) { q.x += Math.cos(now / 110) * 0.35; q.y += Math.sin(now / 110) * 0.35; }
+  L.foot.lerp(fly.localToWorld(q), 0.3); const face = B.g.position.clone().add(flyState.pos.clone().setY(B.g.position.y).sub(B.g.position).setLength(AR.D / 2));
+  const P = arTether.geometry.attributes.position; P.setXYZ(0, L.foot.x, L.foot.y, L.foot.z); P.setXYZ(1, face.x, face.y, face.z); P.needsUpdate = true; arTether.visible = true;
+}
+function stepAR(dt, now) {
+  const st = flyState, w = ar.word, need = w.parts[Math.min(2, ar.need)], B = ar.pick;
+  ar.blocks.forEach(b => { b.body.material.opacity = 0.2 + 0.05 * Math.sin(now / 90 + b.seed);
+    if (b.state === 'free' || b.state === 'target') b.g.position.y = AR.Y + Math.sin(now / 700 + b.seed) * 0.35;
+    if (b.state === 'return') { b.g.position.lerp(b.home, Math.min(1, dt * 2.5)); b.g.rotation.y += arWrap(b.yaw0 - b.g.rotation.y) * Math.min(1, dt * 2.5); if (b.g.position.distanceTo(b.home) < 0.2) { b.state = 'free'; arTint(b, AR.edge); } }
+    if (b.state === 'locked') b.g.position.y = b.slotY + Math.sin(now / 400) * 0.08; });
+  switch (agent.phase) {
+    case 'a_look': st.walking = false; st.headYaw = Math.sin(agent.t * 6) * 0.35; pulse(0, 1); pulse(1, 1); pulse(2, 0.6);
+      if (agent.t > 1.2) { st.headYaw = 0; const right = ar.blocks.find(b => b.part === need && b.state === 'free'), others = ar.blocks.filter(b => b.state === 'free' && b !== right);
+        ar.pick = Math.random() < 0.35 + 0.6 * memoryOf(need) || !others.length ? right : others[Math.floor(Math.random() * others.length)];
+        ar.pick.state = 'target'; arTint(ar.pick, AR.sel); ar.walked = 0; ar.rot = 0; arLog(`Looking for the ${KINDS[ar.need]}; heading for "${ar.pick.part}".`); setPhase('a_walk'); } break;
+    case 'a_walk': { const to = B.g.position.clone().setY(TABLE_Y), away = st.pos.clone().sub(to).setY(0).normalize(); ar.stand = to.addScaledVector(away, 4.6);
+      if (arWalkTo(ar.stand, B.g.position, dt)) setPhase('a_grab'); break; }
+    case 'a_grab': arPoint(B, now, false); pulse(12, 0.9); pulse(11, 0.7); pulse(0, 0.8); pulse(1, 0.8); if (agent.t > 0.8) { B.state = 'held'; setPhase('a_carry'); } break;
+    case 'a_carry': { const S = AR_SLOT[ar.need], goal = V3(S.x, TABLE_Y, S.z + 7);
+      const arrived = arWalkTo(goal, S, dt); const h = head.getWorldPosition(V3(0, 0, 0)), f = V3(Math.sin(st.yaw), 0, Math.cos(st.yaw));
+      B.g.position.lerp(h.addScaledVector(f, 4.6).add(V3(0, 2.4, 0)), Math.min(1, dt * 5)); arPoint(B, now, false); pulse(12, 0.8);
+      if (arrived) setPhase('a_rotate'); break; }
+    case 'a_rotate': { const S = AR_SLOT[ar.need]; B.g.position.lerp(S, Math.min(1, dt * 3)); const e = arWrap(-B.g.rotation.y), step = Math.sign(e) * Math.min(Math.abs(e), 1.8 * dt);
+      B.g.rotation.y += step; ar.rot += Math.abs(step); ar.stats.rotDeg += Math.abs(step) * 57.3; arPoint(B, now, true); pulse(2, 0.9); pulse(12, 0.9); pulse(0, 0.7); pulse(1, 0.7);
+      if (Math.abs(e) < 0.01 && B.g.position.distanceTo(S) < 0.15) { B.g.rotation.y = 0; arPlace(); setPhase('a_place'); } break; }
+    case 'a_place': if (agent.t > 1.0) { agent.tapLeg = null; arTether.visible = false; ar.pick = null; if (ar.need >= 3) { drawARFrame(); setPhase('a_done'); } else setPhase('a_look'); renderTrial(); } break;
+    case 'a_done': ar.blocks.forEach(b => { if (b.state === 'locked') b.body.material.opacity = 0.25 + 0.2 * Math.sin(now / 120); });
+      if (agent.t > 2.8) { arNewWord(); setPhase('a_look'); renderTrial(); } break;
+  }
+}
+function arPlace() {
+  const B = ar.pick, w = ar.word, need = w.parts[ar.need], ok = B.part === need, V = memoryOf(need), dw = ETA * ((ok ? 1 : 0) - V); game.memory.set(need, V + dw);
+  tele.trials.push({ t: TDT(), exp: 12, correct: ok, pos: ar.need, needed: need, chosen: B.part, sameKind: B.kind === ar.need, offset: 0, R: ok ? 1 : 0, V, dw, level: tele.ddt.level, divergence: 0, dwell: 0, word: w.word });
+  if (tele.trials.length > 400) tele.trials.splice(0, tele.trials.length - 400);
+  const S = ar.stats; S.placed++; ok ? S.right++ : S.wrong++; ar.history.push({ t: TDT(), word: w.word, slot: KINDS[ar.need], need, part: B.part, ok, rot: ar.rot * 57.3, walk: ar.walked }); if (ar.history.length > 80) ar.history.shift();
+  game.dopamine = Math.max(0, Math.min(1, game.dopamine + (ok ? 0.3 : -0.1))); ok ? (pulse(3, 1), pulse(4, 1), pulse(10, 0.9)) : (pulse(8, 0.8), pulse(9, 0.8));
+  if (ok) { B.state = 'locked'; B.slotY = AR_SLOT[ar.need].y; arTint(B, AR.ok); arSlotLines[ar.need].material.color.set(AR.ok); ar.need++; if (ar.need < 3) arSlotLines[ar.need].material.color.set(AR.sel); else { S.words++; arLog(`Built "${w.word}" in mixed reality.`); } if (ar.need < 3) arLog(`"${B.part}" snaps into the ${KINDS[ar.need - 1]} slot.`); }
+  else { B.state = 'return'; arTint(B, AR.bad); arLog(`"${B.part}" is not the ${KINDS[ar.need]}; it drifts back. The ${KINDS[ar.need]} is "${need}".`); }
+  drawARFrame();
+}
+function renderARTrial() {
+  const w = ar.word, T = ar.stats; if (!w) return;
+  $('meaning').textContent = w.meaning; $('chips').innerHTML = w.parts.map((p, i) => i < ar.need ? `<span class="chip ${KINDS[i]}">${p}<small>${w.glosses[i]}</small></span>` : `<span class="chip empty">${KINDS[i]}</span>`).join('<span class="plus" aria-hidden="true">+</span>');
+  $('placedCount').textContent = `${Math.min(ar.need, 3)} of 3 placed`; $('placedBar').classList.toggle('done', ar.need >= 3); $('placedBar').firstElementChild.style.width = `${Math.min(1, ar.need / 3) * 100}%`;
+  $('feedback').textContent = ar.feedback || ''; $('nowLine').textContent = `AR · building "${w.meaning}"`;
+  $('stWords').textContent = T.words; $('stTaps').textContent = T.placed; $('stAcc').textContent = T.placed ? Math.round(100 * T.right / T.placed) + '%' : '0%';
+  const parts = [...new Set(WORDS.flatMap(x => x.parts))].filter(p => game.memory.has(p)).sort((a, b) => game.memory.get(b) - game.memory.get(a));
+  $('memory').innerHTML = parts.map(p => { const m = game.memory.get(p); return `<div class="m"><span>${p}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${m >= 0.8 ? 'mastered' : Math.round(m * 100) + '% · learning'}</span></div>`; }).join('');
+}
+window.__ar = ar; // debug hook
+
 // ---------- Cameras ----------
 let camMode = 'follow';
 let view = 'simulate';
 function updateCamera() {
+  if (camMode === 'phone' && experiment === 12) { const h = head.getWorldPosition(new THREE.Vector3()), f = new THREE.Vector3(Math.sin(flyState.yaw), 0, Math.cos(flyState.yaw)); const k = fly.scale.x; camera.position.copy(h).addScaledVector(f, 1.3 * k).add(new THREE.Vector3(0, 0.5 * k, 0)); controls.target.copy(h).addScaledVector(f, 12); } // what the fly sees through the glass headset, overlays included
   if (camMode === 'follow') {
     const goal = experiment === 11 ? VR_MID.clone() : flyState.pos.clone(); goal.y += 1;
     const delta = goal.clone().sub(controls.target).multiplyScalar(flyState.airborne ? 0.25 : 0.12);
@@ -3891,12 +4098,13 @@ function setCamMode(m) {
   camMode = m;
   document.querySelectorAll('[data-cam]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === m)));
   const s = phone.scale.x;
-  if (m === 'phone' && EXP[experiment].vrRig) { const c = vrScr.getWorldPosition(new THREE.Vector3()), nrm = new THREE.Vector3(0, 0, 1).applyQuaternion(vrScr.getWorldQuaternion(new THREE.Quaternion())); controls.target.copy(c); camera.position.copy(c).addScaledVector(nrm, 44).add(new THREE.Vector3(0, 6, 0)); }
+  if (m === 'phone' && EXP[experiment].ar) { /* follows the head every frame in updateCamera */ }
+  else if (m === 'phone' && EXP[experiment].vrRig) { const c = vrScr.getWorldPosition(new THREE.Vector3()), nrm = new THREE.Vector3(0, 0, 1).applyQuaternion(vrScr.getWorldQuaternion(new THREE.Quaternion())); controls.target.copy(c); camera.position.copy(c).addScaledVector(nrm, 44).add(new THREE.Vector3(0, 6, 0)); }
   else if (m === 'phone' && EXP[experiment].tablet) { const c = bookPoint(512, 320); controls.target.copy(c); camera.position.copy(c).addScaledVector(bookNormal(), 150).add(new THREE.Vector3(-40, 20, 0)); }
   else if (m === 'phone' && EXP[experiment].classroom) { controls.target.set(0, CLS.topY - 2, -10); camera.position.set(0, CLS.topY + 78, 104); }
   else if (m === 'phone' && EXP[experiment].laptop) { const L = laptop.position; controls.target.set(L.x, TABLE_Y + 60 * s, -30 * s); camera.position.set(L.x, TABLE_Y + 190 * s + (experiment === 5 ? 3 : 0), 300 * s + (experiment === 5 ? 5 : 0)); }
   else if (m === 'phone') { controls.target.set(0, screenTopY(), 0); camera.position.set(0, 120 * s + (experiment === 3 ? 2 : 0), 150 * s + (experiment === 3 ? 4 : 0)); }
-  else { const t = experiment === 11 ? VR_MID : flyState.pos; controls.target.copy(t); camera.position.copy(t).add(new THREE.Vector3(...EXP[experiment].camOffset)); }
+  else { const t = experiment === 11 ? VR_MID : flyState.pos; controls.target.copy(t); camera.position.copy(t).add(new THREE.Vector3(...EXP[experiment].camOffset).multiplyScalar(butterfly && !EXP[experiment].vrRig ? 1.7 : 1)); } // step back for the bigger butterfly
 }
 document.querySelectorAll('[data-cam]').forEach(b => b.addEventListener('click', () => setCamMode(b.dataset.cam)));
 
@@ -3905,16 +4113,16 @@ function setExperiment(n) {
   experiment = n; const cfg = EXP[n]; const s = cfg.phoneScale;
   document.querySelectorAll('[data-exp]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.exp) === n)));
   $('expNote').textContent = cfg.note; $('physPill').textContent = cfg.phys;
-  $('gripPill').textContent = n === 11 ? 'Six feet on the ball' : n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
-  document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.vrRig ? 'Laptop' : cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
+  $('gripPill').textContent = n === 12 ? 'A foreleg pinches the holograms' : n === 11 ? 'Six feet on the ball' : n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
+  document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.ar ? 'Headset' : cfg.vrRig ? 'Laptop' : cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
   const wasClass = classroom.visible; classroom.visible = !!cfg.classroom; fly.visible = !cfg.classroom;
   $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n >= 8; $('soundBtn').hidden = n !== 8 && n !== 9; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; flyState.pitchOverride = null; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom || n === 11; $('vision').hidden = !(cfg.classroom && visionOn);
-  $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : n === 10 || n === 11 ? 'answers right' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : n === 10 || n === 11 ? 'answers written' : 'answers';
+  $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : n === 10 || n === 11 ? 'answers right' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : n === 12 ? 'blocks placed' : n === 10 || n === 11 ? 'answers written' : 'answers';
   $('memHead').textContent = cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : n === 9 ? 'Vocabulary memory · Kenyon cell to MBON weights' : n === 10 ? 'Greek root memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
   document.querySelectorAll('#brainPanel [data-rp]').forEach(el => { el.hidden = !el.dataset.rp.split(' ').includes(String(n)); }); requestAnimationFrame(() => { sizeCharts(); resize(); renderScenario(true); }); // right panel sections for this scenario
   if (cfg.classroom) { setFocal(cls.focal); classroomStart(); } else head.add(eyeCam);
   phone.scale.setScalar(s); phone.position.set(0, TABLE_Y + 4 * s, 0); phone.updateMatrixWorld(true);
-  phone.visible = !cfg.laptop && !cfg.classroom && !cfg.tablet && !cfg.vrRig; vrRig.visible = headset.visible = !!cfg.vrRig; head.rotation.x = 0; agent.tapLeg = null; laptop.visible = !!cfg.laptop; tabletRig.visible = !!cfg.tablet;
+  phone.visible = !cfg.laptop && !cfg.classroom && !cfg.tablet && !cfg.vrRig && !cfg.ar; vrRig.visible = headset.visible = !!cfg.vrRig; arGroup.visible = arHeadset.visible = !!cfg.ar; head.rotation.x = 0; agent.tapLeg = null; laptop.visible = !!cfg.laptop; tabletRig.visible = !!cfg.tablet;
   if (cfg.laptop) { laptop.scale.setScalar(s); laptop.position.set(0, TABLE_Y, 0); laptop.updateMatrixWorld(true); }
   Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === n; });
   ghostLine.visible = false; agent.ghost = null;
@@ -3936,14 +4144,18 @@ function setExperiment(n) {
   if (n === 9) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); readingStart(); }
   if (n === 10) writingStart();
   if (n === 11) vrStart();
+  if (n === 12) arStart();
   // the side panel follows the experiment to its most related dashboard (after start-up, once the dock code exists)
   requestAnimationFrame(() => { dockChoice = DOCK_FOR[n]; if (view === 'simulate') dock(dockChoice); });
 }
-const DOCK_FOR = { 11: 'd-vr-sec', 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
+const DOCK_FOR = { 12: 'd-ar-sec', 11: 'd-vr-sec', 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
 document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => setExperiment(Number(b.dataset.exp))));
 // fruit fly or Blue Morpho butterfly: swaps the wings on every fly in every experiment
 function setSpecies(b) {
   butterfly = b; const now = performance.now();
+  fly.scale.setScalar(b ? BF_SCALE : 1); tfly.rig.group.scale.setScalar(tfly.rig.group.userData.base * (b ? BF_SCALE : 1)); cls.students.forEach(st => st.rig.group.scale.setScalar(st.rig.group.userData.base * (b ? BF_SCALE_CLASS : 1)));
+  if (experiment === 7) cls.students.forEach(st => { if (!st.flight) plantStudent(st); }); else plantFeet();
+  if (camMode === 'follow') setCamMode('follow');
   WING_GROUPS.forEach(g => { g.userData.flyWing.visible = !b; g.userData.bf.visible = b; const sd = g.userData.side; if (b) morphoPose(g, now, {}); else g.rotation.set(0, -sd * 0.35, sd * 0.25); });
   document.querySelectorAll('[data-species]').forEach(x => x.setAttribute('aria-pressed', String((x.dataset.species === 'butterfly') === b)));
   try { localStorage.setItem('ffl-species', b ? 'butterfly' : 'fly'); } catch (e) { /* storage blocked: the choice lasts this visit */ }
@@ -3964,7 +4176,7 @@ $('playBtn').addEventListener('click', () => { playing = !playing; $('playBtn').
 $('resetBtn').addEventListener('click', () => {
   game.memory.clear(); game.taps = 0; game.correct = 0; game.wordsBuilt = 0; game.dopamine = 0.5; game.placed = 0; game.wordIdx = 0; game.lesson = 1;
   for (const e of [1, 2, 3, 4, 5, 6]) heat[e].getContext('2d').clearRect(0, 0, heat[e].width, heat[e].height);
-  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; }); reading.vocab.clear(); reading.pageLog = []; reading.checkLog = []; reading.log = []; reading.storyLog = []; reading.si = 0; reading.pi = 0; reading.answered = -1; reading.mode = 'library'; reading.opening = true; Object.keys(reading.stats).forEach(k => { reading.stats[k] = 0; }); vr.history = []; vr.log = []; vr.lesson = 1; Object.keys(vr.stats).forEach(k => { vr.stats[k] = 0; }); wr.mem.clear(); wr.history = []; wr.log = []; wr.qi = 0; wr.lesson = 1; wr.skill = 0.35; Object.keys(wr.stats).forEach(k => { wr.stats[k] = 0; });
+  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; }); reading.vocab.clear(); reading.pageLog = []; reading.checkLog = []; reading.log = []; reading.storyLog = []; reading.si = 0; reading.pi = 0; reading.answered = -1; reading.mode = 'library'; reading.opening = true; Object.keys(reading.stats).forEach(k => { reading.stats[k] = 0; }); ar.history = []; ar.log = []; Object.keys(ar.stats).forEach(k => { ar.stats[k] = 0; }); if (ar.word) ar.wi--; ar.word = null; vr.history = []; vr.log = []; vr.lesson = 1; Object.keys(vr.stats).forEach(k => { vr.stats[k] = 0; }); wr.mem.clear(); wr.history = []; wr.log = []; wr.qi = 0; wr.lesson = 1; wr.skill = 0.35; Object.keys(wr.stats).forEach(k => { wr.stats[k] = 0; });
   Object.values(trajGroups).forEach(g => { while (g.children.length) { const c = g.children[0]; g.remove(c); c.geometry.dispose(); } });
   game.feedback = 'Memory cleared. The fly is looking for the prefix.'; cur().parts.forEach(memoryOf); setExperiment(experiment);
 });
@@ -4320,6 +4532,17 @@ function drawDashboards(now, force) {
     const pct = x => Math.round(x * 100) + '%';
     const rows = St.map(s => { const T = s.stats, tt = T.onTask + T.courtT + T.groomT + T.away; return `<tr><th scope="row">${s.name} ${SEXSYM(s)}</th><td>${doing(s)}</td><td class="${s.progress >= CLS.items ? 'yes' : ''}">${Math.min(s.progress, CLS.items)} / ${CLS.items}</td><td>${T.taps ? pct(T.correct / T.taps) : '–'}</td><td>${tt ? pct(T.onTask / tt) : '–'}</td><td>${T.courted} · ${T.court}</td><td>${T.rejections} · ${T.rejectedBy}</td><td>${s.sex === 'M' ? s.drive.toFixed(2) : s.receptive.toFixed(2)}</td><td>${s.attention.toFixed(2)}</td></tr>`; }).join('');
     const tb = document.querySelector('#cRoster tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
+  }
+  // ---- dashboard 12: AR ----
+  { const S = ar.stats, H = ar.history;
+    $t('arMode', experiment === 12 ? `Experiment 12 · AR · ${ar.word ? ar.word.word : ''}` : 'switch to Experiment 12 to run');
+    $t('arWords', S.words); $t('arPlaced', S.placed); $t('arAcc', S.placed ? Math.round(100 * S.right / S.placed) + '%' : '–'); $t('arDist', Math.round(S.dist / BL) + ' body lengths'); $t('arDetour', Math.round(S.detourT) + ' s'); $t('arRotT', Math.round(S.rotDeg) + '°'); $t('arNow', experiment === 12 ? (PHASE_TEXT[agent.phase] || agent.phase) : '–');
+    barChart('cArRot', H.slice(-24).map(h => ({ v: h.rot, color: h.ok ? CH.green : CH.red, label: `${h.word}, ${h.slot}: "${h.part}" turned ${Math.round(h.rot)}°` })), { positive: true, empty: 'Runs in Experiment 12' });
+    const ml = ar.word ? [...new Set([...ar.word.parts, ...ar.blocks.map(b => b.part)])].map(p => { const m = game.memory.has(p) ? game.memory.get(p) : 0; return `<div class="m"><span>${p}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${Math.round(m * 100)}%</span></div>`; }).join('') : '<p class="sub">Runs in Experiment 12.</p>';
+    const me = document.getElementById('arMem'); if (me.innerHTML !== ml) me.innerHTML = ml;
+    const rows = H.slice(-12).reverse().map(h => `<tr><th scope="row">${h.word}</th><td>${h.slot}</td><td>${h.part}</td><td>${Math.round(h.rot)}°</td><td>${(h.walk / BL).toFixed(1)} BL</td><td class="${h.ok ? 'yes' : ''}">${h.ok ? 'yes' : 'no'}</td></tr>`).join('');
+    const tb = document.querySelector('#arTable tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
+    document.getElementById('arLogL').innerHTML = ar.log.slice(-10).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing yet</li>';
   }
   // ---- dashboard 11: VR ----
   { const S = vr.stats, it = vr.items[vr.ii];
