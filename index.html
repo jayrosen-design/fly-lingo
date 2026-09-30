@@ -39,7 +39,20 @@ header .brand{display:flex;flex-direction:column;gap:2px;min-width:0}
 .seg{display:flex;gap:4px;padding:4px;background:rgba(255,255,255,.12);border-radius:999px;flex-shrink:0}
 .seg button{height:32px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:#fff;font:700 14px/20px var(--display);cursor:pointer;white-space:nowrap}
 .seg button[aria-pressed="true"]{background:#fff;color:var(--dark-blue);box-shadow:var(--shadow-raised)}
-.simctl>.seg:first-child{flex-shrink:1;min-width:0;overflow-x:auto;scrollbar-width:none}.simctl>.seg:first-child::-webkit-scrollbar{display:none}
+.expdrop{flex-shrink:0}
+#expDropBtn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px 0 16px;border:0;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;white-space:nowrap}
+#expDropBtn .lbl{font:700 11px/14px var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-on-dark-muted)}
+#expDropBtn b{font:700 15px/20px var(--display)}
+#expDropBtn svg{width:12px;height:12px;transition:transform .15s}#expDropBtn[aria-expanded="true"] svg{transform:rotate(180deg)}
+#expDropBtn:hover{background:rgba(255,255,255,.2)}
+.expmenu{position:fixed;z-index:60;display:flex;flex-direction:column;gap:2px;min-width:230px;max-height:min(72vh,600px);overflow-y:auto;overscroll-behavior:contain;padding:6px;border-radius:14px;background:var(--dark-blue);box-shadow:0 12px 32px rgba(0,20,60,.35);border:1px solid rgba(255,255,255,.14)}
+.expmenu[hidden]{display:none}
+.expmenu button{height:38px;padding:0 14px;border:0;border-radius:10px;background:transparent;color:#fff;font:700 15px/20px var(--display);text-align:left;cursor:pointer;flex-shrink:0}
+.expmenu button:hover,.expmenu button:focus-visible{background:rgba(255,255,255,.14);outline:none}
+.expmenu button[aria-pressed="true"]{background:#fff;color:var(--dark-blue)}
+#bfSpecies{height:28px;max-width:190px;border-radius:8px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);color:#fff;font:700 12px/16px var(--display);padding:0 6px;cursor:pointer}
+#bfSpecies option{color:#10223f;background:#fff}
+#bfSpecies[hidden]{display:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border-radius:10px;font:700 16px/20px var(--display);cursor:pointer;border:2px solid transparent;text-decoration:none;white-space:nowrap}
 .btn-accent{background:var(--alachua);color:var(--dark-blue);border-color:var(--dark-blue)}
 header .btn-accent{border-color:var(--alachua);flex-shrink:0}
@@ -267,7 +280,9 @@ pre.mermaid svg{max-width:none;height:auto}
   .tabs{flex-wrap:nowrap;gap:2px}.tabs a{padding:0 7px;font-size:12px;height:30px}
   header{padding:6px 10px;padding-top:calc(6px + env(safe-area-inset-top,0px));row-gap:6px}
   .seg{padding:3px;gap:2px}.seg button{height:28px;padding:0 8px;font-size:12px}
-  .simctl{flex-wrap:wrap;row-gap:6px}.simctl>.seg:first-child{flex:1 0 100%}
+  .simctl{flex-wrap:wrap;row-gap:6px}.expdrop{flex:1 1 auto;order:0}#playBtn{order:1}.simctl>.seg{order:2}
+  #expDropBtn{height:34px;width:100%;justify-content:flex-start}#expDropBtn svg{margin-left:auto}#expDropBtn .lbl{display:none}
+  #bfSpecies{max-width:120px;font-size:11px}
   :root{--dock-h:104px}#dockBottom .mini canvas{height:74px}
 }
 @media (max-height:520px) and (orientation:landscape){
@@ -287,6 +302,16 @@ pre.mermaid svg{max-width:none;height:auto}
           <button type="button" data-species="fly" aria-pressed="true" title="Fruit fly" aria-label="Fruit fly"><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="10" cy="12" rx="8" ry="4.2" transform="rotate(-35 10 12)" fill="#dfe8ff" fill-opacity=".75" stroke="#b9c7e6" stroke-width=".8"/><ellipse cx="22" cy="12" rx="8" ry="4.2" transform="rotate(35 22 12)" fill="#dfe8ff" fill-opacity=".75" stroke="#b9c7e6" stroke-width=".8"/><ellipse cx="16" cy="19" rx="4" ry="7" fill="#c8894e"/><path d="M12.4 19h7.2M12.3 22h7.4M13 25h6" stroke="#5a3a1e" stroke-width="1.1"/><circle cx="16" cy="10.5" r="3.4" fill="#c8894e"/><circle cx="13.6" cy="10" r="2.3" fill="#d4262c"/><circle cx="18.4" cy="10" r="2.3" fill="#d4262c"/></svg></button>
           <button type="button" data-species="butterfly" aria-pressed="false" title="Blue Morpho butterfly" aria-label="Blue Morpho butterfly"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><radialGradient id="morphoG" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#0b3fc4"/><stop offset=".6" stop-color="#1f8bff"/><stop offset="1" stop-color="#5fd8ff"/></radialGradient></defs><path d="M15 14C11 5 4 3 2 6s1 9 5 10c-4 2-5 7-2 9s8-2 10-8z" fill="url(#morphoG)" stroke="#07080c" stroke-width="1.6"/><path d="M17 14c4-9 11-11 13-8s-1 9-5 10c4 2 5 7 2 9s-8-2-10-8z" fill="url(#morphoG)" stroke="#07080c" stroke-width="1.6"/><rect x="15" y="9" width="2" height="15" rx="1" fill="#1b120b"/><path d="M15.5 9 13 4M16.5 9 19 4" stroke="#1b120b" stroke-width=".9"/><circle cx="4" cy="7" r=".8" fill="#fff"/><circle cx="28" cy="7" r=".8" fill="#fff"/></svg></button>
         </div>
+        <select id="bfSpecies" aria-label="Butterfly species" title="Butterfly species" hidden>
+          <option value="mix">Blue Morpho · mixed class</option>
+          <option value="0">Blue Morpho</option>
+          <option value="1">Zebra Longwing</option>
+          <option value="2">Gulf Fritillary</option>
+          <option value="3">Monarch</option>
+          <option value="4">Eastern Tiger Swallowtail</option>
+          <option value="5">Cloudless Sulphur</option>
+          <option value="6">Common Buckeye</option>
+        </select>
         <h1><a href="#home" style="color:inherit;text-decoration:none">Fruit Fly Lingo</a></h1>
       </div>
       <span class="eyebrow">Embodied Drosophila literacy simulation</span>
@@ -298,22 +323,25 @@ pre.mermaid svg{max-width:none;height:auto}
       <a href="#about" data-view="about">About</a>
     </nav>
     <div class="simctl" id="simctl" aria-label="Simulation controls">
-      <div class="seg" role="group" aria-label="Experiment">
-        <button type="button" data-exp="1" aria-pressed="true">Walking</button>
-        <button type="button" data-exp="2" aria-pressed="false">Flying</button>
-        <button type="button" data-exp="3" aria-pressed="false">Touch</button>
-        <button type="button" data-exp="4" aria-pressed="false">Spelling</button>
-        <button type="button" data-exp="5" aria-pressed="false">Teacher</button>
-        <button type="button" data-exp="6" aria-pressed="false">District admin</button>
-        <button type="button" data-exp="7" aria-pressed="false">Classroom</button>
-        <button type="button" data-exp="8" aria-pressed="false">Phonics</button>
-        <button type="button" data-exp="9" aria-pressed="false">Reading</button>
-        <button type="button" data-exp="10" aria-pressed="false">Writing</button>
-        <button type="button" data-exp="11" aria-pressed="false">VR</button>
-        <button type="button" data-exp="12" aria-pressed="false">AR</button>
-        <button type="button" data-exp="13" aria-pressed="false">Scrabble</button>
-        <button type="button" data-exp="14" aria-pressed="false">Paper book</button>
-        <button type="button" data-exp="15" aria-pressed="false">Geography</button>
+      <div class="expdrop" id="expDrop">
+        <button type="button" id="expDropBtn" aria-haspopup="true" aria-expanded="false" aria-controls="expMenu"><span class="lbl">Experiment</span><b id="expDropName">Walking</b><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="expmenu" id="expMenu" role="group" aria-label="Experiment" hidden>
+            <button type="button" data-exp="1" aria-pressed="true">Walking</button>
+            <button type="button" data-exp="2" aria-pressed="false">Flying</button>
+            <button type="button" data-exp="3" aria-pressed="false">Touch</button>
+            <button type="button" data-exp="4" aria-pressed="false">Spelling</button>
+            <button type="button" data-exp="5" aria-pressed="false">Teacher</button>
+            <button type="button" data-exp="6" aria-pressed="false">District admin</button>
+            <button type="button" data-exp="7" aria-pressed="false">Classroom</button>
+            <button type="button" data-exp="8" aria-pressed="false">Phonics</button>
+            <button type="button" data-exp="9" aria-pressed="false">Reading</button>
+            <button type="button" data-exp="10" aria-pressed="false">Writing</button>
+            <button type="button" data-exp="11" aria-pressed="false">VR</button>
+            <button type="button" data-exp="12" aria-pressed="false">AR</button>
+            <button type="button" data-exp="13" aria-pressed="false">Scrabble</button>
+            <button type="button" data-exp="14" aria-pressed="false">Paper book</button>
+            <button type="button" data-exp="15" aria-pressed="false">Geography</button>
+        </div>
       </div>
       <div class="seg" role="group" aria-label="Speed">
         <button type="button" data-speed="1" aria-pressed="true">1×</button>
@@ -323,6 +351,7 @@ pre.mermaid svg{max-width:none;height:auto}
       <div class="seg" role="group" aria-label="Camera">
         <button type="button" data-cam="follow" aria-pressed="true">Follow</button>
         <button type="button" data-cam="phone" aria-pressed="false">Phone</button>
+        <button type="button" data-cam="back" aria-pressed="false" title="Just above its back, looking over its head">On its back</button>
       </div>
       <button type="button" id="playBtn" class="btn btn-accent" aria-pressed="true">Pause</button>
     </div>
@@ -421,6 +450,7 @@ pre.mermaid svg{max-width:none;height:auto}
       <button type="button" class="pill toggle" id="overlayBtn" aria-pressed="true" hidden>Hide social overlay</button>
       <button type="button" class="pill toggle" id="visionBtn" aria-pressed="false" hidden>Show vision overlay</button>
       <button type="button" class="pill toggle" id="soundBtn" aria-pressed="false" hidden>Sound off</button>
+      <button type="button" class="pill toggle" id="eyeBtn" aria-pressed="true">Hide fly-eye view</button>
     </div>
     <p id="expNote">Experiment 1 · Walking. The fly walks across a phone lying on the table and presses tiles with a foreleg.</p>
     <div id="eyeLabel" aria-hidden="true"><span class="eyebrow">Fly eye</span><span>750 ommatidia · 4.5° between axes</span></div>
@@ -1315,21 +1345,21 @@ renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xe9e4dc);
-scene.fog = new THREE.Fog(0xe9e4dc, 260, 520);
-const camera = new THREE.PerspectiveCamera(38, 1, 0.05, 1000);
+scene.fog = new THREE.Fog(0xe9e4dc, 700, 2600);
+const camera = new THREE.PerspectiveCamera(38, 1, 0.05, 6000);
 camera.position.set(-14, 12, 22);
 const controls = new OrbitControls(camera, sceneCanvas);
-controls.enableDamping = true; controls.dampingFactor = 0.08; controls.maxPolarAngle = Math.PI * 0.49; controls.minDistance = 1; controls.maxDistance = 400;
+controls.enableDamping = true; controls.dampingFactor = 0.08; controls.maxPolarAngle = Math.PI * 0.49; controls.minDistance = 1; controls.maxDistance = 1400;
 
 scene.add(new THREE.HemisphereLight(0xffffff, 0x9aa3b5, 0.85));
 const sun = new THREE.DirectionalLight(0xfff4e0, 1.7);
 sun.position.set(70, 130, 90); sun.castShadow = true;
 sun.shadow.mapSize.set(2048, 2048);
 Object.assign(sun.shadow.camera, { left: -110, right: 110, top: 110, bottom: -110, near: 10, far: 400 });
-sun.shadow.bias = -0.0005;
+sun.shadow.bias = -0.0002; sun.shadow.normalBias = 0.05;
 scene.add(sun);
 
-const table = new THREE.Mesh(new THREE.PlaneGeometry(900, 900), new THREE.MeshStandardMaterial({ color: 0xe6e0d6, roughness: 0.95 }));
+const table = new THREE.Mesh(new THREE.PlaneGeometry(9000, 9000), new THREE.MeshStandardMaterial({ color: 0xe6e0d6, roughness: 0.95 }));
 table.rotation.x = -Math.PI / 2; table.position.y = TABLE_Y; table.receiveShadow = true; scene.add(table);
 
 scene.add(phone);
@@ -1339,7 +1369,7 @@ const screenTex = new THREE.CanvasTexture(screenCanvas); screenTex.colorSpace = 
 const screenMesh = new THREE.Mesh(new THREE.PlaneGeometry(PHONE_W, PHONE_H), new THREE.MeshStandardMaterial({ map: screenTex, roughness: 0.15, metalness: 0.05, emissive: 0xffffff, emissiveMap: screenTex, emissiveIntensity: 0.35 }));
 screenMesh.rotation.x = -Math.PI / 2; screenMesh.position.y = SCREEN_Y; screenMesh.receiveShadow = true; phone.add(screenMesh);
 const glass = new THREE.Mesh(new THREE.PlaneGeometry(PHONE_W, PHONE_H), new THREE.MeshPhysicalMaterial({ color: 0xffffff, transparent: true, opacity: 0.08, roughness: 0.05, metalness: 0, clearcoat: 1 }));
-glass.rotation.x = -Math.PI / 2; glass.position.y = SCREEN_Y + 0.05; phone.add(glass);
+glass.rotation.x = -Math.PI / 2; glass.position.y = SCREEN_Y + 0.05; glass.material.depthWrite = false; glass.material.polygonOffset = true; glass.material.polygonOffsetFactor = -2; glass.material.polygonOffsetUnits = -8; phone.add(glass);
 const screenTopY = () => phone.position.y + SCREEN_Y * phone.scale.y;
 
 // trajectories, one group per experiment
@@ -1375,7 +1405,7 @@ for (let i = 0; i < 4; i++) { const s = mesh(new THREE.TorusGeometry(0.8 - i * 0
 const head = new THREE.Group(); head.position.set(0, 1.25, 1.25); body.add(head);
 mesh(new THREE.SphereGeometry(0.62, 20, 16), cuticle, head);
 [-1, 1].forEach(s => { const e = mesh(new THREE.SphereGeometry(0.4, 10, 8), eyeMat, head); e.position.set(s * 0.46, 0.05, 0.25); });
-[-1, 1].forEach(s => { const a = mesh(new THREE.CylinderGeometry(0.03, 0.05, 0.6, 6), dark, head); a.position.set(s * 0.18, -0.1, 0.72); a.rotation.x = Math.PI / 2 - 0.5; });
+const antennae = []; [-1, 1].forEach(s => { const a = mesh(new THREE.CylinderGeometry(0.03, 0.05, 0.6, 6), dark, head); antennae.push(a); a.userData.side = s; a.position.set(s * 0.18, -0.1, 0.72); a.rotation.x = Math.PI / 2 - 0.5; });
 const proboscis = mesh(new THREE.CylinderGeometry(0.1, 0.14, 1, 8), dark, head); proboscis.position.set(0, -0.6, 0.3); proboscis.scale.y = 0.35;
 const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); const wg = new THREE.CircleGeometry(1, 24); wg.scale(0.55, 1.5, 1); const w = mesh(wg, wingMat, g); w.castShadow = false; w.rotation.x = -Math.PI / 2; w.position.set(s * 0.55, 0, -1.45); g.userData.side = s; return g; });
 // ---------- Butterfly mode: every fly can swap its wings for Blue Morpho wings ----------
@@ -1453,23 +1483,26 @@ const GNV_BUTTERFLIES = [
     under: (g, h) => { h.base(g, '#6e5a44', '#a58e70', 0.93); h.line(g, [[3.4, 2.0], [4.4, 1.0]], 0.28, '#e5dcc6'); h.eye(g, 4.0, 0.2, 0.3, [['#e8b64a', 1], ['#1b120b', 0.7]]); [[3.3, -2.3], [2.4, -3.0]].forEach(([u, v]) => h.dot(g, u, v, 0.1, '#1b120b')); } }),
 ];
 // give a wing group its butterfly wing (the Blue Morpho unless a species is given); the group's first child is the fly's own wing
-function addMorpho(g, set = MORPHO) {
-  const s = g.userData.side, out = new THREE.Group(); out.scale.set(s, 1, 1); out.position.set(-s * 0.35, 0.02, 0.35); out.visible = butterfly; g.add(out);
+function buildBf(g, set) { // the butterfly wing of one wing group, for one species; replaces any it had
+  const s = g.userData.side, old = g.userData.bf, out = new THREE.Group(); out.scale.set(s, 1, 1); out.position.set(-s * 0.35, 0.02, 0.35); out.visible = old ? old.visible : butterfly; if (old) g.remove(old); g.add(out);
   const flat = new THREE.Group(); flat.rotation.x = -Math.PI / 2; out.add(flat);
   [[set.fore, 0.01], [set.hind, -0.01]].forEach(([geo, lift]) => [set.topMat, set.underMat].forEach(mat => { const m = new THREE.Mesh(geo, mat); m.position.z = lift; m.castShadow = true; flat.add(m); }));
-  g.userData.flyWing = g.children[0]; g.userData.bf = out; WING_GROUPS.push(g);
+  g.userData.bf = out; g.userData.bfSet = set;
 }
+function addMorpho(g, set = MORPHO) { g.userData.flyWing = g.children[0]; buildBf(g, set); WING_GROUPS.push(g); }
 // o: fly (0 to 1, flapping), song (0 to 1, this wing held open and vibrating), flick, threat, seed (desynchronises flies)
 function morphoPose(g, t, o) {
   const s = g.userData.side; t += o.seed || 0;
-  const rest = 1.5 - 1.3 * Math.pow(Math.max(0, Math.sin(t / 2300)), 3); // closed over the back, now and then opened to bask
+  const rest = camMode === 'back' ? 0.28 + 0.06 * Math.sin(t / 900) : 1.5 - 1.3 * Math.pow(Math.max(0, Math.sin(t / 2300)), 3); // closed over the back, now and then opened to bask; held open when the camera rides on its back
   let z = rest + (0.45 + 0.9 * Math.sin(t / 45) - rest) * (o.fly || 0); // about 3.5 beats a second, deep strokes
   if (o.flick) z += (rest - 1.2 * Math.abs(Math.sin(t / 60)) - z) * o.flick;
   if (o.threat) z += (0.05 - z) * o.threat;
   if (o.song) z += (0.1 + Math.sin(t / 9) * 0.08 - z) * o.song;
   g.rotation.set(0, 0, s * z);
 }
-wings.forEach(g => addMorpho(g));
+wings.forEach(g => { addMorpho(g); g.userData.flyWing.material = wingMat.clone(); }); // its own wing material, so the blur below does not touch the classroom flies
+// at about 200 beats a second a fruit fly's wings are a blur: two faint copies at the ends of the stroke read as that blur
+const wingGhosts = wings.map(g => [-1, 1].map(e => { const G = new THREE.Group(); G.position.copy(g.position); body.add(G); const w = g.userData.flyWing.clone(); w.material = new THREE.MeshBasicMaterial({ color: 0xdfe8ff, transparent: true, opacity: 0.16, depthWrite: false, side: THREE.DoubleSide }); w.castShadow = false; G.add(w); G.userData = { side: g.userData.side, end: e }; G.visible = false; return G; }));
 const legDefs = [
   { hip: [-0.6, 0.85, 0.75], rest: [-1.7, 0, 1.6] }, { hip: [0.6, 0.85, 0.75], rest: [1.7, 0, 1.6] },
   { hip: [-0.8, 0.8, 0.0], rest: [-2.2, 0, 0.1] }, { hip: [0.8, 0.8, 0.0], rest: [2.2, 0, 0.1] },
@@ -1856,14 +1889,14 @@ function animateFly(dt) {
   let stepping = legs.filter(L => L.step).length;
   legs.forEach(L => {
     if (L === busyLeg || (agent.tapLeg2 && L === agent.tapLeg2)) return; // the paper book grips with both forelegs
-    if (st.airborne) { // tuck the legs under the body
-      const tucked = L.rest.clone().multiplyScalar(0.55); tucked.y = 0.55; L.foot.copy(fly.localToWorld(tucked)); L.step = null; return;
+    if (st.airborne) { // tuck the legs under the body, drawing them in rather than snapping
+      const tucked = L.rest.clone().multiplyScalar(0.55); tucked.y = 0.55; L.foot.lerp(fly.localToWorld(tucked), 1 - Math.exp(-dt * 16)); L.step = null; return;
     }
     const restW = restWorld(L); if (EXP[experiment].laptop) L.groundY = restW.y;
     if (L.step) {
       L.step.t += dt / 0.09;
       const k = Math.min(1, L.step.t);
-      L.foot.lerpVectors(L.step.from, L.step.to, k); L.foot.y = Math.max(L.step.from.y, L.step.to.y) + Math.sin(k * Math.PI) * 0.5;
+      const e = k * k * (3 - 2 * k); L.foot.lerpVectors(L.step.from, L.step.to, e); L.foot.y = Math.max(L.step.from.y, L.step.to.y) + Math.sin(k * Math.PI) * 0.55 * (1 - 0.3 * k); // lift fast, set down softly
       if (k >= 1) { L.step = null; L.foot.y = restW.y; }
     } else if (L.foot.distanceTo(restW) > 0.5 && stepping < 3) {
       forward.set(Math.sin(st.yaw), 0, Math.cos(st.yaw));
@@ -1877,7 +1910,11 @@ function animateFly(dt) {
   const bob = st.walking ? Math.sin(st.gaitPhase * 2) * 0.04 : 0;
   const lift = bob - st.flinch * 0.32 + (st.airborne ? -0.3 : 0);
   body.position.y = lift;
-  body.rotation.z = st.flinch * Math.sin(performance.now() / 40) * 0.08;
+  const tNow = performance.now() / 1000, yawRate = st.prevYaw == null ? 0 : Math.atan2(Math.sin(st.yaw - st.prevYaw), Math.cos(st.yaw - st.prevYaw)) / Math.max(1e-3, dt); st.prevYaw = st.yaw;
+  st.bank = (st.bank || 0) + ((st.airborne ? THREE.MathUtils.clamp(-yawRate * 0.12, -0.45, 0.45) : 0) - (st.bank || 0)) * Math.min(1, dt * 5); // bank into turns in flight
+  body.rotation.z = st.flinch * Math.sin(performance.now() / 40) * 0.08 + st.bank + (st.walking ? Math.sin(st.gaitPhase) * 0.035 : 0); // and roll a little with the tripod gait
+  abdomen.scale.y = 0.9 * (1 + 0.025 * Math.sin(tNow * 2.6)); // breathing
+  antennae.forEach(a => { const sd = a.userData.side, busy = st.airborne ? 1.6 : st.walking ? 1 : 0.6; a.rotation.x = Math.PI / 2 - 0.5 + Math.sin(tNow * 3.1 * busy + sd) * 0.09 * busy + (st.airborne ? 0.25 : 0); a.rotation.z = sd * (0.12 + Math.sin(tNow * 2.3 + sd * 2) * 0.07); });
   const pitch = st.pitchOverride != null ? st.pitchOverride : st.airborne ? Math.max(-0.6, Math.min(0.5, -st.vel.y * 0.04)) : 0; // Writing pitches nose-up to put the abdomen tip on the glass
   body.rotation.x += (pitch - body.rotation.x) * Math.min(1, dt * 6);
   proboscis.scale.y = 0.35 + st.proboscis * 0.9; proboscis.position.y = -0.6 - st.proboscis * 0.35;
@@ -1887,6 +1924,8 @@ function animateFly(dt) {
     if (st.airborne) { body.position.y += Math.sin(now / 45 - 0.6) * 0.35; body.rotation.x += Math.cos(now / 45) * 0.06; } } // each downstroke lifts the body: a bobbing flight
   else wings.forEach(g => { g.rotation.z = g.userData.side * (0.25 + flap); g.rotation.y = g.userData.side * -0.35;
     if (st.songExt > 0.01 && g.userData.side === st.songSide) { g.rotation.y = g.userData.side * (-0.35 - 1.25 * st.songExt); g.rotation.z += g.userData.side * Math.sin(performance.now() / 4) * 0.18 * st.songAmp; } }); // one wing out to sing (Experiment 8)
+  { const blur = !(butterfly && experiment !== 13) && Math.abs(flap) + (st.buzz > 0.3 ? 0.3 : 0) > 0.35 && st.songExt < 0.2; wings.forEach((g, i) => { g.userData.flyWing.material.opacity = blur ? 0.22 : 0.38;
+    wingGhosts[i].forEach(G => { G.visible = blur; const sd = G.userData.side; G.rotation.set(0, sd * -0.35, sd * (0.25 + G.userData.end * 0.6)); }); }); }
   legs.forEach(L => solveLeg(L, lift));
 }
 
@@ -2396,8 +2435,13 @@ eyeScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMater
       gl_FragColor=vec4(mix(vec3(0.02,0.06,0.2),col,mask),1.0);
     }`,
 })));
+let eyeOn = true;
+function setEye(on, save) { eyeOn = on; const b = $('eyeBtn'), who = butterfly ? 'butterfly' : 'fly'; b.textContent = on ? `Hide ${who}-eye view` : `Show ${who}-eye view`; b.setAttribute('aria-pressed', String(on)); $('eyeLabel').style.visibility = on ? '' : 'hidden';
+  if (save) { try { localStorage.setItem('ffl-eye', on ? '1' : '0'); } catch (e) { /* storage blocked */ } } }
+$('eyeBtn').addEventListener('click', () => setEye(!eyeOn, true));
+{ let v = null; try { v = localStorage.getItem('ffl-eye'); } catch (e) { /* storage blocked */ } setEye(v !== '0', false); }
 function renderEye() {
-  if (experiment === 7 || experiment === 11) return; // many flies: no single fly-eye view in the classroom
+  if (experiment === 7 || experiment === 11 || !eyeOn) return; // many flies: no single fly-eye view in the classroom; or the viewer hid it
   const r = sceneCanvas.getBoundingClientRect(); if (r.width < 700 || r.height < 460) return; // no room for the inset on a phone
   renderer.setRenderTarget(eyeRT); renderer.render(scene, eyeCam); renderer.setRenderTarget(null);
   const size = 220, pad = 16, x = r.width - size - pad;
@@ -3050,7 +3094,7 @@ function scenarioCard() {
   if (e === 8) { const P = phon, s = P.stage === 'mic' ? P.plan[P.cur] : null;
     return ['Wing song', kv([['Now singing', s ? `${slash(s.q)} for ${slash(s.p)}` : 'nothing, wings folded'], ['Song mode', s ? SONG[PH[s.q].kind] : '–'], ['Carrier pitch', Math.round(P.f0) + ' Hz'], ['Wing', st.songExt > 0.5 ? (st.songSide > 0 ? 'right wing out' : 'left wing out') : 'folded'], ['Word', `${P.word.word} · attempt ${Math.max(1, P.attempt)} of 2`], ['Sounds right overall', P.stats.sounds ? pct(P.stats.right / P.stats.sounds) : '–'], ['Sound', audio.on ? 'on' : 'off, use the pill above the arena']])]; }
   const s = cls.students[cls.focal]; const other = s.state === 'court' || s.state === 'fight' ? (s.rival && s.state === 'fight' ? s.rival : s.partner) : s.courtedBy;
-  return [`Following ${s.name} ${SEXSYM(s)}`, kv([['Doing', doing(s)], ['Table', 'ABCDEF'[s.table] + (s.at !== s.table ? ` · visiting ${'ABCDEF'[s.at]}` : '')], ['Items', `${Math.min(s.progress, CLS.items)} of ${CLS.items}`], ['First-try accuracy', s.stats.taps ? pct(s.stats.correct / s.stats.taps) : '–'], ['Attention', s.attention.toFixed(2)], ...(butterfly ? [['Species', `${s.species.name} · <i>${s.species.latin}</i>`]] : []), [s.sex === 'M' ? 'Courtship drive' : 'Receptivity', (s.sex === 'M' ? s.drive : s.receptive).toFixed(2)], [s.state === 'fight' ? 'Rival' : s.sex === 'M' ? 'Courting' : 'Courted by', other ? `${other.name} ${SEXSYM(other)}` : 'nobody']])];
+  return [`Following ${s.name} ${SEXSYM(s)}`, kv([['Doing', doing(s)], ['Table', 'ABCDEF'[s.table] + (s.at !== s.table ? ` · visiting ${'ABCDEF'[s.at]}` : '')], ['Items', `${Math.min(s.progress, CLS.items)} of ${CLS.items}`], ['First-try accuracy', s.stats.taps ? pct(s.stats.correct / s.stats.taps) : '–'], ['Attention', s.attention.toFixed(2)], ...(butterfly ? [['Species', `${clsSpecies(s).name} · <i>${clsSpecies(s).latin}</i>`]] : []), [s.sex === 'M' ? 'Courtship drive' : 'Receptivity', (s.sex === 'M' ? s.drive : s.receptive).toFixed(2)], [s.state === 'fight' ? 'Rival' : s.sex === 'M' ? 'Courting' : 'Courted by', other ? `${other.name} ${SEXSYM(other)}` : 'nobody']])];
 }
 function renderScenario(force) {
   if (view !== 'simulate' && !force) return;
@@ -4683,7 +4727,16 @@ window.__gq = gq; // debug hook
 // ---------- Cameras ----------
 let camMode = 'follow';
 let view = 'simulate';
+// the camera just above the insect's back, looking over its head at what it is doing
+const povV = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()];
+function povSubject() { if (EXP[experiment].classroom) { const f = cls.students[cls.focal]; return { h: f.rig.head, g: f.rig.group, k: f.rig.group.scale.x }; } return { h: head, g: fly, k: fly.scale.x }; }
+function updateBackCam(snap) {
+  const { h, g, k } = povSubject(), [hp, dir, pos, tgt] = povV; h.updateWorldMatrix(true, false); h.getWorldPosition(hp); g.getWorldDirection(dir); dir.y = 0; dir.normalize(); // the body's heading, not the scanning head
+  pos.copy(hp).addScaledVector(dir, -2.6 * k); pos.y += 1.9 * k; tgt.copy(hp).addScaledVector(dir, 7 * k); tgt.y -= 1.0 * k;
+  const a = snap ? 1 : 0.6; camera.position.lerp(pos, a); controls.target.lerp(tgt, a); controls.update();
+}
 function updateCamera() {
+  if (camMode === 'back') return updateBackCam(false);
   if (camMode === 'phone' && experiment === 12) { const h = head.getWorldPosition(new THREE.Vector3()), f = new THREE.Vector3(Math.sin(flyState.yaw), 0, Math.cos(flyState.yaw)); const k = fly.scale.x; camera.position.copy(h).addScaledVector(f, 1.3 * k).add(new THREE.Vector3(0, 0.5 * k, 0)); controls.target.copy(h).addScaledVector(f, 12); } // what the fly sees through the glass headset, overlays included
   if (camMode === 'follow') {
     const goal = experiment === 11 ? VR_MID.clone() : experiment === 13 ? SC_MID.clone() : experiment === 14 ? PB_MID.clone() : experiment === 15 ? GEO_MID.clone() : flyState.pos.clone(); goal.y += 1;
@@ -4696,6 +4749,7 @@ function setCamMode(m) {
   camMode = m;
   document.querySelectorAll('[data-cam]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === m)));
   const s = phone.scale.x;
+  if (m === 'back') { updateBackCam(true); return; }
   if (m === 'phone' && EXP[experiment].geo) { controls.target.copy(GEO.C); camera.position.copy(GEO.C).add(new THREE.Vector3(10, 6, 44)); }
   else if (m === 'phone' && EXP[experiment].paper) { controls.target.set(0, PB.Y, 0); camera.position.set(0, PB.Y + 52, 20); }
   else if (m === 'phone' && EXP[experiment].scrabble) { controls.target.copy(SC_MID); camera.position.set(0, SC.G + 105, 6); }
@@ -4713,12 +4767,12 @@ document.querySelectorAll('[data-cam]').forEach(b => b.addEventListener('click',
 function setExperiment(n) {
   const changed = experiment !== n; experiment = n; const cfg = EXP[n]; const s = cfg.phoneScale;
   document.querySelectorAll('[data-exp]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.exp) === n)));
-  { const cur = document.querySelector(`.simctl [data-exp="${n}"]`), row = cur && cur.parentElement; if (row && row.scrollWidth > row.clientWidth) row.scrollTo({ left: cur.offsetLeft - row.clientWidth / 2 + cur.offsetWidth / 2, behavior: 'smooth' }); }
+  $('expDropName').textContent = cfg.name;
   $('expNote').textContent = cfg.note; $('physPill').textContent = cfg.phys;
   $('gripPill').textContent = n === 15 ? 'A foreleg taps the globe' : n === 14 ? 'Both forelegs grip the page' : n === 13 ? 'A foreleg carries each tile' : n === 12 ? 'A foreleg pinches the holograms' : n === 11 ? 'Six feet on the ball' : n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
   document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.geo ? 'Globe' : cfg.paper ? 'Book' : cfg.scrabble ? 'Board' : cfg.ar ? 'Headset' : cfg.vrRig ? 'Laptop' : cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
   const wasClass = classroom.visible; classroom.visible = !!cfg.classroom; fly.visible = !cfg.classroom;
-  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n >= 8; $('soundBtn').hidden = n !== 8 && n !== 9 && n !== 14; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; flyState.pitchOverride = null; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom || n === 11; $('vision').hidden = !(cfg.classroom && visionOn);
+  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n >= 8; $('soundBtn').hidden = n !== 8 && n !== 9 && n !== 14; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; flyState.pitchOverride = null; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom || n === 11; $('eyeBtn').hidden = !!cfg.classroom || n === 11; $('vision').hidden = !(cfg.classroom && visionOn);
   $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : n === 15 ? 'countries right' : n === 14 ? 'pages read' : n === 13 ? 'words played' : n === 10 || n === 11 ? 'answers right' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : n === 12 ? 'blocks placed' : n === 13 ? 'points' : n === 14 ? 'words read' : n === 15 ? 'questions' : n === 10 || n === 11 ? 'answers written' : 'answers';
   $('memHead').textContent = cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : n === 9 ? 'Vocabulary memory · Kenyon cell to MBON weights' : n === 10 ? 'Greek root memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
   document.querySelectorAll('#brainPanel [data-rp]').forEach(el => { el.hidden = !el.dataset.rp.split(' ').includes(String(n)); }); requestAnimationFrame(() => { sizeCharts(); resize(); renderScenario(true); }); // right panel sections for this scenario
@@ -4754,21 +4808,46 @@ function setExperiment(n) {
   requestAnimationFrame(() => { dockChoice = DOCK_FOR[n]; if (view === 'simulate') dock(dockChoice); });
 }
 const DOCK_FOR = { 15: 'd-geo-sec', 14: 'd-pb-sec', 13: 'd-sc-sec', 12: 'd-ar-sec', 11: 'd-vr-sec', 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
-document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => setExperiment(Number(b.dataset.exp))));
+document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => { setExperiment(Number(b.dataset.exp)); expMenuOpen(false, true); }));
+// the experiment dropdown: a vertical list, placed under its button (fixed, so the header's scrolling row does not clip it)
+function expMenuOpen(on, refocus) {
+  const btn = $('expDropBtn'), m = $('expMenu'); if (on === !m.hidden) return; m.hidden = !on; btn.setAttribute('aria-expanded', String(on));
+  if (on) { const r = btn.getBoundingClientRect(), w = Math.max(230, r.width); m.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.left)) + 'px'; m.style.top = (r.bottom + 6) + 'px'; m.style.minWidth = w + 'px';
+    m.style.maxHeight = Math.min(600, innerHeight - r.bottom - 16) + 'px'; const cur = m.querySelector('[aria-pressed="true"]') || m.firstElementChild; cur.scrollIntoView({ block: 'nearest' }); cur.focus(); }
+  else if (refocus) btn.focus();
+}
+$('expDropBtn').addEventListener('click', () => expMenuOpen($('expMenu').hidden));
+$('expMenu').addEventListener('keydown', e => { const items = [...$('expMenu').querySelectorAll('button')], i = items.indexOf(document.activeElement);
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); items[(i + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length].focus(); }
+  else if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); items[e.key === 'Home' ? 0 : items.length - 1].focus(); }
+  else if (e.key === 'Escape' || e.key === 'Tab') { expMenuOpen(false, e.key === 'Escape'); } });
+document.addEventListener('pointerdown', e => { if (!$('expMenu').hidden && !e.target.closest('#expDrop')) expMenuOpen(false); });
+addEventListener('resize', () => expMenuOpen(false));
 // fruit fly or Blue Morpho butterfly: swaps the wings on every fly in every experiment
 // the student's own look: its wings and size (Scrabble keeps it a fruit fly, facing the butterfly)
 function applyMainLook(b) { fly.scale.setScalar(b ? BF_SCALE : 1); wings.forEach(g => { g.userData.flyWing.visible = !b; g.userData.bf.visible = b; const sd = g.userData.side; if (b) morphoPose(g, performance.now(), {}); else g.rotation.set(0, -sd * 0.35, sd * 0.25); }); }
+// which butterfly: one species everywhere, or the Blue Morpho with the six Gainesville species mixed in the classroom
+let bfChoice = 'mix'; const BF_SETS = () => [MORPHO, ...GNV_BUTTERFLIES];
+const bfMain = () => bfChoice === 'mix' ? MORPHO : BF_SETS()[+bfChoice];
+const clsSpecies = st => bfChoice === 'mix' ? st.species : bfMain();
+function setBfSpecies(v, save) {
+  bfChoice = v; $('bfSpecies').value = v; const main = bfMain();
+  [wings, tfly.rig.wings, scBf.rig.wings].forEach(W => W.forEach(g => buildBf(g, main))); cls.students.forEach(st => st.rig.wings.forEach(g => buildBf(g, clsSpecies(st))));
+  if (save) { try { localStorage.setItem('ffl-bf', v); } catch (e) { /* storage blocked */ } } renderScenario(true);
+}
 function setSpecies(b) {
   butterfly = b; const now = performance.now();
   applyMainLook(experiment === 13 ? false : b); tfly.rig.group.scale.setScalar(tfly.rig.group.userData.base * (b ? BF_SCALE : 1)); cls.students.forEach(st => st.rig.group.scale.setScalar(st.rig.group.userData.base * (b ? BF_SCALE_CLASS : 1)));
   if (experiment === 7) cls.students.forEach(st => { if (!st.flight) plantStudent(st); }); else plantFeet();
   if (camMode === 'follow') setCamMode('follow');
   WING_GROUPS.forEach(g => { g.userData.flyWing.visible = !b; g.userData.bf.visible = b; const sd = g.userData.side; if (b) morphoPose(g, now, {}); else g.rotation.set(0, -sd * 0.35, sd * 0.25); });
+  applyMainLook(experiment === 13 ? false : b); $('bfSpecies').hidden = !b; setEye(eyeOn, false); // in Scrabble the student stays a fruit fly
   document.querySelectorAll('[data-species]').forEach(x => x.setAttribute('aria-pressed', String((x.dataset.species === 'butterfly') === b)));
   try { localStorage.setItem('ffl-species', b ? 'butterfly' : 'fly'); } catch (e) { /* storage blocked: the choice lasts this visit */ }
 }
 document.querySelectorAll('[data-species]').forEach(x => x.addEventListener('click', () => setSpecies(x.dataset.species === 'butterfly')));
-{ let saved = null; try { saved = localStorage.getItem('ffl-species'); } catch (e) { /* storage blocked */ } if (saved === 'butterfly') setSpecies(true); }
+$('bfSpecies').addEventListener('change', e => setBfSpecies(e.target.value, true));
+{ let saved = null, bf = null; try { saved = localStorage.getItem('ffl-species'); bf = localStorage.getItem('ffl-bf'); } catch (e) { /* storage blocked */ } if (bf && $('bfSpecies').querySelector(`option[value="${bf}"]`) && bf !== 'mix') setBfSpecies(bf, false); if (saved === 'butterfly') setSpecies(true); }
 $('pathsBtn').addEventListener('click', () => { showPaths = !showPaths; $('pathsBtn').setAttribute('aria-pressed', String(showPaths)); $('pathsBtn').textContent = showPaths ? 'Hide paths' : 'Show paths'; Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === experiment; }); ghostLine.visible = showPaths && experiment !== 3 && !!agent.ghost; });
 $('seasonBtn').addEventListener('click', () => { cls.season = !cls.season; $('seasonBtn').setAttribute('aria-pressed', String(cls.season)); $('seasonBtn').textContent = cls.season ? 'Mating season on' : 'Mating season off'; clsLog(cls.season ? 'Mating season: courtship drive restored.' : 'Out of season: courtship drive drops to a tenth.'); drawBoard(); });
 $('visionBtn').addEventListener('click', () => { visionOn = !visionOn; $('visionBtn').setAttribute('aria-pressed', String(visionOn)); $('visionBtn').textContent = visionOn ? 'Hide vision overlay' : 'Show vision overlay'; $('vision').hidden = !visionOn; });
@@ -4839,6 +4918,10 @@ function xlstmStep(s) {
 // ---------- Main loop ----------
 let last = performance.now(), hudAcc = 0, flashRedraw = 0;
 cur().parts.forEach(memoryOf);
+// screens, pages, cards and labels lie on or just above a surface: pull them forward in depth so they never fight it
+scene.traverse(o => { if (!o.isMesh || o === table || !o.geometry || o.geometry.type !== 'PlaneGeometry') return; const M = Array.isArray(o.material) ? o.material : [o.material];
+  M.forEach(m => { if (!m.map || m.polygonOffset) return; m.polygonOffset = true; m.polygonOffsetFactor = -1; m.polygonOffsetUnits = -4; m.needsUpdate = true; }); });
+function fitClip() { const d = camera.position.distanceTo(controls.target), n = THREE.MathUtils.clamp(d * 0.004, 0.02, 1.5); if (Math.abs(n - camera.near) > camera.near * 0.1) { camera.near = n; camera.updateProjectionMatrix(); } }
 setExperiment(1); renderBrainHud(); resize(); setCamMode(camMode);
 document.getElementById('loading').hidden = true;
 function frame(now) {
@@ -4865,7 +4948,7 @@ function frame(now) {
     if (experiment !== 7) { sampleTelemetry(now); sampleScenario(now, dt); }
   }
   updateCamera(); controls2.update(); if (audio.v) updateVoice();
-  if (view === 'simulate') { renderer.render(scene, camera); renderEye(); if (experiment === 7 && visionOn) drawVision(); if (BRAIN_EXPS.includes(experiment)) renderer2.render(scene2, camera2); if (drawDashboards(now)) drawStrip(); if (now - rpAt > 250) { rpAt = now; renderScenario(); } }
+  if (view === 'simulate') { fitClip(); renderer.render(scene, camera); renderEye(); if (experiment === 7 && visionOn) drawVision(); if (BRAIN_EXPS.includes(experiment)) renderer2.render(scene2, camera2); if (drawDashboards(now)) drawStrip(); if (now - rpAt > 250) { rpAt = now; renderScenario(); } }
   else if (view === 'dash') drawDashboards(now);
 }
 requestAnimationFrame(frame);
@@ -4880,7 +4963,7 @@ function setView(v) {
   Object.entries(VIEWS).forEach(([k, id]) => { document.getElementById(id).hidden = k !== v; });
   document.querySelectorAll('.tabs a').forEach(a => { if (a.dataset.view === v) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
   document.getElementById('simctl').hidden = v !== 'simulate';
-  if (v === 'simulate') { resize(); dock(dockChoice); setCamMode(camMode); const cur = document.querySelector(`.simctl [data-exp="${experiment}"]`); if (cur) cur.parentElement.scrollLeft = cur.offsetLeft - cur.parentElement.clientWidth / 2 + cur.offsetWidth / 2; } /* reframe for this screen's shape */
+  if (v === 'simulate') { resize(); dock(dockChoice); setCamMode(camMode); } /* reframe for this screen's shape */
   else undockAll();
   if (v === 'dash') { sizeCharts(); drawDashboards(performance.now(), true); }
   if (v === 'about') loadMermaid();
