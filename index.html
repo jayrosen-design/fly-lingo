@@ -394,7 +394,7 @@ pre.mermaid svg{max-width:none;height:auto}
 
       <h3 class="sec">What you can measure</h3>
       <div class="three">
-        <article class="card"><h3>Brain and body</h3><p>A 55,000-point nervous system stylised after Drosophila anatomy, a fly-eye view through 750 ommatidia, tarsal adhesion, gaze contrast and viewing distance, all live.</p></article>
+        <article class="card"><h3>Brain and body</h3><p>A 57,000-point nervous system shaped after the Drosophila neuropils, a fly-eye view through 750 ommatidia, tarsal adhesion, gaze contrast and viewing distance, all live.</p></article>
         <article class="card"><h3>Learning</h3><p>The dopamine rule Δw = η(R − V) on every answer, G-DINA attribute mastery, Half-Life Regression forgetting curves, and a Rasch Wright map with standard errors.</p></article>
         <article class="card"><h3>Navigation and proctoring</h3><p>Fitts' law for the teacher's cursor, grading error against real accuracy, and proctoring flags scored against seeded cheating with precision and response time.</p></article>
       </div>
@@ -463,7 +463,7 @@ pre.mermaid svg{max-width:none;height:auto}
       <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <h2>Central nervous system</h2>
-          <span class="sub">Point cloud stylised after Drosophila anatomy, brain and ventral nerve cord. Drag to turn.</span>
+          <span class="sub">Neuropils after the FlyWire and MaleCNS atlases, each in its own hue; amber is firing. Drag to turn.</span>
         </div>
         <canvas id="brain" aria-label="Rotating point cloud of the fly's brain; regions brighten when active"></canvas>
       </section>
@@ -538,6 +538,8 @@ pre.mermaid svg{max-width:none;height:auto}
         <article class="card span6"><header><h3>PAM reinforcement</h3><span class="sub">Δw = η (R − V), η = 0.22</span></header><div class="kv"><span>Last reward R</span><b id="nR">–</b><span>Expected value V (memory before)</span><b id="nV">–</b><span>Δw applied</span><b id="nDw">–</b></div><canvas class="chart" id="cDw" aria-label="Weight change per answer, last 30"></canvas><p class="sub">Each bar is one answer. Green raised the Kenyon cell to MBON weight of the needed word part; red lowered it.</p></article>
         <article class="card span6"><header><h3>Differential memory decay</h3><span class="sub">STM versus LTM compartments</span></header><canvas class="chart" id="cStm" aria-label="Short-term and long-term memory traces over time"></canvas><div class="legend"><span><i style="background:#0021a5"></i>γ lobe STM, decays in about 25 s</span><span><i style="background:#22884c"></i>α/β lobe LTM, consolidated weight</span></div></article>
         <article class="card span6"><header><h3>Neuro-connectivity matrix</h3><div class="seg" style="background:var(--surface-sunken)" role="group" aria-label="Dataset"><button type="button" data-ds="malecns" aria-pressed="true" style="color:var(--ink)">MaleCNS v1.0</button><button type="button" data-ds="fafb" aria-pressed="false" style="color:var(--ink)">FlyWire FAFB</button></div></header><div class="kv" id="dsInfo"></div><canvas class="chart sq" id="cMatrix" aria-label="Region to region connectivity matrix, brightness follows live co-activity"></canvas><p class="sub">Region-level stand-in: fibre tracts of the stylised brain, scaled by live co-activity. Rows for the ventral nerve cord are absent from FAFB, which stops at the brain.</p></article>
+        <article class="card span6"><header><h3>Regions each activity drives</h3><span class="sub">mean activity by experiment, scaled to the busiest cell</span></header><canvas class="chart tall" id="cBrainExp" aria-label="Table of mean activity in each brain region group for every experiment run this session"></canvas><p class="sub">Each row is an experiment, each column a group of neuropils. The deeper the amber, the more that activity drives the region: the optic lobes while reading, the leg neuropils while walking or writing, the mushroom bodies when a reward lands.</p></article>
+        <article class="card span6"><header><h3>Motivation</h3><span class="sub">dopamine against each reward and error</span></header><canvas class="chart tall" id="cDopa" aria-label="Dopamine level over time with a tick for every right and wrong answer"></canvas><div class="legend"><span><i style="background:#0021a5"></i>dopamine</span><span><i style="background:#22884c"></i>right answer</span><span><i style="background:#d32737"></i>wrong answer</span></div><p class="sub">A right answer lifts dopamine and a wrong one drops it; between answers it drifts back to 0.5. The PAM rule above uses the same signal to change a memory.</p></article>
       </section>
 
       <h3 class="sec" id="d-psycho">Dashboard 3 · Psychometric and cognitive diagnosis</h3>
@@ -549,6 +551,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <article class="card span6"><header><h3>G-DINA attribute mastery</h3><span class="sub">posterior, mastered at 0.80</span></header><div id="gdina" class="memory"></div><p class="sub">Proxies from the running session: α1 from contrast under the gaze while reading, α2 from accuracy when distractors share the needed kind, α3 from root and suffix placements, α4 from landing error.</p></article>
         <article class="card span6"><header><h3>Half-Life Regression</h3><span class="sub">p(recall) = 2^(−Δt / h)</span></header><canvas class="chart tall" id="cHlr" aria-label="Forgetting curves per word part"></canvas><div class="legend" id="hlrLegend"></div><label class="sub" for="hlrThr">Alert when P(fail) exceeds <b id="hlrThrVal">0.50</b></label><input type="range" id="hlrThr" min="0.2" max="0.9" step="0.05" value="0.5"><div id="hlrAlerts" style="display:flex;flex-direction:column;gap:6px"></div><p class="sub">One simulated minute counts as one day. Half-life grows with the weight: h = 0.5 · 2^(4m) days.</p></article>
         <article class="card span6"><header><h3>Wright map</h3><span class="sub">Many-Facet Rasch, one logit scale</span></header><canvas class="chart tall" id="cWright" aria-label="Wright map: fly ability with standard error against task difficulties"></canvas><div id="fitFlags" style="display:flex;flex-direction:column;gap:6px"></div><p class="sub">θ from the logit of overall accuracy with its standard error; β per task from the logit of that task's failure rate. S-X² is approximated from observed against expected success per difficulty level and flagged at 1.5 or above.</p></article>
+        <article class="card span12"><header><h3>Memory for each word part</h3><span class="sub">every part the fly has met, over the session</span></header><canvas class="chart tall" id="cPartMem" aria-label="Memory weight for every word part over time"></canvas><div class="legend"><span><i style="background:#0021a5"></i>strongest parts</span><span><i style="background:#b06f00"></i>weakest part</span><span><i style="background:#a9b6e3"></i>the rest</span></div><p class="sub">Every part starts at 0.2. A right answer moves its memory 22% of the way to 1; a wrong one takes a little away. Sampled every two seconds.</p></article>
       </section>
 
       <h3 class="sec" id="d-curriculum">Dashboard 4 · Curriculum adaptation and sequence policy</h3>
@@ -564,7 +567,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <div class="stat-row"><div class="stat good"><b id="tGraded">0</b><span class="sub">students graded</span></div><div class="stat plain"><b id="tClicks">0</b><span class="sub">clicks</span></div><div class="stat warn"><b id="tMiss">0</b><span class="sub">misclicks</span></div></div>
           <div class="kv"><span>Keystrokes</span><b id="tKeys">0</b><span>Cursor path</span><b id="tPath">0 px</b><span>Distance flown</span><b id="tFlight">0 mm</b><span>Distance walked</span><b id="tWalk">0 mm</b><span>Mean time per student</span><b id="tPer">–</b><span>Mean grading error</span><b id="tErr">–</b></div>
           <p class="sub">Grading error is the gap between the grade the teacher typed and the student's real accuracy. The teacher misreads digits less as it practises.</p></article>
-        <article class="card span4"><header><h3>Fitts' law</h3><span class="sub">ID = log₂(D/W + 1) against movement time</span></header><canvas class="chart tall" id="cFitts" aria-label="Scatter of index of difficulty against movement time with a fitted line"></canvas><div class="kv"><span>Fitted MT = a + b·ID</span><b id="tFit">–</b><span>Hits / attempts</span><b id="tHits">0 / 0</b></div><p class="sub">Each dot is one cursor movement to a target: D the distance, W the target's smaller side. Green landed on the target, red missed.</p></article>
+        <article class="card span4"><header><h3>Fitts' law</h3><span class="sub">ID = log₂(D/W + 1) against movement time</span></header><canvas class="chart tall" id="cFitts" aria-label="Scatter of index of difficulty against movement time with a fitted line"></canvas><div class="kv"><span>Fitted MT = a + b·ID</span><b id="tFit">–</b><span>Fit R²</span><b id="tR2">–</b><span>Hits / attempts</span><b id="tHits">0 / 0</b></div><p class="sub">Each dot is one cursor movement to a target: D the distance, W the target's smaller side. Green landed on the target, red missed. The amber line is the least-squares fit over the moves shown.</p></article>
         <article class="card span4"><header><h3>Cursor heatmap</h3><span class="sub">where the teacher clicked</span></header><canvas class="chart tall" id="cCursorHeat" aria-label="Heatmap of click positions on the laptop screen"></canvas><p class="sub">Drawn over a miniature of the gradebook. Rows and buttons the fly aims for should light up; scatter elsewhere is misclicks.</p></article>
         <article class="card span6"><header><h3>Class roster</h3><span class="sub">the students, live</span></header><div style="overflow-x:auto"><table class="q" id="roster"><thead><tr><th>Student</th><th>Answers</th><th>Correct</th><th>Words</th><th>Grade given</th><th>Error</th></tr></thead><tbody></tbody></table></div></article>
         <article class="card span6"><header><h3>Time by activity</h3><span class="sub">reading · steering the cursor · typing · flying</span></header><canvas class="chart" id="cActivity" aria-label="Share of teacher time spent reading, steering, typing and moving"></canvas><ul class="events" id="tLog"></ul></article>
@@ -578,7 +581,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <div class="kv"><span>Check-ins sent</span><b id="aCheck">0</b><span>Precision of flags</span><b id="aPrec">–</b><span>Cheaters caught</span><b id="aRecall">0 of 3</b><span>Mean response time</span><b id="aResp">–</b><span>Admin clicks / misclicks</span><b id="aClicks">0 / 0</b></div>
           <p class="sub">A flag is confirmed when the student it names was seeded to cheat. Response time runs from the FlyAI flag to the admin's check-in click.</p></article>
         <article class="card span4"><header><h3>Attention by student</h3><span class="sub">eye contact with the task, smoothed</span></header><div id="aAttention" class="memory"></div><p class="sub">From the vision overlay: share of recent frames where the gaze line meets the student's own screen. Red names are seeded cheaters; the admin does not see this column.</p></article>
-        <article class="card span4"><header><h3>Detections</h3><span class="sub">what the overlay is seeing now</span></header><canvas class="chart tall" id="cDetect" aria-label="Counts of detection events over time: look-aways, helper flies, second devices, off camera"></canvas><div class="legend"><span><i style="background:#0021a5"></i>looked away</span><span><i style="background:#22884c"></i>helper fly</span><span><i style="background:#002657"></i>second device</span><span><i style="background:#f2a900"></i>off camera</span></div></article>
+        <article class="card span4"><header><h3>Detections</h3><span class="sub">what the overlay sees, by reason</span></header><canvas class="chart tall" id="cDetect" aria-label="Stacked share of webcam frames showing a look-away, a second device, a helper fly or no one on camera"></canvas><div class="legend"><span><i style="background:#a9b6e3"></i>looks away</span><span><i style="background:#f2a900"></i>second device</span><span><i style="background:#b06f00"></i>helper fly</span><span><i style="background:#c9ced8"></i>off camera</span></div><p class="sub">Share of webcam frames showing each behaviour, over the session. The line under the chart says how many flags turned out to be real.</p></article>
         <article class="card span12"><header><h3>FlyAI log</h3><span class="sub">recommendations and admin actions</span></header><ul class="events" id="aLog" style="max-height:260px"></ul></article>
       </section>
 
@@ -590,7 +593,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <div class="kv"><span>Lesson · elapsed</span><b id="cLesson">–</b><span>Courtship attempts</span><b id="cCourts">0</b><span>Rejections: ignored · flicked · decamped</span><b id="cRej">0</b><span>Courtships tolerated</span><b id="cPair">0</b><span>Rival fights</span><b id="cFights">0</b><span>Glances at a neighbour's tablet</span><b id="cPeeks">0</b><span>Grooming bouts</span><b id="cGroom">0</b><span>Class accuracy</span><b id="cClassAcc">–</b></div>
           <p class="sub">A glance at a tablemate who is further ahead raises the next answer's chance of being right: social copying. Being sung to lowers it.</p></article>
         <article class="card span4"><header><h3>Time budget by sex</h3><span class="sub">share of each group's time this session</span></header><canvas class="chart tall" id="cBudget" aria-label="Stacked bars of female and male time on task, courting, grooming and away"></canvas><div class="legend"><span><i style="background:#0021a5"></i>on task</span><span><i style="background:#d32737"></i>courting</span><span><i style="background:#f2a900"></i>grooming, glancing</span><span><i style="background:#9aa0a8"></i>away</span></div><p class="sub">Males lose time courting. Females lose it to being courted: rejecting, decamping, and the attention cost of a male singing beside them.</p></article>
-        <article class="card span4"><header><h3>The room over time</h3><span class="sub">on task · courting · finished · male drive</span></header><canvas class="chart tall" id="cRoom" aria-label="Lines over time: share on task, males courting, flies finished, male courtship drive"></canvas><div class="legend"><span><i style="background:#0021a5"></i>on task</span><span><i style="background:#d32737"></i>courting ÷ 12</span><span><i style="background:#22884c"></i>finished ÷ 24</span><span><i style="background:#f2a900"></i>male drive</span></div><p class="sub">Each rejection cuts a male's courtship drive by about a third, the courtship-conditioning effect; it recovers a little between lessons.</p></article>
+        <article class="card span4"><header><h3>The room over time</h3><span class="sub">24 flies: finished · on task · courting</span></header><canvas class="chart tall" id="cRoom" aria-label="Stacked area of flies finished, on task and courting out of 24, with class mastery and male courtship drive"></canvas><div class="legend"><span><i style="background:#22884c"></i>finished</span><span><i style="background:#0021a5"></i>on task</span><span><i style="background:#b06f00"></i>courting</span><span><i style="background:#002657"></i>class mastery, dashed</span><span><i style="background:#d32737"></i>male drive, dotted</span></div><p class="sub">Each rejection cuts a male's courtship drive by about a third, the courtship-conditioning effect; it recovers a little between lessons.</p></article>
         <article class="card span6"><header><h3>Courtship network</h3><span class="sub">attempts, male row to female column</span></header><canvas class="chart" id="cNet" style="height:360px" aria-label="Matrix of courtship attempts between the 24 flies"></canvas><p class="sub">Who courted whom. Tablemates dominate, because reaching another table takes a flight.</p></article>
         <article class="card span6"><header><h3>Lessons</h3><span class="sub">seconds until all 24 finished</span></header><canvas class="chart" id="cLessons" aria-label="Bar per lesson: time for the whole class to finish"></canvas><div class="legend"><span><i style="background:#f2a900"></i>in season</span><span><i style="background:#0021a5"></i>out of season</span></div><p class="sub">Turn mating season off in the simulator to compare. A lesson ends only when its last fly finishes.</p><ul class="events" id="cLog" style="max-height:200px"></ul></article>
         <article class="card span12"><header><h3>Roster</h3><span class="sub">all 24, live</span></header><div style="overflow-x:auto"><table class="q" id="cRoster"><thead><tr><th>Fly</th><th>Doing</th><th>Items</th><th>Accuracy</th><th>On task</th><th>Courted · courting</th><th>Rejections given · received</th><th>Drive · receptivity</th><th>Attention</th></tr></thead><tbody></tbody></table></div></article>
@@ -604,7 +607,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <div class="kv"><span>Attempts · retries</span><b id="phAttempts">0 · 0</b><span>Current word</span><b id="phWord">–</b><span>Mean letter-sound memory</span><b id="phMem">–</b><span>Carrier pitch</span><b id="phF0">–</b><span>Sound</span><b id="phAudio">off</b></div>
           <p class="sub">A word gets two attempts. The chance of singing a sound right is 0.3 + 0.65 × its memory, so sounds the fly has practised come out right more often.</p></article>
         <article class="card span4"><header><h3>Letter-sound memory</h3><span class="sub">per phoneme, with accuracy</span></header><div id="phMemList" class="memory"></div><p class="sub">Grouped by how the fly sings them: pulse song for stops, a hum for vowels and nasals, a hiss for fricatives.</p></article>
-        <article class="card span4"><header><h3>Confusions</h3><span class="sub">target sound row, what was heard column</span></header><canvas class="chart" id="cPhConf" style="height:300px" aria-label="Matrix of target sounds against the sounds the recogniser heard"></canvas><p class="sub">The diagonal is right answers. Off-diagonal cells cluster within a kind of sound, the errors a phonics teacher expects: /k/ for /t/, /s/ for /ʃ/.</p></article>
+        <article class="card span4"><header><h3>Confusions</h3><span class="sub">target sound row, what was heard column</span></header><canvas class="chart" id="cPhConf" style="height:300px" aria-label="Matrix of target sounds against the sounds the recogniser heard"></canvas><div class="legend"><span><i style="background:#0021a5"></i>heard right</span><span><i style="background:#b06f00"></i>mixed up</span></div><p class="sub">Each row is shared out by what was heard, so a full blue diagonal means every sound is heard right. Off-diagonal cells cluster within a kind of sound, the errors a phonics teacher expects: /k/ for /t/, /s/ for /ʃ/.</p></article>
         <article class="card span6"><header><h3>Last attempt</h3><span class="sub">spectrogram of the buzz, 0 to 8 kHz</span></header><canvas class="chart" id="cPhSpec" style="height:180px" aria-label="Spectrogram of the fly's last sung attempt"></canvas><div id="phLast" class="sub"></div></article>
         <article class="card span6"><header><h3>How a fly sings a word</h3><span class="sub">sound kind to song mode</span></header>
           <div style="overflow-x:auto"><table class="q"><thead><tr><th>Sounds</th><th>Song mode</th><th>In real flies</th></tr></thead><tbody>
@@ -623,7 +626,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <div class="kv"><span>Now reading</span><b id="rdNow">–</b><span>Pages read</span><b id="rdPages">0</b><span>Miscues · self-corrected</span><b id="rdMiss">0 · 0</b><span>Accuracy</span><b id="rdAcc">–</b><span>Stop &amp; Think and comprehension</span><b id="rdChecks">0 of 0</b><span>Mean vocabulary memory</span><b id="rdVmem">–</b></div>
           <p class="sub">A miscue is a word read wrong; most are self-corrected. Unfamiliar vocabulary words are read more slowly and misread more often until their memory grows.</p></article>
         <article class="card span4"><header><h3>Vocabulary memory</h3><span class="sub">bold words, by story</span></header><div id="rdVocab" class="memory"></div><p class="sub">Each time the fly reads a bold word correctly its memory grows by Δw = η(R − V); a misread lowers it.</p></article>
-        <article class="card span4"><header><h3>Fluency by page</h3><span class="sub">words per minute, coloured by accuracy</span></header><canvas class="chart tall" id="cRdWpm" aria-label="Words per minute for each page read"></canvas><div class="legend"><span><i style="background:#22884c"></i>95% or better</span><span><i style="background:#f2a900"></i>below 95%</span></div><p class="sub">Timed in simulation seconds, so the rate does not change with the speed buttons.</p></article>
+        <article class="card span4"><header><h3>Fluency by page</h3><span class="sub">words per minute, coloured by accuracy</span></header><canvas class="chart tall" id="cRdWpm" aria-label="Words per minute for each page read"></canvas><div class="legend"><span><i style="background:#22884c"></i>95% or better</span><span><i style="background:#f2a900"></i>below 95%</span><span><i style="background:#002657"></i>5-page mean</span></div><p class="sub">Dashed lines mark a new story. Timed in simulation seconds, so the rate does not change with the speed buttons.</p></article>
         <article class="card span6"><header><h3>The library</h3><span class="sub">four stories, six pages each</span></header><div style="overflow-x:auto"><table class="q" id="rdBooks"><thead><tr><th>Story</th><th>Theme</th><th>Grade</th><th>Words to know</th><th>Read</th></tr></thead><tbody></tbody></table></div><p class="sub">Illustrations are AI-generated from each page's image prompt; a page without an image is painted in the browser instead.</p></article>
         <article class="card span6"><header><h3>Reading log</h3><span class="sub">miscues, questions, stories</span></header><ul class="events" id="rdLog" style="max-height:260px"></ul></article>
       </section>
@@ -636,7 +639,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <div class="kv"><span>Letters written</span><b id="wrLetters">0</b><span>Ink laid down</span><b id="wrInk">0 px</b><span>Letters per minute, last</span><b id="wrLpm">–</b><span>Motor skill · wobble</span><b id="wrSkill">–</b><span>Misread by the recogniser</span><b id="wrMisread">0</b></div>
           <p class="sub">Legibility falls as the wobble of the abdomen tip grows. Below about 55% the recogniser can read one letter as another, so a right answer can be marked wrong.</p></article>
         <article class="card span4"><header><h3>Greek root memory</h3><span class="sub">per root, with its meaning</span></header><div id="wrMem" class="memory"></div><p class="sub">The chance of writing the right answer is 0.3 + 0.65 × the root's memory, which learns with Δw = η(R − V).</p></article>
-        <article class="card span4"><header><h3>Legibility over answers</h3><span class="sub">green 80% or better</span></header><canvas class="chart tall" id="cWrLeg" aria-label="Legibility of each written answer"></canvas><p class="sub">The fly's tail control improves a little with every answer.</p></article>
+        <article class="card span4"><header><h3>Legibility over answers</h3><span class="sub">each answer, with a rolling mean</span></header><canvas class="chart tall" id="cWrLeg" aria-label="Legibility of each written answer"></canvas><div class="legend"><span><i style="background:#22884c"></i>read back right</span><span><i style="background:#d32737"></i>misread, hollow</span><span><i style="background:#0021a5"></i>6-answer mean</span></div><p class="sub">The fly's tail control improves a little with every answer.</p></article>
         <article class="card span6"><header><h3>The roots</h3><span class="sub">twelve Greek roots</span></header><div style="overflow-x:auto"><table class="q" id="wrRoots"><thead><tr><th>Root</th><th>Meaning</th><th>As in</th><th>Tries</th><th>Right</th></tr></thead><tbody></tbody></table></div></article>
         <article class="card span6"><header><h3>Writing log</h3><span class="sub">what was written and how it was read</span></header><ul class="events" id="wrLog" style="max-height:300px"></ul></article>
       </section>
@@ -648,7 +651,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <div class="stat-row"><div class="stat good"><b id="vrRight">0</b><span class="sub">answers right</span></div><div class="stat plain"><b id="vrAnswers">0</b><span class="sub">answers written</span></div><div class="stat"><b id="vrAcc">–</b><span class="sub">accuracy</span></div></div>
           <div class="kv"><span>Walked on the ball</span><b id="vrDist">0 body lengths</b><span>Ball speed now</span><b id="vrSpeed">–</b><span>Turns to look around</span><b id="vrTurns">0</b><span>Lesson · question</span><b id="vrLesson">–</b></div>
           <p class="sub">The ball floats on air, so every step turns it instead of moving the fly. Forward walking bobs the student's view; a turn swings it toward a classmate.</p></article>
-        <article class="card span4"><header><h3>Where the student looks</h3><span class="sub">seconds in the headset</span></header><canvas class="chart tall" id="cVrGaze" aria-label="Seconds spent looking at the chalkboard, the booklet and classmates"></canvas><p class="sub">Board while the teacher writes, booklet while the pencil moves, classmates when the fly turns on the ball.</p></article>
+        <article class="card span4"><header><h3>Where the student looks</h3><span class="sub">seconds in the headset</span></header><canvas class="chart tall" id="cVrGaze" aria-label="Donut of time looking at the chalkboard, the booklet and classmates, with a strip of every pencil answer"></canvas><p class="sub">Board while the teacher writes, booklet while the pencil moves, classmates when the fly turns on the ball.</p></article>
         <article class="card span4"><header><h3>Word part memory</h3><span class="sub">shared with the other experiments</span></header><div id="vrMem" class="memory"></div><p class="sub">The chance of writing the right answer is 0.35 + 0.6 × the memory of the parts on the board, which learns with Δw = η(R − V).</p></article>
         <article class="card span6"><header><h3>The booklet</h3><span class="sub">what the student wrote</span></header><div style="overflow-x:auto"><table class="q" id="vrBook"><thead><tr><th>On the board</th><th>Answer</th><th>Written</th><th>Right</th></tr></thead><tbody></tbody></table></div></article>
         <article class="card span6"><header><h3>VR log</h3><span class="sub">what happened in the class</span></header><ul class="events" id="vrLogL" style="max-height:300px"></ul></article>
@@ -661,7 +664,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <div class="stat-row"><div class="stat good"><b id="arWords">0</b><span class="sub">words built</span></div><div class="stat plain"><b id="arPlaced">0</b><span class="sub">blocks placed</span></div><div class="stat"><b id="arAcc">–</b><span class="sub">blocks right</span></div></div>
           <div class="kv"><span>Walked on the table</span><b id="arDist">0 body lengths</b><span>Walking around blocks</span><b id="arDetour">0 s</b><span>Rotated in total</span><b id="arRotT">0°</b><span>Now</span><b id="arNow">–</b></div>
           <p class="sub">The holograms float at head height, so the blocks it is not fetching are obstacles: it steers around them on the way to a block and on the way to the frame.</p></article>
-        <article class="card span4"><header><h3>Rotation per block</h3><span class="sub">degrees turned to face the label out</span></header><canvas class="chart tall" id="cArRot" aria-label="Degrees each block was rotated before it was placed"></canvas><p class="sub">Green placed right, red sent back. Blocks start at a random angle, so each needs a twist of the foreleg.</p></article>
+        <article class="card span4"><header><h3>Rotation per block</h3><span class="sub">degrees turned to face the label out</span></header><canvas class="chart tall" id="cArRot" aria-label="Degrees each block was rotated before it was placed"></canvas><div class="legend"><span><i style="background:#22884c"></i>right slot</span><span><i style="background:#d32737"></i>sent back, hollow</span><span><i style="background:#0021a5"></i>accuracy over the last 8, right axis</span></div><p class="sub">Blocks start at a random angle, so each needs a twist of the foreleg.</p></article>
         <article class="card span4"><header><h3>Word part memory</h3><span class="sub">shared with the other experiments</span></header><div id="arMem" class="memory"></div><p class="sub">The chance of fetching the right block is 0.35 + 0.6 × the memory of the part the slot needs, which learns with Δw = η(R − V).</p></article>
         <article class="card span6"><header><h3>Placements</h3><span class="sub">every block snapped or sent back</span></header><div style="overflow-x:auto"><table class="q" id="arTable"><thead><tr><th>Word</th><th>Slot</th><th>Block</th><th>Rotated</th><th>Walked</th><th>Right</th></tr></thead><tbody></tbody></table></div></article>
         <article class="card span6"><header><h3>AR log</h3><span class="sub">what the fly did</span></header><ul class="events" id="arLogL" style="max-height:300px"></ul></article>
@@ -675,6 +678,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <div class="kv"><span>Tiles in the bag</span><b id="scBagN">–</b><span>Best word, fly</span><b id="scBestF">–</b><span>Best word, butterfly</span><b id="scBestB">–</b><span>Mean points per word</span><b id="scMean">–</b></div>
           <p class="sub">Words must cross one already on the board, with no side words. Letter values and premium squares follow the standard game; using all seven tiles scores 50 more.</p></article>
         <article class="card span4"><header><h3>Points per word</h3><span class="sub">amber fruit fly, blue butterfly</span></header><canvas class="chart tall" id="cScMoves" aria-label="Points scored by each word played"></canvas><p class="sub">Each player plays its best-scoring word most of the time, and one of its top five otherwise.</p></article>
+        <article class="card span12"><header><h3>Score race</h3><span class="sub">running totals through the current game</span></header><canvas class="chart tall" id="cScRace" aria-label="Cumulative score of the fruit fly and the butterfly through the current game"></canvas><div class="legend"><span><i style="background:#b06f00"></i>fruit fly</span><span><i style="background:#0021a5"></i>butterfly</span></div></article>
         <article class="card span4"><header><h3>Words known</h3><span class="sub">each learns from the other</span></header><div id="scVocab" class="memory"></div><p class="sub">Both start knowing the two- and three-letter words and about half of the rest. A word the opponent plays is learned seven times in ten.</p></article>
         <article class="card span6"><header><h3>Words played</h3><span class="sub">latest first</span></header><div style="overflow-x:auto"><table class="q" id="scTable"><thead><tr><th>Game</th><th>Player</th><th>Word</th><th>Where</th><th>Tiles</th><th>Points</th></tr></thead><tbody></tbody></table></div></article>
         <article class="card span6"><header><h3>Game log</h3><span class="sub">turns, swaps, learning</span></header><ul class="events" id="scLogL" style="max-height:300px"></ul></article>
@@ -688,7 +692,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <div class="kv"><span>Times read through</span><b id="pbReads">0</b><span>Words per minute, last page</span><b id="pbWpm">–</b><span>Miscues · self-corrected</span><b id="pbMiss">0 · 0</b><span>Mean time to lift a page</span><b id="pbLift">–</b></div>
           <p class="sub">A page is heavy for a fly: it comes up slowly while the wings beat, the corner leading, and once past upright it falls over on its own.</p></article>
         <article class="card span4"><header><h3>Fluency by page</h3><span class="sub">words per minute</span></header><canvas class="chart tall" id="cPbWpm" aria-label="Words per minute on each page read"></canvas><p class="sub">Bold vocabulary words are read more slowly until their memory grows.</p></article>
-        <article class="card span4"><header><h3>Page turns</h3><span class="sub">seconds from grip to release</span></header><canvas class="chart tall" id="cPbTurn" aria-label="Seconds taken to lift each page"></canvas><p class="sub">The lift speed wavers with each wingbeat.</p></article>
+        <article class="card span4"><header><h3>Page turns</h3><span class="sub">seconds from grip to release</span></header><canvas class="chart tall" id="cPbTurn" aria-label="Seconds taken to lift each page"></canvas><div class="legend"><span><i style="background:#b06f00"></i>seconds to lift</span><span><i style="background:#002657"></i>mean, dashed</span></div><p class="sub">The lift speed wavers with each wingbeat.</p></article>
         <article class="card span12"><header><h3>Reading log</h3><span class="sub">pages, stumbles, turns</span></header><ul class="events" id="pbLogL" style="max-height:260px"></ul></article>
       </section>
 
@@ -699,7 +703,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <div class="stat-row"><div class="stat good"><b id="geoRight">0</b><span class="sub">countries right</span></div><div class="stat plain"><b id="geoAsked">0</b><span class="sub">questions</span></div><div class="stat"><b id="geoAcc">–</b><span class="sub">accuracy</span></div></div>
           <div class="kv"><span>Round</span><b id="geoRound">1</b><span>Mean distance off, wrong answers</span><b id="geoKm">–</b><span>Flights</span><b id="geoFlights">0</b><span>Globe turned</span><b id="geoSpinT">0°</b></div>
           <p class="sub">The globe leans 23.4° on its axis. Before each answer the fly sweeps it round with a foreleg until the region it wants faces it.</p></article>
-        <article class="card span4"><header><h3>Distance off</h3><span class="sub">km from the right country</span></header><canvas class="chart tall" id="cGeoKm" aria-label="Distance in kilometres between the tapped country and the right one, per question"></canvas><p class="sub">Green bars are right answers. A wrong answer is one of the four countries nearest the right one.</p></article>
+        <article class="card span4"><header><h3>Distance off</h3><span class="sub">km from the right country</span></header><canvas class="chart tall" id="cGeoKm" aria-label="Distance in kilometres between the tapped country and the right one, per question"></canvas><div class="legend"><span><i style="background:#22884c"></i>right, on the line</span><span><i style="background:#b06f00"></i>wrong, drops by km away</span></div><p class="sub">A wrong answer is one of the four countries nearest the right one.</p></article>
         <article class="card span4"><header><h3>Country memory</h3><span class="sub">per country asked</span></header><div id="geoMem" class="memory"></div><p class="sub">The chance of tapping the right country is 0.3 + 0.65 × its memory, which learns with Δw = η(R − V).</p></article>
         <article class="card span6"><header><h3>Answers</h3><span class="sub">latest first</span></header><div style="overflow-x:auto"><table class="q" id="geoTable"><thead><tr><th>Question</th><th>Answer</th><th>Tapped</th><th>Off by</th></tr></thead><tbody></tbody></table></div></article>
         <article class="card span6"><header><h3>Geography log</h3><span class="sub">questions and taps</span></header><ul class="events" id="geoLogL" style="max-height:300px"></ul></article>
@@ -732,7 +736,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <figure><img loading="lazy" src="docs/screenshots/whole-phone.png" alt="Whole-phone camera: the lesson screen with three slots and four tiles"><figcaption><strong>The screen.</strong> A canvas texture: progress, the meaning to build, three slots, four tiles, a feedback line. Tile pixel rectangles map to world coordinates the fly walks to.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/tap.png" alt="A wrong tap: the tile edge flashes red"><figcaption><strong>A wrong tap.</strong> The tile flashes red, the lateral horn and descending neurons fire, the fly flinches, dopamine drops and that word part's memory weakens.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/reward.png" alt="A correct tap: re- fills the prefix slot and dopamine rises"><figcaption><strong>A correct tap.</strong> The part fills its slot, mushroom bodies and taste centres fire, the wings buzz, the proboscis extends, and the memory strengthens.</figcaption></figure>
-        <figure><img loading="lazy" src="docs/screenshots/brain-panel.png" alt="The brain panel with point cloud, dopamine meter and region bars"><figcaption><strong>The brain panel.</strong> About 55,000 points in blobs placed after Drosophila anatomy, fibre tracts with travelling pulses, dopamine, per-region activity and per-morpheme memory.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/brain-panel.png" alt="The brain panel with point cloud, dopamine meter and region bars"><figcaption><strong>The brain panel.</strong> About 57,000 points shaped after Drosophila anatomy, fibre tracts with travelling pulses, dopamine, per-region activity and per-morpheme memory.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/exp2-hover.png" alt="The fly hovering above the phone with a flight path behind it"><figcaption><strong>Reading in the air.</strong> In Experiment 2 the fly climbs to a hover point over the meaning and reads with a head sweep before diving.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/exp3-swipe.png" alt="The fly holding a fly-sized phone with a scrolled list of answers"><figcaption><strong>Swiping.</strong> In Experiment 3 the answers sit below the fold; a foreleg drag scrolls them into reach.</figcaption></figure>
       </div>
@@ -1553,46 +1557,79 @@ const flyState = { pitchOverride: null, songExt: 0, songAmp: 0, songSide: 1, pos
 function plantFeet() { fly.position.copy(flyState.pos); fly.rotation.y = flyState.yaw; fly.updateMatrixWorld(true); legs.forEach(L => { L.step = null; L.foot.copy(restWorld(L)); }); }
 
 // ---------- Brain point cloud ----------
+// Neuropils after the FlyWire and MaleCNS atlases, in brain units (x lateral, y dorsal, z anterior).
+// Each region keeps its id for the activity wiring; its shape is built from ellipsoids (default), tubes, arcs and glomeruli.
+const MIRROR = (sx, parts) => parts.map(q => { const m = v => v && [v[0] * sx, v[1], v[2]]; return { ...q, c: m(q.c), a: m(q.a), b: m(q.b) }; });
+const OPTIC = sx => MIRROR(sx, [
+  { c: [17.3, 2, 0.3], r: [0.9, 6.5, 4.7], n: 1400 },            // lamina, a thin cap
+  { c: [14.2, 2, 0.1], r: [3.1, 6.2, 4.5], n: 4200 },            // medulla
+  { c: [11, 1.4, -0.8], r: [1.9, 4.4, 3], n: 1500 },                   // lobula
+  { c: [12, 1.6, -3.1], r: [1.1, 4, 1.7], n: 900 },                      // lobula plate
+]);
+const MB = sx => MIRROR(sx, [
+  { c: [4.4, 6.2, -3.2], r: [1.9, 1.5, 1.4], n: 1500 },                    // calyx
+  { tube: 1, a: [4.2, 5.2, -2.2], b: [3.1, 1.6, 2.4], rad: 0.55, n: 700 },  // peduncle
+  { tube: 1, a: [3.1, 1.6, 2.4], b: [3.6, 7.4, 3], rad: 0.7, n: 900 },     // α lobe, vertical
+  { tube: 1, a: [3.1, 1.6, 2.4], b: [0.5, 1.2, 2.8], rad: 0.8, n: 1000 },  // β and γ lobes, toward the midline
+]);
 const REGIONS = [
-  { name: 'optic-L', c: [-13, 2, 0], r: [4.5, 6, 4], n: 6000 }, { name: 'optic-R', c: [13, 2, 0], r: [4.5, 6, 4], n: 6000 },
-  { name: 'central', c: [0, 2, 0], r: [7.5, 5, 4], n: 9000 },
-  { name: 'MB-L', c: [-5, 5.5, -2], r: [2, 2, 2], n: 2200, extra: [ { c: [-5, 2.5, 2], r: [1, 3, 1], n: 1400 }, { c: [-2.6, 0.8, 2.2], r: [2.4, 1, 1], n: 1400 } ] },
-  { name: 'MB-R', c: [5, 5.5, -2], r: [2, 2, 2], n: 2200, extra: [ { c: [5, 2.5, 2], r: [1, 3, 1], n: 1400 }, { c: [2.6, 0.8, 2.2], r: [2.4, 1, 1], n: 1400 } ] },
-  { name: 'CX', c: [0, 3.5, 0.5], r: [3.2, 1.4, 1.2], n: 3000 },
-  { name: 'AL-L', c: [-3, -2.2, 3], r: [2, 2, 2], n: 2000 }, { name: 'AL-R', c: [3, -2.2, 3], r: [2, 2, 2], n: 2000 },
-  { name: 'LH-L', c: [-8.5, 4, -1], r: [2, 1.5, 1.5], n: 1200 }, { name: 'LH-R', c: [8.5, 4, -1], r: [2, 1.5, 1.5], n: 1200 },
-  { name: 'SEZ', c: [0, -5, 1.5], r: [3, 2.5, 2], n: 2200 },
-  { name: 'DN', c: [0, -8.5, -1.5], r: [1.2, 3, 1.2], n: 1600 },
-  { name: 'T1', c: [0, -14, -3], r: [3.2, 2.5, 2.5], n: 3000 }, { name: 'T2', c: [0, -19.5, -4], r: [3.4, 2.5, 2.5], n: 3000 }, { name: 'T3', c: [0, -25, -5], r: [3.1, 2.5, 2.5], n: 3000 },
-  { name: 'ABD', c: [0, -31, -6], r: [1.5, 4.5, 1.5], n: 1600 },
+  { name: 'optic-L', c: [-14, 2, 0], extra: OPTIC(-1) }, { name: 'optic-R', c: [14, 2, 0], extra: OPTIC(1) },
+  { name: 'central', c: [0, 2, 0], r: [10, 5.9, 4.5], n: 4200, shell: 0.8, extra: [{ c: [0, 5.6, -0.8], r: [6.5, 2.6, 3.4], n: 700, shell: 0.6 }] },
+  { name: 'MB-L', c: [-4, 4, 0], extra: MB(-1) }, { name: 'MB-R', c: [4, 4, 0], extra: MB(1) },
+  { name: 'CX', c: [0, 3.5, 0.5], extra: [
+    { arc: 1, c: [0, 2.8, -0.2], R: 2.7, rad: 0.7, from: 0.08, to: 0.92, n: 1500 },   // fan-shaped body
+    { ring: 1, c: [0, 2.3, 1.5], R: 1.25, rad: 0.42, n: 900 },                        // ellipsoid body
+    { arc: 1, c: [0, 3.8, -2.6], R: 3.6, rad: 0.38, from: 0.18, to: 0.82, n: 700 } ] }, // protocerebral bridge
+  { name: 'AL-L', c: [-2.4, -1.8, 3.4], extra: [{ glom: 26, c: [-2.4, -1.8, 3.4], r: [1.9, 1.8, 1.7], n: 2000 }] },
+  { name: 'AL-R', c: [2.4, -1.8, 3.4], extra: [{ glom: 26, c: [2.4, -1.8, 3.4], r: [1.9, 1.8, 1.7], n: 2000 }] },
+  { name: 'LH-L', c: [-7.6, 4, -1.4], r: [1.9, 1.6, 1.6], n: 1100 }, { name: 'LH-R', c: [7.6, 4, -1.4], r: [1.9, 1.6, 1.6], n: 1100 },
+  { name: 'SEZ', c: [0, -3.9, 1], r: [3.3, 2.2, 2.5], n: 2000 },
+  { name: 'DN', c: [0, -8.5, -1], extra: [{ tube: 1, a: [0, -5.6, 0], b: [0, -11.4, -2.2], rad: 1, n: 1400 }] },
+  { name: 'T1', c: [0, -14, -2.6], extra: [{ c: [-2, -14, -2.6], r: [1.9, 2.3, 1.9], n: 1300 }, { c: [2, -14, -2.6], r: [1.9, 2.3, 1.9], n: 1300 }, { c: [0, -14.2, -3.4], r: [1.2, 2.2, 1.2], n: 400 }] },
+  { name: 'T2', c: [0, -19.2, -3.6], extra: [{ c: [-2.1, -19.2, -3.6], r: [2, 2.4, 2], n: 1300 }, { c: [2.1, -19.2, -3.6], r: [2, 2.4, 2], n: 1300 }, { c: [0, -19.4, -4.4], r: [1.2, 2.3, 1.2], n: 400 }] },
+  { name: 'T3', c: [0, -24.2, -4.4], extra: [{ c: [-1.9, -24.2, -4.4], r: [1.8, 2.2, 1.8], n: 1200 }, { c: [1.9, -24.2, -4.4], r: [1.8, 2.2, 1.8], n: 1200 }, { c: [0, -24.4, -5.1], r: [1.1, 2.2, 1.1], n: 350 }] },
+  { name: 'ABD', c: [0, -29.5, -5.4], extra: [{ tube: 1, a: [0, -26.6, -5], b: [0, -32.4, -5.8], rad: 1.2, taper: 0.45, n: 1400 }] },
+];
+// faint outer envelope, never lit: brain, neck and nerve cord
+const ENVELOPE = [
+  { c: [0, 2.2, 0], r: [19.2, 7.6, 5.6], n: 2600, shell: 1 },
+  { tube: 1, a: [0, -6, -0.2], b: [0, -12, -2.2], rad: 1.8, n: 500, shell: 1 },
+  { c: [0, -21, -4], r: [5, 11.5, 3.6], n: 1800, shell: 1 },
 ];
 const act = new Float32Array(16).fill(0.08);
+// resting hue of each neuropil, so the parts read apart before they light up
+const REGION_HUE = [0x3f74e0, 0x3f74e0, 0x2c4f9c, 0xa27dff, 0xa27dff, 0x3fd0e2, 0x46c486, 0x46c486, 0xe07ab4, 0xe07ab4, 0x7b93f2, 0x8aa8ff, 0x5b82ea, 0x5b82ea, 0x5b82ea, 0x6f8ff0];
 const pulse = (i, v) => { if (act[i] < v) act[i] = v; };
 function buildBrain() {
-  const total = REGIONS.reduce((s, r) => s + r.n + (r.extra ? r.extra.reduce((a, e) => a + e.n, 0) : 0), 0);
+  const blobs = []; REGIONS.forEach((r, id) => { if (r.n) blobs.push([r, id]); (r.extra || []).forEach(e => blobs.push([e, id])); }); ENVELOPE.forEach(e => blobs.push([e, 16]));
+  const total = blobs.reduce((s, [b]) => s + b.n, 0);
   const pos = new Float32Array(total * 3), reg = new Float32Array(total), seed = new Float32Array(total);
-  let k = 0;
-  const fill = (blob, id) => {
-    for (let i = 0; i < blob.n; i++) {
-      let x, y, z; do { x = Math.random() * 2 - 1; y = Math.random() * 2 - 1; z = Math.random() * 2 - 1; } while (x * x + y * y + z * z > 1);
-      const m = Math.pow(Math.random(), 0.25); const l = Math.hypot(x, y, z) || 1; const f = (0.35 + 0.65 * m) / l;
-      pos[k * 3] = blob.c[0] + x * f * blob.r[0]; pos[k * 3 + 1] = blob.c[1] + y * f * blob.r[1]; pos[k * 3 + 2] = blob.c[2] + z * f * blob.r[2];
-      reg[k] = id; seed[k] = Math.random(); k++;
-    }
-  };
-  REGIONS.forEach((r, id) => { fill(r, id); (r.extra || []).forEach(e => fill(e, id)); });
+  let k = 0; const R = Math.random;
+  const put = (x, y, z, id) => { pos[k * 3] = x; pos[k * 3 + 1] = y; pos[k * 3 + 2] = z; reg[k] = id; seed[k] = R(); k++; };
+  const ball = sh => { let x, y, z; do { x = R() * 2 - 1; y = R() * 2 - 1; z = R() * 2 - 1; } while (x * x + y * y + z * z > 1); const l = Math.hypot(x, y, z) || 1; const f = (sh && R() < sh ? 0.9 + 0.1 * R() : 0.35 + 0.65 * Math.pow(R(), 0.25)) / l; return [x * f, y * f, z * f]; };
+  const disc = rad => { const t = R() * Math.PI * 2, r = rad * Math.sqrt(0.25 + 0.75 * R()); return [Math.cos(t) * r, Math.sin(t) * r]; };
+  for (const [b, id] of blobs) {
+    if (b.tube) { const A = b.a, B = b.b, d = [B[0] - A[0], B[1] - A[1], B[2] - A[2]]; const L = Math.hypot(...d); const u = d.map(v => v / L); const ref = Math.abs(u[1]) < 0.9 ? [0, 1, 0] : [1, 0, 0];
+      const p = [u[1] * ref[2] - u[2] * ref[1], u[2] * ref[0] - u[0] * ref[2], u[0] * ref[1] - u[1] * ref[0]]; const pl = Math.hypot(...p); p.forEach((v, i) => p[i] = v / pl); const q = [u[1] * p[2] - u[2] * p[1], u[2] * p[0] - u[0] * p[2], u[0] * p[1] - u[1] * p[0]];
+      for (let i = 0; i < b.n; i++) { const t = R(); const rr = b.rad * (1 - (b.taper || 0) * t); const [e1, e2] = b.shell ? (() => { const a2 = R() * Math.PI * 2; return [Math.cos(a2) * rr, Math.sin(a2) * rr]; })() : disc(rr); put(A[0] + d[0] * t + p[0] * e1 + q[0] * e2, A[1] + d[1] * t + p[1] * e1 + q[1] * e2, A[2] + d[2] * t + p[2] * e1 + q[2] * e2, id); } }
+    else if (b.arc || b.ring) { for (let i = 0; i < b.n; i++) { const t = b.ring ? R() * Math.PI * 2 : Math.PI * (b.from + (b.to - b.from) * R()); const [e1, e2] = disc(b.rad); const r = b.R + e1;
+        if (b.ring) put(b.c[0] + Math.cos(t) * r, b.c[1] + Math.sin(t) * r, b.c[2] + e2, id); else put(b.c[0] - Math.cos(t) * r, b.c[1] + Math.sin(t) * r * 0.55, b.c[2] + e2, id); } }
+    else if (b.glom) { const G = []; for (let g = 0; g < b.glom; g++) { const [x, y, z] = ball(0.8); G.push([b.c[0] + x * b.r[0] * 0.8, b.c[1] + y * b.r[1] * 0.8, b.c[2] + z * b.r[2] * 0.8]); }
+      for (let i = 0; i < b.n; i++) { const g = G[i % G.length]; const [x, y, z] = ball(); put(g[0] + x * 0.42, g[1] + y * 0.42, g[2] + z * 0.42, id); } }
+    else for (let i = 0; i < b.n; i++) { const [x, y, z] = ball(b.shell); put(b.c[0] + x * b.r[0], b.c[1] + y * b.r[1], b.c[2] + z * b.r[2], id); }
+  }
   const g = new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   g.setAttribute('region', new THREE.BufferAttribute(reg, 1));
   g.setAttribute('seed', new THREE.BufferAttribute(seed, 1));
   const mat = new THREE.ShaderMaterial({
-    uniforms: { act: { value: act }, pr: { value: Math.min(devicePixelRatio, 2) }, dim: { value: new THREE.Color(0x2f5aa8) }, hot: { value: new THREE.Color(0xf2a900) } },
-    vertexShader: `uniform float act[16]; uniform float pr; attribute float region; attribute float seed; varying float vA; varying float vS;
-      void main(){ int r=int(region+0.5); float a=0.0; for(int i=0;i<16;i++){ if(i==r) a=act[i]; } vA=a; vS=seed;
-        vec4 mv=modelViewMatrix*vec4(position,1.0); gl_PointSize=(1.4+3.0*a)*pr*(60.0/-mv.z); gl_Position=projectionMatrix*mv; }`,
-    fragmentShader: `precision mediump float; varying float vA; varying float vS; uniform vec3 dim; uniform vec3 hot;
-      void main(){ vec2 c=gl_PointCoord-0.5; float d=dot(c,c); if(d>0.25) discard; float al=(0.28+0.72*vA)*smoothstep(0.25,0.04,d);
-        vec3 col=mix(dim,hot,clamp(vA*(0.75+0.35*vS),0.0,1.0)); gl_FragColor=vec4(col,al); }`,
+    uniforms: { act: { value: act }, pr: { value: Math.min(devicePixelRatio, 2) }, vh: { value: 800 }, base: { value: REGION_HUE.map(c => new THREE.Color(c)) }, env: { value: new THREE.Color(0x8fa6e8) }, hot: { value: new THREE.Color(0xf2a900) } },
+    vertexShader: `uniform float act[16]; uniform vec3 base[16]; uniform float pr; uniform float vh; attribute float region; attribute float seed; varying float vA; varying float vS; varying float vE; varying vec3 vB;
+      void main(){ int r=int(region+0.5); float a=0.0; vB=vec3(0.5,0.6,0.9); for(int i=0;i<16;i++){ if(i==r){ a=act[i]; vB=base[i]; } } vA=a; vS=seed; vE=r==16?1.0:0.0;
+        vec4 mv=modelViewMatrix*vec4(position,1.0); gl_PointSize=(1.7+3.2*a)*pr*clamp(vh/800.0,0.4,1.4)*(60.0/-mv.z); gl_Position=projectionMatrix*mv; }`,
+    fragmentShader: `precision mediump float; varying float vA; varying float vS; varying float vE; varying vec3 vB; uniform vec3 hot; uniform vec3 env;
+      void main(){ vec2 c=gl_PointCoord-0.5; float d=dot(c,c); if(d>0.25) discard; float al=(0.3+0.45*vA)*smoothstep(0.25,0.04,d);
+        vec3 col=mix(vB,hot,clamp((vA-0.1)*1.25*(0.7+0.3*vS),0.0,1.0)); if(vE>0.5){ col=env; al*=0.45; } gl_FragColor=vec4(col,al); }`,
     transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
   });
   return new THREE.Points(g, mat);
@@ -1604,7 +1641,7 @@ const scene2 = new THREE.Scene(); scene2.background = new THREE.Color(0x041033);
 const camera2 = new THREE.PerspectiveCamera(38, 1, 0.1, 400); camera2.position.set(0, -6, 78);
 const controls2 = new OrbitControls(camera2, brainCanvas); controls2.target.set(0, -11, 0); controls2.enableDamping = true; controls2.autoRotate = !matchMedia('(prefers-reduced-motion: reduce)').matches; controls2.autoRotateSpeed = 0.9; controls2.enablePan = false;
 const brainGroup = new THREE.Group(); scene2.add(brainGroup);
-brainGroup.add(buildBrain());
+const brainPts = buildBrain(); brainGroup.add(brainPts);
 const FIBRES = [[0, 2], [1, 2], [6, 3], [7, 4], [3, 5], [4, 5], [8, 3], [9, 4], [10, 2], [2, 11], [11, 12], [12, 13], [13, 14], [14, 15]];
 const fibreCurves = FIBRES.map(([a, b]) => { const A = new THREE.Vector3(...REGIONS[a].c), B = new THREE.Vector3(...REGIONS[b].c); const M = A.clone().lerp(B, 0.5); M.z += 2.5; M.x += (Math.random() - 0.5) * 2; return new THREE.CatmullRomCurve3([A, M, B]); });
 {
@@ -4899,7 +4936,7 @@ function resize() {
   const r = sceneCanvas.getBoundingClientRect();
   if (r.width && r.height) { renderer.setSize(r.width, r.height, false); camera.aspect = r.width / r.height; camera.updateProjectionMatrix(); }
   const b = brainCanvas.getBoundingClientRect();
-  if (b.width && b.height) { renderer2.setSize(b.width, b.height, false); camera2.aspect = b.width / b.height; camera2.updateProjectionMatrix(); }
+  if (b.width && b.height) { renderer2.setSize(b.width, b.height, false); brainPts.material.uniforms.vh.value = b.height; camera2.aspect = b.width / b.height; camera2.updateProjectionMatrix(); }
 }
 new ResizeObserver(() => { const st = $('state'); $('expNote').style.top = (st.offsetTop + st.offsetHeight + 8) + 'px'; }).observe($('state')); // keep the note below the pill row when it wraps
 let lastPortrait = null; addEventListener('resize', () => { const pt = innerWidth < innerHeight; if (lastPortrait !== null && pt !== lastPortrait && camMode === 'follow') requestAnimationFrame(() => setCamMode('follow')); lastPortrait = pt; });
@@ -4928,6 +4965,8 @@ function sampleTelemetry(now) {
   if (agent.phase === 'look' || agent.phase === 'hover') tele.contrastLook += (contrast - tele.contrastLook) * 0.08;
   const smp = { t: now / 1000, adhesion, contrast, torque, dist, gaze, onScreen, headYaw: st.headYaw, dopa: game.dopamine, act: Float32Array.from(act), phase: agent.phase, exp: experiment, airborne: st.airborne, contacts };
   tele.samples.push(smp); if (tele.samples.length > 900) tele.samples.shift();
+  { let b = brainAcc.get(experiment); if (!b) brainAcc.set(experiment, b = { s: new Float64Array(GROUPS.length), n: 0 }); GROUPS.forEach((g, i) => { b.s[i] += Math.max(...g.ids.map(k => act[k])); }); b.n++; }
+  if (now - partAt > 2000 && game.memory.size) { partAt = now; partHist.push({ t: now / 1000, m: Object.fromEntries(game.memory) }); if (partHist.length > 400) partHist.shift(); }
   xlstmStep(smp);
 }
 // A toy mLSTM cell driven by the fly's sensory stream: the exact stabilised update from the specification, on 8 features.
@@ -5113,6 +5152,33 @@ function heatGrid(id, vals, n, opt = {}) {
   if (o.hover && opt.labels) { const j = Math.floor((o.hover[0] - pad) / cs), i = Math.floor((o.hover[1] - pad) / cs); o.tipFn = () => (i >= 0 && j >= 0 && i < n && j < n) ? `${opt.labels[i]} → ${opt.labels[j]}: ${vals[i * n + j].toFixed(2)}` : null; } else o.tipFn = null;
 }
 
+// ---------- plot kit shared by the richer charts: nice ticks, rolling means, nearest-point tips ----------
+const PK = { amber: '#b06f00', soft: '#a9b6e3', pale: '#ebe8e0', off: '#c9ced8' };
+const niceStep = v => { const e = 10 ** Math.floor(Math.log10(v || 1)); return [1, 2, 2.5, 5, 10].map(m => m * e).find(x => x >= v); };
+const niceTicks = (lo, hi, n = 3) => { const st = niceStep((hi - lo) / n); const out = []; for (let v = Math.ceil(lo / st - 1e-9) * st; v <= hi + 1e-9; v += st) out.push(+v.toFixed(6)); return out; };
+const rollMean = (a, k) => a.map((_, i) => { const w = a.slice(Math.max(0, i - k + 1), i + 1); return w.reduce((x, y) => x + y, 0) / w.length; });
+const fmtTick = v => Math.abs(v) >= 1000 ? +(v / 1000).toFixed(1) + 'k' : String(+v.toFixed(2));
+function plot(id, P) { // P: { x: [lo, hi], y: [lo, hi], yt, yfmt, xl, yl, pad }
+  const o = chart(id); if (!o.w) return null; const { ctx, w, h } = o; ctx.clearRect(0, 0, w, h);
+  const pad = Object.assign({ l: P.yl ? 50 : 40, r: 12, t: 12, b: P.xl ? 26 : 12 }, P.pad || {});
+  const [x0, x1] = P.x, [y0, y1] = P.y;
+  const X = v => pad.l + (w - pad.l - pad.r) * (v - x0) / ((x1 - x0) || 1), Y = v => pad.t + (h - pad.t - pad.b) * (1 - (v - y0) / ((y1 - y0) || 1));
+  ctx.lineWidth = 1; ctx.strokeStyle = CH.grid;
+  (P.yt || niceTicks(y0, y1)).forEach(v => { ctx.beginPath(); ctx.moveTo(pad.l, Y(v)); ctx.lineTo(w - pad.r, Y(v)); ctx.stroke(); label(o, pad.l - 5, Y(v), (P.yfmt || fmtTick)(v), 'right'); });
+  (P.xt || []).forEach(v => label(o, X(v), h - pad.b + 9, (P.xfmt || fmtTick)(v), 'center'));
+  if (P.xl) label(o, (pad.l + w - pad.r) / 2, h - 7, P.xl, 'center');
+  if (P.yl) { ctx.save(); ctx.translate(9, (pad.t + h - pad.b) / 2); ctx.rotate(-Math.PI / 2); label(o, 0, 0, P.yl, 'center'); ctx.restore(); }
+  return { o, ctx, w, h, pad, X, Y };
+}
+function dot(ctx, x, y, r, fill, stroke) { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = 1.5; ctx.stroke(); } }
+function pline(ctx, pts, color, lw = 2, dash) { if (pts.length < 2) return; ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineJoin = 'round'; ctx.setLineDash(dash || []); ctx.beginPath(); pts.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.stroke(); ctx.setLineDash([]); }
+function parea(ctx, top, base, fill) { ctx.fillStyle = fill; ctx.beginPath(); top.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); for (let i = base.length - 1; i >= 0; i--) ctx.lineTo(base[i][0], base[i][1]); ctx.closePath(); ctx.fill(); }
+function tipNear(o, pts, byX) { if (!o.hover) { o.tipFn = null; return; } let best = null, bd = 1e9; pts.forEach(p => { const d = byX ? Math.abs(p.x - o.hover[0]) : Math.hypot(p.x - o.hover[0], p.y - o.hover[1]); if (d < bd) { bd = d; best = p; } }); o.tipFn = () => best && (byX || bd < 14) ? best.t : null; }
+function emptyChart(id, msg) { const o = chart(id); if (!o.w) return; o.ctx.clearRect(0, 0, o.w, o.h); label(o, o.w / 2, o.h / 2, msg, 'center'); o.tipFn = null; }
+// a rolling view of every word part's memory, and the mean activity of each region group per experiment
+const partHist = []; let partAt = 0;
+const brainAcc = new Map(); // experiment -> { s: sums per GROUPS entry, n }
+
 // ---------- dashboard-specific state ----------
 let dataset = 'malecns';
 document.querySelectorAll('[data-ds]').forEach(b => b.addEventListener('click', () => { dataset = b.dataset.ds; document.querySelectorAll('[data-ds]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); }));
@@ -5197,6 +5263,27 @@ function drawDashboards(now, force) {
         const rows = T.map((x, k) => ({ r: tk.f(x), l: x.level })).filter(r => r.r !== null); const groups = {}; rows.forEach(r => { (groups[r.l] ||= []).push(r.r ? 1 : 0); }); let sx = 0, g = 0; const exp = 1 / (1 + Math.exp(beta - theta)); Object.values(groups).forEach(a => { if (a.length < 3) return; const obs = a.reduce((s, v) => s + v, 0) / a.length; sx += (obs - exp) ** 2 / Math.max(0.02, exp * (1 - exp)) * a.length / 5; g++; }); const stat = g ? sx / g : 0;
         flags.push(`<div class="alert ${stat >= 1.5 ? 'bad' : 'ok'}">${tk.n}: S-X² ${stat.toFixed(2)}${stat >= 1.5 ? ' · flagged, misfit at or above 1.5' : ' · fits'} (${rows.length} responses)</div>`); });
       document.getElementById('fitFlags').innerHTML = flags.join(''); } }
+  { if (partHist.length < 2) emptyChart('cPartMem', 'Memory curves appear after the first answers');
+    else { const t0 = partHist[0].t, t1 = partHist[partHist.length - 1].t, last = partHist[partHist.length - 1].m, parts = Object.keys(last), fin = parts.slice().sort((a, b) => last[b] - last[a]), hi = new Set([fin[0], fin[1], fin[fin.length - 1]]);
+      const G = plot('cPartMem', { x: [t0, t1], y: [0, 1], yt: [0, 0.2, 0.5, 1], xl: `last ${Math.max(1, Math.round((t1 - t0) / 60))} min →`, pad: { r: 70 } });
+      if (G) { const { ctx, X, Y, o, w } = G; pline(ctx, [[X(t0), Y(0.2)], [X(t1), Y(0.2)]], CH.navy, 1, [4, 4]);
+        [...parts.filter(p => !hi.has(p)), ...parts.filter(p => hi.has(p))].forEach(p => { const pts = partHist.filter(e => p in e.m).map(e => [X(e.t), Y(e.m[p])]); pline(ctx, pts, hi.has(p) ? (p === fin[fin.length - 1] ? PK.amber : CH.blue) : PK.soft, hi.has(p) ? 2.8 : 1.4); });
+        const used = []; [fin[0], fin[1], fin[fin.length - 1]].forEach(p => { let y = Y(last[p]); while (used.some(u => Math.abs(u - y) < 14)) y += 14; used.push(y); label(o, w - 64, y, `${p} ${last[p].toFixed(2)}`, 'left', p === fin[fin.length - 1] ? PK.amber : CH.blue); });
+        tipNear(o, partHist.map(e => { const ks = Object.keys(e.m).sort((a, b) => e.m[b] - e.m[a]); return { x: X(e.t), y: 0, t: `${Math.round(t1 - e.t)} s ago · strongest ${ks[0]} ${e.m[ks[0]].toFixed(2)} · weakest ${ks[ks.length - 1]} ${e.m[ks[ks.length - 1]].toFixed(2)} · mean ${(ks.reduce((a, k) => a + e.m[k], 0) / ks.length).toFixed(2)}` }; }), true); } } }
+  { const rows = [...brainAcc.entries()].filter(([, b]) => b.n > 5).sort((a, b) => a[0] - b[0]), o = chart('cBrainExp');
+    if (!rows.length) emptyChart('cBrainExp', 'Fills in as experiments run');
+    else if (o.w) { const { ctx, w, h } = o; ctx.clearRect(0, 0, w, h); const vmax = Math.max(0.1, ...rows.flatMap(([, b]) => [...b.s].map(x => x / b.n))); const cols = ['Optic', 'CX', 'MB', 'AL+SEZ', 'LH', 'DN', 'Legs'], L0 = 118, T0 = 22, cw = (w - L0 - 6) / cols.length, rh = Math.min(22, (h - T0 - 4) / rows.length); const cells = [];
+      cols.forEach((c, j) => label(o, L0 + cw * (j + 0.5), T0 - 10, c, 'center', CH.ink));
+      rows.forEach(([e, b], i) => { label(o, L0 - 6, T0 + rh * (i + 0.5), `${e} · ${EXP[e].name}`.slice(0, 20), 'right', e === experiment ? CH.blue : CH.ink);
+        GROUPS.forEach((g, j) => { const v = b.s[j] / b.n; ctx.fillStyle = `rgba(242,169,0,${Math.min(1, Math.max(0.06, (v - 0.08) / Math.max(0.02, vmax - 0.08)))})`; ctx.beginPath(); ctx.roundRect(L0 + cw * j + 1, T0 + rh * i + 1, cw - 2, rh - 2, 3); ctx.fill();
+          cells.push({ x: L0 + cw * (j + 0.5), y: T0 + rh * (i + 0.5), t: `${EXP[e].name}: ${g.label} ${Math.round(v * 100)}% mean activity over ${b.n} samples` }); }); });
+      tipNear(o, cells); } }
+  { const Sd = tele.samples.filter(s => s.dopa != null);
+    if (Sd.length < 2) emptyChart('cDopa', 'Waiting for the simulation to run');
+    else { const t0 = Sd[0].t, t1 = Sd[Sd.length - 1].t; const G = plot('cDopa', { x: [t0, t1], y: [0, 1], yt: [0, 0.5, 1], yl: 'dopamine', xl: `last ${Math.round(t1 - t0)} s →` });
+      if (G) { const { ctx, X, Y, o, h, pad } = G; const tr = T.filter(x => x.t >= t0); tr.forEach(x => { ctx.strokeStyle = x.correct ? CH.green : CH.red; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(x.t), h - pad.b); ctx.lineTo(X(x.t), h - pad.b - 10); ctx.stroke(); });
+        parea(ctx, Sd.map(s => [X(s.t), Y(s.dopa)]), Sd.map(s => [X(s.t), Y(0)]), 'rgba(0,33,165,0.08)'); pline(ctx, Sd.map(s => [X(s.t), Y(s.dopa)]), CH.blue, 2.2);
+        tipNear(o, Sd.filter((_, i) => i % 3 === 0).map(s => ({ x: X(s.t), y: 0, t: `dopamine ${s.dopa.toFixed(2)} · ${(t1 - s.t).toFixed(1)} s ago` })), true); } } }
   // ---- dashboard 4 ----
   heatGrid('cCt', Array.from(tele.xl.C), 8);
   { const mk = (id, hist, name, ymax) => { const o = chart(id); if (!o.w) return; const { ctx, w, h } = o; const pad = { l: 34, r: 8, t: 8, b: 18 }; frameAxes(o, pad); if (hist.length < 2) return; let mn = Math.min(...hist), mx = Math.max(...hist); if (!(mx > mn)) mx = mn + 1; const X = i => pad.l + (w - pad.l - pad.r) * i / (hist.length - 1), Y = v => pad.t + (h - pad.t - pad.b) * (1 - (v - mn) / (mx - mn)); ctx.strokeStyle = CH.blue; ctx.lineWidth = 2; ctx.beginPath(); hist.forEach((v, i) => i ? ctx.lineTo(X(i), Y(v)) : ctx.moveTo(X(i), Y(v))); ctx.stroke(); label(o, pad.l - 4, Y(mx), fmt(mx), 'right'); label(o, pad.l - 4, Y(mn), fmt(mn), 'right'); label(o, pad.l, h - 6, name, 'left', CH.ink); };
@@ -5212,11 +5299,19 @@ function drawDashboards(now, force) {
     $t('tPer', S.graded.length ? (S.graded.reduce((a, g) => a + g.duration, 0) / S.graded.length).toFixed(1) + ' s' : '–');
     const errs = S.graded.filter(g => g.err != null); $t('tErr', errs.length ? (errs.reduce((a, g) => a + g.err, 0) / errs.length).toFixed(1) + ' points' : '–');
     const F = S.fitts; $t('tHits', `${F.filter(f => f.hit).length} / ${F.length}`);
-    { const o = chart('cFitts'); if (o.w) { const { ctx, w, h } = o; const pad = { l: 40, r: 10, t: 10, b: 24 }; frameAxes(o, pad); const mtMax = Math.max(6, ...F.map(f => f.MT)) * 1.1; const X = id => pad.l + (w - pad.l - pad.r) * Math.min(1, id / 5), Y = mt => pad.t + (h - pad.t - pad.b) * (1 - Math.min(1, mt / mtMax));
-        if (F.length >= 2) { const n = F.length, sx = F.reduce((a, f) => a + f.ID, 0), sy = F.reduce((a, f) => a + f.MT, 0), sxx = F.reduce((a, f) => a + f.ID * f.ID, 0), sxy = F.reduce((a, f) => a + f.ID * f.MT, 0); const bcoef = (n * sxy - sx * sy) / Math.max(1e-6, n * sxx - sx * sx), acoef = (sy - bcoef * sx) / n; ctx.strokeStyle = CH.navy; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(X(0), Y(acoef)); ctx.lineTo(X(5), Y(acoef + 5 * bcoef)); ctx.stroke(); ctx.setLineDash([]); $t('tFit', `${acoef.toFixed(2)} + ${bcoef.toFixed(2)}·ID s`); } else $t('tFit', '–');
-        F.forEach(f => { ctx.fillStyle = f.hit ? CH.green : CH.red; ctx.globalAlpha = 0.85; ctx.beginPath(); ctx.arc(X(f.ID), Y(f.MT), 4.5, 0, Math.PI * 2); ctx.fill(); ctx.globalAlpha = 1; });
-        label(o, pad.l - 4, Y(mtMax), mtMax.toFixed(0) + ' s', 'right'); label(o, pad.l - 4, Y(0), '0', 'right'); label(o, pad.l, h - 8, 'ID 0', 'left'); label(o, w - pad.r, h - 8, 'ID 5 bits', 'right');
-        if (o.hover) { let best = null, bd = 1e9; F.forEach(f => { const d = Math.hypot(X(f.ID) - o.hover[0], Y(f.MT) - o.hover[1]); if (d < bd) { bd = d; best = f; } }); o.tipFn = () => best && bd < 14 ? `${best.label}: D ${Math.round(best.D)} px, W ${Math.round(best.W)} px, ID ${best.ID.toFixed(2)}, MT ${best.MT.toFixed(2)} s, ${best.hit ? 'hit' : 'miss'}` : null; } else o.tipFn = null; } }
+    { const Fp = F.filter(f => f.MT > 0);
+      if (Fp.length < 2) { emptyChart('cFitts', 'Runs in Experiment 5'); $t('tFit', '–'); $t('tR2', '–'); }
+      else { const xs = Fp.map(f => f.ID), ys = Fp.map(f => f.MT), n = Fp.length, mx = xs.reduce((a, b) => a + b, 0) / n, my = ys.reduce((a, b) => a + b, 0) / n;
+        const sxx = xs.reduce((a, x) => a + (x - mx) ** 2, 0), bcoef = sxx > 1e-9 ? xs.reduce((a, x, i) => a + (x - mx) * (ys[i] - my), 0) / sxx : 0, acoef = my - bcoef * mx;
+        const sst = ys.reduce((a, y) => a + (y - my) ** 2, 0), r2 = sst > 1e-9 ? 1 - ys.reduce((a, y, i) => a + (y - acoef - bcoef * xs[i]) ** 2, 0) / sst : 0;
+        const xlo = Math.floor(Math.min(...xs) * 2) / 2, xhi = Math.ceil(Math.max(...xs) * 2) / 2 + 0.01, yhi = Math.max(...ys) * 1.12, ylo = Math.max(0, Math.min(...ys) - (yhi - Math.min(...ys)) * 0.15);
+        const G = plot('cFitts', { x: [xlo, xhi], y: [ylo, yhi], xt: niceTicks(xlo, xhi, 4), xl: 'difficulty ID, bits', yl: 'move time, s', yfmt: v => v.toFixed(2) });
+        if (G) { const { ctx, X, Y, o } = G; const tips = [];
+          Fp.forEach(f => { dot(ctx, X(f.ID), Y(f.MT), 4.5, f.hit ? 'rgba(34,136,76,0.35)' : 'rgba(211,39,55,0.35)', f.hit ? CH.green : CH.red); tips.push({ x: X(f.ID), y: Y(f.MT), t: `${f.label}: D ${Math.round(f.D)} px, W ${Math.round(f.W)} px, ID ${f.ID.toFixed(2)}, MT ${f.MT.toFixed(2)} s, ${f.hit ? 'hit' : 'miss'}` }); });
+          const a0 = Math.min(...xs), a1 = Math.max(...xs); pline(ctx, [[X(a0), Y(acoef + bcoef * a0)], [X(a1), Y(acoef + bcoef * a1)]], PK.amber, 3);
+          label(o, G.pad.l + 8, G.pad.t + 8, `MT = ${acoef.toFixed(2)} + ${bcoef.toFixed(2)}·ID`, 'left', PK.amber); label(o, G.pad.l + 8, G.pad.t + 24, `R² = ${r2.toFixed(2)} · ${n} moves`, 'left');
+          tipNear(o, tips); }
+        $t('tFit', `${acoef.toFixed(2)} + ${bcoef.toFixed(2)}·ID s`); $t('tR2', r2.toFixed(2)); } }
     { const o = chart('cCursorHeat'); if (o.w) { const { ctx, w, h } = o; ctx.clearRect(0, 0, w, h); const scl = Math.min((w - 4) / 1024, (h - 4) / 640); const ox = (w - 1024 * scl) / 2, oy = (h - 640 * scl) / 2; ctx.fillStyle = C.page; ctx.fillRect(ox, oy, 1024 * scl, 640 * scl); ctx.fillStyle = C.darkBlue; ctx.fillRect(ox, oy, 1024 * scl, 64 * scl); ctx.fillStyle = C.sunken; ctx.fillRect(ox, oy + 64 * scl, 220 * scl, 576 * scl); ctx.strokeStyle = CH.grid; [ROW(0), ROW(1), ROW(2), GRADE_FIELD, SUBMIT_BTN, INCOMPLETE_BTN].forEach(r => ctx.strokeRect(ox + r[0] * scl, oy + r[1] * scl, (r[2] - r[0]) * scl, (r[3] - r[1]) * scl)); ctx.drawImage(cursorHeat, ox, oy, 1024 * scl, 640 * scl); const c = teacher.cursor; ctx.fillStyle = CH.red; ctx.beginPath(); ctx.arc(ox + c[0] * scl, oy + c[1] * scl, 3, 0, Math.PI * 2); ctx.fill(); } }
     const rows = teacher.students.map(s => { const st = studentStats(s.id); return `<tr><th scope="row">${s.name} · ${s.section}</th><td>${st.answers}</td><td>${st.answers ? Math.round(st.acc * 100) + '%' : '–'}</td><td>${st.words}</td><td class="${s.grade != null ? 'yes' : 'no'}">${s.grade == null ? 'ungraded' : s.grade === 'I' ? 'Incomplete' : s.grade}</td><td>${s.grade != null && s.truth != null && s.grade !== 'I' ? Math.abs(s.grade - s.truth) : '–'}</td></tr>`; }).join('');
     const tb = document.querySelector('#roster tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
@@ -5232,11 +5327,17 @@ function drawDashboards(now, force) {
     $t('aResp', A.resp.length ? (A.resp.reduce((a, b) => a + b, 0) / A.resp.length).toFixed(1) + ' s' : '–');
     $t('aClicks', experiment === 6 ? `${teacher.stats.clicks} / ${teacher.stats.miss}` : '0 / 0');
     document.getElementById('aAttention').innerHTML = admin.students.map(s => `<div class="m" style="grid-template-columns:110px 1fr 70px"><span style="color:${s.cheat ? 'var(--bottlebrush)' : 'var(--ink)'}">${s.name} · ${s.kind}</span><div class="bar${s.att >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(s.att * 100)}%"></span></div><span class="sub">${Math.round(s.att * 100)}%${admin.flags.some(f => f.open && f.student === s.i) ? ' · flag' : ''}</span></div>`).join('') || '<p class="sub">Students appear when Experiment 6 runs.</p>';
-    { const o = chart('cDetect'); if (o.w) { const D = A.detections; const { ctx, w, h } = o; const pad = { l: 34, r: 8, t: 8, b: 18 }; frameAxes(o, pad);
-        if (D.length > 5) { const bins = 24; const t0 = D[0].t, t1 = D[D.length - 1].t, span = Math.max(1, t1 - t0); const keys = ['lookaway', 'helper', 'device', 'offscreen'], cols = [CH.blue, CH.green, CH.navy, CH.amber]; const counts = keys.map(() => new Array(bins).fill(0)); D.forEach(d => { const b = Math.min(bins - 1, Math.floor((d.t - t0) / span * bins)); keys.forEach((k, i) => counts[i][b] += d[k]); }); const mx = Math.max(1, ...counts.flat()); const bw = (w - pad.l - pad.r) / bins;
-          keys.forEach((k, i) => { ctx.strokeStyle = cols[i]; ctx.lineWidth = 2; ctx.beginPath(); counts[i].forEach((v, b) => { const x = pad.l + b * bw + bw / 2, y = pad.t + (h - pad.t - pad.b) * (1 - v / mx); b ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke(); });
-          label(o, pad.l - 4, pad.t, String(mx), 'right'); label(o, pad.l - 4, h - pad.b, '0', 'right'); label(o, pad.l, h - 6, `${Math.round(span)} s`, 'left'); label(o, w - pad.r, h - 6, 'now', 'right'); }
-        else label(o, w / 2, h / 2, 'Detections appear once the sessions run', 'center'); } }
+    { const D = A.detections;
+      if (D.length < 12) emptyChart('cDetect', 'Detections appear once the sessions run');
+      else { const nb = Math.min(24, Math.floor(D.length / 6)), t0 = D[0].t, t1 = D[D.length - 1].t, span = Math.max(1e-3, t1 - t0); const keys = [['lookaway', 'looks away', PK.soft], ['device', 'second device', CH.amber], ['helper', 'helper fly', PK.amber], ['offscreen', 'off camera', PK.off]];
+        const tot = new Array(nb).fill(0), cnt = keys.map(() => new Array(nb).fill(0)); D.forEach(d => { const b = Math.min(nb - 1, Math.floor((d.t - t0) / span * nb)); tot[b]++; keys.forEach(([k], i) => cnt[i][b] += d[k]); });
+        const rate = cnt.map(c => c.map((v, b) => v / Math.max(1, tot[b]))); const peak = Math.max(0.05, ...tot.map((_, b) => rate.reduce((a, r) => a + r[b], 0)));
+        const G = plot('cDetect', { x: [0, nb - 1], y: [0, peak * 1.08], yt: niceTicks(0, peak * 1.08, 2), yfmt: v => Math.round(v * 100) + '%', xl: `last ${Math.round(span)} s →`, pad: { b: 40 } });
+        if (G) { const { ctx, X, Y, o, h, w, pad } = G; let base = tot.map(() => 0); const tips = [];
+          keys.forEach(([k, name, c], i) => { const top = base.map((v, b) => v + rate[i][b]); parea(ctx, top.map((v, b) => [X(b), Y(v)]), base.map((v, b) => [X(b), Y(v)]), c); base = top; });
+          tot.forEach((_, b) => tips.push({ x: X(b), y: 0, t: keys.map(([k, name], i) => `${name} ${Math.round(rate[i][b] * 100)}%`).join(' · ') }));
+          const fl = admin.flags, real = fl.filter(f => f.truth).length; label(o, w - pad.r, h - 30, fl.length ? `${Math.round(100 * real / fl.length)}% of ${fl.length} flags were real` : 'no flags yet', 'right', fl.length && real / fl.length < 0.5 ? CH.red : CH.green);
+          tipNear(o, tips, true); } } }
     document.getElementById('aLog').innerHTML = admin.chat.slice(-14).reverse().map(m => `<li><time>${Math.round(TDT() - m.t)} s ago</time><span>${m.kind === 'flag' ? 'FlyAI flag: ' : m.kind === 'action' ? 'Admin: ' : 'FlyAI: '}${m.text}</span></li>`).join('') || '<li class="sub">FlyAI has not said anything yet</li>';
   }
   // ---- dashboard 7: classroom ----
@@ -5251,7 +5352,14 @@ function drawDashboards(now, force) {
         rows.forEach((r, i) => { const y = 14 + i * (bh + 22); let x = l; label(o, l - 8, y + bh / 2, r.sx === 'F' ? 'Females' : 'Males', 'right', CH.ink);
           r.v.forEach((f, k) => { const ww = (w - l - 10) * f; ctx.fillStyle = cols[k]; ctx.fillRect(x, y, Math.max(0, ww - 1), bh); if (ww > 34) { ctx.fillStyle = k === 2 ? CH.ink : '#fff'; ctx.font = `700 11px ${DISPLAY}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(Math.round(f * 100) + '%', x + ww / 2, y + bh / 2); } tipRows.push({ x0: x, x1: x + ww, y0: y, y1: y + bh, t: `${r.sx === 'F' ? 'Females' : 'Males'} · ${names[k]}: ${Math.round(f * 100)}%` }); x += ww; }); });
         if (o.hover) { const [hx, hy] = o.hover; o.tipFn = () => { const r = tipRows.find(r => hx >= r.x0 && hx < r.x1 && hy >= r.y0 && hy < r.y1); return r ? r.t : null; }; } else o.tipFn = null; } }
-    classLine('cRoom', [{ name: 'On task', color: CH.blue, get: p => p.onTask }, { name: 'Courting ÷ 12', color: CH.red, get: p => p.courting / 12 }, { name: 'Finished ÷ 24', color: CH.green, get: p => p.done / 24 }, { name: 'Male drive', color: CH.amber, get: p => p.drive }], { ymin: 0, ymax: 1 });
+    { const Hh = cls.hist;
+      if (Hh.length < 2) emptyChart('cRoom', live ? 'Collecting samples' : 'Runs in Experiment 7');
+      else { const step = Math.max(1, Math.floor(Hh.length / 240)), hs = Hh.filter((_, i) => i % step === 0 || i === Hh.length - 1), t0 = hs[0].t, t1 = hs[hs.length - 1].t;
+        const G = plot('cRoom', { x: [t0, t1], y: [0, 24], yt: [0, 12, 24], yl: 'flies', xl: `last ${Math.max(1, Math.round((t1 - t0) / 60))} min →` });
+        if (G) { const { ctx, X, Y, o } = G; let base = hs.map(() => 0);
+          [['done', CH.green, 1], ['onTask', CH.blue, 24], ['courting', PK.amber, 1]].forEach(([k, c, sc]) => { const top = hs.map((p, i) => Math.min(24, base[i] + p[k] * sc)); parea(ctx, top.map((v, i) => [X(hs[i].t), Y(v)]), base.map((v, i) => [X(hs[i].t), Y(v)]), c + (k === 'onTask' ? '99' : 'dd')); base = top; });
+          pline(ctx, hs.map(p => [X(p.t), Y(p.mastery * 24)]), CH.navy, 2.4, [6, 4]); pline(ctx, hs.map(p => [X(p.t), Y(p.drive * 24)]), CH.red, 1.6, [2, 3]);
+          tipNear(o, hs.map(p => ({ x: X(p.t), y: 0, t: `${p.done} finished · ${Math.round(p.onTask * 24)} on task · ${p.courting} courting · mastery ${p.mastery.toFixed(2)} · drive ${p.drive.toFixed(2)} · ${Math.round(t1 - p.t)} s ago` })), true); } } }
     heatGrid('cNet', Array.from(cls.matrix), 24, { labels: St.map(s => s.name + SEXSYM(s)), disabled: i => false });
     barChart('cLessons', cls.lessons.map(L => ({ v: L.secs, color: L.season ? CH.amber : CH.blue, label: `Lesson ${L.lesson}: ${Math.round(L.secs)} s, ${L.courts} courtships, ${L.rejects} rejections, ${L.season ? 'in season' : 'out of season'}` })), { positive: true, empty: 'The first bell has not rung yet' });
     document.getElementById('cLog').innerHTML = cls.log.slice(-12).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing has happened yet</li>';
@@ -5263,7 +5371,14 @@ function drawDashboards(now, force) {
   { const S = gq.stats, H = gq.history, wrong = H.filter(h => !h.ok);
     $t('geoMode', experiment === 15 ? `Experiment 15 · round ${gq.round}` : 'switch to Experiment 15 to run'); $t('geoRight', S.right); $t('geoAsked', S.asked); $t('geoAcc', S.asked ? Math.round(100 * S.right / S.asked) + '%' : '–');
     $t('geoRound', gq.round); $t('geoKm', wrong.length ? Math.round(wrong.reduce((a, h) => a + h.km, 0) / wrong.length).toLocaleString() + ' km' : '–'); $t('geoFlights', S.flights); $t('geoSpinT', Math.round(S.spinDeg).toLocaleString() + '°');
-    barChart('cGeoKm', H.slice(-24).map(h => ({ v: h.ok ? 0.001 : h.km, color: h.ok ? CH.green : CH.amber, label: `${geoName(h.answer)}: tapped ${geoName(h.picked)}, ${h.km.toLocaleString()} km off` })), { positive: true, empty: 'Runs in Experiment 15' });
+    { const Hg = H.slice(-60);
+      if (!Hg.length) emptyChart('cGeoKm', 'Runs in Experiment 15');
+      else { const kh = niceStep(Math.max(500, ...Hg.map(h => h.km))) * Math.ceil(Math.max(500, ...Hg.map(h => h.km)) / niceStep(Math.max(500, ...Hg.map(h => h.km))));
+        const G = plot('cGeoKm', { x: [-0.5, Math.max(1, Hg.length) - 0.5], y: [-kh, 0], yt: niceTicks(-kh, 0, 2), yfmt: v => fmtTick(-v), yl: 'km off', xl: `last ${Hg.length} questions →` });
+        if (G) { const { ctx, X, Y, o } = G; const tips = []; ctx.strokeStyle = CH.navy; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X(-0.5), Y(0)); ctx.lineTo(X(Hg.length - 0.5), Y(0)); ctx.stroke();
+          Hg.forEach((h, i) => { const x = X(i); if (h.ok) dot(ctx, x, Y(0), 3.5, CH.green); else { ctx.strokeStyle = CH.amber; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, Y(0)); ctx.lineTo(x, Y(-h.km)); ctx.stroke(); dot(ctx, x, Y(-h.km), 3.5, PK.amber); }
+            tips.push({ x, y: 0, t: h.ok ? `${h.q} ${geoName(h.answer)}, right` : `${h.q} ${geoName(h.answer)}: tapped ${geoName(h.picked)}, ${h.km.toLocaleString()} km off` }); });
+          tipNear(o, tips, true); } } }
     const ml = [...gq.mem.entries()].sort((a, b) => b[1] - a[1]).map(([n, m]) => `<div class="m" style="grid-template-columns:110px 1fr 60px"><span>${geoName(n)}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${Math.round(m * 100)}%</span></div>`).join('') || '<p class="sub">Runs in Experiment 15.</p>';
     const me = document.getElementById('geoMem'); if (me.innerHTML !== ml) me.innerHTML = ml;
     const rows = H.slice(-12).reverse().map(h => `<tr><th scope="row">${h.q}</th><td>${geoName(h.answer)}</td><td class="${h.ok ? 'yes' : ''}">${geoName(h.picked)}</td><td>${h.ok ? '–' : h.km.toLocaleString() + ' km'}</td></tr>`).join('');
@@ -5274,14 +5389,36 @@ function drawDashboards(now, force) {
   { const S = pb.stats, last = pb.pageLog[pb.pageLog.length - 1];
     $t('pbMode', experiment === 14 ? `Experiment 14 · ${pbStory().title}` : 'switch to Experiment 14 to run'); $t('pbPages', S.pages); $t('pbWords', S.words); $t('pbTurns', S.turns); $t('pbReads', pb.reads);
     $t('pbWpm', last ? Math.round(last.wpm) : '–'); $t('pbMiss', `${S.miscues} · ${S.selfCorrect}`); $t('pbLift', pb.turnLog.length ? (pb.turnLog.reduce((a, t) => a + t.secs, 0) / pb.turnLog.length).toFixed(1) + ' s' : '–');
-    barChart('cPbWpm', pb.pageLog.slice(-24).map(p => ({ v: p.wpm, color: CH.blue, label: `page ${p.page}: ${Math.round(p.wpm)} words/min` })), { positive: true, empty: 'Runs in Experiment 14' });
-    barChart('cPbTurn', pb.turnLog.slice(-24).map(t => ({ v: t.secs, color: CH.green, label: `page ${t.page}: ${t.secs.toFixed(1)} s` })), { positive: true, empty: 'No pages turned yet' });
+    { const Pg = pb.pageLog.slice(-40);
+      if (Pg.length < 2) emptyChart('cPbWpm', 'Runs in Experiment 14');
+      else { const lo = Math.floor(Math.min(...Pg.map(p => p.wpm)) / 10) * 10 - 5, hi = Math.ceil(Math.max(...Pg.map(p => p.wpm)) / 10) * 10 + 5; const mean = rollMean(Pg.map(p => p.wpm), 5);
+        const G = plot('cPbWpm', { x: [0, Pg.length - 1], y: [lo, hi], yl: 'words / min', xl: `last ${Pg.length} pages →` });
+        if (G) { const { ctx, X, Y, o } = G; pline(ctx, mean.map((v, i) => [X(i), Y(v)]), CH.navy, 2.2); Pg.forEach((p, i) => dot(ctx, X(i), Y(p.wpm), 3.8, p.acc >= 0.95 ? CH.blue : CH.amber));
+          tipNear(o, Pg.map((p, i) => ({ x: X(i), y: Y(p.wpm), t: `page ${p.page}: ${Math.round(p.wpm)} words/min, ${Math.round(p.acc * 100)}% accurate` }))); } } }
+    { const Tn = pb.turnLog.slice(-40);
+      if (!Tn.length) emptyChart('cPbTurn', 'No pages turned yet');
+      else { const hi = Math.max(1, ...Tn.map(t => t.secs)) * 1.1, m = Tn.reduce((a, t) => a + t.secs, 0) / Tn.length;
+        const G = plot('cPbTurn', { x: [-0.5, Tn.length - 0.5], y: [0, hi], yl: 'seconds', xl: `last ${Tn.length} turns →`, yfmt: v => v.toFixed(0) });
+        if (G) { const { ctx, X, Y, o } = G; const bw = Math.max(2, (X(1) - X(0)) * 0.7); Tn.forEach((t, i) => { ctx.fillStyle = PK.amber; ctx.beginPath(); ctx.roundRect(X(i) - bw / 2, Y(t.secs), bw, Y(0) - Y(t.secs), 2); ctx.fill(); });
+          pline(ctx, [[X(-0.5), Y(m)], [X(Tn.length - 0.5), Y(m)]], CH.navy, 1.5, [5, 4]); { const tx = `mean ${m.toFixed(1)} s`; ctx.font = `700 11px ${DISPLAY}`; const tw = ctx.measureText(tx).width; ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.fillRect(X(Tn.length - 0.5) - tw - 6, Y(m) - 17, tw + 6, 14); label(o, X(Tn.length - 0.5) - 3, Y(m) - 10, tx, 'right', CH.navy); }
+          tipNear(o, Tn.map((t, i) => ({ x: X(i), y: 0, t: `page ${t.page}: ${t.secs.toFixed(1)} s to lift` })), true); } } }
     document.getElementById('pbLogL').innerHTML = pb.log.slice(-10).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing yet</li>';
   }
   // ---- dashboard 13: Scrabble ----
   { const Mv = scr.moves, best = p => Mv.filter(m => m.p === p).sort((a, b) => b.score - a.score)[0];
     $t('scMode', experiment === 13 ? `Experiment 13 · game ${scr.game}` : 'switch to Experiment 13 to run'); $t('scWinsF', scr.wins[0]); $t('scWinsB', scr.wins[1]); $t('scNow', `${scr.scores[0]}–${scr.scores[1]}`); $t('scBagN', scr.bag.length);
     $t('scBestF', best(0) ? `${best(0).w}, ${best(0).score}` : '–'); $t('scBestB', best(1) ? `${best(1).w}, ${best(1).score}` : '–'); $t('scMean', Mv.length ? (Mv.reduce((a, m) => a + m.score, 0) / Mv.length).toFixed(1) : '–');
+    { const games = [...new Set(Mv.map(m => m.game))]; let g = games[games.length - 1]; if (Mv.filter(m => m.game === g).length < 2 && games.length > 1) g = games[games.length - 2];
+      const ms = Mv.filter(m => m.game === g);
+      if (ms.length < 2) emptyChart('cScRace', 'Runs in Experiment 13');
+      else { const run = [0, 0], pts = [[[0, 0]], [[0, 0]]]; ms.forEach((m, i) => { pts[m.p].push([i + 1, run[m.p]]); run[m.p] += m.score; pts[m.p].push([i + 1, run[m.p]]); });
+        const hi = niceStep(Math.max(...run) / 3) * Math.ceil(Math.max(...run) * 1.05 / niceStep(Math.max(...run) / 3));
+        const G = plot('cScRace', { x: [0, ms.length], y: [0, hi], yl: 'score', xl: `game ${g}: word played →`, pad: { r: 80 } });
+        if (G) { const { ctx, X, Y, o, w } = G; [PK.amber, CH.blue].forEach((c, p) => { pts[p].push([ms.length, run[p]]); pline(ctx, pts[p].map(([x, y]) => [X(x), Y(y)]), c, 2.6); });
+          let ya = Y(run[0]), yb = Y(run[1]); if (Math.abs(ya - yb) < 30) { const mid = (ya + yb) / 2; [ya, yb] = run[0] < run[1] ? [mid + 15, mid - 15] : [mid - 15, mid + 15]; }
+          label(o, w - 74, ya, `${run[0]} ${SC_NAME[0]}`, 'left', PK.amber); label(o, w - 74, yb, `${run[1]} ${SC_NAME[1]}`, 'left', CH.blue);
+          const top = ms.reduce((a, m) => m.score > a.score ? m : a, ms[0]); const ti = ms.indexOf(top) + 1; label(o, X(ti), Y(ms.slice(0, ti).filter(m => m.p === top.p).reduce((a, m) => a + m.score, 0)) - 12, `${top.w} +${top.score}`, 'center', CH.navy);
+          tipNear(o, ms.map((m, i) => ({ x: X(i + 1), y: 0, t: `${SC_NAME[m.p]}: ${m.w} at ${m.at} for ${m.score}` })), true); } } }
     barChart('cScMoves', Mv.slice(-30).map(m => ({ v: m.score, color: m.p ? CH.blue : CH.amber, label: `${SC_NAME[m.p]}: ${m.w} for ${m.score}` })), { positive: true, empty: 'Runs in Experiment 13' });
     const vl = [0, 1].map(p => `<div class="m" style="grid-template-columns:90px 1fr 150px"><span>${SC_NAME[p]}</span><div class="bar"><span style="width:${Math.round(100 * scr.vocab[p].size / SC_WORDS.length)}%"></span></div><span class="sub">${scr.vocab[p].size} of ${SC_WORDS.length} · ${scr.learned[p]} learned</span></div>`).join('');
     const ve = document.getElementById('scVocab'); if (ve.innerHTML !== vl) ve.innerHTML = vl;
@@ -5293,7 +5430,13 @@ function drawDashboards(now, force) {
   { const S = ar.stats, H = ar.history;
     $t('arMode', experiment === 12 ? `Experiment 12 · AR · ${ar.word ? ar.word.word : ''}` : 'switch to Experiment 12 to run');
     $t('arWords', S.words); $t('arPlaced', S.placed); $t('arAcc', S.placed ? Math.round(100 * S.right / S.placed) + '%' : '–'); $t('arDist', Math.round(S.dist / BL) + ' body lengths'); $t('arDetour', Math.round(S.detourT) + ' s'); $t('arRotT', Math.round(S.rotDeg) + '°'); $t('arNow', experiment === 12 ? (PHASE_TEXT[agent.phase] || agent.phase) : '–');
-    barChart('cArRot', H.slice(-24).map(h => ({ v: h.rot, color: h.ok ? CH.green : CH.red, label: `${h.word}, ${h.slot}: "${h.part}" turned ${Math.round(h.rot)}°` })), { positive: true, empty: 'Runs in Experiment 12' });
+    { const Ha = H.slice(-60);
+      if (!Ha.length) emptyChart('cArRot', 'Runs in Experiment 12');
+      else { const accR = Ha.map((_, i) => { const w = Ha.slice(Math.max(0, i - 7), i + 1); return w.filter(x => x.ok).length / w.length; });
+        const G = plot('cArRot', { x: [0, Math.max(1, Ha.length - 1)], y: [0, 180], yt: [0, 90, 180], yfmt: v => v + '°', yl: 'degrees turned', xl: `last ${Ha.length} blocks →`, pad: { r: 38 } });
+        if (G) { const { ctx, X, Y, o, w } = G; pline(ctx, accR.map((v, i) => [X(i), Y(v * 180)]), CH.blue, 2.2); [0, 0.5, 1].forEach(v => label(o, w - 34, Y(v * 180), Math.round(v * 100) + '%', 'left', CH.blue));
+          Ha.forEach((h, i) => dot(ctx, X(i), Y(Math.min(180, h.rot)), 3.8, h.ok ? CH.green : '#fff', h.ok ? null : CH.red));
+          tipNear(o, Ha.map((h, i) => ({ x: X(i), y: Y(Math.min(180, h.rot)), t: `${h.word}, ${h.slot}: "${h.part}" turned ${Math.round(h.rot)}°, ${h.ok ? 'right' : 'sent back'}` }))); } } }
     const ml = ar.word ? [...new Set([...ar.word.parts, ...ar.blocks.map(b => b.part)])].map(p => { const m = game.memory.has(p) ? game.memory.get(p) : 0; return `<div class="m"><span>${p}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${Math.round(m * 100)}%</span></div>`; }).join('') : '<p class="sub">Runs in Experiment 12.</p>';
     const me = document.getElementById('arMem'); if (me.innerHTML !== ml) me.innerHTML = ml;
     const rows = H.slice(-12).reverse().map(h => `<tr><th scope="row">${h.word}</th><td>${h.slot}</td><td>${h.part}</td><td>${Math.round(h.rot)}°</td><td>${(h.walk / BL).toFixed(1)} BL</td><td class="${h.ok ? 'yes' : ''}">${h.ok ? 'yes' : 'no'}</td></tr>`).join('');
@@ -5304,7 +5447,14 @@ function drawDashboards(now, force) {
   { const S = vr.stats, it = vr.items[vr.ii];
     $t('vrMode', experiment === 11 ? `Experiment 11 · VR · lesson ${vr.lesson}` : 'switch to Experiment 11 to run');
     $t('vrRight', S.right); $t('vrAnswers', S.answers); $t('vrAcc', S.answers ? Math.round(100 * S.right / S.answers) + '%' : '–'); $t('vrDist', Math.round(S.ballDist / BL) + ' body lengths'); $t('vrSpeed', (vr.speed / BL).toFixed(1) + ' body lengths/s'); $t('vrTurns', S.turns); $t('vrLesson', it ? `${vr.lesson} · ${vr.ii + 1} of ${VRI}` : '–');
-    barChart('cVrGaze', [['Chalkboard', S.board, CH.blue], ['Booklet', S.booklet, CH.green], ['Classmates', S.around, CH.amber]].map(([k, v, c]) => ({ v, color: c, label: `${k}: ${Math.round(v)} s` })), { positive: true, empty: 'Runs in Experiment 11' });
+    { const parts = [['Chalkboard', S.board, CH.blue], ['Booklet', S.booklet, CH.green], ['Classmates', S.around, CH.amber]], tot = parts.reduce((a, p) => a + p[1], 0), o = chart('cVrGaze');
+      if (tot < 0.5) emptyChart('cVrGaze', 'Runs in Experiment 11');
+      else if (o.w) { const { ctx, w, h } = o; ctx.clearRect(0, 0, w, h); const r1 = Math.min(h - 56, w * 0.5) / 2, r0 = r1 * 0.58, cx = 12 + r1, cy = 8 + r1; let a = -Math.PI / 2; const segs = [];
+        parts.forEach(([k, v, c]) => { const a2 = a + v / tot * Math.PI * 2; ctx.fillStyle = c; ctx.beginPath(); ctx.arc(cx, cy, r1, a, a2); ctx.arc(cx, cy, r0, a2, a, true); ctx.closePath(); ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke(); segs.push([a, a2, k, v]); a = a2; });
+        ctx.fillStyle = CH.ink; ctx.font = `700 20px ${DISPLAY}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(`${S.right}/${S.answers}`, cx, cy - 4); label(o, cx, cy + 16, 'answers right', 'center');
+        let ly = cy - 36; parts.forEach(([k, v, c]) => { ctx.fillStyle = c; ctx.fillRect(cx + r1 + 22, ly - 6, 12, 12); label(o, cx + r1 + 40, ly, k, 'left', CH.ink); label(o, cx + r1 + 40, ly + 15, `${Math.round(100 * v / tot)}% · ${v >= 60 ? (v / 60).toFixed(1) + ' min' : Math.round(v) + ' s'}`, 'left'); ly += 38; });
+        const Hv = vr.history.slice(-60), bw = Math.min(14, (w - 24) / Math.max(1, Hv.length)); label(o, 12, h - 30, 'each pencil answer, oldest first', 'left'); Hv.forEach((x, i) => { ctx.fillStyle = x.ok ? CH.green : '#f0c9c4'; ctx.fillRect(12 + i * bw, h - 20, Math.max(1, bw - 2), 14); });
+        if (o.hover) { const [hx, hy] = o.hover; o.tipFn = () => { if (hy > h - 22) { const x = Hv[Math.floor((hx - 12) / bw)]; return x ? `${x.board} → "${x.text}", ${x.ok ? 'right' : 'wrong'}` : null; } const d = Math.hypot(hx - cx, hy - cy); if (d < r0 || d > r1) return null; let an = Math.atan2(hy - cy, hx - cx); if (an < -Math.PI / 2) an += Math.PI * 2; const sg = segs.find(s2 => an >= s2[0] && an < s2[1]); return sg ? `${sg[2]}: ${Math.round(sg[3])} s` : null; }; } else o.tipFn = null; } }
     const ml = [...new Set(vr.items.flatMap(x => x.w.parts))].map(p => { const m = game.memory.has(p) ? game.memory.get(p) : 0; return `<div class="m"><span>${p}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${Math.round(m * 100)}%</span></div>`; }).join('') || '<p class="sub">Runs in Experiment 11.</p>';
     const me = document.getElementById('vrMem'); if (me.innerHTML !== ml) me.innerHTML = ml;
     const rows = vr.history.slice(-12).reverse().map(h => `<tr><th scope="row">${h.board}</th><td>${h.answer}</td><td>${h.text}</td><td class="${h.ok ? 'yes' : ''}">${h.ok ? 'yes' : 'no'}</td></tr>`).join('');
@@ -5318,7 +5468,12 @@ function drawDashboards(now, force) {
     $t('wrLpm', last ? Math.round(last.lpm) : '–'); $t('wrSkill', `${wr.skill.toFixed(2)} · ${wr.wobble.toFixed(1)} px`); $t('wrMisread', H.filter(h => h.read !== h.written).length);
     const ml = GREEK.filter(G => wr.mem.has(G.root)).map(G => { const m = wr.mem.get(G.root); return `<div class="m" style="grid-template-columns:70px 1fr 70px"><span>${G.root}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${G.meaning}</span></div>`; }).join('') || '<p class="sub">Runs in Experiment 10.</p>';
     const me = document.getElementById('wrMem'); if (me.innerHTML !== ml) me.innerHTML = ml;
-    barChart('cWrLeg', H.slice(-24).map(h => ({ v: h.legibility, color: h.legibility >= 0.8 ? CH.green : CH.amber, label: `"${h.written}": ${Math.round(h.legibility * 100)}% legible` })), { ymax: 1, positive: true, empty: 'No answers yet' });
+    { const Hw = H.slice(-80);
+      if (!Hw.length) emptyChart('cWrLeg', 'No answers yet');
+      else { const mean = rollMean(Hw.map(h => h.legibility), 6); const G = plot('cWrLeg', { x: [0, Math.max(1, Hw.length - 1)], y: [0, 1], yt: [0, 0.5, 1], yl: 'legibility', xl: `last ${Hw.length} answers →` });
+        if (G) { const { ctx, X, Y, o } = G; parea(ctx, mean.map((v, i) => [X(i), Y(v)]), mean.map((v, i) => [X(i), Y(0)]), 'rgba(0,33,165,0.07)'); pline(ctx, mean.map((v, i) => [X(i), Y(v)]), CH.blue, 2.4);
+          Hw.forEach((h, i) => dot(ctx, X(i), Y(h.legibility), 3.6, h.ok ? CH.green : '#fff', h.ok ? null : CH.red));
+          tipNear(o, Hw.map((h, i) => ({ x: X(i), y: Y(h.legibility), t: `${h.root}: wrote "${h.written}", read as "${h.read}", ${Math.round(h.legibility * 100)}% legible` }))); } } }
     const rows = GREEK.map(G => { const T = H.filter(h => h.root === G.root); return `<tr><th scope="row">${G.root}</th><td>${G.meaning}</td><td>${G.ex}</td><td>${T.length}</td><td>${T.filter(h => h.ok).length}</td></tr>`; }).join('');
     const tb = document.querySelector('#wrRoots tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
     document.getElementById('wrLog').innerHTML = wr.log.slice(-10).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing written yet</li>';
@@ -5331,7 +5486,13 @@ function drawDashboards(now, force) {
     $t('rdVmem', R.vocab.size ? ([...R.vocab.values()].reduce((a, b) => a + b, 0) / R.vocab.size).toFixed(2) : '–');
     const vl = STORIES.flatMap(s => s.vocab.filter(v => R.vocab.has(v)).map(v => { const m = R.vocab.get(v); return `<div class="m" style="grid-template-columns:96px 1fr 90px"><span>${v}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${s.id === 'rosa' ? 'Rosa' : s.id === 'flynn' ? 'Flynn' : s.id === 'zig' ? 'Zig' : 'Dot'}</span></div>`; })).join('') || '<p class="sub">Runs in Experiment 9.</p>';
     const ve = document.getElementById('rdVocab'); if (ve.innerHTML !== vl) ve.innerHTML = vl;
-    barChart('cRdWpm', R.pageLog.slice(-24).map(p => ({ v: p.wpm, color: p.acc >= 0.95 ? CH.green : CH.amber, label: `${p.story} page ${p.page}: ${Math.round(p.wpm)} words/min, ${Math.round(p.acc * 100)}% accurate` })), { positive: true, empty: 'No pages read yet' });
+    { const Pr = R.pageLog.slice(-80);
+      if (Pr.length < 2) emptyChart('cRdWpm', 'No pages read yet');
+      else { const lo = Math.floor(Math.min(...Pr.map(p => p.wpm)) / 10) * 10 - 10, hi = Math.ceil(Math.max(...Pr.map(p => p.wpm)) / 10) * 10 + 10; const mean = rollMean(Pr.map(p => p.wpm), 5);
+        const G = plot('cRdWpm', { x: [0, Pr.length - 1], y: [lo, hi], yl: 'words / min', xl: `last ${Pr.length} pages →` });
+        if (G) { const { ctx, X, Y, o } = G; Pr.forEach((p, i) => { if (i && p.page === 1) pline(ctx, [[X(i - 0.5), Y(hi)], [X(i - 0.5), Y(lo)]], CH.grid, 1.5, [3, 3]); });
+          pline(ctx, mean.map((v, i) => [X(i), Y(v)]), CH.navy, 2.2); Pr.forEach((p, i) => dot(ctx, X(i), Y(p.wpm), 3.8, p.acc >= 0.95 ? CH.green : CH.amber));
+          tipNear(o, Pr.map((p, i) => ({ x: X(i), y: Y(p.wpm), t: `${p.story} page ${p.page}: ${Math.round(p.wpm)} words/min, ${Math.round(p.acc * 100)}% accurate` }))); } } }
     const rows = STORIES.map(s => `<tr><th scope="row">${s.title}</th><td>${s.theme}</td><td>${s.grade}</td><td>${s.vocab.join(', ')}</td><td>${R.storyLog.filter(x => x.story === s.title).length}×</td></tr>`).join('');
     const tb = document.querySelector('#rdBooks tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
     document.getElementById('rdLog').innerHTML = R.log.slice(-10).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing read yet</li>';
@@ -5345,7 +5506,14 @@ function drawDashboards(now, force) {
     const list = PLIST.filter(p => P.mem.has(p)).sort((a, b) => PH[a].kind.localeCompare(PH[b].kind)).map(p => { const m = P.mem.get(p); return `<div class="m" style="grid-template-columns:48px 1fr 92px"><span>${slash(p)}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${acc(p)}</span></div>`; }).join('') || '<p class="sub">Runs in Experiment 8.</p>';
     const ml = document.getElementById('phMemList'); if (ml.innerHTML !== list) ml.innerHTML = list;
     const seen = PLIST.filter(p => [...P.conf.keys()].some(k => k.split('>').includes(p)));
-    heatGrid('cPhConf', seen.flatMap(a => seen.map(b => P.conf.get(a + '>' + b) || 0)), Math.max(1, seen.length), { labels: seen.map(slash) });
+    { const o = chart('cPhConf');
+      if (!seen.length) emptyChart('cPhConf', 'Runs in Experiment 8');
+      else if (o.w) { const { ctx, w, h } = o; ctx.clearRect(0, 0, w, h); const rowT = seen.map(a => seen.reduce((t, b) => t + (P.conf.get(a + '>' + b) || 0), 0)); const n = seen.length, rot = n > 12, L0 = 44, T0 = rot ? 40 : 24, cs = Math.min((w - L0 - 6) / n, (h - T0 - 6) / n); const cells = [];
+        seen.forEach((b, j) => { if (!rot) { label(o, L0 + cs * (j + 0.5), T0 - 10, slash(b), 'center', CH.ink); return; } ctx.save(); ctx.translate(L0 + cs * (j + 0.5), T0 - 5); ctx.rotate(-Math.PI / 2); label(o, 0, 0, slash(b), 'left', CH.ink); ctx.restore(); });
+        seen.forEach((a, i) => { label(o, L0 - 6, T0 + cs * (i + 0.5), slash(a), 'right', CH.ink); seen.forEach((b, j) => { const c = P.conf.get(a + '>' + b) || 0, v = rowT[i] ? c / rowT[i] : 0;
+          ctx.fillStyle = !c ? PK.pale : a === b ? `rgba(0,33,165,${0.2 + 0.8 * v})` : `rgba(176,111,0,${0.2 + 0.8 * Math.min(1, v * 2)})`; ctx.beginPath(); ctx.roundRect(L0 + cs * j + 1, T0 + cs * i + 1, cs - 2, cs - 2, Math.min(3, cs / 5)); ctx.fill();
+          cells.push({ x: L0 + cs * (j + 0.5), y: T0 + cs * (i + 0.5), t: `sang ${slash(a)}, heard ${slash(b)}: ${c} of ${rowT[i]} (${Math.round(v * 100)}%)` }); }); });
+        tipNear(o, cells); } }
     { const o = chart('cPhSpec'); if (o.w) { const { ctx, w, h } = o; ctx.clearRect(0, 0, w, h); ctx.imageSmoothingEnabled = false; ctx.drawImage(spectro, 0, 0, w, h); ctx.imageSmoothingEnabled = true; label(o, 6, 10, '8 kHz', 'left', '#c8cdd6'); label(o, 6, h - 8, '0', 'left', '#c8cdd6'); } }
     const last = P.history[P.history.length - 1]; $t('phLast', P.plan.length ? `Target ${P.word.p.map(slash).join(' ')} · heard ${P.plan.map((s, j) => P.heard[j] ? slash(s.q) : '·').join(' ')}` : last ? `Last word ${last.word}: ${last.right} of ${last.n} sounds right` : 'No attempt yet');
     document.getElementById('phLog').innerHTML = P.log.slice(-8).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing sung yet</li>';
