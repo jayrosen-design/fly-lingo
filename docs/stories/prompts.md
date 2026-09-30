@@ -1,8 +1,8 @@
 # Story illustration prompts
 
-Image prompts for the four storybooks in Experiment 9, Reading, generated from the story data in index.html. Until real images are added, the app paints each page in the browser from a scene description.
+Image prompts for the four storybooks in Experiment 9, Reading, generated from the story data in index.html. The generated originals are in this folder under each story's title; the app loads the web-sized copies listed in `manifest.json`. A page without an image is painted in the browser from a scene description.
 
-To use generated images, save each one as `<story>-p<page>.png` in this folder (for example `rosa-p1.png`) and list the file names in `manifest.json`, for example ["rosa-p1.png", "rosa-p2.png"]. Landscape images work best; the app crops them to fill the picture panel. Any page without an image keeps its painted illustration.
+To add or replace an image, save it as `<story>-p<page>.jpg` or `.png` in this folder (for example `rosa-p1.jpg`) and list the file name in `manifest.json`. A width of about 1000 px is plenty. Landscape images work best; the app crops them to fill the picture panel. Any page without an image keeps its painted illustration.
 
 Add this to every prompt for a consistent character:
 

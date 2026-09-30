@@ -537,7 +537,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <p class="sub">A miscue is a word read wrong; most are self-corrected. Unfamiliar vocabulary words are read more slowly and misread more often until their memory grows.</p></article>
         <article class="card span4"><header><h3>Vocabulary memory</h3><span class="sub">bold words, by story</span></header><div id="rdVocab" class="memory"></div><p class="sub">Each time the fly reads a bold word correctly its memory grows by Δw = η(R − V); a misread lowers it.</p></article>
         <article class="card span4"><header><h3>Fluency by page</h3><span class="sub">words per minute, coloured by accuracy</span></header><canvas class="chart tall" id="cRdWpm" aria-label="Words per minute for each page read"></canvas><div class="legend"><span><i style="background:#22884c"></i>95% or better</span><span><i style="background:#f2a900"></i>below 95%</span></div><p class="sub">Timed in simulation seconds, so the rate does not change with the speed buttons.</p></article>
-        <article class="card span6"><header><h3>The library</h3><span class="sub">four stories, six pages each</span></header><div style="overflow-x:auto"><table class="q" id="rdBooks"><thead><tr><th>Story</th><th>Theme</th><th>Grade</th><th>Words to know</th><th>Read</th></tr></thead><tbody></tbody></table></div><p class="sub">Illustrations are painted in the browser from each page's image prompt until generated images are added to docs/stories.</p></article>
+        <article class="card span6"><header><h3>The library</h3><span class="sub">four stories, six pages each</span></header><div style="overflow-x:auto"><table class="q" id="rdBooks"><thead><tr><th>Story</th><th>Theme</th><th>Grade</th><th>Words to know</th><th>Read</th></tr></thead><tbody></tbody></table></div><p class="sub">Illustrations are AI-generated from each page's image prompt; a page without an image is painted in the browser instead.</p></article>
         <article class="card span6"><header><h3>Reading log</h3><span class="sub">miscues, questions, stories</span></header><ul class="events" id="rdLog" style="max-height:260px"></ul></article>
       </section>
     </div>
@@ -866,7 +866,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <figure><img loading="lazy" src="docs/screenshots/exp9-library.png" alt="Experiment 9 library: The End and three story cards to choose the next story"><figcaption><strong>9 · The library.</strong> After the comprehension question, three more stories appear; the fly flies up and taps one to start it.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/dashboards-9.png" alt="Dashboard 9: reading session counters, vocabulary memory, fluency by page"><figcaption><strong>Dashboard 9 · Reading stories aloud.</strong> Stories finished, words read, words per minute and accuracy per page, miscues and self-corrections, questions answered, and a vocabulary memory per bold word.</figcaption></figure>
       </div>
-      <p>The reading app follows the pattern of illustrated readers such as LitLab: a picture and a short passage on each spread, a strip of words to know, and a comprehension check about every three pages. The four books are written for grades 3 to 5 and set in a fruit fly's world, where a peach is a mountain and a kitchen fan is a storm: <em>Rosa and the Ripening Banana</em> (patience and change over time), <em>Flynn and the Giant Peach</em> (exploration), <em>Zig, Zag, and the Wind</em> (cause and effect) and <em>Dot and the Mystery Light</em> (investigation and evidence). Every page carries an image prompt for a generated illustration. There is no image model in the browser, so until generated images are added, each page is painted from a scene description with one consistent fly character. The prompts, and how to add images, are in <a href="docs/stories/prompts.md" target="_blank" rel="noopener">docs/stories/prompts.md</a>.</p>
+      <p>The reading app follows the pattern of illustrated readers such as LitLab: a picture and a short passage on each spread, a strip of words to know, and a comprehension check about every three pages. The four books are written for grades 3 to 5 and set in a fruit fly's world, where a peach is a mountain and a kitchen fan is a storm: <em>Rosa and the Ripening Banana</em> (patience and change over time), <em>Flynn and the Giant Peach</em> (exploration), <em>Zig, Zag, and the Wind</em> (cause and effect) and <em>Dot and the Mystery Light</em> (investigation and evidence). Every page is illustrated with an AI-generated image made from that page's prompt, with one consistent fly character; the app loads web-sized copies from docs/stories. If an image is missing, the page is painted in the browser from a scene description instead. The prompts, and how to add or replace images, are in <a href="docs/stories/prompts.md" target="_blank" rel="noopener">docs/stories/prompts.md</a>.</p>
       <p>The fly reads word by word at about 110 words a minute, slowing on the bold vocabulary words. Each word is voiced by the same wing buzz as the phonics lesson: a hum shaped by the word's vowels, a pulse at a stop consonant, rising at a question and falling at the end of a sentence. Unfamiliar vocabulary is misread more often, and most misreadings are self-corrected. Stop &amp; Think after page 3 and a comprehension question after page 6 are answered right with a probability that rises with the story's vocabulary memory. These books are structured like decodable readers but are not aligned to a phonics scope and sequence; mapping them to a grade 3 to 5 morphology progression is the next step.</p>
 
       <h3 class="sec">From this app to the full EDLS</h3>
@@ -2953,7 +2953,7 @@ function renderPhonicsTrial() {
 // =====================================================================
 // ---------- Experiment 9 stories: illustrated six-page books with vocabulary and comprehension checks ----------
 // Each page has an image prompt for a generated illustration. Until real images are dropped into docs/stories
-// (listed in docs/stories/manifest.json as <story>-p<page>.png), each page is painted from a scene list below.
+// (listed in docs/stories/manifest.json as <story>-p<page>.jpg or .png), each page is painted from a scene list below.
 const STORY_STYLE = "Consistent character design: scientifically recognizable Drosophila fruit fly, large red compound eyes, tan segmented body, transparent wings, six thin legs, friendly expressive face without human clothing, miniature insect-scale world, colorful polished 3D children's educational illustration, ages 8-11, no text or letters in image.";
 const STORIES = [
   { id: 'rosa', title: 'Rosa and the Ripening Banana', theme: 'Patience / change over time', grade: 'Grades 3–4', vocab: ['ripen', 'patient', 'fragrance', 'notice', 'change'],
@@ -3057,11 +3057,13 @@ const FLY_TINT = { base: '#b8895a', light: '#d2a878', dark: '#8a643f', rosa: '#c
 function artFor(si, pi) {
   const key = `${si}:${pi}`; if (pageArt.has(key)) return pageArt.get(key);
   const cv = document.createElement('canvas'); cv.width = PW; cv.height = PHH; const g = cv.getContext('2d');
-  const img = storyImgs.get(`${STORIES[si].id}-p${pi + 1}.png`);
-  if (img) { const s = Math.max(PW / img.width, PHH / img.height); g.drawImage(img, (PW - img.width * s) / 2, (PHH - img.height * s) / 2, img.width * s, img.height * s); }
+  const img = storyImgs.get(`${STORIES[si].id}-p${pi + 1}.jpg`) || storyImgs.get(`${STORIES[si].id}-p${pi + 1}.png`);
+  if (img) { cv.width = img.width; cv.height = img.height; g.drawImage(img, 0, 0); } // generated images keep their own 4:3 shape
   else paintScene(g, STORIES[si].pages[pi].scene);
   pageArt.set(key, cv); return cv;
 }
+// draw src to fill the rectangle, cropping the overflow evenly
+function drawCover(g, src, x, y, w, h) { const s = Math.max(w / src.width, h / src.height), sw = w / s, sh = h / s; g.drawImage(src, (src.width - sw) / 2, (src.height - sh) / 2, sw, sh, x, y, w, h); }
 function paintScene(g, sc) {
   const bgs = { kitchen: ['#fdeccd', '#f3d3a2', '#c98f5a', '#b27a48'], morning: ['#fff6df', '#fbe3b4', '#d49c66', '#bf8654'], sunset: ['#ffc98a', '#f48d6f', '#b9744a', '#9a5d3a'], night: ['#1b2551', '#0c1333', '#3b3552', '#2b2640'] }[sc.bg];
   let gr = g.createLinearGradient(0, 0, 0, PHH); gr.addColorStop(0, bgs[0]); gr.addColorStop(1, bgs[1]); g.fillStyle = gr; g.fillRect(0, 0, PW, PHH);
@@ -3264,7 +3266,9 @@ function drawBook() {
   g.textAlign = 'right'; g.fillStyle = C.onDarkMuted; g.font = `700 17px ${DISPLAY}`; g.fillText(R.mode === 'library' ? 'Choose your next story' : `${S.title} · page ${R.pi + 1} of 6`, 1000, 26);
   if (R.mode === 'library') return drawLibrary(g), (bookTex.needsUpdate = true);
   // left: the picture
-  g.save(); g.beginPath(); g.roundRect(24, 66, 496, 456, 16); g.clip(); g.drawImage(artFor(R.si, R.pi), 24, 66); g.restore();
+  // left: the picture, 4:3 like the generated illustrations, with the title underneath
+  g.save(); g.beginPath(); g.roundRect(24, 66, 496, 372, 16); g.clip(); drawCover(g, artFor(R.si, R.pi), 24, 66, 496, 372); g.restore();
+  g.textAlign = 'left'; g.textBaseline = 'alphabetic'; g.fillStyle = C.darkBlue; g.font = `700 21px ${DISPLAY}`; g.fillText(S.title, 28, 472); g.fillStyle = C.inkMuted; g.font = `400 16px ${BODY}`; g.fillText(`Page ${R.pi + 1} of 6 · ${S.grade}`, 28, 498);
   if (R.mode === 'check' || R.mode === 'feedback') { drawCheck(g); bookTex.needsUpdate = true; return; }
   // right: the text, with the word being read highlighted and vocabulary in bold blue
   g.textAlign = 'left'; g.textBaseline = 'alphabetic'; g.fillStyle = C.inkMuted; g.font = `700 13px ${DISPLAY}`; g.fillText(S.theme.toUpperCase() + ' · ' + S.grade.toUpperCase(), 548, 88);
@@ -3296,7 +3300,7 @@ function drawLibrary(g) {
   g.textAlign = 'left'; g.fillStyle = C.darkBlue; g.font = `700 30px ${DISPLAY}`; g.fillText('The End', 40, 104); g.fillStyle = C.inkMuted; g.font = `400 18px ${BODY}`; g.fillText('Read another story', 40, 138);
   libraryOrder().forEach((si, i) => { const [x, y, w, h] = cardRect(i), S = STORIES[si], sel = reading.chosenCard === i;
     g.fillStyle = C.card; g.strokeStyle = sel ? C.coreBlue : C.border; g.lineWidth = sel ? 4 : 2; g.beginPath(); g.roundRect(x, y, w, h, 16); g.fill(); g.stroke();
-    g.save(); g.beginPath(); g.roundRect(x + 10, y + 10, w - 20, 170, 10); g.clip(); g.drawImage(artFor(si, 0), x + 10, y + 10, w - 20, (w - 20) * 456 / 496); g.restore();
+    g.save(); g.beginPath(); g.roundRect(x + 10, y + 10, w - 20, 170, 10); g.clip(); drawCover(g, artFor(si, 0), x + 10, y + 10, w - 20, 170); g.restore();
     g.fillStyle = C.darkBlue; g.font = `700 19px ${DISPLAY}`; wrapLines(g, S.title, w - 28).forEach((l, k) => g.fillText(l, x + 14, y + 210 + k * 24));
     g.fillStyle = C.inkMuted; g.font = `400 14px ${BODY}`; g.fillText(S.theme, x + 14, y + 270); g.fillText(`${S.grade} · 6 pages`, x + 14, y + 292);
     g.fillStyle = sel ? C.coreBlue : C.blueTint; g.beginPath(); g.roundRect(x + 14, y + h - 44, 100, 30, 15); g.fill(); g.fillStyle = sel ? '#fff' : C.coreBlue; g.font = `700 14px ${DISPLAY}`; g.fillText('Read ›', x + 38, y + h - 24); });

@@ -154,7 +154,7 @@ The library has four six-page stories for grades 3 to 5, set in a fruit fly's wo
 | Zig, Zag, and the Wind | Persistence, cause and effect | 3–4 | direction, powerful, predict, protect, return |
 | Dot and the Mystery Light | Science, investigation | 4–5 | observe, investigate, evidence, experiment, conclusion |
 
-Every page has an image prompt for a generated illustration, collected in [docs/stories/prompts.md](docs/stories/prompts.md). There is no image model in the browser, so each page is painted from a scene description with one consistent fly character until real images are added. To use generated images, save them as `docs/stories/<story>-p<page>.png` and list them in `docs/stories/manifest.json`; pages without an image keep their painting.
+Every page is illustrated with an AI-generated image made from its prompt; the prompts are collected in [docs/stories/prompts.md](docs/stories/prompts.md). The full-size originals are in `docs/stories` under each story's title, and the app loads web-sized copies named `<story>-p<page>.jpg` (about 140 KB each) that are listed in `docs/stories/manifest.json`. To replace an image, overwrite its copy, or add a new file and list it in the manifest. A page without an image falls back to a painting made in the browser from a scene description.
 
 These books are structured like decodable readers but are not aligned to a phonics scope and sequence. Mapping them to a grade 3 to 5 morphology progression is the next step.
 
