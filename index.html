@@ -1426,7 +1426,7 @@ mesh(new THREE.SphereGeometry(0.62, 20, 16), cuticle, head);
 [-1, 1].forEach(s => { const e = mesh(new THREE.SphereGeometry(0.4, 10, 8), eyeMat, head); e.position.set(s * 0.46, 0.05, 0.25); });
 const antennae = []; [-1, 1].forEach(s => { const a = mesh(new THREE.CylinderGeometry(0.03, 0.05, 0.6, 6), dark, head); antennae.push(a); a.userData.side = s; a.position.set(s * 0.18, -0.1, 0.72); a.rotation.x = Math.PI / 2 - 0.5; });
 const proboscis = mesh(new THREE.CylinderGeometry(0.1, 0.14, 1, 8), dark, head); proboscis.position.set(0, -0.6, 0.3); proboscis.scale.y = 0.35;
-const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); const w = flyWingMesh(s, wingMat); g.add(w); g.userData.side = s; return g; });
+const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); g.rotation.order = 'ZYX'; const w = flyWingMesh(s, wingMat); g.add(w); g.userData.side = s; return g; });
 // ---------- Butterfly mode: every fly can swap its wings for Blue Morpho wings ----------
 // Each wing group carries both: the fly's clear wing (its first child) and a morpho forewing + hindwing. The morpho is
 // iridescent blue on top with a black margin and white spots, brown with eyespots underneath. At rest it holds its
@@ -1521,7 +1521,7 @@ function morphoPose(g, t, o) {
 }
 wings.forEach(g => { addMorpho(g); g.userData.flyWing.material = wingMat.clone(); }); // its own wing material, so the blur below does not touch the classroom flies
 // at about 200 beats a second a fruit fly's wings are a blur: two faint copies at the ends of the stroke read as that blur
-const wingGhosts = wings.map(g => [-1, 1].map(e => { const G = new THREE.Group(); G.position.copy(g.position); body.add(G); const w = g.userData.flyWing.clone(); w.material = new THREE.MeshBasicMaterial({ color: 0xdfe8ff, transparent: true, opacity: 0.16, depthWrite: false, side: THREE.DoubleSide }); w.castShadow = false; G.add(w); G.userData = { side: g.userData.side, end: e }; G.visible = false; return G; }));
+const wingGhosts = wings.map(g => [-1, 1].map(e => { const G = new THREE.Group(); G.position.copy(g.position); body.add(G); const w = g.userData.flyWing.clone(); w.material = new THREE.MeshBasicMaterial({ color: 0xdfe8ff, transparent: true, opacity: 0.16, depthWrite: false, side: THREE.DoubleSide }); w.castShadow = false; G.add(w); G.rotation.order = 'ZYX'; G.userData = { side: g.userData.side, end: e }; G.visible = false; return G; }));
 const legDefs = [
   { hip: [-0.6, 0.85, 0.75], rest: [-1.7, 0, 1.6] }, { hip: [0.6, 0.85, 0.75], rest: [1.7, 0, 1.6] },
   { hip: [-0.8, 0.8, 0.0], rest: [-2.2, 0, 0.1] }, { hip: [0.8, 0.8, 0.0], rest: [2.2, 0, 0.1] },
@@ -1900,6 +1900,14 @@ function stepAgent(dt, now) {
 }
 
 // ---------- Fly animation ----------
+// a fruit fly wing stroke. The wing group turns in Euler order ZYX: first the yaw that swings the wing out from over the
+// abdomen, then the roll about the body's long axis that raises and lowers it, so the wing sweeps through a real stroke
+// instead of spinning about its own length. A real fly beats about 200 times a second, far above the frame rate; the
+// stroke here runs at a visible ~11 beats a second (period 88 ms) and the blur copies mark the ends of the true stroke.
+const WING_PERIOD = 88;
+function flyWingStroke(g, t, amt) { const sd = g.userData.side, ph = t / WING_PERIOD * Math.PI * 2 + (g.userData.seed || 0);
+  g.rotation.y = sd * (-0.35 - 1.3 * amt + 0.28 * amt * Math.cos(ph)); // swung out to the side, sweeping a little fore and aft
+  g.rotation.z = sd * (0.25 + amt * (0.15 + 0.85 * Math.sin(ph))); } // up and down through the stroke
 function animateFly(dt) {
   const st = flyState;
   fly.position.copy(st.pos); fly.rotation.y = st.yaw + (butterfly && experiment !== 13 && st.airborne ? Math.sin(performance.now() / 260) * 0.12 : 0); fly.updateMatrixWorld(true); // a butterfly weaves as it flies
@@ -1937,14 +1945,14 @@ function animateFly(dt) {
   const pitch = st.pitchOverride != null ? st.pitchOverride : st.airborne ? Math.max(-0.6, Math.min(0.5, -st.vel.y * 0.04)) : 0; // Writing pitches nose-up to put the abdomen tip on the glass
   body.rotation.x += (pitch - body.rotation.x) * Math.min(1, dt * 6);
   proboscis.scale.y = 0.35 + st.proboscis * 0.9; proboscis.position.y = -0.6 - st.proboscis * 0.35;
-  const flap = st.buzz > 0 ? Math.sin(performance.now() / 6) * 0.6 * Math.min(1, st.buzz * 2) : 0;
+  const flyAmt = st.songExt > 0.2 ? 0 : st.airborne ? 1 : Math.min(1, st.buzz * 2); // how far into the flight stroke the wings are
   if (butterfly && experiment !== 13) { const now = performance.now(), fl = st.airborne ? 1 : Math.min(1, st.buzz * 1.5);
     wings.forEach(g => morphoPose(g, now, { fly: fl, song: st.songExt > 0.01 && g.userData.side === st.songSide ? st.songExt : 0 }));
     if (st.airborne) { body.position.y += Math.sin(now / 45 - 0.6) * 0.35; body.rotation.x += Math.cos(now / 45) * 0.06; } } // each downstroke lifts the body: a bobbing flight
-  else wings.forEach(g => { g.rotation.z = g.userData.side * (0.25 + flap); g.rotation.y = g.userData.side * -0.35;
+  else wings.forEach(g => { flyWingStroke(g, performance.now(), flyAmt);
     if (st.songExt > 0.01 && g.userData.side === st.songSide) { g.rotation.y = g.userData.side * (-0.35 - 1.25 * st.songExt); g.rotation.z += g.userData.side * Math.sin(performance.now() / 4) * 0.18 * st.songAmp; } }); // one wing out to sing (Experiment 8)
-  { const blur = !(butterfly && experiment !== 13) && Math.abs(flap) + (st.buzz > 0.3 ? 0.3 : 0) > 0.35 && st.songExt < 0.2; wings.forEach((g, i) => { g.userData.flyWing.material.opacity = blur ? 0.5 : 1;
-    wingGhosts[i].forEach(G => { G.visible = blur; const sd = G.userData.side; G.rotation.set(0, sd * -0.35, sd * (0.25 + G.userData.end * 0.6)); }); }); }
+  { const blur = !(butterfly && experiment !== 13) && flyAmt > 0.6; wings.forEach((g, i) => { g.userData.flyWing.material.opacity = blur ? 0.7 : 1; // steady while flying, so nothing blinks
+    wingGhosts[i].forEach(G => { G.visible = blur; const sd = G.userData.side; G.rotation.set(0, sd * (-0.35 - 1.3 * flyAmt), sd * (0.25 + flyAmt * (0.15 + 0.85 * G.userData.end))); }); }); }
   legs.forEach(L => solveLeg(L, lift));
 }
 
@@ -2543,7 +2551,7 @@ function makeRig(sex, species) {
   const head = new THREE.Group(); head.position.set(0, 1.25, 1.25); body.add(head);
   head.add(new THREE.Mesh(SG.head, cut));
   [-1, 1].forEach(s => { const e = new THREE.Mesh(SG.eye, eyeMat); e.position.set(s * 0.46, 0.05, 0.25); head.add(e); const a = new THREE.Mesh(SG.ant, dark); a.position.set(s * 0.18, -0.1, 0.72); a.rotation.x = Math.PI / 2 - 0.5; head.add(a); });
-  const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); const w = flyWingMesh(s, wingMat); g.add(w); g.userData.side = s; addMorpho(g, species); return g; });
+  const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); g.rotation.order = 'ZYX'; const w = flyWingMesh(s, wingMat); g.add(w); g.userData.side = s; addMorpho(g, species); return g; });
   const lg = legDefs.map((d, i) => { const L = { hip: new THREE.Vector3(...d.hip), rest: new THREE.Vector3(...d.rest), foot: new THREE.Vector3(), step: null, front: i < 2,
     femur: new THREE.Mesh(SG.femur, dark), tibia: new THREE.Mesh(SG.tibia, dark) }; group.add(L.femur, L.tibia);
     if (sex === 'M' && i < 2) { L.comb = new THREE.Mesh(SG.comb, dark); group.add(L.comb); } return L; });
@@ -2779,9 +2787,9 @@ function poseStudent(s, now) {
   const R = s.rig; R.head.rotation.y = s.headYaw;
   const bob = s.walking ? Math.sin(s.gait * 2) * 0.04 : 0, lift = bob + (s.airborne ? -0.3 : 0);
   R.body.position.y = lift; R.body.position.z = s.lunge * 0.5; R.body.rotation.x = -0.35 * s.lunge;
-  const flap = s.buzz > 0 ? Math.sin(now / 6 + s.i) * 0.6 * Math.min(1, s.buzz * 2) : 0;
+  const flyAmt = s.airborne ? 1 : Math.min(1, s.buzz * 2);
   if (butterfly) R.wings.forEach(g => morphoPose(g, now, { seed: s.i * 700, fly: s.airborne ? 1 : Math.min(1, s.buzz * 1.5), flick: s.flick, threat: s.threat, song: s.state === 'court' && s.cs === 'sing' && g.userData.side === s.wingSide ? s.wingExt : 0 }));
-  else R.wings.forEach(g => { const side = g.userData.side; let z = 0.25 + flap, y = -0.35;
+  else R.wings.forEach(g => { const side = g.userData.side; g.userData.seed = s.i * 1.7; if (flyAmt > 0.01) return flyWingStroke(g, now, flyAmt); let z = 0.25, y = -0.35;
     if (s.threat > 0) { z += 0.9 * s.threat; y -= 0.5 * s.threat; }
     if (s.flick > 0) { y -= Math.abs(Math.sin(now / 45)) * 0.9 * s.flick; }
     if (s.state === 'court' && s.cs === 'sing' && side === s.wingSide) { y -= 1.25 * s.wingExt; z += Math.sin(now / 8) * 0.12 * s.wingExt; } // one wing out, vibrating: the courtship song
