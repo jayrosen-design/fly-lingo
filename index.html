@@ -39,6 +39,7 @@ header .brand{display:flex;flex-direction:column;gap:2px;min-width:0}
 .seg{display:flex;gap:4px;padding:4px;background:rgba(255,255,255,.12);border-radius:999px;flex-shrink:0}
 .seg button{height:32px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:#fff;font:700 14px/20px var(--display);cursor:pointer;white-space:nowrap}
 .seg button[aria-pressed="true"]{background:#fff;color:var(--dark-blue);box-shadow:var(--shadow-raised)}
+.simctl>.seg:first-child{flex-shrink:1;min-width:0;overflow-x:auto;scrollbar-width:none}.simctl>.seg:first-child::-webkit-scrollbar{display:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border-radius:10px;font:700 16px/20px var(--display);cursor:pointer;border:2px solid transparent;text-decoration:none;white-space:nowrap}
 .btn-accent{background:var(--alachua);color:var(--dark-blue);border-color:var(--dark-blue)}
 header .btn-accent{border-color:var(--alachua);flex-shrink:0}
@@ -52,6 +53,13 @@ main{flex-grow:1;min-height:0;display:flex;flex-direction:column}
 /* ---- simulate ---- */
 #stage{position:relative;height:100%;display:grid;grid-template-columns:var(--dock-w) minmax(0,1fr) var(--panel-w);grid-template-rows:minmax(0,1fr) var(--dock-h)}
 #stage.nodock{--dock-w:0px}
+/* focus: hide every metrics panel so the 3D view fills the stage */
+#stage.focus{--dock-w:0px;--panel-w:0px;--dock-h:0px;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+#stage.focus #scene{grid-column:1;grid-row:1}
+#stage.focus #dockLeft,#stage.focus #dockBottom,#stage.focus #brainPanel,#stage.focus #dockHide,#stage.focus #expNote{display:none}
+#metricsBtn{position:absolute;left:calc(var(--dock-w) + 16px);bottom:calc(var(--dock-h) + 16px);z-index:2;height:36px;padding:0 14px;font-size:13px;box-shadow:var(--shadow-raised)}
+@media (min-width:1281px){#stage:not(.focus) #metricsBtn{left:calc(var(--dock-w) + 136px)}}
+#stage.focus #metricsBtn{bottom:calc(16px + env(safe-area-inset-bottom,0px))}
 #vision{position:absolute;pointer-events:none}
 #scene{display:block;grid-column:2;grid-row:1;width:100%;height:100%;min-width:0;min-height:0;touch-action:none}
 #dockLeft{grid-column:1;grid-row:1/3;background:var(--surface-card);border-right:1px solid var(--border);display:flex;flex-direction:column;min-height:0;overflow:hidden}
@@ -231,10 +239,13 @@ pre.mermaid svg{max-width:none;height:auto}
   #stage{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) var(--dock-h) auto}
   #scene{grid-column:1;grid-row:1}
   #dockBottom{grid-column:1;grid-row:2}
-  #brainPanel{grid-column:1;grid-row:3;width:auto;max-height:44vh;border-left:0;border-top:1px solid var(--border);flex-direction:row;flex-wrap:wrap;gap:12px;padding:12px 16px}
+  #brainPanel{grid-column:1;grid-row:3;width:auto;max-height:34vh;border-left:0;border-top:1px solid var(--border);flex-direction:row;flex-wrap:wrap;gap:12px;padding:12px 16px}
+  #stage:not(.focus){grid-template-rows:minmax(52vh,1fr) var(--dock-h) auto}
+  #dockBottom .mini{flex:0 0 150px}
+  #metricsBtn,#stage.focus #metricsBtn{left:auto;right:12px;bottom:auto;top:8px;height:30px;font-size:12px}
   #brainPanel>section{flex:1 1 240px;min-width:0}
   #brain{width:180px;aspect-ratio:1/1}
-  #state{right:16px}#expNote{display:none}#eyeLabel{display:none}
+  #state{right:132px}#expNote{display:none}#eyeLabel{display:none}
   .tabs a{height:36px;padding:0 12px;font-size:14px}
   .span4,.span6,.span8{grid-column:span 12}
   .page-inner{padding:16px 16px 48px;gap:16px}
@@ -248,7 +259,21 @@ pre.mermaid svg{max-width:none;height:auto}
   .tabs{flex-wrap:wrap;justify-content:flex-end}
   .tabs a{height:32px;padding:0 9px;font-size:13px}
   .seg button{padding:0 9px;font-size:13px}
+  #state .pill:not(.toggle):not(#phasePill){display:none}
+  #state{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;left:12px;right:132px;top:8px;gap:6px}
+  .brandrow h1{display:none}#state::-webkit-scrollbar{display:none}
+  #state .pill{flex-shrink:0;white-space:nowrap;height:28px;font-size:11px;padding:0 10px}
+  .simctl .btn{height:34px;padding:0 14px;font-size:14px}
+  .tabs{flex-wrap:nowrap;gap:2px}.tabs a{padding:0 7px;font-size:12px;height:30px}
+  header{padding:6px 10px;padding-top:calc(6px + env(safe-area-inset-top,0px));row-gap:6px}
+  .seg{padding:3px;gap:2px}.seg button{height:28px;padding:0 8px;font-size:12px}
+  .simctl{flex-wrap:wrap;row-gap:6px}.simctl>.seg:first-child{flex:1 0 100%}
+  :root{--dock-h:104px}#dockBottom .mini canvas{height:74px}
+}
+@media (max-height:520px) and (orientation:landscape){
+  header .eyebrow{display:none}header{padding-top:4px;padding-bottom:4px}
   #state .pill:not(.toggle){display:none}
+  #stage:not(.focus){grid-template-rows:minmax(0,1fr) 0 0}#stage:not(.focus) #dockBottom,#stage:not(.focus) #brainPanel{display:none}
 }
 @media (prefers-reduced-motion:reduce){.bar>span{transition:none}}
 </style>
@@ -385,6 +410,7 @@ pre.mermaid svg{max-width:none;height:auto}
       <div class="mini"><div class="rowlbl"><span id="msL5"></span><b id="msV5">–</b></div><canvas class="chart" id="ms5"></canvas></div>
     </div>
     <button type="button" id="dockHide" class="pill toggle" aria-pressed="true">Hide panel</button>
+    <button type="button" id="metricsBtn" class="pill toggle" aria-pressed="true" aria-controls="dockLeft dockBottom brainPanel">Hide metrics</button>
     <div id="state" aria-live="polite">
       <span class="pill" id="phasePill">Looking at the screen</span>
       <span class="pill" id="gripPill">Tarsal pads gripping glass</span>
@@ -2372,7 +2398,7 @@ eyeScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMater
 })));
 function renderEye() {
   if (experiment === 7 || experiment === 11) return; // many flies: no single fly-eye view in the classroom
-  const r = sceneCanvas.getBoundingClientRect(); if (r.width < 700) return;
+  const r = sceneCanvas.getBoundingClientRect(); if (r.width < 700 || r.height < 460) return; // no room for the inset on a phone
   renderer.setRenderTarget(eyeRT); renderer.render(scene, eyeCam); renderer.setRenderTarget(null);
   const size = 220, pad = 16, x = r.width - size - pad;
   renderer.setScissorTest(true); renderer.setViewport(x, pad, size, size); renderer.setScissor(x, pad, size, size);
@@ -4676,10 +4702,10 @@ function setCamMode(m) {
   else if (m === 'phone' && EXP[experiment].ar) { /* follows the head every frame in updateCamera */ }
   else if (m === 'phone' && EXP[experiment].vrRig) { const c = vrScr.getWorldPosition(new THREE.Vector3()), nrm = new THREE.Vector3(0, 0, 1).applyQuaternion(vrScr.getWorldQuaternion(new THREE.Quaternion())); controls.target.copy(c); camera.position.copy(c).addScaledVector(nrm, 44).add(new THREE.Vector3(0, 6, 0)); }
   else if (m === 'phone' && EXP[experiment].tablet) { const c = bookPoint(512, 320); controls.target.copy(c); camera.position.copy(c).addScaledVector(bookNormal(), 150).add(new THREE.Vector3(-40, 20, 0)); }
-  else if (m === 'phone' && EXP[experiment].classroom) { controls.target.set(0, CLS.topY - 2, -10); camera.position.set(0, CLS.topY + 78, 104); }
+  else if (m === 'phone' && EXP[experiment].classroom) { const k = camera.aspect < 1 ? Math.min(2.2, Math.pow(1 / camera.aspect, 0.75)) : 1; controls.target.set(0, CLS.topY - 2, -10); camera.position.set(0, CLS.topY + 78 * k, -10 + 114 * k); }
   else if (m === 'phone' && EXP[experiment].laptop) { const L = laptop.position; controls.target.set(L.x, TABLE_Y + 60 * s, -30 * s); camera.position.set(L.x, TABLE_Y + 190 * s + (experiment === 5 ? 3 : 0), 300 * s + (experiment === 5 ? 5 : 0)); }
   else if (m === 'phone') { controls.target.set(0, screenTopY(), 0); camera.position.set(0, 120 * s + (experiment === 3 ? 2 : 0), 150 * s + (experiment === 3 ? 4 : 0)); }
-  else { const t = experiment === 11 ? VR_MID : experiment === 13 ? SC_MID : experiment === 14 ? PB_MID : experiment === 15 ? GEO_MID : flyState.pos; controls.target.copy(t); camera.position.copy(t).add(new THREE.Vector3(...EXP[experiment].camOffset).multiplyScalar(butterfly && !EXP[experiment].vrRig && !EXP[experiment].scrabble ? 1.7 : 1)); } // step back for the bigger butterfly
+  else { const t = experiment === 11 ? VR_MID : experiment === 13 ? SC_MID : experiment === 14 ? PB_MID : experiment === 15 ? GEO_MID : flyState.pos; controls.target.copy(t); camera.position.copy(t).add(new THREE.Vector3(...EXP[experiment].camOffset).multiplyScalar((butterfly && !EXP[experiment].vrRig && !EXP[experiment].scrabble ? 1.7 : 1) * (camera.aspect < 1 ? Math.min(2.2, Math.pow(1 / camera.aspect, 0.75)) : 1))); } // step back for the bigger butterfly, and for a narrow portrait screen
 }
 document.querySelectorAll('[data-cam]').forEach(b => b.addEventListener('click', () => setCamMode(b.dataset.cam)));
 
@@ -4687,6 +4713,7 @@ document.querySelectorAll('[data-cam]').forEach(b => b.addEventListener('click',
 function setExperiment(n) {
   const changed = experiment !== n; experiment = n; const cfg = EXP[n]; const s = cfg.phoneScale;
   document.querySelectorAll('[data-exp]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.exp) === n)));
+  { const cur = document.querySelector(`.simctl [data-exp="${n}"]`), row = cur && cur.parentElement; if (row && row.scrollWidth > row.clientWidth) row.scrollTo({ left: cur.offsetLeft - row.clientWidth / 2 + cur.offsetWidth / 2, behavior: 'smooth' }); }
   $('expNote').textContent = cfg.note; $('physPill').textContent = cfg.phys;
   $('gripPill').textContent = n === 15 ? 'A foreleg taps the globe' : n === 14 ? 'Both forelegs grip the page' : n === 13 ? 'A foreleg carries each tile' : n === 12 ? 'A foreleg pinches the holograms' : n === 11 ? 'Six feet on the ball' : n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
   document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.geo ? 'Globe' : cfg.paper ? 'Book' : cfg.scrabble ? 'Board' : cfg.ar ? 'Headset' : cfg.vrRig ? 'Laptop' : cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
@@ -4769,6 +4796,7 @@ function resize() {
   if (b.width && b.height) { renderer2.setSize(b.width, b.height, false); camera2.aspect = b.width / b.height; camera2.updateProjectionMatrix(); }
 }
 new ResizeObserver(() => { const st = $('state'); $('expNote').style.top = (st.offsetTop + st.offsetHeight + 8) + 'px'; }).observe($('state')); // keep the note below the pill row when it wraps
+let lastPortrait = null; addEventListener('resize', () => { const pt = innerWidth < innerHeight; if (lastPortrait !== null && pt !== lastPortrait && camMode === 'follow') requestAnimationFrame(() => setCamMode('follow')); lastPortrait = pt; });
 new ResizeObserver(resize).observe(sceneCanvas); new ResizeObserver(resize).observe(brainCanvas); addEventListener('resize', resize);
 
 // ---------- Telemetry sampling ----------
@@ -4811,7 +4839,7 @@ function xlstmStep(s) {
 // ---------- Main loop ----------
 let last = performance.now(), hudAcc = 0, flashRedraw = 0;
 cur().parts.forEach(memoryOf);
-setExperiment(1); renderBrainHud(); resize();
+setExperiment(1); renderBrainHud(); resize(); setCamMode(camMode);
 document.getElementById('loading').hidden = true;
 function frame(now) {
   requestAnimationFrame(frame);
@@ -4852,7 +4880,7 @@ function setView(v) {
   Object.entries(VIEWS).forEach(([k, id]) => { document.getElementById(id).hidden = k !== v; });
   document.querySelectorAll('.tabs a').forEach(a => { if (a.dataset.view === v) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
   document.getElementById('simctl').hidden = v !== 'simulate';
-  if (v === 'simulate') { resize(); dock(dockChoice); }
+  if (v === 'simulate') { resize(); dock(dockChoice); setCamMode(camMode); const cur = document.querySelector(`.simctl [data-exp="${experiment}"]`); if (cur) cur.parentElement.scrollLeft = cur.offsetLeft - cur.parentElement.clientWidth / 2 + cur.offsetWidth / 2; } /* reframe for this screen's shape */
   else undockAll();
   if (v === 'dash') { sizeCharts(); drawDashboards(performance.now(), true); }
   if (v === 'about') loadMermaid();
@@ -4919,6 +4947,14 @@ document.getElementById('dockFold').addEventListener('click', e => { if (!docked
 document.getElementById('dockFull').addEventListener('click', e => { const t = e.currentTarget.dataset.target; setTimeout(() => { const el = t && document.getElementById(t); if (el) el.scrollIntoView(); }, 80); });
 document.querySelectorAll('[data-dock]').forEach(b => b.addEventListener('click', () => { dockChoice = b.dataset.dock; dock(dockChoice); }));
 const stageEl = document.getElementById('stage');
+// focus mode: every metrics panel hidden, the 3D view fills the stage. Phones start this way; the choice is remembered.
+function setFocus(on, save) {
+  stageEl.classList.toggle('focus', on); const b = document.getElementById('metricsBtn'); b.textContent = on ? 'Show metrics' : 'Hide metrics'; b.setAttribute('aria-pressed', String(!on));
+  if (save) { try { localStorage.setItem('ffl-focus', on ? '1' : '0'); } catch (e) { /* storage blocked */ } }
+  requestAnimationFrame(() => { resize(); sizeCharts(); if (typeof renderScenario === 'function') renderScenario(true); });
+}
+document.getElementById('metricsBtn').addEventListener('click', () => setFocus(!stageEl.classList.contains('focus'), true));
+{ let saved = null; try { saved = localStorage.getItem('ffl-focus'); } catch (e) { /* storage blocked */ } setFocus(saved != null ? saved === '1' : matchMedia('(max-width:860px)').matches, false); }
 document.getElementById('dockHide').addEventListener('click', () => { const on = stageEl.classList.toggle('nodock'); document.getElementById('dockLeft').hidden = on; document.getElementById('dockHide').textContent = on ? 'Show panel' : 'Hide panel'; document.getElementById('dockHide').setAttribute('aria-pressed', String(!on)); resize(); sizeCharts(); });
 function frameAxes(o, pad) { const { ctx, w, h } = o; ctx.clearRect(0, 0, w, h); ctx.strokeStyle = CH.grid; ctx.lineWidth = 1; ctx.beginPath(); for (let i = 0; i <= 2; i++) { const y = pad.t + (h - pad.t - pad.b) * i / 2; ctx.moveTo(pad.l, y); ctx.lineTo(w - pad.r, y); } ctx.stroke(); }
 function label(o, x, y, text, align = 'left', color = CH.muted) { const { ctx } = o; ctx.fillStyle = color; ctx.font = `700 11px ${DISPLAY}`; ctx.textAlign = align; ctx.textBaseline = 'middle'; ctx.fillText(text, x, y); }

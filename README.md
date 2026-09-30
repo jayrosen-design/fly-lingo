@@ -27,7 +27,9 @@ From a terminal with the Vercel CLI, `npx vercel` from the repository root does 
 
 The app is one page with four views, switched by the tabs in the header and by hash routes (`#home`, `#simulate`, `#dashboards`, `#about`). The home page explains the project and shows a card for each experiment; picking a card opens that experiment in the simulator.
 
-![The home page: a short explanation of the project and a grid of fifteen experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
+![The home page: a short explanation of the project and a grid of fifteen experiment cards](docs/screenshots/home.png) It works at phone width. The **Hide metrics / Show metrics** button in the arena hides every panel (the dashboard dock, the bottom strip and the scenario panel) so the 3D view fills the screen; phones start with the metrics hidden, and the choice is remembered. With metrics shown on a phone, the strip and the scenario panel sit under the arena, which keeps at least half the screen. The experiment list scrolls on its own line so speed, camera and Play stay in reach, the camera pulls back on a portrait screen, the fly-eye inset gives way on short screens, and a landscape phone shows only the arena. The dashboards stack to one column.
+
+![Phone layout: the Walking experiment filling the screen, the experiment list, speed, camera and Pause above it, and the Show metrics button](docs/screenshots/phone-simulate.png)
 
 | | |
 | --- | --- |
