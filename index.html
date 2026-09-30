@@ -863,7 +863,7 @@ pre.mermaid svg{max-width:none;height:auto}
       <h3 class="sec">Reading</h3>
       <div class="shots">
         <figure><img loading="lazy" src="docs/screenshots/exp9-reading.png" alt="Experiment 9: the fly hovering in front of a tablet on a stand, reading a storybook page aloud"><figcaption><strong>9 · Reading.</strong> The fly hovers and bobs in front of a tablet on a stand, reading aloud in its buzz while each word lights up. Bold words are the story's vocabulary.</figcaption></figure>
-        <figure><img loading="lazy" src="docs/screenshots/exp9-library.png" alt="Experiment 9 library: The End and three story cards to choose the next story"><figcaption><strong>9 · The library.</strong> After the comprehension question, three more stories appear; the fly flies up and taps one to start it.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/exp9-library.png" alt="Experiment 9 library: The End and three story cards to choose the next story"><figcaption><strong>9 · The library.</strong> The app opens on a grid of all four books, and after each story it shows the other three; the fly flies up and taps the one it has read least.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/dashboards-9.png" alt="Dashboard 9: reading session counters, vocabulary memory, fluency by page"><figcaption><strong>Dashboard 9 · Reading stories aloud.</strong> Stories finished, words read, words per minute and accuracy per page, miscues and self-corrections, questions answered, and a vocabulary memory per bold word.</figcaption></figure>
       </div>
       <p>The reading app follows the pattern of illustrated readers such as LitLab: a picture and a short passage on each spread, a strip of words to know, and a comprehension check about every three pages. The four books are written for grades 3 to 5 and set in a fruit fly's world, where a peach is a mountain and a kitchen fan is a storm: <em>Rosa and the Ripening Banana</em> (patience and change over time), <em>Flynn and the Giant Peach</em> (exploration), <em>Zig, Zag, and the Wind</em> (cause and effect) and <em>Dot and the Mystery Light</em> (investigation and evidence). Every page is illustrated with an AI-generated image made from that page's prompt, with one consistent fly character; the app loads web-sized copies from docs/stories. If an image is missing, the page is painted in the browser from a scene description instead. The prompts, and how to add or replace images, are in <a href="docs/stories/prompts.md" target="_blank" rel="noopener">docs/stories/prompts.md</a>.</p>
@@ -983,7 +983,7 @@ const EXP = {
   5: { name: 'Teacher', note: 'Experiment 5 · Teacher. A fly-sized laptop with a gradebook of the flies from Experiments 1 to 4. The screen is not touchable: the teacher stays on the trackpad and steers the cursor with one foreleg, presses the pad to click, and steps over to tap keys.', phys: 'Fly-sized laptop · trackpad only, no touch', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   6: { name: 'District admin', note: 'Experiment 6 · District admin. The admin fly watches nine students on a 3 × 3 grid of webcam sessions. A vision overlay boxes each fly, its forelegs and its gaze; FlyAI flags suspected cheating and the admin steers the cursor to the tile and sends a check-in.', phys: 'Fly-sized laptop · trackpad only · vision overlay', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   7: { name: 'Classroom', note: 'Experiment 7 · Classroom. Twenty-four students, twelve female and twelve male, at six round tables with a fly-sized tablet each, in mating season. Every fly has to finish twelve items. Rings show what each fly is doing; the vision overlay boxes every fly, its forelegs and its gaze. Click a fly to follow it and see its brain.', phys: '24 flies · 6 tables', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 10, 17], classroom: true },
-  9: { name: 'Reading', note: 'Experiment 9 · Reading. A tablet on a stand runs an illustrated storybook app. The fly hovers in front of the page, bobbing, and reads aloud in its wing buzz as each word lights up; vocabulary words are in bold. It flies up to tap Next, answers Stop & Think questions, and when a story ends it picks the next one from the library.', phys: 'Tablet on a stand · hover flight', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-38, 9, 20], tablet: true },
+  9: { name: 'Reading', note: 'Experiment 9 · Reading. A tablet on a stand runs an illustrated storybook app. The fly hovers in front of the page, bobbing, and reads aloud in its wing buzz as each word lights up; vocabulary words are in bold. It starts at the library and flies up to tap a book, taps Next to turn pages, answers Stop & Think questions, and when a story ends it picks the next one.', phys: 'Tablet on a stand · hover flight', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-38, 9, 20], tablet: true },
   8: { name: 'Phonics', note: 'Experiment 8 · Phonics. The app shows a word, plays it, and asks the fly to say it back. A fly cannot speak, so it stands on the mic facing the word, holds the mic down with a foreleg, and sings each sound with one extended wing: pulse song for k, t, d, a formant-shaped hum for vowels, a fluttered hiss for s and sh. You hear the buzz only while it sings; the pill above the arena turns it off.', phys: 'Wing song · pulse and sine', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-13, 11, 20] },
 };
 let experiment = 1;
@@ -2689,7 +2689,7 @@ function scenarioCard() {
       (ai ? `<p class="sub" style="margin:0">FlyAI: ${ai.text}</p>` : '') + `<h3>Next actions</h3><ol>${next.map((s, i) => `<li class="${i ? '' : 'now'}">${stepText(s)}</li>`).join('')}</ol>` +
       kv([['Flags · confirmed · false alarms', `${admin.flags.length} · ${A.tp} · ${A.fp}`], ['Check-ins sent', A.checkins]])]; }
   if (e === 9) { const R = reading, S = STORIES[R.si], W = R.speaking ? R.words[R.wi] : null, last = R.pageLog[R.pageLog.length - 1];
-    return ['Reading aloud', kv([['Story', S.title], ['Page', R.mode === 'library' ? 'the library' : `${R.pi + 1} of 6`], ['Word now', W ? W.w.replace(/[^A-Za-z'-]/g, '') + (W.vocab ? ' · vocabulary' : '') : '–'], ['Voice', W ? `humming /${PH[R.sound || 'a'].ipa}/ at ${Math.round(R.f0)} Hz` : 'quiet'], ['Last page', last ? `${Math.round(last.wpm)} words/min · ${Math.round(last.acc * 100)}% accurate` : '–'], ['Hover height', ((st.pos.y - TABLE_Y) / BL).toFixed(1) + ' body lengths'], ['Stop & Think right', `${R.stats.checksRight} of ${R.stats.checks}`], ['Sound', audio.on ? 'on' : 'off, use the pill above the arena']])]; }
+    return ['Reading aloud', kv([['Story', R.opening ? 'choosing one' : S.title], ['Page', R.mode === 'library' ? 'the library' : `${R.pi + 1} of 6`], ['Word now', W ? W.w.replace(/[^A-Za-z'-]/g, '') + (W.vocab ? ' · vocabulary' : '') : '–'], ['Voice', W ? `humming /${PH[R.sound || 'a'].ipa}/ at ${Math.round(R.f0)} Hz` : 'quiet'], ['Last page', last ? `${Math.round(last.wpm)} words/min · ${Math.round(last.acc * 100)}% accurate` : '–'], ['Hover height', ((st.pos.y - TABLE_Y) / BL).toFixed(1) + ' body lengths'], ['Stop & Think right', `${R.stats.checksRight} of ${R.stats.checks}`], ['Sound', audio.on ? 'on' : 'off, use the pill above the arena']])]; }
   if (e === 8) { const P = phon, s = P.stage === 'mic' ? P.plan[P.cur] : null;
     return ['Wing song', kv([['Now singing', s ? `${slash(s.q)} for ${slash(s.p)}` : 'nothing, wings folded'], ['Song mode', s ? SONG[PH[s.q].kind] : '–'], ['Carrier pitch', Math.round(P.f0) + ' Hz'], ['Wing', st.songExt > 0.5 ? (st.songSide > 0 ? 'right wing out' : 'left wing out') : 'folded'], ['Word', `${P.word.word} · attempt ${Math.max(1, P.attempt)} of 2`], ['Sounds right overall', P.stats.sounds ? pct(P.stats.right / P.stats.sounds) : '–'], ['Sound', audio.on ? 'on' : 'off, use the pill above the arena']])]; }
   const s = cls.students[cls.focal]; const other = s.state === 'court' || s.state === 'fight' ? (s.rival && s.state === 'fight' ? s.rival : s.partner) : s.courtedBy;
@@ -3172,9 +3172,10 @@ function layoutPage() {
 }
 window.__reading = reading; window.__layoutPage = () => layoutPage(); // debug hooks, like window.__cls
 function readingStart() {
-  reading.mode = 'page'; layoutPage(); const st = flyState; reading.hoverBase = readSpot(); st.pos.copy(reading.hoverBase); st.airborne = true; st.buzz = 1; st.walking = false;
-  const n = bookNormal(); st.yaw = Math.atan2(-n.x, -n.z); plantFeet(); setPhase('r_read'); drawBook(); renderTrial();
-  game.feedback = `The fly opens "${STORIES[reading.si].title}" and starts reading aloud.`;
+  // the app opens on the library: all four books; the fly looks them over and taps one
+  reading.mode = 'library'; reading.opening = true; reading.chosenCard = -1; layoutPage(); const st = flyState; reading.hoverBase = readSpot(); st.pos.copy(reading.hoverBase); st.airborne = true; st.buzz = 1; st.walking = false;
+  const n = bookNormal(); st.yaw = Math.atan2(-n.x, -n.z); plantFeet(); setPhase('r_browse'); drawBook(); renderTrial();
+  game.feedback = 'The fly opens the library and looks over the books.';
 }
 function readSpot() { return bookPoint(770, 300).addScaledVector(bookNormal(), 24).add(new THREE.Vector3(0, -2, 0)); }
 function tapSpot(px, py) { return bookPoint(px, py).addScaledVector(bookNormal(), 3.4).add(new THREE.Vector3(0, -1.2, 0)); }
@@ -3230,7 +3231,7 @@ function stepReading(dt, now) {
     case 'r_think': bob(R.hoverBase, performance.now() / 1000); st.headYaw = Math.sin(agent.t * 3) * 0.3; pulse(0, 0.9); pulse(1, 0.9); pulse(3, 0.7); pulse(4, 0.7); pulse(5, 0.6);
       if (agent.t > 2.6) { const ok = Math.random() < comprehensionP(); R.choice = ok ? R.order.indexOf(0) : R.order.findIndex(i => i !== 0); readFlyTo(tapSpot(512, CHOICE_Y[R.choice] + 30), () => tapAt(512, CHOICE_Y[R.choice] + 30, 'choice')); } break;
     case 'r_browse': bob(R.hoverBase, performance.now() / 1000); st.headYaw = Math.sin(agent.t * 2) * 0.5; pulse(0, 0.9); pulse(1, 0.9);
-      if (agent.t > 2.4) { R.chosenCard = 0; drawBook(); const c = cardRect(0); readFlyTo(tapSpot(c[0] + c[2] / 2, c[1] + c[3] / 2), () => tapAt(c[0] + c[2] / 2, c[1] + c[3] / 2, 'card')); } break;
+      if (agent.t > 2.4) { R.chosenCard = pickCard(); drawBook(); const c = cardRect(0); readFlyTo(tapSpot(c[0] + c[2] / 2, c[1] + c[3] / 2), () => tapAt(c[0] + c[2] / 2, c[1] + c[3] / 2, 'card')); } break;
     case 'r_fly': { const F = R.flight; F.t += dt / F.dur; const k = Math.min(1, F.t), e = ease(k), u = 1 - e; st.pos.copy(F.from).multiplyScalar(u * u).addScaledVector(F.ctrl, 2 * u * e).addScaledVector(F.to, e * e); st.headYaw *= 0.9; pulse(13, 1); pulse(5, 0.7); pulse(11, 0.7);
       if (k >= 1) { const a = R.after; R.after = null; a && a(); } break; }
     case 'r_tap': { const L = agent.tapLeg, T = agent.t; pulse(12, 0.95); st.pos.y += Math.sin(performance.now() / 300) * 0.01;
@@ -3247,7 +3248,7 @@ function onTap(kind) {
     game.dopamine = Math.min(1, game.dopamine + (ok ? 0.3 : -0.1)); ok ? (pulse(3, 1), pulse(4, 1), pulse(10, 0.9)) : (pulse(8, 0.8), pulse(9, 0.8));
     rdLog(`${R.pi === 5 ? 'Comprehension' : 'Stop & Think'}: ${ok ? 'answered correctly' : 'chose a wrong answer'}. "${S.pages[R.pi].check.q}"`); }
   else if (kind === 'next') { if (R.pi < 5) { R.pi++; layoutPage(); R.mode = 'page'; } else { R.stats.stories++; R.storyLog.push({ t: TDT(), story: S.title }); R.mode = 'library'; R.chosenCard = -1; rdLog(`Finished "${S.title}".`); } drawBook(); }
-  else if (kind === 'card') { const nxt = libraryOrder()[R.chosenCard]; R.si = nxt; R.pi = 0; R.answered = -1; layoutPage(); R.mode = 'page'; rdLog(`Chose "${STORIES[nxt].title}" from the library.`); drawBook(); renderTrial(); }
+  else if (kind === 'card') { const nxt = libraryOrder()[R.chosenCard]; R.opening = false; R.si = nxt; R.pi = 0; R.answered = -1; layoutPage(); R.mode = 'page'; rdLog(`Chose "${STORIES[nxt].title}" from the library.`); drawBook(); renderTrial(); }
 }
 function afterTap(kind) {
   const R = reading; agent.tapLeg = null;
@@ -3255,15 +3256,18 @@ function afterTap(kind) {
   if (R.mode === 'library') { readFlyTo(readSpot(), () => { R.hoverBase = readSpot(); setPhase('r_browse'); }); return; }
   readFlyTo(readSpot(), () => { R.hoverBase = readSpot(); if (R.wi < 0) R.gap = 0.5; setPhase('r_read'); renderTrial(); });
 }
-const libraryOrder = () => [1, 2, 3].map(k => (reading.si + k) % STORIES.length);
-const cardRect = i => [CARD_X[i], 170, 288, 330];
+// on opening every book is on offer; after a story, the other three
+const libraryOrder = () => reading.opening ? STORIES.map((s, i) => i) : [1, 2, 3].map(k => (reading.si + k) % STORIES.length);
+const cardRect = i => { const n = libraryOrder().length, w = n === 4 ? 226 : 288, gap = n === 4 ? 18 : 40, x0 = (1024 - (n * w + (n - 1) * gap)) / 2; return [x0 + i * (w + gap), 170, w, 330]; };
+// the fly picks the book it has read least, breaking ties at random
+function pickCard() { const L = libraryOrder(), reads = L.map(si => reading.storyLog.filter(x => x.story === STORIES[si].title).length), m = Math.min(...reads), c = L.map((_, i) => i).filter(i => reads[i] === m); return c[Math.floor(Math.random() * c.length)]; }
 
 // ---------- the e-book screen ----------
 function drawBook() {
   const g = bk, R = reading, S = STORIES[R.si], P = S.pages[R.pi]; g.setTransform(1, 0, 0, 1, 0, 0);
   g.fillStyle = '#fbfaf8'; g.fillRect(0, 0, 1024, 640);
   g.fillStyle = C.darkBlue; g.fillRect(0, 0, 1024, 50); g.fillStyle = '#fff'; g.font = `700 20px ${DISPLAY}`; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText('Fruit Fly Lingo · Library', 24, 26);
-  g.textAlign = 'right'; g.fillStyle = C.onDarkMuted; g.font = `700 17px ${DISPLAY}`; g.fillText(R.mode === 'library' ? 'Choose your next story' : `${S.title} · page ${R.pi + 1} of 6`, 1000, 26);
+  g.textAlign = 'right'; g.fillStyle = C.onDarkMuted; g.font = `700 17px ${DISPLAY}`; g.fillText(R.mode === 'library' ? (R.opening ? 'Choose a story' : 'Choose your next story') : `${S.title} · page ${R.pi + 1} of 6`, 1000, 26);
   if (R.mode === 'library') return drawLibrary(g), (bookTex.needsUpdate = true);
   // left: the picture
   // left: the picture, 4:3 like the generated illustrations, with the title underneath
@@ -3297,7 +3301,7 @@ function drawCheck(g) {
   if (R.mode === 'feedback') { const ok = R.order[R.choice] === 0; g.fillStyle = ok ? C.gatorInk : C.bottlebrush; g.font = `700 20px ${DISPLAY}`; g.fillText(ok ? 'Yes! That is what the story says.' : 'Not quite. The highlighted answer matches the story.', 224, 540); }
 }
 function drawLibrary(g) {
-  g.textAlign = 'left'; g.fillStyle = C.darkBlue; g.font = `700 30px ${DISPLAY}`; g.fillText('The End', 40, 104); g.fillStyle = C.inkMuted; g.font = `400 18px ${BODY}`; g.fillText('Read another story', 40, 138);
+  g.textAlign = 'left'; g.fillStyle = C.darkBlue; g.font = `700 30px ${DISPLAY}`; g.fillText(reading.opening ? 'Choose a story' : 'The End', 40, 104); g.fillStyle = C.inkMuted; g.font = `400 18px ${BODY}`; g.fillText(reading.opening ? 'Four illustrated stories, six pages each' : 'Read another story', 40, 138);
   libraryOrder().forEach((si, i) => { const [x, y, w, h] = cardRect(i), S = STORIES[si], sel = reading.chosenCard === i;
     g.fillStyle = C.card; g.strokeStyle = sel ? C.coreBlue : C.border; g.lineWidth = sel ? 4 : 2; g.beginPath(); g.roundRect(x, y, w, h, 16); g.fill(); g.stroke();
     g.save(); g.beginPath(); g.roundRect(x + 10, y + 10, w - 20, 170, 10); g.clip(); drawCover(g, artFor(si, 0), x + 10, y + 10, w - 20, 170); g.restore();
@@ -3307,12 +3311,12 @@ function drawLibrary(g) {
 }
 function renderReadingTrial() {
   const R = reading, S = STORIES[R.si], P = S.pages[R.pi], W = R.words[R.wi];
-  $('meaning').textContent = R.mode === 'library' ? 'Choosing the next story' : `${S.title}, page ${R.pi + 1} of 6`;
+  $('meaning').textContent = R.mode === 'library' ? (R.opening ? 'Choosing a story from the library' : 'Choosing the next story') : `${S.title}, page ${R.pi + 1} of 6`;
   $('chips').innerHTML = S.vocab.map(v => `<span class="chip ${vMem(v) >= 0.8 ? 'root' : 'empty'}">${v}</span>`).join('');
   $('placedCount').textContent = R.mode === 'library' ? 'story finished' : `${Math.max(0, Math.min(R.wi, R.words.length))} of ${R.words.length} words`;
   $('placedBar').classList.toggle('done', R.wi >= R.words.length); $('placedBar').firstElementChild.style.width = `${R.words.length ? Math.max(0, Math.min(1, R.wi / R.words.length)) * 100 : 0}%`;
   $('feedback').textContent = game.feedback;
-  $('nowLine').textContent = `Reading · ${S.title} · ${R.mode === 'library' ? 'library' : 'page ' + (R.pi + 1) + ' of 6'}`;
+  $('nowLine').textContent = R.opening ? 'Reading · choosing a book from the library' : `Reading · ${S.title} · ${R.mode === 'library' ? 'library' : 'page ' + (R.pi + 1) + ' of 6'}`;
   const T = R.stats; $('stWords').textContent = T.stories; $('stTaps').textContent = T.words; $('stAcc').textContent = T.words ? Math.round(100 * (1 - (T.miscues - T.selfCorrect) / T.words)) + '%' : '0%';
   const vs = [...R.vocab.keys()].sort((a, b) => R.vocab.get(b) - R.vocab.get(a));
   $('memory').innerHTML = vs.map(v => { const m = R.vocab.get(v); return `<div class="m"><span>${v}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${m >= 0.8 ? 'known' : Math.round(m * 100) + '% · learning'}</span></div>`; }).join('') || '<p class="sub">Vocabulary memories appear as the fly reads the bold words.</p>';
@@ -3394,7 +3398,7 @@ $('playBtn').addEventListener('click', () => { playing = !playing; $('playBtn').
 $('resetBtn').addEventListener('click', () => {
   game.memory.clear(); game.taps = 0; game.correct = 0; game.wordsBuilt = 0; game.dopamine = 0.5; game.placed = 0; game.wordIdx = 0; game.lesson = 1;
   for (const e of [1, 2, 3, 4, 5, 6]) heat[e].getContext('2d').clearRect(0, 0, heat[e].width, heat[e].height);
-  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; }); reading.vocab.clear(); reading.pageLog = []; reading.checkLog = []; reading.log = []; reading.storyLog = []; reading.si = 0; reading.pi = 0; reading.answered = -1; reading.mode = 'page'; Object.keys(reading.stats).forEach(k => { reading.stats[k] = 0; });
+  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; }); reading.vocab.clear(); reading.pageLog = []; reading.checkLog = []; reading.log = []; reading.storyLog = []; reading.si = 0; reading.pi = 0; reading.answered = -1; reading.mode = 'library'; reading.opening = true; Object.keys(reading.stats).forEach(k => { reading.stats[k] = 0; });
   Object.values(trajGroups).forEach(g => { while (g.children.length) { const c = g.children[0]; g.remove(c); c.geometry.dispose(); } });
   game.feedback = 'Memory cleared. The fly is looking for the prefix.'; cur().parts.forEach(memoryOf); setExperiment(experiment);
 });

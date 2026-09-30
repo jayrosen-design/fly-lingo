@@ -139,7 +139,7 @@ Dashboard 6, District proctoring, scores the flags against the hidden seeding: c
 
 ### Reading
 
-Experiment 9 is a storybook app on a tablet standing in a stand, in the style of illustrated readers such as LitLab. Each spread has a picture on the left and a short passage on the right, with the story's vocabulary in bold and a strip of words to know underneath. A Stop & Think question follows page 3 and a comprehension question follows page 6. When a story ends, the library shows three more stories and the fly picks the next one.
+Experiment 9 is a storybook app on a tablet standing in a stand, in the style of illustrated readers such as LitLab. Each spread has a picture on the left and a short passage on the right, with the story's vocabulary in bold and a strip of words to know underneath. A Stop & Think question follows page 3 and a comprehension question follows page 6. The app opens on the library, a grid of all four books; the fly looks them over and taps one, choosing the book it has read least. When a story ends, the library shows the other three and it picks the next.
 
 The fly hovers in front of the page, bobbing gently, and reads aloud at about 110 words a minute. The current word lights up, and the fly's head follows it along the line. It reads in the same live wing buzz as the phonics lesson: each word is a hum shaped by its vowels, with a pulse at a stop consonant, a rise at a question and a fall at the end of a sentence. The buzz plays only while it reads. To turn a page it flies up to the Next button and taps it with a foreleg; it answers questions and chooses stories the same way.
 
