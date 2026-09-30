@@ -286,6 +286,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <button type="button" data-exp="10" aria-pressed="false">Writing</button>
         <button type="button" data-exp="11" aria-pressed="false">VR</button>
         <button type="button" data-exp="12" aria-pressed="false">AR</button>
+        <button type="button" data-exp="13" aria-pressed="false">Scrabble</button>
       </div>
       <div class="seg" role="group" aria-label="Speed">
         <button type="button" data-speed="1" aria-pressed="true">1×</button>
@@ -307,15 +308,15 @@ pre.mermaid svg{max-width:none;height:auto}
         <div style="display:flex;flex-direction:column;gap:12px">
           <span class="eyebrow">Embodied Drosophila literacy simulation</span>
           <h2>A fruit fly learning to read, and the flies who teach and proctor it</h2>
-          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid, a classroom of 24 flies with tablets in mating season, a phonics app that asks it to say the word, which it sings back with one wing, a tablet of illustrated stories it reads aloud while hovering, a writing app where it answers in cursive with the tip of its abdomen, a VR headset that seats it at a desk in a third grade class taught by another fly, and a glass AR headset that fills the table with holographic word blocks. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
+          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid, a classroom of 24 flies with tablets in mating season, a phonics app that asks it to say the word, which it sings back with one wing, a tablet of illustrated stories it reads aloud while hovering, a writing app where it answers in cursive with the tip of its abdomen, a VR headset that seats it at a desk in a third grade class taught by another fly, a glass AR headset that fills the table with holographic word blocks, and a Scrabble board where it plays a butterfly. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
           <div class="actions"><a class="btn btn-primary" href="#simulate">Open the simulator</a><a class="btn btn-tertiary" href="#dashboards">Dashboards</a><a class="btn btn-tertiary" href="#about">About the research</a></div>
         </div>
         <img src="docs/screenshots/app-simulate.png" alt="The simulator: a fruit fly on a smartphone screen with the brain panel and docked dashboards">
       </div>
 
       <div>
-        <h3 class="sec">Twelve experiments</h3>
-        <p class="sub">Ten student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all twelve.</p>
+        <h3 class="sec">Thirteen experiments</h3>
+        <p class="sub">Eleven student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all thirteen.</p>
       </div>
       <div class="expgrid">
         <a class="expcard" href="#simulate" data-run="1"><img loading="lazy" src="docs/screenshots/overview.png" alt="Experiment 1: the fly walking across the phone screen toward a tile"><div class="body"><span class="num">Experiment 1</span><h3>Walking</h3><p>The fly walks across a phone lying on the table, reads the meaning with head sweeps, and presses word-part tiles with a foreleg.</p><span class="role student">Student</span></div></a>
@@ -330,6 +331,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <a class="expcard" href="#simulate" data-run="10"><img loading="lazy" src="docs/screenshots/exp10-writing.png" alt="Experiment 10: the fly flying nose-up over a phone, writing a Greek root answer in cursive with the tip of its abdomen"><div class="body"><span class="num">Experiment 10</span><h3>Writing</h3><p>Greek root questions answered in joined cursive. The fly flies nose-up and drags the tip of its abdomen across the glass, then taps Submit to have its handwriting read.</p><span class="role student">Student</span></div></a>
         <a class="expcard" href="#simulate" data-run="11"><img loading="lazy" src="docs/screenshots/exp11-vr.png" alt="Experiment 11: the fly in a VR headset on an air-supported ball, a laptop beside it showing a classroom seen from a student's desk"><div class="body"><span class="num">Experiment 11</span><h3>VR</h3><p>A fly-sized visor, cabled to a ball treadmill and a laptop. Inside, the student sits at a desk in a third grade class and answers in pencil, while a teacher fly on a second rig chalks word parts on the board.</p><span class="role student">Student</span></div></a>
         <a class="expcard" href="#simulate" data-run="12"><img loading="lazy" src="docs/screenshots/exp12-ar.png" alt="Experiment 12: the fly in a glass AR headset carrying a holographic word block toward a floating word frame"><div class="body"><span class="num">Experiment 12</span><h3>AR</h3><p>A glass headset puts holographic word blocks in the room. The fly walks around them, pinches one with a foreleg, carries it to the word frame, rotates it and snaps it in.</p><span class="role student">Student</span></div></a>
+        <a class="expcard" href="#simulate" data-run="13"><img loading="lazy" src="docs/screenshots/exp13-scrabble.png" alt="Experiment 13: a Scrabble board, the fruit fly at its rack and a Blue Morpho flying a tile over"><div class="body"><span class="num">Experiment 13</span><h3>Scrabble</h3><p>Fruit fly against butterfly on a full board. The fly walks each tile from its rack to its square; the butterfly flies its tiles in. Each learns the words the other plays.</p><span class="role student">Student</span></div></a>
       </div>
 
       <h3 class="sec">What you can measure</h3>
@@ -362,6 +364,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <button type="button" data-dock="d-writing-sec" aria-pressed="false"><span>Writing</span></button>
         <button type="button" data-dock="d-vr-sec" aria-pressed="false"><span>VR</span></button>
         <button type="button" data-dock="d-ar-sec" aria-pressed="false"><span>AR</span></button>
+        <button type="button" data-dock="d-sc-sec" aria-pressed="false"><span>Scrabble</span></button>
       </div>
       <div id="dockBody"></div>
     </aside>
@@ -392,27 +395,27 @@ pre.mermaid svg{max-width:none;height:auto}
 
     <aside id="brainPanel" aria-label="Scenario panel">
       <div id="nowLine" aria-live="polite">Walking · building a word</div>
-      <section id="rpScreen" data-rp="3 4 5 6 8 9 10 11" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
+      <section id="rpScreen" data-rp="3 4 5 6 8 9 10 11 13" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
       <section id="rpMap" data-rp="7" class="rp"><div class="rowlbl"><h3>Seating chart</h3><span class="sub">click a fly to follow it</span></div><canvas id="rpMapCv" aria-label="Top-down seating chart of the six tables; click a fly to follow it"></canvas></section>
       <section id="rpScen" class="rp"><h3 id="rpScenHead"></h3><div id="rpScenBody"></div></section>
-      <section data-rp="1 2 3 4 7 8 9 10 11 12" style="display:flex;flex-direction:column;gap:8px">
+      <section data-rp="1 2 3 4 7 8 9 10 11 12 13" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <h2>Central nervous system</h2>
           <span class="sub">Point cloud stylised after Drosophila anatomy, brain and ventral nerve cord. Drag to turn.</span>
         </div>
         <canvas id="brain" aria-label="Rotating point cloud of the fly's brain; regions brighten when active"></canvas>
       </section>
-      <section data-rp="1 2 3 4 7 8 9 10 11 12" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9 10 11 12 13" style="display:flex;flex-direction:column;gap:10px">
         <div class="rowlbl"><span>Dopamine · PAM cluster</span><span id="dopaVal">0.50</span></div>
         <div class="bar" id="dopaBar"><span style="width:50%"></span></div>
         <ul class="regions" id="regions"></ul>
       </section>
-      <section data-rp="1 2 3 4 7 8 9 10 11 12" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9 10 11 12 13" style="display:flex;flex-direction:column;gap:10px">
         <h3 id="memHead">Word part memory · Kenyon cell to MBON weights</h3>
         <div class="memory" id="memory"></div>
       </section>
       <section style="display:flex;flex-direction:column;gap:12px">
-        <div class="stat-row" data-rp="1 2 3 4 7 8 9 10 11 12">
+        <div class="stat-row" data-rp="1 2 3 4 7 8 9 10 11 12 13">
           <div class="stat good"><b id="stWords">0</b><span class="sub">words built</span></div>
           <div class="stat plain"><b id="stTaps">0</b><span class="sub">answers</span></div>
           <div class="stat"><b id="stAcc">0%</b><span class="sub">correct</span></div>
@@ -435,7 +438,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <p class="lead">Four dashboards from the psychometric specification, fed by the running fly. Values update while the simulation runs in the Simulate view. Where a quantity is a stand-in for a sensor or model the app does not yet have, the card says so.</p>
       </div>
       <nav class="subnav" aria-label="Dashboards">
-        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a><a href="#d-writing">Writing</a><a href="#d-vr">VR</a><a href="#d-ar">AR</a>
+        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a><a href="#d-writing">Writing</a><a href="#d-vr">VR</a><a href="#d-ar">AR</a><a href="#d-sc">Scrabble</a>
       </nav>
 
       <section id="d-session" class="grid" data-dockable>
@@ -600,6 +603,19 @@ pre.mermaid svg{max-width:none;height:auto}
         <article class="card span4"><header><h3>Word part memory</h3><span class="sub">shared with the other experiments</span></header><div id="arMem" class="memory"></div><p class="sub">The chance of fetching the right block is 0.35 + 0.6 × the memory of the part the slot needs, which learns with Δw = η(R − V).</p></article>
         <article class="card span6"><header><h3>Placements</h3><span class="sub">every block snapped or sent back</span></header><div style="overflow-x:auto"><table class="q" id="arTable"><thead><tr><th>Word</th><th>Slot</th><th>Block</th><th>Rotated</th><th>Walked</th><th>Right</th></tr></thead><tbody></tbody></table></div></article>
         <article class="card span6"><header><h3>AR log</h3><span class="sub">what the fly did</span></header><ul class="events" id="arLogL" style="max-height:300px"></ul></article>
+      </section>
+
+      <h3 class="sec" id="d-sc">Dashboard 13 · Scrabble, fruit fly vs butterfly</h3>
+      <p class="sub">Experiment 13. The fruit fly and a Blue Morpho play Scrabble on a full board. The fly walks each tile from its rack to its square; the butterfly flies its tiles in. Each player knows only part of the word list at first and learns the words the other plays.</p>
+      <section class="grid" id="d-sc-sec" data-dockable>
+        <article class="card span4"><header><h3>Match</h3><span class="sub" id="scMode">not running</span></header>
+          <div class="stat-row"><div class="stat"><b id="scWinsF">0</b><span class="sub">fruit fly wins</span></div><div class="stat plain"><b id="scWinsB">0</b><span class="sub">butterfly wins</span></div><div class="stat good"><b id="scNow">–</b><span class="sub">score now</span></div></div>
+          <div class="kv"><span>Tiles in the bag</span><b id="scBagN">–</b><span>Best word, fly</span><b id="scBestF">–</b><span>Best word, butterfly</span><b id="scBestB">–</b><span>Mean points per word</span><b id="scMean">–</b></div>
+          <p class="sub">Words must cross one already on the board, with no side words. Letter values and premium squares follow the standard game; using all seven tiles scores 50 more.</p></article>
+        <article class="card span4"><header><h3>Points per word</h3><span class="sub">amber fruit fly, blue butterfly</span></header><canvas class="chart tall" id="cScMoves" aria-label="Points scored by each word played"></canvas><p class="sub">Each player plays its best-scoring word most of the time, and one of its top five otherwise.</p></article>
+        <article class="card span4"><header><h3>Words known</h3><span class="sub">each learns from the other</span></header><div id="scVocab" class="memory"></div><p class="sub">Both start knowing the two- and three-letter words and about half of the rest. A word the opponent plays is learned seven times in ten.</p></article>
+        <article class="card span6"><header><h3>Words played</h3><span class="sub">latest first</span></header><div style="overflow-x:auto"><table class="q" id="scTable"><thead><tr><th>Game</th><th>Player</th><th>Word</th><th>Where</th><th>Tiles</th><th>Points</th></tr></thead><tbody></tbody></table></div></article>
+        <article class="card span6"><header><h3>Game log</h3><span class="sub">turns, swaps, learning</span></header><ul class="events" id="scLogL" style="max-height:300px"></ul></article>
       </section>
     </div>
   </section>
@@ -850,7 +866,7 @@ pre.mermaid svg{max-width:none;height:auto}
 </pre></article><article class="card"><h3>From this app to the full EDLS</h3><pre class="mermaid">flowchart LR
   subgraph Now[&quot;In this repo today&quot;]
     UI[&quot;3D language interface&lt;br/&gt;screen · tiles · trial card&quot;]
-    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;twelve experiments&quot;]
+    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;thirteen experiments&quot;]
     Policy[&quot;Behavioural policy&lt;br/&gt;memory-weighted tile choice&quot;]
     BrainViz[&quot;Stylised CNS point cloud&lt;br/&gt;16 regions, act[]&quot;]
     Eye[&quot;Fly-eye mosaic&lt;br/&gt;750 ommatidia, 4.5°&quot;]
@@ -953,6 +969,13 @@ pre.mermaid svg{max-width:none;height:auto}
         <figure><img loading="lazy" src="docs/screenshots/dashboards-12.png" alt="Dashboard 12: AR session counters, rotation per block, word part memory"><figcaption><strong>Dashboard 12 · AR word blocks.</strong> Words built, blocks right, distance walked and time spent walking around blocks, rotation per block, and every placement.</figcaption></figure>
       </div>
       <p>No treadmill here: the fly really walks, on the table, in a glass headset with a clear visor under a slim frame. The headset overlays a spatial grid on the table, a floating word frame with prefix, root and suffix slots, and six holographic blocks at head height, three carrying the word's parts and three carrying parts of other words. The blocks it is not fetching are obstacles, so it steers around them. It points its right foreleg at a block to pinch it (the headset draws the ray), carries it to the frame, and twists it with a circling foreleg until the label faces out. A right block snaps in green; a wrong one flashes red and drifts back to where it was. The chance of fetching the right block rises with the memory of that part, which learns with every placement.</p>
+
+      <h3 class="sec">Scrabble</h3>
+      <div class="shots">
+        <figure><img loading="lazy" src="docs/screenshots/exp13-scrabble.png" alt="Experiment 13: the Scrabble board with REDO played, the butterfly flying a tile, the fruit fly at its rack"><figcaption><strong>13 · Scrabble.</strong> The fly walks its tiles in; the Blue Morpho flies its tiles over and drops them.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/exp13-board.png" alt="Experiment 13: the board from above, with the premium squares and the first word"><figcaption><strong>13 · The board.</strong> Standard premium squares, racks on either side, and a scoreboard in the side panel.</figcaption></figure>
+      </div>
+      <p>The fruit fly plays a Blue Morpho on a full 15 by 15 board with the standard premium squares, letter values and a 98-tile bag. The first word goes through the centre star, and every later word must cross one on the board without touching any other; seven tiles in one turn score 50 more. On its turn the fly walks to its rack, takes a tile with a foreleg, walks it to its square and sets it down, one tile at a time; the butterfly flies to its rack, picks a tile up, flies it over and drops it. Each player starts knowing the two- and three-letter words and about half of the rest of the word list, plays its best-scoring word most of the time, and learns seven in ten of the words its opponent plays. Games run until the bag and a rack are empty, and the side panel keeps the score, the racks and the wins. In this experiment the student is always the fruit fly.</p>
 
       <h3 class="sec">Butterfly mode</h3>
       <div class="shots">
@@ -1079,6 +1102,7 @@ const EXP = {
   10: { name: 'Writing', note: 'Experiment 10 · Writing. A cursive writing app on the phone asks Greek root questions. The fly answers by flying nose-up and dragging the tip of its abdomen across the glass, writing the answer in joined cursive, lifting it for dots and crosses. Then it taps Submit and the app reads the handwriting.', phys: 'Hover flight · abdomen tip on the glass', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 9, 14] },
   11: { name: 'VR', note: 'Experiment 11 · VR. The fly wears a headset made for its head and stands on an air-supported ball, the omnidirectional treadmill of fly VR rigs. The headset puts it at a desk in a third grade class. The teacher writes word parts on the chalkboard, and the student answers in pencil in an open booklet. Walking and turning on the ball move the student\'s view. A teacher fly on a second ball, in its own headset, teaches the same class from the front of the room; each rig is cabled through a control box to its laptop, which shows what that headset shows.', phys: 'Ball treadmill · VR headset', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-6, 32, -112], vrRig: true },
   12: { name: 'AR', note: 'Experiment 12 · AR. The fly wears a glass mixed-reality headset and walks on the table among floating holographic blocks, each carrying a word part. The overlays are shown to the arena camera too. It walks around the blocks, points a foreleg to pinch one, carries it to the floating word frame, twists it until its label faces out, and snaps it into the prefix, root or suffix slot.', phys: 'Walking · glass AR headset', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [16, 20, 30], ar: true },
+  13: { name: 'Scrabble', note: 'Experiment 13 · Scrabble. The fruit fly plays a Blue Morpho butterfly on a full 15 by 15 board with premium squares and a 98-tile bag. On its turn the fly walks to its rack, takes each tile with a foreleg, walks it to its square and sets it down; the butterfly flies its tiles in and drops them. Words have to cross a word already on the board. Each player starts knowing only part of the word list and learns the words its opponent plays.', phys: 'Fly walks · butterfly flies', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [0, 70, 86], scrabble: true },
   9: { name: 'Reading', note: 'Experiment 9 · Reading. A tablet on a stand runs an illustrated storybook app. The fly hovers in front of the page, bobbing, and reads aloud in its wing buzz as each word lights up; vocabulary words are in bold. It starts at the library and flies up to tap a book, taps Next to turn pages, answers Stop & Think questions, and when a story ends it picks the next one.', phys: 'Tablet on a stand · hover flight', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-38, 9, 20], tablet: true },
   8: { name: 'Phonics', note: 'Experiment 8 · Phonics. The app shows a word, plays it, and asks the fly to say it back. A fly cannot speak, so it stands on the mic facing the word, holds the mic down with a foreleg, and sings each sound with one extended wing: pulse song for k, t, d, a formant-shaped hum for vowels, a fluttered hiss for s and sh. You hear the buzz only while it sings; the pill above the arena turns it off.', phys: 'Wing song · pulse and sine', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-13, 11, 20] },
 };
@@ -1149,7 +1173,7 @@ function rrect(x, y, w, h, r) { sc.beginPath(); sc.roundRect(x, y, w, h, r); }
 function drawScreen(now) {
   if (experiment === 8) return drawPhonics(now);
   if (experiment === 10) return drawWriting(now);
-  if (experiment === 11 || experiment === 12) return;
+  if (experiment >= 11) return;
   const w = cur(); const L = layout(); const scroll = L.tapY ? game.scrollY : 0;
   sc.setTransform(1, 0, 0, 1, 0, 0);
   sc.fillStyle = C.page; sc.fillRect(0, 0, SW, SH);
@@ -1495,6 +1519,7 @@ function renderTrial() {
   if (experiment === 10) return renderWritingTrial();
   if (experiment === 11) return renderVRTrial();
   if (experiment === 12) return renderARTrial();
+  if (experiment === 13) return renderScrabbleTrial();
   if (experiment === 4 && typeof spell !== 'undefined' && spell.letters.length) {
     $('meaning').textContent = spell.word.meaning;
     $('chips').innerHTML = spell.letters.map((ch, i) => i < spell.typed.length ? `<span class="chip ${KINDS[partAtLetter(i)]}" style="padding:0 12px">${ch}</span>` : `<span class="chip empty" style="padding:0 10px">${KINDS[partAtLetter(i)][0]}</span>`).join('');
@@ -1532,6 +1557,7 @@ const PHASE_TEXT = { look: 'Looking at the screen', walk: 'Walking to a tile', t
   w_read: 'Reading the question', w_fly: 'Flying', w_write: 'Writing with the abdomen tip', w_tap: 'Tapping Submit', w_react: 'Checking the answer',
   v_board: 'Watching the chalkboard', v_look: 'Looking down at the booklet', v_write: 'Writing in the booklet', v_mark: 'Teacher checks the answer', v_erase: 'The board is erased',
   a_look: 'Reading the word frame', a_walk: 'Walking around the blocks', a_grab: 'Pinching a block', a_carry: 'Carrying the block', a_rotate: 'Rotating the block', a_place: 'Snapping it in', a_done: 'Word built',
+  s_think: 'Looking for a word', f_go: 'Walking to its rack', f_pick: 'Taking a tile', f_carry: 'Carrying a tile', f_drop: 'Setting the tile down', f_home: 'Back to its side', b_go: 'Butterfly flying to its rack', b_pick: 'Butterfly takes a tile', b_carry: 'Butterfly flying a tile over', b_drop: 'Butterfly drops the tile', b_home: 'Butterfly back to its side', s_score: 'Scoring the word', s_over: 'Game over',
   r_read: 'Hovering and reading aloud', r_think: 'Thinking about the question', r_fly: 'Flying to the button', r_tap: 'Tapping the screen', r_feedback: 'Checking the answer', r_browse: 'Browsing the library',
   p_look: 'Reading the word', p_listen: 'Listening to the app', p_walk: 'Settling on the mic', p_tap: 'Pressing the mic', p_buzz: 'Holding the mic and singing with one wing', p_react: 'Hearing the score', p_celebrate: 'Word said right', p_back: 'Settling on the mic',
   t_read: 'Reading the screen', t_fly: 'Flying', t_walk: 'Walking', t_arm: 'Steering the cursor with a foreleg', t_press: 'Clicking', t_dip: 'Pressing a key', t_done: 'All students graded', s_celebrate: 'Word spelled', a_watch: 'Watching the nine sessions' };
@@ -1625,6 +1651,7 @@ function stepAgent(dt, now) {
   if (experiment === 10) return stepWriting(dt, now);
   if (experiment === 11) return stepVR(dt, now);
   if (experiment === 12) return stepAR(dt, now);
+  if (experiment === 13) return stepScrabble(dt, now);
   if (EXP[experiment].laptop) return stepTeacher(dt, now);
   const st = flyState; const s = phone.scale.x;
   switch (agent.phase) {
@@ -1743,9 +1770,9 @@ function stepAgent(dt, now) {
 // ---------- Fly animation ----------
 function animateFly(dt) {
   const st = flyState;
-  fly.position.copy(st.pos); fly.rotation.y = st.yaw + (butterfly && st.airborne ? Math.sin(performance.now() / 260) * 0.12 : 0); fly.updateMatrixWorld(true); // a butterfly weaves as it flies
+  fly.position.copy(st.pos); fly.rotation.y = st.yaw + (butterfly && experiment !== 13 && st.airborne ? Math.sin(performance.now() / 260) * 0.12 : 0); fly.updateMatrixWorld(true); // a butterfly weaves as it flies
   head.rotation.y = st.headYaw;
-  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz' || agent.phase === 'r_tap' || agent.phase === 'w_tap' || agent.phase === 'v_write' || ['a_grab', 'a_carry', 'a_rotate', 'a_place'].includes(agent.phase)) ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
+  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz' || agent.phase === 'r_tap' || agent.phase === 'w_tap' || agent.phase === 'v_write' || ['a_grab', 'a_carry', 'a_rotate', 'a_place', 'f_pick', 'f_carry', 'f_drop'].includes(agent.phase)) ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
   let stepping = legs.filter(L => L.step).length;
   legs.forEach(L => {
     if (L === busyLeg) return;
@@ -1775,7 +1802,7 @@ function animateFly(dt) {
   body.rotation.x += (pitch - body.rotation.x) * Math.min(1, dt * 6);
   proboscis.scale.y = 0.35 + st.proboscis * 0.9; proboscis.position.y = -0.6 - st.proboscis * 0.35;
   const flap = st.buzz > 0 ? Math.sin(performance.now() / 6) * 0.6 * Math.min(1, st.buzz * 2) : 0;
-  if (butterfly) { const now = performance.now(), fl = st.airborne ? 1 : Math.min(1, st.buzz * 1.5);
+  if (butterfly && experiment !== 13) { const now = performance.now(), fl = st.airborne ? 1 : Math.min(1, st.buzz * 1.5);
     wings.forEach(g => morphoPose(g, now, { fly: fl, song: st.songExt > 0.01 && g.userData.side === st.songSide ? st.songExt : 0 }));
     if (st.airborne) { body.position.y += Math.sin(now / 45 - 0.6) * 0.35; body.rotation.x += Math.cos(now / 45) * 0.06; } } // each downstroke lifts the body: a bobbing flight
   else wings.forEach(g => { g.rotation.z = g.userData.side * (0.25 + flap); g.rotation.y = g.userData.side * -0.35;
@@ -2787,7 +2814,7 @@ function drawVision() {
 }
 
 // ---------- scenario panels: the right panel and bottom strip follow the experiment ----------
-const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9, 10, 11, 12]; // the teacher and admin panels show their screen and work queue instead of the brain
+const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13]; // the teacher and admin panels show their screen and work queue instead of the brain
 let rpAt = 0;
 // scenario history, 4 samples a second of the numbers the strip plots (the classroom keeps its own in cls.hist)
 const sh = []; let shAt = 0, shSim = 0; const shPrev = new THREE.Vector3();
@@ -2799,7 +2826,7 @@ function sampleScenario(now, dt) {
   sh.push({ t, exp: experiment, speed, h: Math.max(0, st.pos.y - ground), air: st.airborne ? 1 : 0, scroll: game.scrollY, typed: spell.typed.length,
     path: T.path, clicks: T.clicks, miss: T.miss, keys: T.keys, graded: T.graded.length,
     att: admin.students.length ? admin.students.reduce((a, s) => a + s.att, 0) / admin.students.length : null, flags: admin.flags.filter(f => f.open).length,
-    song: flyState.songAmp || 0, pen: (experiment === 10 && agent.phase === 'w_write' && wr.path[Math.floor(wr.s)] && wr.path[Math.floor(wr.s)].down) || (experiment === 11 && agent.phase === 'v_write') ? 1 : 0, ball: vr.speed, arHold: experiment === 12 && ['a_carry', 'a_rotate'].includes(agent.phase) ? 1 : 0, arRot: experiment === 12 && ar.pick ? Math.abs(arWrap(ar.pick.g.rotation.y)) * 57.3 : null, pmem: game.memory.size ? [...game.memory.values()].reduce((a, b) => a + b, 0) / game.memory.size : null, rmem: wr.mem.size ? [...wr.mem.values()].reduce((a, b) => a + b, 0) / wr.mem.size : null, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
+    song: flyState.songAmp || 0, pen: (experiment === 10 && agent.phase === 'w_write' && wr.path[Math.floor(wr.s)] && wr.path[Math.floor(wr.s)].down) || (experiment === 11 && agent.phase === 'v_write') ? 1 : 0, ball: vr.speed, scF: scr.scores[0], scB: scr.scores[1], scBag: scr.bag.length, arHold: experiment === 12 && ['a_carry', 'a_rotate'].includes(agent.phase) ? 1 : 0, arRot: experiment === 12 && ar.pick ? Math.abs(arWrap(ar.pick.g.rotation.y)) * 57.3 : null, pmem: game.memory.size ? [...game.memory.values()].reduce((a, b) => a + b, 0) / game.memory.size : null, rmem: wr.mem.size ? [...wr.mem.values()].reduce((a, b) => a + b, 0) / wr.mem.size : null, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
     prec: A.tp + A.fp ? A.tp / (A.tp + A.fp) : null, checkins: A.checkins, det: A.detections.filter(d => t - d.t < 5).reduce((a, d) => a + d.lookaway + d.helper + d.device + d.offscreen, 0) });
   if (sh.length > 480) sh.shift();
 }
@@ -2877,6 +2904,11 @@ const STRIPS = {
     { l: 'Blocks right', v: () => `${ar.stats.right} of ${ar.stats.placed}`, d: id => barChart(id, ar.history.slice(-20).map(h => ({ v: 1, color: h.ok ? CH.green : CH.red, label: `${h.word}, ${h.slot}: "${h.part}", ${h.ok ? 'right' : 'wrong, needed ' + h.need}` })), { ymax: 1, positive: true, compact: true, empty: 'No blocks placed yet' }) },
     sHist('Word part memory', 'pmem', () => { const p = shLast(); return p && p.pmem != null ? p.pmem.toFixed(2) : '–'; }, { ymax: 1 }, '#22884c'),
     sDopa],
+  13: [{ l: 'Score · fly vs butterfly', v: () => `${scr.scores[0]} · ${scr.scores[1]}`, d: id => classLine(id, [{ name: 'Fruit fly', color: '#8a3b12', get: p => p.scF }, { name: 'Butterfly', color: '#0021a5', get: p => p.scB }], { ymin: 0, compact: true }, shNow()) },
+    { l: 'Points per word', v: () => { const m = scr.moves[scr.moves.length - 1]; return m ? `${m.w} ${m.score}` : '–'; }, d: id => barChart(id, scr.moves.slice(-20).map(m => ({ v: m.score, color: m.p ? CH.blue : CH.amber, label: `${SC_NAME[m.p]}: ${m.w} for ${m.score}` })), { positive: true, compact: true, empty: 'No words yet' }) },
+    sHist('Tiles in the bag', 'scBag', () => String(scr.bag.length), { ymax: 98 }),
+    { l: 'Words known · fly vs butterfly', v: () => `${scr.vocab[0].size} · ${scr.vocab[1].size}`, d: id => barChart(id, [0, 1].map(p => ({ v: scr.vocab[p].size, color: p ? CH.blue : CH.amber, label: `${SC_NAME[p]}: ${scr.vocab[p].size} words, ${scr.learned[p]} learned from the other` })), { positive: true, compact: true }) },
+    sSpeed('Fly walking speed'), sDopa],
 };
 let stripExp = 0;
 function drawStrip() {
@@ -2909,6 +2941,8 @@ function scenarioCard() {
     return ['Proctoring', `<h3>Open flags</h3><ul>${open.map(f => `<li class="now">${admin.students[f.student].name}: ${REASON[f.reason] || f.reason} · ${Math.round(TDT() - f.t)} s ago</li>`).join('') || '<li>None open</li>'}</ul>` +
       (ai ? `<p class="sub" style="margin:0">FlyAI: ${ai.text}</p>` : '') + `<h3>Next actions</h3><ol>${next.map((s, i) => `<li class="${i ? '' : 'now'}">${stepText(s)}</li>`).join('')}</ol>` +
       kv([['Flags · confirmed · false alarms', `${admin.flags.length} · ${A.tp} · ${A.fp}`], ['Check-ins sent', A.checkins]])]; }
+  if (e === 13) { const M = scr.move, last = scr.moves[scr.moves.length - 1];
+    return ['Scrabble', kv([['Game', `${scr.game} · won ${scr.wins[0]} fly, ${scr.wins[1]} butterfly`], ['Score', `fruit fly ${scr.scores[0]} · butterfly ${scr.scores[1]}`], ['To play', scr.over ? 'game over' : SC_NAME[scr.turn]], ['Playing', M ? `${M.w} for ${M.score} · tile ${Math.min(scr.mi + 1, M.tiles.length)} of ${M.tiles.length}` : 'thinking'], ['Last word', last ? `${SC_NAME[last.p]}: ${last.w} for ${last.score}` : '–'], ['Tiles in the bag', scr.bag.length], ['Words known', `fly ${scr.vocab[0].size} · butterfly ${scr.vocab[1].size}`]])]; }
   if (e === 12) { const B = ar.pick, S = ar.stats, last = ar.history[ar.history.length - 1];
     return ['Mixed reality', kv([['Word', ar.word ? ar.word.meaning : '–'], ['Next slot', ar.need < 3 ? KINDS[ar.need] : 'word built'], ['Block', B ? `"${B.part}" · ${B.state === 'held' ? 'held by a foreleg' : 'targeted'}` : 'none'], ['Rotation to go', B ? Math.round(Math.abs(arWrap(B.g.rotation.y)) * 57.3) + '°' : '–'], ['Walking around a block', ar.detour ? 'yes' : 'no'], ['Last block', last ? `"${last.part}" as ${last.slot} · ${last.ok ? 'right' : 'wrong'}` : '–'], ['Right so far', `${S.right} of ${S.placed}`], ['Words built', S.words]])]; }
   if (e === 11) { const it = vr.items[vr.ii], S = vr.stats, look = vr.glance ? 'a classmate' : ['v_look', 'v_write', 'v_mark'].includes(agent.phase) ? 'the booklet' : 'the chalkboard', last = vr.history[vr.history.length - 1];
@@ -2926,18 +2960,19 @@ function renderScenario(force) {
   if (view !== 'simulate' && !force) return;
   const [head, body] = scenarioCard(); if ($('rpScenHead').textContent !== head) $('rpScenHead').textContent = head;
   const B = $('rpScenBody'); if (B.innerHTML !== body) B.innerHTML = body;
-  if ([3, 4, 5, 6, 8, 9, 10, 11].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
+  if ([3, 4, 5, 6, 8, 9, 10, 11, 13].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
 }
 // a live copy of the phone or laptop screen
 function drawRpScreen() {
-  const cv = $('rpScreenCv'), w = cv.clientWidth; if (!w) return; const lap = EXP[experiment].laptop || experiment === 9 || experiment === 11, src = experiment === 11 ? vrCanvas : experiment === 9 ? bookCanvas : EXP[experiment].laptop ? lapCanvas : screenCanvas;
+  const cv = $('rpScreenCv'), w = cv.clientWidth; if (!w) return; const lap = EXP[experiment].laptop || experiment === 9 || experiment === 11 || experiment === 13, src = experiment === 13 ? scMini : experiment === 11 ? vrCanvas : experiment === 9 ? bookCanvas : EXP[experiment].laptop ? lapCanvas : screenCanvas;
   const h = lap ? Math.round(w * 640 / 1024) : Math.min(300, Math.round(w * SH / SW)); const pr = Math.min(devicePixelRatio, 2);
   if (cv.height !== Math.round(h * pr) || cv.width !== Math.round(w * pr)) { cv.width = Math.round(w * pr); cv.height = Math.round(h * pr); cv.style.height = h + 'px'; }
   const g = cv.getContext('2d'); g.setTransform(pr, 0, 0, pr, 0, 0); g.fillStyle = '#0b0b0c'; g.fillRect(0, 0, w, h);
   const s = Math.min(w / src.width, h / src.height), dw = src.width * s, dh = src.height * s; g.drawImage(src, (w - dw) / 2, (h - dh) / 2, dw, dh);
+  if (experiment === 13) {}
   if (experiment === 11) { const iw = w * 0.36, ih = iw * 0.625, ix = w - iw - 6, iy = h - ih - 6; g.drawImage(vrCanvasT, ix, iy, iw, ih); g.strokeStyle = '#fff'; g.lineWidth = 2; g.strokeRect(ix, iy, iw, ih); g.fillStyle = 'rgba(0,38,87,0.85)'; g.fillRect(ix, iy, 52, 14); g.fillStyle = '#fff'; g.font = `700 9px ${DISPLAY}`; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText('Teacher', ix + 5, iy + 7.5); }
-  $('rpScreenHead').textContent = experiment === 11 ? 'Headset view' : experiment === 10 ? 'Writing app' : experiment === 9 ? 'Storybook app' : experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
-  $('rpScreenSub').textContent = experiment === 11 ? 'student, teacher inset' : experiment === 10 ? 'ink from the abdomen tip' : experiment === 9 ? 'the page the fly is reading' : experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
+  $('rpScreenHead').textContent = experiment === 13 ? 'Scoreboard' : experiment === 11 ? 'Headset view' : experiment === 10 ? 'Writing app' : experiment === 9 ? 'Storybook app' : experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
+  $('rpScreenSub').textContent = experiment === 13 ? 'board, racks and scores' : experiment === 11 ? 'student, teacher inset' : experiment === 10 ? 'ink from the abdomen tip' : experiment === 9 ? 'the page the fly is reading' : experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
 }
 // classroom seating chart, top down
 const MAP = { x0: -56, x1: 56, z0: -40, z1: 32 };
@@ -4082,13 +4117,198 @@ function renderARTrial() {
 }
 window.__ar = ar; // debug hook
 
+// =====================================================================
+// Experiment 13: Scrabble. The fruit fly plays a Blue Morpho butterfly on a 15 x 15 board. The fly walks to its rack,
+// takes a tile with a foreleg, walks it to its square and sets it down; the butterfly flies its tiles in and drops
+// them. Words must cross a word already on the board, premium squares count, and each player starts knowing only part
+// of the word list and learns the words its opponent plays.
+// =====================================================================
+const SC = { cell: 3.6, n: 15, G: TABLE_Y + 0.3 };
+const SC_MID = new THREE.Vector3(0, SC.G, 0);
+const SC_VAL = { A: 1, B: 3, C: 3, D: 2, E: 1, F: 4, G: 2, H: 4, I: 1, J: 8, K: 5, L: 1, M: 3, N: 1, O: 1, P: 3, Q: 10, R: 1, S: 1, T: 1, U: 1, V: 4, W: 4, X: 8, Y: 4, Z: 10 };
+const SC_BAG = 'A9B2C2D4E12F2G3H2I9J1K1L4M2N6O8P2Q1R6S4T6U4V2W2X1Y2Z1';
+const SC_WORDS = [...new Set(`AT TO IN IT IS ON NO SO DO GO HE WE ME BE AN AS OR UP US AM AX OX QI ZA JO XI KA OF IF BY MY OH HI
+CAT DOG RAT BAT HAT MAT SAT PAT TAN CAN FAN MAN PAN RAN VAN TEN HEN PEN DEN MEN NET SET BET GET JET LET MET PET VET WET YET SIT HIT KIT LIT PIT BIT FIT WIT
+TIN BIN FIN PIN WIN SIN TON SON WON ONE TWO SIX TOP HOP MOP POP COP DOT HOT LOT NOT POT ROT CUT HUT NUT BUT BUG HUG JUG MUG RUG TUG BAG RAG TAG WAG NAG
+BED RED FED LED WED AGE ACE ICE APE ATE EAT TEA SEA SEE BEE FEE TEE TOE HOE DOE OAR EAR ERA ARE AIR OIL OWL OWN NOW HOW COW BOW ROW TOW LOW MOW SOW SAW
+RAW LAW JAW PAW PAY DAY HAY MAY RAY SAY WAY TOY BOY JOY KEY FLY SKY DRY TRY CRY SPY WHY ZOO ZAP ZIP FOX BOX WAX TAX MIX FIX JAB JAM JOG JOT QUA RUN SUN FUN
+READ REDO UNDO PLAY LOCK TREE LEAF WING WORD ROOT PART RERUN UNTIE REPLAY UNLOCK RECOUNT MISREAD PREVIEW VIEWING PLAYING READING COUNTED LOCKED AGREE
+DISOWN UNSEEN RETIE RETAIL REDONE UNDONE REDEAL UNREAD RETOLD UNSAID RESEAT RESENT RETAKE RETRY UNFIT UNTOLD PRETEST PREDATE PRESET MISTAKE REPAINT
+BOOK LOOK TOOK COOK HOOK NOTE TONE STONE NOTES RATE TEAR RATES STARE TEARS ALERT LATER TREAT SALT LAST SLAT TAIL TALE TEAL LATE TILE LINE LION LOIN NAIL
+SNAIL TRAIN RAIN REIN SANE LANE CANE MANE PANE VANE WANE RIDE SIDE TIDE WIDE HIDE ROSE NOSE POSE HOSE NEST BEST REST TEST WEST VEST PEST SENT RENT TENT
+DENT BENT WENT LENT SEAT BEAT HEAT MEAT NEAT TEAM SEAM BEAM DREAM STEAM RATS STAR ARTS SCAR CARE RACE ACRE CART DART TART HEART EARTH WATER OTTER ENTER
+INTO ONTO UNTO OATS SOAP GOAT BOAT COAT ROAD LOAD TOAD AREA IDEA ALONE ATONE ROUTE OUTER UNITE UNTIL SUIT QUIT QUIET QUITE QUEEN QUEST JUICE JOKE JUMP
+ZERO ZONE ZEST DOZE HAZE MAZE OXEN EXIT TEXT NEXT FRUIT FLIES BUTTER FLUTTER NECTAR PETAL PETALS FLOWER GARDEN ORANGE LEMON MELON GRAPE PEACH PEAR APPLE
+RIPE SWEET SOUR HONEY BLOOM SEED SEEDS STEM ROOTS LEAVES WINGS ANTENNA LEGS EYES HEAD SIX EGG EGGS LARVA PUPA NEON TONES TENOR TONER SNORE ROSIN ORIENT
+STAIN SATIN SAINT TRAINS INSERT INTERS SISTER RESIST STREET SETTER TESTER RETEST TRITE TIRE TIRES TRIES RITE RITES TIER TIERS SIRE SIREN RINSE RISEN
+REINS OPERA PAROLE LOANER RELOAN ORATE OATER SOLAR LASER LEARN RENAL ALIEN ALINE TINSEL SILENT LISTEN ENLIST INLETS TOILS TOLES STOLE SLOT LOTS LOST
+DIET EDIT TIDE TIED DIRT DATE TREAD TRADE RATED DARE DEAR READS DEARS HEARD SHARED SHADE HEADS HATES HASTE PASTE TAPES SPATE PEAST PLANET PLATEN PLANT
+PANEL PENAL PLANE ROPE PORE REPO PORT SPORT STROP PROST TOPS STOP SPOT POTS OPTS POST HOST SHOT HOTS TOSH SOOT TOOTS TOOL LOOT LOTTO MOTTO PHOTO OPTIC`.split(/\s+/).filter(w => /^[A-Z]{2,8}$/.test(w)))];
+// premium squares, by the standard board
+const SC_PREM = (() => { const P = {}, put = (t, list) => list.forEach(([r, c]) => { P[r * 15 + c] = t; });
+  put('TW', [[0, 0], [0, 7], [0, 14], [7, 0], [7, 14], [14, 0], [14, 7], [14, 14]]);
+  put('DW', [[1, 1], [2, 2], [3, 3], [4, 4], [1, 13], [2, 12], [3, 11], [4, 10], [13, 1], [12, 2], [11, 3], [10, 4], [13, 13], [12, 12], [11, 11], [10, 10], [7, 7]]);
+  put('TL', [[1, 5], [1, 9], [5, 1], [5, 5], [5, 9], [5, 13], [9, 1], [9, 5], [9, 9], [9, 13], [13, 5], [13, 9]]);
+  put('DL', [[0, 3], [0, 11], [2, 6], [2, 8], [3, 0], [3, 7], [3, 14], [6, 2], [6, 6], [6, 8], [6, 12], [7, 3], [7, 11], [8, 2], [8, 6], [8, 8], [8, 12], [11, 0], [11, 7], [11, 14], [12, 6], [12, 8], [14, 3], [14, 11]]); return P; })();
+const scGroup = new THREE.Group(); scGroup.visible = false; scene.add(scGroup);
+const scCell = (r, c) => new THREE.Vector3((c - 7) * SC.cell, SC.G, (r - 7) * SC.cell);
+// the board: a 70-unit mat with the 15 x 15 grid in the middle and room for the racks
+{ const cv = document.createElement('canvas'); cv.width = cv.height = 1400; const g = cv.getContext('2d'), S = 1400 / 70, g0 = (70 - 54) / 2 * S, cs = SC.cell * S;
+  g.fillStyle = '#6e1f1f'; g.fillRect(0, 0, 1400, 1400); g.fillStyle = '#d9cdb0'; g.fillRect(g0 - 6, g0 - 6, 54 * S + 12, 54 * S + 12);
+  const COL = { TW: ['#d6453d', 'TRIPLE\nWORD'], DW: ['#f0a8a0', 'DOUBLE\nWORD'], TL: ['#3a86c8', 'TRIPLE\nLETTER'], DL: ['#a9d3ee', 'DOUBLE\nLETTER'] };
+  for (let r = 0; r < 15; r++) for (let c = 0; c < 15; c++) { const p = SC_PREM[r * 15 + c], x = g0 + c * cs, y = g0 + r * cs; g.fillStyle = p ? COL[p][0] : '#e9e1cc'; g.fillRect(x + 1.5, y + 1.5, cs - 3, cs - 3);
+    if (p) { g.fillStyle = p === 'TL' || p === 'TW' ? '#fff' : '#3a2a20'; g.font = `700 ${cs * 0.2}px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle'; COL[p][1].split('\n').forEach((t, i) => g.fillText(t, x + cs / 2, y + cs * (0.38 + i * 0.26))); } }
+  g.fillStyle = '#3a2a20'; g.font = `700 ${cs * 0.8}px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('★', g0 + 7.5 * cs, g0 + 7.5 * cs);
+  g.fillStyle = '#f2e6c8'; g.font = `700 44px ${DISPLAY}`; g.fillText('FRUIT FLY', 700, 1400 - 40); g.save(); g.translate(700, 40); g.rotate(Math.PI); g.fillText('BUTTERFLY', 0, 0); g.restore();
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
+  const side = new THREE.MeshStandardMaterial({ color: 0x5a1818, roughness: 0.7 }), top = new THREE.MeshStandardMaterial({ map: t, roughness: 0.75 });
+  const board = new THREE.Mesh(new THREE.BoxGeometry(70, 0.3, 70), [side, side, top, side, side, side]); board.position.set(0, TABLE_Y + 0.15, 0); board.receiveShadow = true; scGroup.add(board);
+  [1, -1].forEach(s => { const rack = new THREE.Mesh(new THREE.BoxGeometry(30, 0.9, 1.2), new THREE.MeshStandardMaterial({ color: 0x8a5a2b, roughness: 0.6 })); rack.position.set(0, SC.G + 0.45, s * 35); rack.castShadow = true; scGroup.add(rack); }); }
+// tiles: a cream box with the letter and its value on top
+const scTileGeo = new THREE.BoxGeometry(3.1, 0.5, 3.1), scCream = new THREE.MeshStandardMaterial({ color: 0xf1dcae, roughness: 0.55 }), scTops = {};
+function scTopMat(L) { if (scTops[L]) return scTops[L]; const cv = document.createElement('canvas'); cv.width = cv.height = 128; const g = cv.getContext('2d'); g.fillStyle = '#f1dcae'; g.fillRect(0, 0, 128, 128);
+  g.fillStyle = '#2a1c12'; g.font = `700 84px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(L, 58, 66); g.font = `700 26px ${DISPLAY}`; g.fillText(String(SC_VAL[L]), 106, 104);
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; return (scTops[L] = new THREE.MeshStandardMaterial({ map: t, roughness: 0.55 })); }
+function scMakeTile(L, owner) { const m = new THREE.Mesh(scTileGeo, [scCream, scCream, scTopMat(L), scCream, scCream, scCream]); m.castShadow = true; scGroup.add(m); return { L, m, owner, where: 'rack' }; }
+// the butterfly opponent: a second fly body with Blue Morpho wings, always a butterfly here
+const scBf = { rig: makeRig('F'), pos: new THREE.Vector3(0, SC.G, -39), yaw: 0, air: false, hold: null };
+{ const R = scBf.rig; scGroup.add(R.group); R.ring.parent.remove(R.ring); R.glyph.parent.remove(R.glyph); R.wings.forEach(g => { WING_GROUPS.splice(WING_GROUPS.indexOf(g), 1); g.userData.flyWing.visible = false; g.userData.bf.visible = true; }); R.group.userData.base *= BF_SCALE; R.group.scale.setScalar(R.group.userData.base); }
+const scr = { game: 0, wins: [0, 0], scores: [0, 0], racks: [[], []], bag: [], grid: Array(225).fill(null), turn: 0, move: null, mi: 0, passes: 0, moves: [], log: [], feedback: '',
+  vocab: [new Set(), new Set()], learned: [0, 0], over: false, hist: [], tileNow: null };
+const SC_NAME = ['Fruit fly', 'Butterfly'];
+function scLog(text) { scr.log.push({ t: TDT(), text }); if (scr.log.length > 80) scr.log.shift(); scr.feedback = text; }
+function scRackPos(p, i) { return new THREE.Vector3((i - 3) * 3.9, SC.G + 1.15, p === 0 ? 33 : -33); }
+function scLayRacks() { scr.racks.forEach((R, p) => R.forEach((t, i) => { if (t.where !== 'rack') return; t.m.position.copy(scRackPos(p, i)); t.m.rotation.set(-0.35 * (p ? -1 : 1), p ? Math.PI : 0, 0); })); }
+function scDraw(p) { const R = scr.racks[p]; while (R.length < 7 && scr.bag.length) R.push(scMakeTile(scr.bag.splice(Math.floor(Math.random() * scr.bag.length), 1)[0], p)); scLayRacks(); }
+function scNewGame() {
+  [...scr.racks.flat(), ...scr.grid.filter(Boolean)].forEach(t => scGroup.remove(t.m));
+  scr.game++; scr.scores = [0, 0]; scr.racks = [[], []]; scr.grid = Array(225).fill(null); scr.passes = 0; scr.over = false; scr.move = null; scr.hist = [{ n: 0, s: [0, 0] }];
+  scr.bag = []; SC_BAG.match(/[A-Z]\d+/g).forEach(x => { for (let i = 0; i < +x.slice(1); i++) scr.bag.push(x[0]); });
+  if (!scr.vocab[0].size) scr.vocab.forEach(V => SC_WORDS.forEach(w => { if (w.length <= 3 || Math.random() < 0.5) V.add(w); }));
+  scDraw(0); scDraw(1); scr.turn = (scr.game + 1) % 2; scLog(`Game ${scr.game}. ${SC_NAME[scr.turn]} goes first.`); scDrawMini();
+}
+// every legal placement of a known word for player p: through the centre on the first move, else crossing one tile
+function scMoves(p) {
+  const rack = {}; scr.racks[p].forEach(t => { rack[t.L] = (rack[t.L] || 0) + 1; }); const G = scr.grid, at = (r, c) => r < 0 || c < 0 || r > 14 || c > 14 ? undefined : G[r * 15 + c], out = [];
+  const tryPlace = (w, r0, c0, dr, dc) => { const need = {}, cells = []; let usedAnchor = false, first = !G.some(Boolean);
+    if (at(r0 - dr, c0 - dc) || at(r0 + dr * w.length, c0 + dc * w.length)) return;
+    for (let k = 0; k < w.length; k++) { const r = r0 + dr * k, c = c0 + dc * k, cur = at(r, c); if (cur === undefined) return;
+      if (cur) { if (cur.L !== w[k]) return; usedAnchor = true; continue; }
+      if (at(r + dc, c + dr) || at(r - dc, c - dr)) return; need[w[k]] = (need[w[k]] || 0) + 1; if (need[w[k]] > (rack[w[k]] || 0)) return; cells.push({ r, c, L: w[k] }); }
+    if (!cells.length || (first ? !cells.some(q => q.r === 7 && q.c === 7) : !usedAnchor)) return;
+    let sum = 0, mul = 1; for (let k = 0; k < w.length; k++) { const r = r0 + dr * k, c = c0 + dc * k, v = SC_VAL[w[k]], pr = at(r, c) ? null : SC_PREM[r * 15 + c]; sum += v * (pr === 'DL' ? 2 : pr === 'TL' ? 3 : 1); if (pr === 'DW') mul *= 2; if (pr === 'TW') mul *= 3; }
+    out.push({ w, r0, c0, dr, dc, cells, score: sum * mul + (cells.length === 7 ? 50 : 0) }); };
+  const words = SC_WORDS.filter(w => scr.vocab[p].has(w));
+  if (!G.some(Boolean)) words.forEach(w => { for (let s = 0; s < w.length; s++) tryPlace(w, 7, 7 - s, 0, 1); });
+  else for (let i = 0; i < 225; i++) if (G[i]) { const r = Math.floor(i / 15), c = i % 15;
+    words.forEach(w => { for (let k = 0; k < w.length; k++) if (w[k] === G[i].L) { tryPlace(w, r, c - k, 0, 1); tryPlace(w, r - k, c, 1, 0); } }); }
+  return out;
+}
+function scStartTurn() {
+  const p = scr.turn, M = scMoves(p).sort((a, b) => b.score - a.score);
+  if (!M.length) { scr.passes++; if (scr.bag.length >= 7) { const R = scr.racks[p], back = R.sort((a, b) => SC_VAL[b.L] - SC_VAL[a.L]).splice(0, 3); back.forEach(t => { scr.bag.push(t.L); scGroup.remove(t.m); }); scDraw(p); scLog(`${SC_NAME[p]} finds no word and swaps ${back.map(t => t.L).join(', ')}.`); } else scLog(`${SC_NAME[p]} passes.`);
+    scr.move = null; setPhase('s_score'); return; }
+  scr.passes = 0; scr.move = Math.random() < 0.6 ? M[0] : M[Math.floor(Math.random() * Math.min(5, M.length))]; scr.mi = 0;
+  scr.move.tiles = scr.move.cells.map(q => { const t = scr.racks[p].find(x => x.L === q.L && x.where === 'rack' && !x.taken); t.taken = true; return { t, q }; });
+  scLog(`${SC_NAME[p]} plays ${scr.move.w} for ${scr.move.score}.`); setPhase(p === 0 ? 'f_go' : 'b_go');
+}
+function scCommit() {
+  const p = scr.turn, M = scr.move; scr.scores[p] += M.score; scr.racks[p] = scr.racks[p].filter(t => !t.taken); scDraw(p);
+  scr.moves.push({ t: TDT(), game: scr.game, p, w: M.w, score: M.score, tiles: M.cells.length, at: `${'ABCDEFGHIJKLMNO'[M.c0]}${M.r0 + 1} ${M.dr ? 'down' : 'across'}` }); if (scr.moves.length > 120) scr.moves.shift();
+  scr.hist.push({ n: scr.hist.length, s: scr.scores.slice() });
+  const o = 1 - p; if (!scr.vocab[o].has(M.w) && Math.random() < 0.7) { scr.vocab[o].add(M.w); scr.learned[o]++; scLog(`${SC_NAME[o]} learns "${M.w}" from the ${SC_NAME[p].toLowerCase()}.`); }
+  if (p === 0) { game.dopamine = Math.min(1, game.dopamine + Math.min(0.4, M.score / 60)); pulse(3, 1); pulse(4, 1); pulse(10, 0.9); }
+}
+function scEndCheck() {
+  if ((!scr.bag.length && scr.racks.some(R => !R.length)) || scr.passes >= 4) { scr.over = true; scr.racks.forEach((R, p) => { scr.scores[p] -= R.reduce((a, t) => a + SC_VAL[t.L], 0); });
+    const w = scr.scores[0] === scr.scores[1] ? -1 : scr.scores[0] > scr.scores[1] ? 0 : 1; if (w >= 0) scr.wins[w]++; scLog(w < 0 ? `A tie, ${scr.scores[0]} all.` : `${SC_NAME[w]} wins game ${scr.game}, ${Math.max(...scr.scores)} to ${Math.min(...scr.scores)}.`); setPhase('s_over'); return true; } return false;
+}
+function scStart() {
+  const st = flyState; st.pos.set(0, SC.G, 39); st.groundY = SC.G; legs.forEach(L => { L.groundY = SC.G; }); st.yaw = Math.PI; plantFeet(); agent.tapLeg = null;
+  scBf.pos.set(0, SC.G, -39); scBf.yaw = 0; scBf.air = false; scBf.hold = null; scPoseBf(0, performance.now(), true);
+  if (!scr.game || scr.over) scNewGame(); else { scr.racks.flat().forEach(t => { t.taken = false; t.where = 'rack'; }); scr.move = null; scLayRacks(); }
+  setPhase('s_think'); scDrawMini(); renderTrial();
+}
+// the fruit fly walks; true once at goal and facing `face`
+function scWalk(goal, face, dt) {
+  const st = flyState, to = goal.clone().sub(st.pos).setY(0), dist = to.length(), tgt = dist > 0.4 ? Math.atan2(to.x, to.z) : Math.atan2(face.x - st.pos.x, face.z - st.pos.z), dy = arWrap(tgt - st.yaw);
+  st.yaw += Math.max(-4 * dt, Math.min(4 * dt, dy));
+  if (dist > 0.4) { st.pos.addScaledVector(to.normalize(), Math.min(dist, 9 * dt) * (Math.abs(dy) > 1.2 ? 0.3 : 1)); st.walking = true; st.gaitPhase += dt * 12; pulse(5, 0.8); pulse(11, 0.6); pulse(12, 0.6 + 0.3 * Math.abs(Math.sin(st.gaitPhase))); pulse(13, 0.6); return false; }
+  st.walking = false; return Math.abs(dy) < 0.08;
+}
+// the butterfly flies: climbs to cruise, crosses, drops to hover height over the goal; true once there
+function scFly(goal, hoverY, dt) {
+  const B = scBf, to = goal.clone().sub(B.pos).setY(0), d = to.length(); B.air = true;
+  if (d > 0.3) { B.pos.addScaledVector(to.normalize(), Math.min(d, 13 * dt)); B.yaw += arWrap(Math.atan2(to.x, to.z) - B.yaw) * Math.min(1, dt * 5); }
+  const y = d > 5 ? SC.G + 10 : hoverY; B.pos.y += (y - B.pos.y) * Math.min(1, dt * 2.5);
+  return d <= 0.3 && Math.abs(B.pos.y - hoverY) < 0.15;
+}
+function scPoseBf(dt, now, plant) {
+  const B = scBf, R = B.rig; R.group.position.copy(B.pos); R.group.rotation.y = B.yaw; R.group.updateMatrixWorld(true);
+  R.body.position.y = B.air ? Math.sin(now / 45 - 0.6) * 0.35 : 0;
+  R.legs.forEach(L => { if (B.air) { const tk = L.rest.clone().multiplyScalar(0.55); tk.y = 0.55; L.foot.copy(R.group.localToWorld(tk)); } else if (plant || !L.planted) { L.foot.copy(R.group.localToWorld(L.rest.clone())); L.foot.y = SC.G; } L.planted = !B.air; solveStudentLeg(R, L, R.body.position.y); });
+  R.wings.forEach(g => morphoPose(g, now, { seed: 300, fly: B.air ? 1 : 0 }));
+  if (B.hold) B.hold.m.position.copy(B.pos).add(new THREE.Vector3(0, 0.9, 0.6).applyAxisAngle(new THREE.Vector3(0, 1, 0), B.yaw));
+}
+function stepScrabble(dt, now) {
+  const st = flyState, M = scr.move, T = M && M.tiles[scr.mi];
+  switch (agent.phase) {
+    case 's_think': st.walking = false; st.headYaw = scr.turn === 0 ? Math.sin(agent.t * 5) * 0.35 : 0; if (scr.turn === 0) { pulse(0, 1); pulse(1, 1); pulse(2, 0.7); pulse(6, 0.5); }
+      if (agent.t > 1.6) { st.headYaw = 0; scStartTurn(); } break;
+    // the fruit fly: to the rack, take a tile, walk it to its square, set it down
+    case 'f_go': { const P = T.t.m.position; if (scWalk(new THREE.Vector3(P.x, SC.G, P.z + 3.4), P, dt)) setPhase('f_pick'); break; }
+    case 'f_pick': { const L = legs[1]; agent.tapLeg = L; L.step = null; L.foot.lerp(T.t.m.position.clone().add(new THREE.Vector3(0, 0.3, 0.8)), 0.25); pulse(12, 0.9); pulse(11, 0.7);
+      if (agent.t > 0.5) { T.t.where = 'carry'; scr.tileNow = T.t; setPhase('f_carry'); } break; }
+    case 'f_carry': { const C = scCell(T.q.r, T.q.c), L = legs[1]; const done = scWalk(new THREE.Vector3(C.x, SC.G, C.z + 3.3), C, dt);
+      const fw = new THREE.Vector3(Math.sin(st.yaw), 0, Math.cos(st.yaw)), hp = st.pos.clone().addScaledVector(fw, 2.6); hp.y = SC.G + 1.5; T.t.m.position.lerp(hp, Math.min(1, dt * 8)); T.t.m.rotation.set(0, 0, 0);
+      L.foot.lerp(hp.clone().add(new THREE.Vector3(0, -0.2, 0)).addScaledVector(fw, -0.9), 0.3); if (done) setPhase('f_drop'); break; }
+    case 'f_drop': { const C = scCell(T.q.r, T.q.c); C.y = SC.G + 0.25; T.t.m.position.lerp(C, Math.min(1, dt * 6)); legs[1].foot.lerp(C.clone().add(new THREE.Vector3(0, 0.6, 1.4)), 0.3);
+      if (agent.t > 0.6) { T.t.m.position.copy(C); T.t.where = 'board'; scr.grid[T.q.r * 15 + T.q.c] = T.t; scr.tileNow = null; agent.tapLeg = null; scDrawMini(); scr.mi++; setPhase(scr.mi < M.tiles.length ? 'f_go' : 'f_home'); } break; }
+    case 'f_home': if (scWalk(new THREE.Vector3(0, SC.G, 39), SC_MID, dt)) { scCommit(); setPhase('s_score'); } break;
+    // the butterfly: over its rack, pick up, fly to the square, drop
+    case 'b_go': if (scFly(T.t.m.position, SC.G + 1.8, dt)) setPhase('b_pick'); break;
+    case 'b_pick': scFly(T.t.m.position, SC.G + 1.8, dt); if (agent.t > 0.4) { T.t.where = 'carry'; scBf.hold = T.t; T.t.m.rotation.set(0, Math.PI, 0); setPhase('b_carry'); } break;
+    case 'b_carry': if (scFly(scCell(T.q.r, T.q.c), SC.G + 2.2, dt)) setPhase('b_drop'); break;
+    case 'b_drop': { const C = scCell(T.q.r, T.q.c); C.y = SC.G + 0.25; scBf.hold = null; T.t.m.position.lerp(C, Math.min(1, dt * 7)); scFly(C, SC.G + 2.2, dt);
+      if (agent.t > 0.5) { T.t.m.position.copy(C); T.t.where = 'board'; scr.grid[T.q.r * 15 + T.q.c] = T.t; scDrawMini(); scr.mi++; setPhase(scr.mi < M.tiles.length ? 'b_go' : 'b_home'); } break; }
+    case 'b_home': if (scFly(new THREE.Vector3(0, 0, -39), SC.G, dt)) { scBf.air = false; scPoseBf(dt, now, true); scCommit(); setPhase('s_score'); } break;
+    case 's_score': if (agent.t > 1.4) { scDrawMini(); renderTrial(); if (!scEndCheck()) { scr.turn = 1 - scr.turn; setPhase('s_think'); } } break;
+    case 's_over': st.headYaw = Math.sin(agent.t * 3) * 0.3; if (agent.t > 6) { scNewGame(); setPhase('s_think'); renderTrial(); } break;
+  }
+  scPoseBf(dt, now, false);
+}
+// a 2D scoreboard: the board, both racks and the scores
+const scMini = document.createElement('canvas'); scMini.width = 1024; scMini.height = 640;
+function scDrawMini() {
+  const g = scMini.getContext('2d'), S = 38, x0 = 20, y0 = 35; g.fillStyle = '#f7f3ea'; g.fillRect(0, 0, 1024, 640);
+  const COL = { TW: '#d6453d', DW: '#f0a8a0', TL: '#3a86c8', DL: '#a9d3ee' };
+  for (let r = 0; r < 15; r++) for (let c = 0; c < 15; c++) { const t = scr.grid[r * 15 + c], x = x0 + c * S, y = y0 + r * S; g.fillStyle = t ? '#f1dcae' : COL[SC_PREM[r * 15 + c]] || '#e3dac4'; g.fillRect(x + 1, y + 1, S - 2, S - 2);
+    if (t) { g.fillStyle = t.owner ? '#0021a5' : '#8a3b12'; g.font = `700 24px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(t.L, x + S / 2, y + S / 2 + 1); } }
+  const X = 620; g.textAlign = 'left'; g.textBaseline = 'alphabetic';
+  [0, 1].forEach(p => { const y = p ? 330 : 80, on = scr.turn === p && !scr.over; g.fillStyle = on ? (p ? '#e8efff' : '#fbe9dc') : '#fff'; g.beginPath(); g.roundRect(X - 12, y - 50, 404, 210, 18); g.fill();
+    g.fillStyle = p ? '#0021a5' : '#8a3b12'; g.font = `700 34px ${DISPLAY}`; g.fillText(SC_NAME[p] + (on ? ' · to play' : ''), X, y); g.font = `700 64px ${DISPLAY}`; g.fillText(String(scr.scores[p]), X, y + 72);
+    g.font = `400 20px ${BODY}`; g.fillStyle = '#5a5a5a'; g.fillText(`${scr.wins[p]} games won · knows ${scr.vocab[p].size} words`, X, y + 104);
+    scr.racks[p].forEach((t, i) => { const tx = X + i * 52, ty = y + 118; g.fillStyle = t.taken ? '#e0d6c0' : '#f1dcae'; g.fillRect(tx, ty, 46, 46); g.fillStyle = '#2a1c12'; g.font = `700 28px ${DISPLAY}`; g.textAlign = 'center'; g.fillText(t.L, tx + 21, ty + 34); g.font = `700 12px ${DISPLAY}`; g.fillText(SC_VAL[t.L], tx + 38, ty + 42); g.textAlign = 'left'; }); });
+  g.fillStyle = '#2a2a2a'; g.font = `400 20px ${BODY}`; g.fillText(`Game ${scr.game} · ${scr.bag.length} tiles in the bag`, X, 600);
+}
+function renderScrabbleTrial() {
+  const M = scr.move, last = scr.moves[scr.moves.length - 1];
+  $('meaning').textContent = scr.over ? `Game ${scr.game} over` : `${SC_NAME[scr.turn]} to play · ${scr.scores[0]} to ${scr.scores[1]}`;
+  $('chips').innerHTML = M ? [...M.w].map(ch => `<span class="chip ${scr.turn ? 'root' : 'prefix'}" style="padding:0 10px">${ch}<small>${SC_VAL[ch]}</small></span>`).join('') : '';
+  const n = M ? M.tiles.length : 0; $('placedCount').textContent = M ? `${Math.min(scr.mi, n)} of ${n} tiles down` : 'thinking'; $('placedBar').classList.toggle('done', M && scr.mi >= n); $('placedBar').firstElementChild.style.width = `${n ? Math.min(1, scr.mi / n) * 100 : 0}%`;
+  $('feedback').textContent = scr.feedback; $('nowLine').textContent = `Scrabble · game ${scr.game} · fruit fly ${scr.scores[0]} · butterfly ${scr.scores[1]}`;
+  $('stWords').textContent = scr.moves.filter(m => m.p === 0).length; $('stTaps').textContent = scr.moves.filter(m => m.p === 0).reduce((a, m) => a + m.score, 0); $('stAcc').textContent = scr.wins[0] + scr.wins[1] ? Math.round(100 * scr.wins[0] / (scr.wins[0] + scr.wins[1])) + '%' : '–';
+  $('memory').innerHTML = [0, 1].map(p => `<div class="m"><span>${SC_NAME[p]}</span><div class="bar"><span style="width:${Math.round(100 * scr.vocab[p].size / SC_WORDS.length)}%"></span></div><span class="sub">${scr.vocab[p].size} of ${SC_WORDS.length} words · ${scr.learned[p]} learned</span></div>`).join('');
+}
+window.__sc = scr; // debug hook
+
 // ---------- Cameras ----------
 let camMode = 'follow';
 let view = 'simulate';
 function updateCamera() {
   if (camMode === 'phone' && experiment === 12) { const h = head.getWorldPosition(new THREE.Vector3()), f = new THREE.Vector3(Math.sin(flyState.yaw), 0, Math.cos(flyState.yaw)); const k = fly.scale.x; camera.position.copy(h).addScaledVector(f, 1.3 * k).add(new THREE.Vector3(0, 0.5 * k, 0)); controls.target.copy(h).addScaledVector(f, 12); } // what the fly sees through the glass headset, overlays included
   if (camMode === 'follow') {
-    const goal = experiment === 11 ? VR_MID.clone() : flyState.pos.clone(); goal.y += 1;
+    const goal = experiment === 11 ? VR_MID.clone() : experiment === 13 ? SC_MID.clone() : flyState.pos.clone(); goal.y += 1;
     const delta = goal.clone().sub(controls.target).multiplyScalar(flyState.airborne ? 0.25 : 0.12);
     controls.target.add(delta); camera.position.add(delta);
   }
@@ -4098,31 +4318,32 @@ function setCamMode(m) {
   camMode = m;
   document.querySelectorAll('[data-cam]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === m)));
   const s = phone.scale.x;
-  if (m === 'phone' && EXP[experiment].ar) { /* follows the head every frame in updateCamera */ }
+  if (m === 'phone' && EXP[experiment].scrabble) { controls.target.copy(SC_MID); camera.position.set(0, SC.G + 105, 6); }
+  else if (m === 'phone' && EXP[experiment].ar) { /* follows the head every frame in updateCamera */ }
   else if (m === 'phone' && EXP[experiment].vrRig) { const c = vrScr.getWorldPosition(new THREE.Vector3()), nrm = new THREE.Vector3(0, 0, 1).applyQuaternion(vrScr.getWorldQuaternion(new THREE.Quaternion())); controls.target.copy(c); camera.position.copy(c).addScaledVector(nrm, 44).add(new THREE.Vector3(0, 6, 0)); }
   else if (m === 'phone' && EXP[experiment].tablet) { const c = bookPoint(512, 320); controls.target.copy(c); camera.position.copy(c).addScaledVector(bookNormal(), 150).add(new THREE.Vector3(-40, 20, 0)); }
   else if (m === 'phone' && EXP[experiment].classroom) { controls.target.set(0, CLS.topY - 2, -10); camera.position.set(0, CLS.topY + 78, 104); }
   else if (m === 'phone' && EXP[experiment].laptop) { const L = laptop.position; controls.target.set(L.x, TABLE_Y + 60 * s, -30 * s); camera.position.set(L.x, TABLE_Y + 190 * s + (experiment === 5 ? 3 : 0), 300 * s + (experiment === 5 ? 5 : 0)); }
   else if (m === 'phone') { controls.target.set(0, screenTopY(), 0); camera.position.set(0, 120 * s + (experiment === 3 ? 2 : 0), 150 * s + (experiment === 3 ? 4 : 0)); }
-  else { const t = experiment === 11 ? VR_MID : flyState.pos; controls.target.copy(t); camera.position.copy(t).add(new THREE.Vector3(...EXP[experiment].camOffset).multiplyScalar(butterfly && !EXP[experiment].vrRig ? 1.7 : 1)); } // step back for the bigger butterfly
+  else { const t = experiment === 11 ? VR_MID : experiment === 13 ? SC_MID : flyState.pos; controls.target.copy(t); camera.position.copy(t).add(new THREE.Vector3(...EXP[experiment].camOffset).multiplyScalar(butterfly && !EXP[experiment].vrRig && !EXP[experiment].scrabble ? 1.7 : 1)); } // step back for the bigger butterfly
 }
 document.querySelectorAll('[data-cam]').forEach(b => b.addEventListener('click', () => setCamMode(b.dataset.cam)));
 
 // ---------- Experiments: switching ----------
 function setExperiment(n) {
-  experiment = n; const cfg = EXP[n]; const s = cfg.phoneScale;
+  const changed = experiment !== n; experiment = n; const cfg = EXP[n]; const s = cfg.phoneScale;
   document.querySelectorAll('[data-exp]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.exp) === n)));
   $('expNote').textContent = cfg.note; $('physPill').textContent = cfg.phys;
-  $('gripPill').textContent = n === 12 ? 'A foreleg pinches the holograms' : n === 11 ? 'Six feet on the ball' : n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
-  document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.ar ? 'Headset' : cfg.vrRig ? 'Laptop' : cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
+  $('gripPill').textContent = n === 13 ? 'A foreleg carries each tile' : n === 12 ? 'A foreleg pinches the holograms' : n === 11 ? 'Six feet on the ball' : n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
+  document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.scrabble ? 'Board' : cfg.ar ? 'Headset' : cfg.vrRig ? 'Laptop' : cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
   const wasClass = classroom.visible; classroom.visible = !!cfg.classroom; fly.visible = !cfg.classroom;
   $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n >= 8; $('soundBtn').hidden = n !== 8 && n !== 9; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; flyState.pitchOverride = null; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom || n === 11; $('vision').hidden = !(cfg.classroom && visionOn);
-  $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : n === 10 || n === 11 ? 'answers right' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : n === 12 ? 'blocks placed' : n === 10 || n === 11 ? 'answers written' : 'answers';
+  $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : n === 13 ? 'words played' : n === 10 || n === 11 ? 'answers right' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : n === 12 ? 'blocks placed' : n === 13 ? 'points' : n === 10 || n === 11 ? 'answers written' : 'answers';
   $('memHead').textContent = cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : n === 9 ? 'Vocabulary memory · Kenyon cell to MBON weights' : n === 10 ? 'Greek root memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
   document.querySelectorAll('#brainPanel [data-rp]').forEach(el => { el.hidden = !el.dataset.rp.split(' ').includes(String(n)); }); requestAnimationFrame(() => { sizeCharts(); resize(); renderScenario(true); }); // right panel sections for this scenario
   if (cfg.classroom) { setFocal(cls.focal); classroomStart(); } else head.add(eyeCam);
   phone.scale.setScalar(s); phone.position.set(0, TABLE_Y + 4 * s, 0); phone.updateMatrixWorld(true);
-  phone.visible = !cfg.laptop && !cfg.classroom && !cfg.tablet && !cfg.vrRig && !cfg.ar; vrRig.visible = headset.visible = !!cfg.vrRig; arGroup.visible = arHeadset.visible = !!cfg.ar; head.rotation.x = 0; agent.tapLeg = null; laptop.visible = !!cfg.laptop; tabletRig.visible = !!cfg.tablet;
+  phone.visible = !cfg.laptop && !cfg.classroom && !cfg.tablet && !cfg.vrRig && !cfg.ar && !cfg.scrabble; vrRig.visible = headset.visible = !!cfg.vrRig; arGroup.visible = arHeadset.visible = !!cfg.ar; scGroup.visible = !!cfg.scrabble; applyMainLook(cfg.scrabble ? false : butterfly); head.rotation.x = 0; agent.tapLeg = null; laptop.visible = !!cfg.laptop; tabletRig.visible = !!cfg.tablet;
   if (cfg.laptop) { laptop.scale.setScalar(s); laptop.position.set(0, TABLE_Y, 0); laptop.updateMatrixWorld(true); }
   Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === n; });
   ghostLine.visible = false; agent.ghost = null;
@@ -4138,22 +4359,25 @@ function setExperiment(n) {
     st.pos.set(0, SCREEN_Y, 40); st.yaw = 0;
   }
   game.scrollY = 0; game.placed = Math.min(game.placed, 2); agent.wordDone = false; agent.swipe = null; currentTraj = [];
-  buildTiles(); plantFeet(); redrawScreen(performance.now()); renderTrial(); setPhase(cfg.laptop ? 't_read' : 'look'); if (cfg.laptop) { agent.t = 0; agent.plan = []; agent.step = null; } setCamMode(cfg.classroom && !wasClass ? 'phone' : camMode);
+  buildTiles(); plantFeet(); redrawScreen(performance.now()); renderTrial(); setPhase(cfg.laptop ? 't_read' : 'look'); if (cfg.laptop) { agent.t = 0; agent.plan = []; agent.step = null; } setCamMode(cfg.classroom && !wasClass ? 'phone' : changed ? 'follow' : camMode); // each experiment opens third person; its device or headset view is one click away
   if (cfg.classroom) $('phasePill').textContent = 'Class in session';
   if (n === 8) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); phonicsStart(); }
   if (n === 9) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); readingStart(); }
   if (n === 10) writingStart();
   if (n === 11) vrStart();
   if (n === 12) arStart();
+  if (n === 13) scStart();
   // the side panel follows the experiment to its most related dashboard (after start-up, once the dock code exists)
   requestAnimationFrame(() => { dockChoice = DOCK_FOR[n]; if (view === 'simulate') dock(dockChoice); });
 }
-const DOCK_FOR = { 12: 'd-ar-sec', 11: 'd-vr-sec', 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
+const DOCK_FOR = { 13: 'd-sc-sec', 12: 'd-ar-sec', 11: 'd-vr-sec', 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
 document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => setExperiment(Number(b.dataset.exp))));
 // fruit fly or Blue Morpho butterfly: swaps the wings on every fly in every experiment
+// the student's own look: its wings and size (Scrabble keeps it a fruit fly, facing the butterfly)
+function applyMainLook(b) { fly.scale.setScalar(b ? BF_SCALE : 1); wings.forEach(g => { g.userData.flyWing.visible = !b; g.userData.bf.visible = b; const sd = g.userData.side; if (b) morphoPose(g, performance.now(), {}); else g.rotation.set(0, -sd * 0.35, sd * 0.25); }); }
 function setSpecies(b) {
   butterfly = b; const now = performance.now();
-  fly.scale.setScalar(b ? BF_SCALE : 1); tfly.rig.group.scale.setScalar(tfly.rig.group.userData.base * (b ? BF_SCALE : 1)); cls.students.forEach(st => st.rig.group.scale.setScalar(st.rig.group.userData.base * (b ? BF_SCALE_CLASS : 1)));
+  applyMainLook(experiment === 13 ? false : b); tfly.rig.group.scale.setScalar(tfly.rig.group.userData.base * (b ? BF_SCALE : 1)); cls.students.forEach(st => st.rig.group.scale.setScalar(st.rig.group.userData.base * (b ? BF_SCALE_CLASS : 1)));
   if (experiment === 7) cls.students.forEach(st => { if (!st.flight) plantStudent(st); }); else plantFeet();
   if (camMode === 'follow') setCamMode('follow');
   WING_GROUPS.forEach(g => { g.userData.flyWing.visible = !b; g.userData.bf.visible = b; const sd = g.userData.side; if (b) morphoPose(g, now, {}); else g.rotation.set(0, -sd * 0.35, sd * 0.25); });
@@ -4176,7 +4400,7 @@ $('playBtn').addEventListener('click', () => { playing = !playing; $('playBtn').
 $('resetBtn').addEventListener('click', () => {
   game.memory.clear(); game.taps = 0; game.correct = 0; game.wordsBuilt = 0; game.dopamine = 0.5; game.placed = 0; game.wordIdx = 0; game.lesson = 1;
   for (const e of [1, 2, 3, 4, 5, 6]) heat[e].getContext('2d').clearRect(0, 0, heat[e].width, heat[e].height);
-  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; }); reading.vocab.clear(); reading.pageLog = []; reading.checkLog = []; reading.log = []; reading.storyLog = []; reading.si = 0; reading.pi = 0; reading.answered = -1; reading.mode = 'library'; reading.opening = true; Object.keys(reading.stats).forEach(k => { reading.stats[k] = 0; }); ar.history = []; ar.log = []; Object.keys(ar.stats).forEach(k => { ar.stats[k] = 0; }); if (ar.word) ar.wi--; ar.word = null; vr.history = []; vr.log = []; vr.lesson = 1; Object.keys(vr.stats).forEach(k => { vr.stats[k] = 0; }); wr.mem.clear(); wr.history = []; wr.log = []; wr.qi = 0; wr.lesson = 1; wr.skill = 0.35; Object.keys(wr.stats).forEach(k => { wr.stats[k] = 0; });
+  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; }); reading.vocab.clear(); reading.pageLog = []; reading.checkLog = []; reading.log = []; reading.storyLog = []; reading.si = 0; reading.pi = 0; reading.answered = -1; reading.mode = 'library'; reading.opening = true; Object.keys(reading.stats).forEach(k => { reading.stats[k] = 0; }); scr.wins = [0, 0]; scr.moves = []; scr.log = []; scr.learned = [0, 0]; scr.vocab = [new Set(), new Set()]; scr.over = true; ar.history = []; ar.log = []; Object.keys(ar.stats).forEach(k => { ar.stats[k] = 0; }); if (ar.word) ar.wi--; ar.word = null; vr.history = []; vr.log = []; vr.lesson = 1; Object.keys(vr.stats).forEach(k => { vr.stats[k] = 0; }); wr.mem.clear(); wr.history = []; wr.log = []; wr.qi = 0; wr.lesson = 1; wr.skill = 0.35; Object.keys(wr.stats).forEach(k => { wr.stats[k] = 0; });
   Object.values(trajGroups).forEach(g => { while (g.children.length) { const c = g.children[0]; g.remove(c); c.geometry.dispose(); } });
   game.feedback = 'Memory cleared. The fly is looking for the prefix.'; cur().parts.forEach(memoryOf); setExperiment(experiment);
 });
@@ -4532,6 +4756,17 @@ function drawDashboards(now, force) {
     const pct = x => Math.round(x * 100) + '%';
     const rows = St.map(s => { const T = s.stats, tt = T.onTask + T.courtT + T.groomT + T.away; return `<tr><th scope="row">${s.name} ${SEXSYM(s)}</th><td>${doing(s)}</td><td class="${s.progress >= CLS.items ? 'yes' : ''}">${Math.min(s.progress, CLS.items)} / ${CLS.items}</td><td>${T.taps ? pct(T.correct / T.taps) : '–'}</td><td>${tt ? pct(T.onTask / tt) : '–'}</td><td>${T.courted} · ${T.court}</td><td>${T.rejections} · ${T.rejectedBy}</td><td>${s.sex === 'M' ? s.drive.toFixed(2) : s.receptive.toFixed(2)}</td><td>${s.attention.toFixed(2)}</td></tr>`; }).join('');
     const tb = document.querySelector('#cRoster tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
+  }
+  // ---- dashboard 13: Scrabble ----
+  { const Mv = scr.moves, best = p => Mv.filter(m => m.p === p).sort((a, b) => b.score - a.score)[0];
+    $t('scMode', experiment === 13 ? `Experiment 13 · game ${scr.game}` : 'switch to Experiment 13 to run'); $t('scWinsF', scr.wins[0]); $t('scWinsB', scr.wins[1]); $t('scNow', `${scr.scores[0]}–${scr.scores[1]}`); $t('scBagN', scr.bag.length);
+    $t('scBestF', best(0) ? `${best(0).w}, ${best(0).score}` : '–'); $t('scBestB', best(1) ? `${best(1).w}, ${best(1).score}` : '–'); $t('scMean', Mv.length ? (Mv.reduce((a, m) => a + m.score, 0) / Mv.length).toFixed(1) : '–');
+    barChart('cScMoves', Mv.slice(-30).map(m => ({ v: m.score, color: m.p ? CH.blue : CH.amber, label: `${SC_NAME[m.p]}: ${m.w} for ${m.score}` })), { positive: true, empty: 'Runs in Experiment 13' });
+    const vl = [0, 1].map(p => `<div class="m" style="grid-template-columns:90px 1fr 150px"><span>${SC_NAME[p]}</span><div class="bar"><span style="width:${Math.round(100 * scr.vocab[p].size / SC_WORDS.length)}%"></span></div><span class="sub">${scr.vocab[p].size} of ${SC_WORDS.length} · ${scr.learned[p]} learned</span></div>`).join('');
+    const ve = document.getElementById('scVocab'); if (ve.innerHTML !== vl) ve.innerHTML = vl;
+    const rows = Mv.slice(-14).reverse().map(m => `<tr><th scope="row">${m.game}</th><td>${SC_NAME[m.p]}</td><td>${m.w}</td><td>${m.at}</td><td>${m.tiles}</td><td>${m.score}</td></tr>`).join('');
+    const tb = document.querySelector('#scTable tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
+    document.getElementById('scLogL').innerHTML = scr.log.slice(-10).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing yet</li>';
   }
   // ---- dashboard 12: AR ----
   { const S = ar.stats, H = ar.history;
