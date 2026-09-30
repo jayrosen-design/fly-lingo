@@ -27,12 +27,12 @@ From a terminal with the Vercel CLI, `npx vercel` from the repository root does 
 
 The app is one page with four views, switched by the tabs in the header and by hash routes (`#home`, `#simulate`, `#dashboards`, `#about`). The home page explains the project and shows a card for each experiment; picking a card opens that experiment in the simulator.
 
-![The home page: a short explanation of the project and a grid of fourteen experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
+![The home page: a short explanation of the project and a grid of fifteen experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
 
 | | |
 | --- | --- |
 | ![The Simulate view: the fly taking off in Experiment 2, brain panel on the right](docs/screenshots/app-simulate.png) | ![The Dashboards view: psychometric cards with the Q-matrix, G-DINA mastery, Half-Life Regression and the Wright map](docs/screenshots/dashboards-3.png) |
-| **Simulate.** The arena with the fly-eye inset, a scenario panel on the right, a dockable dashboard panel on the left that switches to the running experiment's dashboard (1 Kinematic, 2 Curriculum, 3 Psychometric, 4 Connectomic, 5 Teacher, 6 Admin, 7 Classroom, 8 Phonics, 9 Reading, 10 Writing, 11 VR, 12 AR, 13 Scrabble, 14 Paper book; a green dot marks it; pick another with the buttons at its top, or hide it; its header names the dashboard and offers Notes for the explanatory text, Collapse all, and Full view, and each card folds by clicking its title), and a bottom strip of six live charts. The right panel and the strip also change with the experiment; see the table below. | **Dashboards.** Four dashboards from the EDLS psychometric specification, fed by telemetry from the running simulation. |
+| **Simulate.** The arena with the fly-eye inset, a scenario panel on the right, a dockable dashboard panel on the left that switches to the running experiment's dashboard (1 Kinematic, 2 Curriculum, 3 Psychometric, 4 Connectomic, 5 Teacher, 6 Admin, 7 Classroom, 8 Phonics, 9 Reading, 10 Writing, 11 VR, 12 AR, 13 Scrabble, 14 Paper book, 15 Geography; a green dot marks it; pick another with the buttons at its top, or hide it; its header names the dashboard and offers Notes for the explanatory text, Collapse all, and Full view, and each card folds by clicking its title), and a bottom strip of six live charts. The right panel and the strip also change with the experiment; see the table below. | **Dashboards.** Four dashboards from the EDLS psychometric specification, fed by telemetry from the running simulation. |
 | ![The Dashboards view on a phone: adhesion and contrast cards stacked](docs/screenshots/phone-dashboards.png) | ![The About view: research library with report thumbnails, page images and download buttons](docs/screenshots/about-library.png) |
 | **Phone layout.** Single-column cards, header controls in a strip. | **About.** What the app simulates and what it is trying to learn, the research library with downloadable PDFs and page images, and all 187 sources the reports cite. |
 
@@ -59,6 +59,7 @@ The left panel docks the most related dashboard. The right panel and the bottom 
 | 4 · Spelling | Live laptop screen, spelling card (letters so far, next part, key accuracy), brain, memory | Letters typed, keys right and wrong, flight speed, height above keys, Δw per letter, dopamine |
 | 5 · Teacher | Live gradebook screen, grading queue, the teacher's next actions, cursor and foreleg state; no brain | Cursor path, clicks and misclicks, movement time, grading error, keystrokes, students graded |
 | 6 · District admin | Live proctoring screen, open flags, FlyAI's latest recommendation, next actions; no brain | Mean attention, open flags, detections, flag precision, check-ins, response time |
+| 15 · Geography | Live world map with the lit countries, geography card (question, country heading for, globe spin, last answer and distance off, round), brain, country memory | Height above the desk, globe spin, countries right, distance off, country memory, dopamine |
 | 14 · Paper book | Live copy of the open spread, reading card (spread, word now, voice, page state while turning, last page's rate and accuracy, last page turn), brain, vocabulary memory | Reading voice, words per minute, height above the page, seconds to lift a page, reading accuracy, dopamine |
 | 13 · Scrabble | Live scoreboard (board, both racks, scores, wins), Scrabble card (game, score, turn, word being played, last word, bag, words known), brain, words known by each player | Score over the game, points per word, tiles in the bag, words known by each player, fly walking speed, dopamine |
 | 12 · AR | Mixed-reality card (word, next slot, block held, rotation to go, walking around a block, last block), brain, word part memory | Walking speed, holding a block, block rotation error, blocks right, word part memory, dopamine |
@@ -117,6 +118,7 @@ Switch with the control at the top left of the header. All three share the same 
 | 4 · Spelling | Real-size laptop with a spelling activity | Hovers in front of the screen | Flies key to key and presses each letter with its body | Letter answers into the same trials, memory and dashboards |
 | 5 · Teacher | Fly-sized laptop with a gradebook, trackpad only, no touch | Reads from the trackpad | Steers the cursor with one foreleg on the pad, presses the pad to click, steps over to tap keys | Clicks, misclicks, keystrokes, Fitts' law, cursor heatmap, grading error |
 | 6 · District admin | Fly-sized laptop with nine webcam sessions, a vision overlay and FlyAI | Watches the grid | Steers to a flagged tile, opens it, clicks the check-in button | Flags scored against seeded cheating, precision, response time, attention, detections |
+| 15 · Geography | A globe with real country outlines on a school desk, and a trivia card | Walks to the card and reads the question | Flies to the globe, sweeps it round with a foreleg, flies to a country and taps it; it lights green or red | Countries right, distance off in km, country memory, rounds of ten |
 | 14 · Paper book | A hardback picture book lying open on the table | Flies from word to word above the text, buzzing each word aloud | Grips the page corner with both forelegs, lifts the page with its wings until it falls over | Words per minute and accuracy per page, miscues, seconds to lift each page, vocabulary memory |
 | 13 · Scrabble | A 15 by 15 Scrabble board with racks, against a Blue Morpho | Looks over the board and its rack | Walks each tile from its rack to its square and sets it down with a foreleg; the butterfly flies its tiles in | Points per word, wins, words known and learned from the opponent |
 | 12 · AR | No screen: a glass AR headset overlays a word frame and holographic blocks on the table | Reads the floating word frame | Walks around the blocks, pinches one with a foreleg, carries it to the frame, rotates it and snaps it into a slot | Blocks right, words built, distance walked, time spent walking around blocks, rotation per block, word part memory |
@@ -157,6 +159,17 @@ Dashboard 6, District proctoring, scores the flags against the hidden seeding: c
 | --- | --- |
 | ![Experiment 6 screen: the 3 by 3 webcam grid with vision overlay and the FlyAI panel](docs/screenshots/exp6-screen.png) | ![Dashboard 6: proctoring counters, attention by student, detections, FlyAI log](docs/screenshots/dashboards-6.png) |
 | **The proctoring screen.** Boxes on flies and hands, gaze rays, eye-contact badges, a red flag on a suspected tile, FlyAI on the right. | **Dashboard 6.** Flags scored against the seeded truth, attention per student, detections over time. |
+
+### Geography
+
+Experiment 15 is trivia on a globe. The globe stands on a school desk, tilted 23.4° in a brass meridian ring and drawn with real country outlines: Natural Earth at 1:110m, vendored from the world-atlas package as `docs/geo/countries-110m.json` (ISC licence, `docs/geo/LICENSE-world-atlas`) and decoded from TopoJSON in the page. A trivia card on the desk asks one of 49 questions, such as "Machu Picchu sits high in the mountains of which country?".
+
+The fly walks to the card and reads it, flies to the globe and sweeps it round with a foreleg until the region it wants faces it, then flies to the country and taps it. The country lights green if it is right; if it is wrong it lights red, the right country lights green, and the distance between them is measured along the Earth's surface. The chance of choosing the right country is 0.3 + 0.65 × its memory, learned with Δw = η(R − V); a wrong choice is one of the four countries nearest the right one. Questions come in rounds of ten. The Globe camera button frames the globe, and Dashboard 15 keeps countries right, distance off, country memory and every answer.
+
+| | |
+| --- | --- |
+| ![Experiment 15: the globe on the desk with Poland lit green](docs/screenshots/exp15-geography.png) | ![Experiment 15: close view of the globe](docs/screenshots/exp15-globe.png) |
+| **Trivia on the globe.** The card, the globe and the lit country. | **The globe.** Natural Earth outlines, tilted on its axis. |
 
 ### Paper book
 
@@ -527,7 +540,7 @@ The TRD describes a biologically grounded stack: a MuJoCo `flybody` model (102 D
 flowchart LR
   subgraph Now["In this repo today"]
     UI["3D language interface<br/>screen · tiles · trial card"]
-    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>fourteen experiments"]
+    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>fifteen experiments"]
     Policy["Behavioural policy<br/>memory-weighted tile choice"]
     BrainViz["Stylised CNS point cloud<br/>16 regions, act[]"]
     Eye["Fly-eye mosaic<br/>750 ommatidia, 4.5°"]
