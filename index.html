@@ -1393,21 +1393,40 @@ const UP = new THREE.Vector3(0, 1, 0);
 const cuticle = new THREE.MeshStandardMaterial({ color: 0x7a5a3a, roughness: 0.55 });
 const dark = new THREE.MeshStandardMaterial({ color: 0x2a1c12, roughness: 0.6 });
 const eyeMat = new THREE.MeshStandardMaterial({ color: 0x9c2020, roughness: 0.35, flatShading: true });
-const wingMat = new THREE.MeshPhysicalMaterial({ color: 0xdfe8ff, transparent: true, opacity: 0.38, roughness: 0.1, side: THREE.DoubleSide, transmission: 0.2 });
+// a Drosophila wing: a paddle as long as the body, hinged on the thorax and reaching past the abdomen, clear membrane with the
+// costa along the leading edge, longitudinal veins L2 to L5 and the two crossveins, and a faint iridescent sheen
+const FLY_WING_OUT = [[0, 0], [0.18, 0.35], [0.62, 1.1], [0.92, 2.0], [1.02, 2.9], [0.9, 3.7], [0.55, 4.25], [0.05, 4.45], [-0.42, 4.2], [-0.72, 3.5], [-0.8, 2.5], [-0.66, 1.5], [-0.34, 0.6], [-0.1, 0.12]];
+const FLY_WING_GEO = (() => { const sh = new THREE.Shape(); sh.moveTo(0, 0); sh.splineThru([...FLY_WING_OUT.slice(1).map(([x, y]) => new THREE.Vector2(x, y)), new THREE.Vector2(0, 0)]); const g = new THREE.ShapeGeometry(sh, 24);
+  const P = g.attributes.position, uv = g.attributes.uv; for (let i = 0; i < P.count; i++) uv.setXY(i, (P.getX(i) + 0.9) / 2.0, P.getY(i) / 4.5); uv.needsUpdate = true; return g; })();
+const flyWingTex = (() => { const c = document.createElement('canvas'); c.width = 256; c.height = 576; const g = c.getContext('2d'), X = x => (x + 0.9) / 2.0 * 256, Y = y => (1 - y / 4.5) * 576;
+  g.fillStyle = 'rgba(214,226,240,0.2)'; g.fillRect(0, 0, 256, 576);
+  const line = (pts, w, col) => { g.strokeStyle = col; g.lineWidth = w; g.lineCap = g.lineJoin = 'round'; g.beginPath(); pts.forEach(([x, y], i) => i ? g.lineTo(X(x), Y(y)) : g.moveTo(X(x), Y(y))); g.stroke(); };
+  const vein = 'rgba(92,72,48,0.85)';
+  line(FLY_WING_OUT.slice(0, 8), 5, vein); // costa, along the leading edge to the tip
+  line([[0.1, 0.3], [0.5, 1.4], [0.72, 2.6], [0.72, 3.6], [0.45, 4.25]], 2.6, vein); // L2
+  line([[0.02, 0.3], [0.2, 1.5], [0.28, 2.8], [0.2, 3.9], [0.05, 4.43]], 2.6, vein); // L3
+  line([[-0.05, 0.4], [-0.15, 1.6], [-0.28, 2.9], [-0.36, 3.9], [-0.4, 4.2]], 2.6, vein); // L4
+  line([[-0.12, 0.5], [-0.4, 1.6], [-0.62, 2.7], [-0.74, 3.5]], 2.4, vein); // L5
+  line([[0.24, 2.05], [-0.18, 1.95]], 2.2, vein); line([[-0.3, 3.0], [-0.6, 2.8]], 2.2, vein); // crossveins
+  line([[-0.1, 0.12], [-0.34, 0.6], [-0.66, 1.5]], 2, 'rgba(92,72,48,0.45)'); // the trailing edge near the hinge
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t; })();
+const wingMat = new THREE.MeshPhysicalMaterial({ map: flyWingTex, color: 0xffffff, transparent: true, opacity: 1, depthWrite: false, roughness: 0.15, side: THREE.DoubleSide, iridescence: 0.5, iridescenceIOR: 1.35, iridescenceThicknessRange: [250, 500] });
+// the wing mesh in its wing group: pointing back from the hinge, mirrored for the left side
+const flyWingMesh = (s, mat) => { const w = new THREE.Mesh(FLY_WING_GEO, mat); w.rotation.order = 'YXZ'; w.rotation.set(-Math.PI / 2, s * 0.5, 0); w.scale.x = s; w.position.set(s * 0.05, 0.02, 0); /* swept in at the hinge, so at rest the wings lie folded over the abdomen */ w.renderOrder = 1; return w; };
 function mesh(geo, mat, parent) { const m = new THREE.Mesh(geo, mat); m.castShadow = true; parent.add(m); return m; }
 function setBone(m, a, b) { const d = new THREE.Vector3().subVectors(b, a); const len = Math.max(d.length(), 1e-4); m.position.copy(a).addScaledVector(d, 0.5); m.quaternion.setFromUnitVectors(UP, d.normalize()); m.scale.set(1, len, 1); }
 
 const fly = new THREE.Group(); scene.add(fly);
 const body = new THREE.Group(); fly.add(body);
-const thorax = mesh(new THREE.SphereGeometry(0.9, 24, 18), cuticle, body); thorax.position.set(0, 1.1, 0); thorax.scale.set(1, 0.85, 1.15);
-const abdomen = mesh(new THREE.SphereGeometry(0.8, 24, 18), cuticle, body); abdomen.position.set(0, 1.0, -1.7); abdomen.scale.set(1, 0.9, 1.7);
+const thorax = mesh(new THREE.SphereGeometry(0.9, 24, 18), cuticle, body); thorax.position.set(0, 1.1, 0); thorax.scale.set(0.82, 0.74, 1.05);
+const abdomen = mesh(new THREE.SphereGeometry(0.8, 24, 18), cuticle, body); abdomen.position.set(0, 1.0, -1.72); abdomen.scale.set(0.78, 0.72, 1.62);
 for (let i = 0; i < 4; i++) { const s = mesh(new THREE.TorusGeometry(0.8 - i * 0.12, 0.05, 6, 24), dark, abdomen); s.position.set(0, 0, -0.15 - i * 0.28); }
 const head = new THREE.Group(); head.position.set(0, 1.25, 1.25); body.add(head);
 mesh(new THREE.SphereGeometry(0.62, 20, 16), cuticle, head);
 [-1, 1].forEach(s => { const e = mesh(new THREE.SphereGeometry(0.4, 10, 8), eyeMat, head); e.position.set(s * 0.46, 0.05, 0.25); });
 const antennae = []; [-1, 1].forEach(s => { const a = mesh(new THREE.CylinderGeometry(0.03, 0.05, 0.6, 6), dark, head); antennae.push(a); a.userData.side = s; a.position.set(s * 0.18, -0.1, 0.72); a.rotation.x = Math.PI / 2 - 0.5; });
 const proboscis = mesh(new THREE.CylinderGeometry(0.1, 0.14, 1, 8), dark, head); proboscis.position.set(0, -0.6, 0.3); proboscis.scale.y = 0.35;
-const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); const wg = new THREE.CircleGeometry(1, 24); wg.scale(0.55, 1.5, 1); const w = mesh(wg, wingMat, g); w.castShadow = false; w.rotation.x = -Math.PI / 2; w.position.set(s * 0.55, 0, -1.45); g.userData.side = s; return g; });
+const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); const w = flyWingMesh(s, wingMat); g.add(w); g.userData.side = s; return g; });
 // ---------- Butterfly mode: every fly can swap its wings for Blue Morpho wings ----------
 // Each wing group carries both: the fly's clear wing (its first child) and a morpho forewing + hindwing. The morpho is
 // iridescent blue on top with a black margin and white spots, brown with eyespots underneath. At rest it holds its
@@ -1913,7 +1932,7 @@ function animateFly(dt) {
   const tNow = performance.now() / 1000, yawRate = st.prevYaw == null ? 0 : Math.atan2(Math.sin(st.yaw - st.prevYaw), Math.cos(st.yaw - st.prevYaw)) / Math.max(1e-3, dt); st.prevYaw = st.yaw;
   st.bank = (st.bank || 0) + ((st.airborne ? THREE.MathUtils.clamp(-yawRate * 0.12, -0.45, 0.45) : 0) - (st.bank || 0)) * Math.min(1, dt * 5); // bank into turns in flight
   body.rotation.z = st.flinch * Math.sin(performance.now() / 40) * 0.08 + st.bank + (st.walking ? Math.sin(st.gaitPhase) * 0.035 : 0); // and roll a little with the tripod gait
-  abdomen.scale.y = 0.9 * (1 + 0.025 * Math.sin(tNow * 2.6)); // breathing
+  abdomen.scale.y = 0.72 * (1 + 0.025 * Math.sin(tNow * 2.6)); // breathing
   antennae.forEach(a => { const sd = a.userData.side, busy = st.airborne ? 1.6 : st.walking ? 1 : 0.6; a.rotation.x = Math.PI / 2 - 0.5 + Math.sin(tNow * 3.1 * busy + sd) * 0.09 * busy + (st.airborne ? 0.25 : 0); a.rotation.z = sd * (0.12 + Math.sin(tNow * 2.3 + sd * 2) * 0.07); });
   const pitch = st.pitchOverride != null ? st.pitchOverride : st.airborne ? Math.max(-0.6, Math.min(0.5, -st.vel.y * 0.04)) : 0; // Writing pitches nose-up to put the abdomen tip on the glass
   body.rotation.x += (pitch - body.rotation.x) * Math.min(1, dt * 6);
@@ -1924,7 +1943,7 @@ function animateFly(dt) {
     if (st.airborne) { body.position.y += Math.sin(now / 45 - 0.6) * 0.35; body.rotation.x += Math.cos(now / 45) * 0.06; } } // each downstroke lifts the body: a bobbing flight
   else wings.forEach(g => { g.rotation.z = g.userData.side * (0.25 + flap); g.rotation.y = g.userData.side * -0.35;
     if (st.songExt > 0.01 && g.userData.side === st.songSide) { g.rotation.y = g.userData.side * (-0.35 - 1.25 * st.songExt); g.rotation.z += g.userData.side * Math.sin(performance.now() / 4) * 0.18 * st.songAmp; } }); // one wing out to sing (Experiment 8)
-  { const blur = !(butterfly && experiment !== 13) && Math.abs(flap) + (st.buzz > 0.3 ? 0.3 : 0) > 0.35 && st.songExt < 0.2; wings.forEach((g, i) => { g.userData.flyWing.material.opacity = blur ? 0.22 : 0.38;
+  { const blur = !(butterfly && experiment !== 13) && Math.abs(flap) + (st.buzz > 0.3 ? 0.3 : 0) > 0.35 && st.songExt < 0.2; wings.forEach((g, i) => { g.userData.flyWing.material.opacity = blur ? 0.5 : 1;
     wingGhosts[i].forEach(G => { G.visible = blur; const sd = G.userData.side; G.rotation.set(0, sd * -0.35, sd * (0.25 + G.userData.end * 0.6)); }); }); }
   legs.forEach(L => solveLeg(L, lift));
 }
@@ -2498,7 +2517,7 @@ const tabPoint = (s, px, py) => s.tablet.localToWorld(new THREE.Vector3((px / CL
 
 // ---------- student flies: lighter copies of the procedural fly ----------
 const SG = { thorax: new THREE.SphereGeometry(0.9, 14, 10), abd: new THREE.SphereGeometry(0.8, 14, 10), stripe: new THREE.TorusGeometry(1, 0.07, 4, 18), head: new THREE.SphereGeometry(0.62, 12, 10), eye: new THREE.SphereGeometry(0.4, 8, 6),
-  ant: new THREE.CylinderGeometry(0.03, 0.05, 0.6, 4), wing: (() => { const g = new THREE.CircleGeometry(1, 16); g.scale(0.55, 1.5, 1); return g; })(), femur: new THREE.CylinderGeometry(0.09, 0.07, 1, 5), tibia: new THREE.CylinderGeometry(0.06, 0.03, 1, 5),
+  ant: new THREE.CylinderGeometry(0.03, 0.05, 0.6, 4), femur: new THREE.CylinderGeometry(0.09, 0.07, 1, 5), tibia: new THREE.CylinderGeometry(0.06, 0.03, 1, 5),
   comb: new THREE.SphereGeometry(0.12, 6, 4), tip: new THREE.SphereGeometry(0.62, 12, 8), ring: new THREE.RingGeometry(2.7, 3.1, 36) };
 const SM = { F: new THREE.MeshStandardMaterial({ color: 0x8a6843, roughness: 0.55 }), M: new THREE.MeshStandardMaterial({ color: 0x6e5134, roughness: 0.55 }) };
 const RING_COL = { task: 0x0021a5, distracted: 0xf2a900, courting: 0xd32737, courted: 0xe88aa0, done: 0x22884c, away: 0x757b85 };
@@ -2517,14 +2536,14 @@ const links = new THREE.LineSegments(linkGeo, new THREE.LineDashedMaterial({ col
 function makeRig(sex, species) {
   const group = new THREE.Group(); classroom.add(group); const cut = SM[sex];
   const body = new THREE.Group(); group.add(body);
-  const th = new THREE.Mesh(SG.thorax, cut); th.position.set(0, 1.1, 0); th.scale.set(1, 0.85, 1.15); th.castShadow = true; body.add(th);
+  const th = new THREE.Mesh(SG.thorax, cut); th.position.set(0, 1.1, 0); th.scale.set(0.82, 0.74, 1.05); th.castShadow = true; body.add(th);
   const ab = new THREE.Mesh(SG.abd, cut); ab.castShadow = true; body.add(ab);
-  if (sex === 'F') { ab.position.set(0, 1.0, -1.85); ab.scale.set(1.08, 0.95, 1.95); for (let i = 0; i < 5; i++) { const s = new THREE.Mesh(SG.stripe, dark); s.scale.setScalar(0.8 - i * 0.12); s.position.set(0, 0, -0.1 - i * 0.2); ab.add(s); } }
-  else { ab.position.set(0, 1.0, -1.55); ab.scale.set(0.95, 0.88, 1.45); for (let i = 0; i < 2; i++) { const s = new THREE.Mesh(SG.stripe, dark); s.scale.setScalar(0.8 - i * 0.1); s.position.set(0, 0, -0.1 - i * 0.26); ab.add(s); } const tip = new THREE.Mesh(SG.tip, dark); tip.position.set(0, 0.02, -0.55); tip.scale.set(1, 1, 0.75); ab.add(tip); }
+  if (sex === 'F') { ab.position.set(0, 1.0, -1.85); ab.scale.set(0.86, 0.76, 1.9); for (let i = 0; i < 5; i++) { const s = new THREE.Mesh(SG.stripe, dark); s.scale.setScalar(0.8 - i * 0.12); s.position.set(0, 0, -0.1 - i * 0.2); ab.add(s); } }
+  else { ab.position.set(0, 1.0, -1.55); ab.scale.set(0.76, 0.7, 1.42); for (let i = 0; i < 2; i++) { const s = new THREE.Mesh(SG.stripe, dark); s.scale.setScalar(0.8 - i * 0.1); s.position.set(0, 0, -0.1 - i * 0.26); ab.add(s); } const tip = new THREE.Mesh(SG.tip, dark); tip.position.set(0, 0.02, -0.55); tip.scale.set(1, 1, 0.75); ab.add(tip); }
   const head = new THREE.Group(); head.position.set(0, 1.25, 1.25); body.add(head);
   head.add(new THREE.Mesh(SG.head, cut));
   [-1, 1].forEach(s => { const e = new THREE.Mesh(SG.eye, eyeMat); e.position.set(s * 0.46, 0.05, 0.25); head.add(e); const a = new THREE.Mesh(SG.ant, dark); a.position.set(s * 0.18, -0.1, 0.72); a.rotation.x = Math.PI / 2 - 0.5; head.add(a); });
-  const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); const w = new THREE.Mesh(SG.wing, wingMat); w.rotation.x = -Math.PI / 2; w.position.set(s * 0.55, 0, -1.45); g.add(w); g.userData.side = s; addMorpho(g, species); return g; });
+  const wings = [-1, 1].map(s => { const g = new THREE.Group(); g.position.set(s * 0.5, 1.8, -0.2); body.add(g); const w = flyWingMesh(s, wingMat); g.add(w); g.userData.side = s; addMorpho(g, species); return g; });
   const lg = legDefs.map((d, i) => { const L = { hip: new THREE.Vector3(...d.hip), rest: new THREE.Vector3(...d.rest), foot: new THREE.Vector3(), step: null, front: i < 2,
     femur: new THREE.Mesh(SG.femur, dark), tibia: new THREE.Mesh(SG.tibia, dark) }; group.add(L.femur, L.tibia);
     if (sex === 'M' && i < 2) { L.comb = new THREE.Mesh(SG.comb, dark); group.add(L.comb); } return L; });
