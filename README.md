@@ -27,12 +27,12 @@ From a terminal with the Vercel CLI, `npx vercel` from the repository root does 
 
 The app is one page with four views, switched by the tabs in the header and by hash routes (`#home`, `#simulate`, `#dashboards`, `#about`). The home page explains the project and shows a card for each experiment; picking a card opens that experiment in the simulator.
 
-![The home page: a short explanation of the project and a grid of ten experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
+![The home page: a short explanation of the project and a grid of eleven experiment cards](docs/screenshots/home.png) It works at phone width: the header controls become a scrollable strip, the brain panel docks under the arena, and the dashboards stack to one column.
 
 | | |
 | --- | --- |
 | ![The Simulate view: the fly taking off in Experiment 2, brain panel on the right](docs/screenshots/app-simulate.png) | ![The Dashboards view: psychometric cards with the Q-matrix, G-DINA mastery, Half-Life Regression and the Wright map](docs/screenshots/dashboards-3.png) |
-| **Simulate.** The arena with the fly-eye inset, a scenario panel on the right, a dockable dashboard panel on the left that switches to the running experiment's dashboard (1 Kinematic, 2 Curriculum, 3 Psychometric, 4 Connectomic, 5 Teacher, 6 Admin, 7 Classroom, 8 Phonics, 9 Reading, 10 Writing; a green dot marks it; pick another with the buttons at its top, or hide it; its header names the dashboard and offers Notes for the explanatory text, Collapse all, and Full view, and each card folds by clicking its title), and a bottom strip of six live charts. The right panel and the strip also change with the experiment; see the table below. | **Dashboards.** Four dashboards from the EDLS psychometric specification, fed by telemetry from the running simulation. |
+| **Simulate.** The arena with the fly-eye inset, a scenario panel on the right, a dockable dashboard panel on the left that switches to the running experiment's dashboard (1 Kinematic, 2 Curriculum, 3 Psychometric, 4 Connectomic, 5 Teacher, 6 Admin, 7 Classroom, 8 Phonics, 9 Reading, 10 Writing, 11 VR; a green dot marks it; pick another with the buttons at its top, or hide it; its header names the dashboard and offers Notes for the explanatory text, Collapse all, and Full view, and each card folds by clicking its title), and a bottom strip of six live charts. The right panel and the strip also change with the experiment; see the table below. | **Dashboards.** Four dashboards from the EDLS psychometric specification, fed by telemetry from the running simulation. |
 | ![The Dashboards view on a phone: adhesion and contrast cards stacked](docs/screenshots/phone-dashboards.png) | ![The About view: research library with report thumbnails, page images and download buttons](docs/screenshots/about-library.png) |
 | **Phone layout.** Single-column cards, header controls in a strip. | **About.** What the app simulates and what it is trying to learn, the research library with downloadable PDFs and page images, and all 187 sources the reports cite. |
 
@@ -48,6 +48,7 @@ The left panel docks the most related dashboard. The right panel and the bottom 
 | 4 · Spelling | Live laptop screen, spelling card (letters so far, next part, key accuracy), brain, memory | Letters typed, keys right and wrong, flight speed, height above keys, Δw per letter, dopamine |
 | 5 · Teacher | Live gradebook screen, grading queue, the teacher's next actions, cursor and foreleg state; no brain | Cursor path, clicks and misclicks, movement time, grading error, keystrokes, students graded |
 | 6 · District admin | Live proctoring screen, open flags, FlyAI's latest recommendation, next actions; no brain | Mean attention, open flags, detections, flag precision, check-ins, response time |
+| 11 · VR | Live student headset view with the teacher's view as an inset, headset card (what is on the board, where the student looks, ball speed and distance, turns, pencil, last answer), brain, word part memory | Ball speed, where the student looks, pencil on the paper, answers right, word part memory, dopamine |
 | 10 · Writing | Live copy of the writing app with the ink, writing card (question, progress, abdomen tip, pitch, motor skill, last answer), brain, Greek root memory | Abdomen tip on the glass, letters per minute, legibility, root memory, answers right, dopamine |
 | 9 · Reading | Live copy of the storybook page, reading card (word now, voice, last page's rate and accuracy, hover height), brain, vocabulary memory | Reading voice, words per minute, reading accuracy, vocabulary memory, Stop & Think, dopamine |
 | 8 · Phonics | Live copy of the phonics app, wing-song card (sound being sung, song mode, carrier pitch, wing), brain, letter-sound memory | Wing song amplitude, sounds right per attempt, letter-sound memory, Δw per sound, antennal hearing, dopamine |
@@ -102,6 +103,7 @@ Switch with the control at the top left of the header. All three share the same 
 | 4 · Spelling | Real-size laptop with a spelling activity | Hovers in front of the screen | Flies key to key and presses each letter with its body | Letter answers into the same trials, memory and dashboards |
 | 5 · Teacher | Fly-sized laptop with a gradebook, trackpad only, no touch | Reads from the trackpad | Steers the cursor with one foreleg on the pad, presses the pad to click, steps over to tap keys | Clicks, misclicks, keystrokes, Fitts' law, cursor heatmap, grading error |
 | 6 · District admin | Fly-sized laptop with nine webcam sessions, a vision overlay and FlyAI | Watches the grid | Steers to a flagged tile, opens it, clicks the check-in button | Flags scored against seeded cheating, precision, response time, attention, detections |
+| 11 · VR | No screen to touch: a VR headset on a ball treadmill, cabled to a laptop that mirrors it; a teacher fly on a second rig teaches the class | Watches the teacher chalk word parts on the board in a virtual third grade class | Looks down at its booklet and writes the answer in pencil; its right foreleg traces the strokes while it walks on an air-supported ball | Answers right, distance walked, turns, where the student looked, word part memory |
 | 10 · Writing | Table-sized phone running a cursive writing app | Hovers over the Greek root question | Flies nose-up and writes the answer in cursive with its abdomen tip, then taps Submit | Answers right, legibility, letters per minute, root memory |
 | 9 · Reading | Tablet on a stand running an illustrated storybook app | Flies from word to word in front of the page and reads each one aloud as it lights up | Flies up to tap Next, answers Stop & Think questions, taps the next story in the library | Words per minute and accuracy per page, miscues, vocabulary memory, questions right |
 | 8 · Phonics | Table-sized phone running a phonics app with a mic | Reads the word, listens to the app say it | Stands on the mic facing the word, holds it down with a foreleg, and sings each sound with one wing | Sounds right per attempt, letter-sound memory, confusion matrix, spectrogram |
@@ -138,6 +140,23 @@ Dashboard 6, District proctoring, scores the flags against the hidden seeding: c
 | --- | --- |
 | ![Experiment 6 screen: the 3 by 3 webcam grid with vision overlay and the FlyAI panel](docs/screenshots/exp6-screen.png) | ![Dashboard 6: proctoring counters, attention by student, detections, FlyAI log](docs/screenshots/dashboards-6.png) |
 | **The proctoring screen.** Boxes on flies and hands, gaze rays, eye-contact badges, a red flag on a suspected tile, FlyAI on the right. | **Dashboard 6.** Flags scored against the seeded truth, attention per student, detections over time. |
+
+### VR
+
+Experiment 11 takes the screen away. The fly wears a headset made for its head: one curved visor wrapped over both compound eyes, with a glossy faceplate, a light strip, a foam gasket and head and top straps. It stands on an air-supported ball, the omnidirectional treadmill used in fly virtual reality rigs, so each step turns the ball instead of moving the fly. A cable runs from the back of the headset up a tether boom and down to a control box, which is also wired to the ball's tracking and to a fly-sized laptop on a stack of books that mirrors the headset.
+
+A teacher fly stands on a second, identical rig, in its own headset, and teaches the same virtual class. While it chalks it steps along the board on its ball, its right foreleg tracing the chalk; then it turns to look across the desks. Its laptop shows the classroom from the teacher's eyes, where the student sits at its desk, and the right panel shows it as an inset in the student's view.
+
+Inside the headset the fly is a student at a desk in a third grade class, with sixteen desks, fidgeting classmates, windows and a teacher at a chalkboard. The teacher chalks one item at a time, either a word to build from its parts (*re + count + able = ?*) or a prefix to define (*pre- means ?*). The student looks down at its open booklet and writes the answer in cursive pencil, using the same Hershey Script letters as Experiment 10, while the fly's right foreleg traces the strokes in small. The teacher marks each answer with a tick or a cross, and after six items the board is erased for a new page. Walking bobs the view, and now and then the fly turns on the ball and the student glances at a classmate.
+
+The chance of a right answer is 0.35 + 0.6 × the memory of the parts on the board, and answers train the same word part memory, with Δw = η(R − V), as the other experiments. Dashboard 11, VR classroom, shows answers right, distance walked on the ball, turns, how long the student looked at the board, the booklet and classmates, word part memory, the booklet's answers and a log.
+
+| | |
+| --- | --- |
+| ![Experiment 11: the fly in a VR headset on an air-supported ball, a laptop beside it](docs/screenshots/exp11-vr.png) | ![Experiment 11: the headset view of a classroom from a student's desk](docs/screenshots/exp11-laptop.png) |
+| **The rigs.** Student and teacher flies, each with a headset, a ball treadmill, a tether boom, a control box and a laptop mirroring its headset. | **The headset view.** The chalkboard, classmates, the booklet and the pencil. |
+| ![Experiment 11: close-up of the curved VR visor on the fly's head, its cable rising to the tether boom](docs/screenshots/exp11-headset.png) | ![Dashboard 11: VR session counters, where the student looks, word part memory](docs/screenshots/dashboards-11.png) |
+| **The headset.** A curved visor over both eyes, faceplate, light strip, straps and cable. | **Dashboard 11.** Answers, distance walked, where the student looked, word part memory, the booklet. |
 
 ### Writing
 
@@ -456,7 +475,7 @@ The TRD describes a biologically grounded stack: a MuJoCo `flybody` model (102 D
 flowchart LR
   subgraph Now["In this repo today"]
     UI["3D language interface<br/>screen · tiles · trial card"]
-    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>ten experiments"]
+    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>eleven experiments"]
     Policy["Behavioural policy<br/>memory-weighted tile choice"]
     BrainViz["Stylised CNS point cloud<br/>16 regions, act[]"]
     Eye["Fly-eye mosaic<br/>750 ommatidia, 4.5°"]

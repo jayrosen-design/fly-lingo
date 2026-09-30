@@ -271,6 +271,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <button type="button" data-exp="8" aria-pressed="false">Phonics</button>
         <button type="button" data-exp="9" aria-pressed="false">Reading</button>
         <button type="button" data-exp="10" aria-pressed="false">Writing</button>
+        <button type="button" data-exp="11" aria-pressed="false">VR</button>
       </div>
       <div class="seg" role="group" aria-label="Speed">
         <button type="button" data-speed="1" aria-pressed="true">1×</button>
@@ -292,15 +293,15 @@ pre.mermaid svg{max-width:none;height:auto}
         <div style="display:flex;flex-direction:column;gap:12px">
           <span class="eyebrow">Embodied Drosophila literacy simulation</span>
           <h2>A fruit fly learning to read, and the flies who teach and proctor it</h2>
-          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid, a classroom of 24 flies with tablets in mating season, a phonics app that asks it to say the word, which it sings back with one wing, a tablet of illustrated stories it reads aloud while hovering, and a writing app where it answers in cursive with the tip of its abdomen. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
+          <p class="lead">Fruit Fly Lingo puts a simulated fruit fly in front of the screens we use to learn: a phone that teaches word parts, a laptop that asks it to spell, a gradebook, a proctoring grid, a classroom of 24 flies with tablets in mating season, a phonics app that asks it to say the word, which it sings back with one wing, a tablet of illustrated stories it reads aloud while hovering, a writing app where it answers in cursive with the tip of its abdomen, and a VR headset that seats it at a desk in a third grade class taught by another fly. A stylised fly brain lights up with what it does, a dopamine reward strengthens its memory of each prefix, root and suffix, and psychometric dashboards measure the learning as it happens. It is the interaction layer of the Embodied Drosophila Literacy Simulation, a study of whether a nervous system evolved for finding food can be repurposed for symbolic learning.</p>
           <div class="actions"><a class="btn btn-primary" href="#simulate">Open the simulator</a><a class="btn btn-tertiary" href="#dashboards">Dashboards</a><a class="btn btn-tertiary" href="#about">About the research</a></div>
         </div>
         <img src="docs/screenshots/app-simulate.png" alt="The simulator: a fruit fly on a smartphone screen with the brain panel and docked dashboards">
       </div>
 
       <div>
-        <h3 class="sec">Ten experiments</h3>
-        <p class="sub">Eight student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all ten.</p>
+        <h3 class="sec">Eleven experiments</h3>
+        <p class="sub">Nine student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all eleven.</p>
       </div>
       <div class="expgrid">
         <a class="expcard" href="#simulate" data-run="1"><img loading="lazy" src="docs/screenshots/overview.png" alt="Experiment 1: the fly walking across the phone screen toward a tile"><div class="body"><span class="num">Experiment 1</span><h3>Walking</h3><p>The fly walks across a phone lying on the table, reads the meaning with head sweeps, and presses word-part tiles with a foreleg.</p><span class="role student">Student</span></div></a>
@@ -313,6 +314,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <a class="expcard" href="#simulate" data-run="8"><img loading="lazy" src="docs/screenshots/exp8-phonics.png" alt="Experiment 8: the fly at the mic of a phonics app, one wing extended as it sings the sounds, a spectrogram of its buzz on the screen"><div class="body"><span class="num">Experiment 8</span><h3>Phonics</h3><p>The app says a word and the fly says it back, sound by sound, by singing with one wing: pulse song for consonants, a hum for vowels. The recogniser scores every sound.</p><span class="role student">Student</span></div></a>
         <a class="expcard" href="#simulate" data-run="9"><img loading="lazy" src="docs/screenshots/exp9-reading.png" alt="Experiment 9: the fly hovering in front of a tablet on a stand, reading an illustrated storybook page aloud"><div class="body"><span class="num">Experiment 9</span><h3>Reading</h3><p>A tablet on a stand runs illustrated six-page stories. The fly hovers and reads aloud in its buzz, taps Next, answers Stop &amp; Think questions, and picks its next story.</p><span class="role student">Student</span></div></a>
         <a class="expcard" href="#simulate" data-run="10"><img loading="lazy" src="docs/screenshots/exp10-writing.png" alt="Experiment 10: the fly flying nose-up over a phone, writing a Greek root answer in cursive with the tip of its abdomen"><div class="body"><span class="num">Experiment 10</span><h3>Writing</h3><p>Greek root questions answered in joined cursive. The fly flies nose-up and drags the tip of its abdomen across the glass, then taps Submit to have its handwriting read.</p><span class="role student">Student</span></div></a>
+        <a class="expcard" href="#simulate" data-run="11"><img loading="lazy" src="docs/screenshots/exp11-vr.png" alt="Experiment 11: the fly in a VR headset on an air-supported ball, a laptop beside it showing a classroom seen from a student's desk"><div class="body"><span class="num">Experiment 11</span><h3>VR</h3><p>A fly-sized visor, cabled to a ball treadmill and a laptop. Inside, the student sits at a desk in a third grade class and answers in pencil, while a teacher fly on a second rig chalks word parts on the board.</p><span class="role student">Student</span></div></a>
       </div>
 
       <h3 class="sec">What you can measure</h3>
@@ -343,6 +345,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <button type="button" data-dock="d-phonics-sec" aria-pressed="false"><span>Phonics</span></button>
         <button type="button" data-dock="d-reading-sec" aria-pressed="false"><span>Reading</span></button>
         <button type="button" data-dock="d-writing-sec" aria-pressed="false"><span>Writing</span></button>
+        <button type="button" data-dock="d-vr-sec" aria-pressed="false"><span>VR</span></button>
       </div>
       <div id="dockBody"></div>
     </aside>
@@ -373,27 +376,27 @@ pre.mermaid svg{max-width:none;height:auto}
 
     <aside id="brainPanel" aria-label="Scenario panel">
       <div id="nowLine" aria-live="polite">Walking · building a word</div>
-      <section id="rpScreen" data-rp="3 4 5 6 8 9 10" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
+      <section id="rpScreen" data-rp="3 4 5 6 8 9 10 11" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
       <section id="rpMap" data-rp="7" class="rp"><div class="rowlbl"><h3>Seating chart</h3><span class="sub">click a fly to follow it</span></div><canvas id="rpMapCv" aria-label="Top-down seating chart of the six tables; click a fly to follow it"></canvas></section>
       <section id="rpScen" class="rp"><h3 id="rpScenHead"></h3><div id="rpScenBody"></div></section>
-      <section data-rp="1 2 3 4 7 8 9 10" style="display:flex;flex-direction:column;gap:8px">
+      <section data-rp="1 2 3 4 7 8 9 10 11" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <h2>Central nervous system</h2>
           <span class="sub">Point cloud stylised after Drosophila anatomy, brain and ventral nerve cord. Drag to turn.</span>
         </div>
         <canvas id="brain" aria-label="Rotating point cloud of the fly's brain; regions brighten when active"></canvas>
       </section>
-      <section data-rp="1 2 3 4 7 8 9 10" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9 10 11" style="display:flex;flex-direction:column;gap:10px">
         <div class="rowlbl"><span>Dopamine · PAM cluster</span><span id="dopaVal">0.50</span></div>
         <div class="bar" id="dopaBar"><span style="width:50%"></span></div>
         <ul class="regions" id="regions"></ul>
       </section>
-      <section data-rp="1 2 3 4 7 8 9 10" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9 10 11" style="display:flex;flex-direction:column;gap:10px">
         <h3 id="memHead">Word part memory · Kenyon cell to MBON weights</h3>
         <div class="memory" id="memory"></div>
       </section>
       <section style="display:flex;flex-direction:column;gap:12px">
-        <div class="stat-row" data-rp="1 2 3 4 7 8 9 10">
+        <div class="stat-row" data-rp="1 2 3 4 7 8 9 10 11">
           <div class="stat good"><b id="stWords">0</b><span class="sub">words built</span></div>
           <div class="stat plain"><b id="stTaps">0</b><span class="sub">answers</span></div>
           <div class="stat"><b id="stAcc">0%</b><span class="sub">correct</span></div>
@@ -416,7 +419,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <p class="lead">Four dashboards from the psychometric specification, fed by the running fly. Values update while the simulation runs in the Simulate view. Where a quantity is a stand-in for a sensor or model the app does not yet have, the card says so.</p>
       </div>
       <nav class="subnav" aria-label="Dashboards">
-        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a><a href="#d-writing">Writing</a>
+        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a><a href="#d-writing">Writing</a><a href="#d-vr">VR</a>
       </nav>
 
       <section id="d-session" class="grid" data-dockable>
@@ -555,6 +558,19 @@ pre.mermaid svg{max-width:none;height:auto}
         <article class="card span4"><header><h3>Legibility over answers</h3><span class="sub">green 80% or better</span></header><canvas class="chart tall" id="cWrLeg" aria-label="Legibility of each written answer"></canvas><p class="sub">The fly's tail control improves a little with every answer.</p></article>
         <article class="card span6"><header><h3>The roots</h3><span class="sub">twelve Greek roots</span></header><div style="overflow-x:auto"><table class="q" id="wrRoots"><thead><tr><th>Root</th><th>Meaning</th><th>As in</th><th>Tries</th><th>Right</th></tr></thead><tbody></tbody></table></div></article>
         <article class="card span6"><header><h3>Writing log</h3><span class="sub">what was written and how it was read</span></header><ul class="events" id="wrLog" style="max-height:300px"></ul></article>
+      </section>
+
+      <h3 class="sec" id="d-vr">Dashboard 11 · VR classroom</h3>
+      <p class="sub">Experiment 11. The fly walks on an air-supported ball in a headset that seats it at a desk in a third grade class. It watches the teacher, a second fly on its own rig, write word parts on the chalkboard and answers in pencil in its booklet. Walking and turning on the ball move its view; answers train the same word part memory as the other experiments.</p>
+      <section class="grid" id="d-vr-sec" data-dockable>
+        <article class="card span4"><header><h3>VR session</h3><span class="sub" id="vrMode">not running</span></header>
+          <div class="stat-row"><div class="stat good"><b id="vrRight">0</b><span class="sub">answers right</span></div><div class="stat plain"><b id="vrAnswers">0</b><span class="sub">answers written</span></div><div class="stat"><b id="vrAcc">–</b><span class="sub">accuracy</span></div></div>
+          <div class="kv"><span>Walked on the ball</span><b id="vrDist">0 body lengths</b><span>Ball speed now</span><b id="vrSpeed">–</b><span>Turns to look around</span><b id="vrTurns">0</b><span>Lesson · question</span><b id="vrLesson">–</b></div>
+          <p class="sub">The ball floats on air, so every step turns it instead of moving the fly. Forward walking bobs the student's view; a turn swings it toward a classmate.</p></article>
+        <article class="card span4"><header><h3>Where the student looks</h3><span class="sub">seconds in the headset</span></header><canvas class="chart tall" id="cVrGaze" aria-label="Seconds spent looking at the chalkboard, the booklet and classmates"></canvas><p class="sub">Board while the teacher writes, booklet while the pencil moves, classmates when the fly turns on the ball.</p></article>
+        <article class="card span4"><header><h3>Word part memory</h3><span class="sub">shared with the other experiments</span></header><div id="vrMem" class="memory"></div><p class="sub">The chance of writing the right answer is 0.35 + 0.6 × the memory of the parts on the board, which learns with Δw = η(R − V).</p></article>
+        <article class="card span6"><header><h3>The booklet</h3><span class="sub">what the student wrote</span></header><div style="overflow-x:auto"><table class="q" id="vrBook"><thead><tr><th>On the board</th><th>Answer</th><th>Written</th><th>Right</th></tr></thead><tbody></tbody></table></div></article>
+        <article class="card span6"><header><h3>VR log</h3><span class="sub">what happened in the class</span></header><ul class="events" id="vrLogL" style="max-height:300px"></ul></article>
       </section>
     </div>
   </section>
@@ -805,7 +821,7 @@ pre.mermaid svg{max-width:none;height:auto}
 </pre></article><article class="card"><h3>From this app to the full EDLS</h3><pre class="mermaid">flowchart LR
   subgraph Now[&quot;In this repo today&quot;]
     UI[&quot;3D language interface&lt;br/&gt;screen · tiles · trial card&quot;]
-    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;ten experiments&quot;]
+    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;eleven experiments&quot;]
     Policy[&quot;Behavioural policy&lt;br/&gt;memory-weighted tile choice&quot;]
     BrainViz[&quot;Stylised CNS point cloud&lt;br/&gt;16 regions, act[]&quot;]
     Eye[&quot;Fly-eye mosaic&lt;br/&gt;750 ommatidia, 4.5°&quot;]
@@ -892,6 +908,14 @@ pre.mermaid svg{max-width:none;height:auto}
         <figure><img loading="lazy" src="docs/screenshots/dashboards-10.png" alt="Dashboard 10: writing counters, Greek root memory, legibility over answers"><figcaption><strong>Dashboard 10 · Writing Greek roots in cursive.</strong> Answers right, legibility and writing speed per answer, motor skill, a memory per root, and a log of what was written and how it was read.</figcaption></figure>
       </div>
       <p>The writing app asks about twelve Greek roots, alternating between "What does the Greek root <em>bio</em> mean?" and "Which Greek root means <em>light</em>?", with example words such as <em>biology</em> and <em>photograph</em>. The fly answers in joined cursive, traced from the Hershey single-stroke script font, a public-domain set of pen-plotter letters. To write, it flies pitched about 29° nose-up so that the tip of its abdomen rests on the glass, follows each letter's stroke at about 90 pixels a second, and lifts the tip to hop to the dot of an <em>i</em> or the cross of a <em>t</em>. The abdominal ganglion lights up in the brain panel while it writes. A small wobble from hovering flight shakes the line; it shrinks as the fly's tail control improves with practice. When it taps Submit, the recogniser reads the handwriting: very shaky writing can turn one letter into another. Whether the answer itself is right depends on a memory per root, learned with the same Δw = η(R − V) rule.</p>
+
+      <h3 class="sec">VR</h3>
+      <div class="shots">
+        <figure><img loading="lazy" src="docs/screenshots/exp11-vr.png" alt="Experiment 11: the fly wearing a VR headset, standing on a dotted air-supported ball, a laptop on a stack of books beside it"><figcaption><strong>11 · VR.</strong> Two rigs: the student fly and the teacher fly, each on an air-supported ball, the omnidirectional treadmill of fly VR rigs, with a laptop mirroring its headset.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/exp11-laptop.png" alt="Experiment 11 laptop: a first-person view from a student's desk, the booklet open and a hand writing in pencil"><figcaption><strong>11 · The headset view.</strong> The laptop mirrors the headset: a third grade classroom from the student's desk, the chalkboard, classmates, the booklet and the pencil.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/dashboards-11.png" alt="Dashboard 11: VR session counters, where the student looks, word part memory"><figcaption><strong>Dashboard 11 · VR classroom.</strong> Answers, distance walked on the ball, turns, where the student looked, word part memory, and the booklet.</figcaption></figure>
+      </div>
+      <p>The fly stands on a ball that floats on a cushion of air, so each step turns the ball instead of carrying the fly anywhere. Its headset is a single curved visor wrapped over both compound eyes, with a glossy faceplate, a light strip, foam gasket and straps. A cable runs from the back of the strap up a tether boom and down to a control box, which is also wired to the ball's tracking and to a laptop that shows what the headset shows. A teacher fly stands on a second, identical rig, and its headset puts it at the front of the same virtual room: it steps along the chalkboard as it writes, with its right foreleg tracing the chalk, then turns to look across the desks. Its laptop shows the class from the teacher's eyes. The student's headset seats it at a desk in a third grade class: sixteen desks, classmates who fidget, windows, and a teacher at a chalkboard. The teacher chalks one item at a time, either a word to build from its parts (<em>re + count + able = ?</em>) or a prefix to define (<em>pre- means ?</em>). The student looks down at its open booklet and writes the answer in cursive pencil, and the fly's right foreleg traces the same strokes in small. The teacher marks it with a tick or a cross, and after six items the board is erased for a new page. Walking bobs the view; now and then the fly turns on the ball and the student glances at a classmate. Answers train the same word part memory as the other experiments.</p>
 
       <h3 class="sec">From this app to the full EDLS</h3>
       <section class="two">
@@ -1008,6 +1032,7 @@ const EXP = {
   6: { name: 'District admin', note: 'Experiment 6 · District admin. The admin fly watches nine students on a 3 × 3 grid of webcam sessions. A vision overlay boxes each fly, its forelegs and its gaze; FlyAI flags suspected cheating and the admin steers the cursor to the tile and sends a check-in.', phys: 'Fly-sized laptop · trackpad only · vision overlay', phoneScale: 0.07, layout: 'grid', jitter: 0, camOffset: [-6, 5, 8.5], laptop: true },
   7: { name: 'Classroom', note: 'Experiment 7 · Classroom. Twenty-four students, twelve female and twelve male, at six round tables with a fly-sized tablet each, in mating season. Every fly has to finish twelve items. Rings show what each fly is doing; the vision overlay boxes every fly, its forelegs and its gaze. Click a fly to follow it and see its brain.', phys: '24 flies · 6 tables', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 10, 17], classroom: true },
   10: { name: 'Writing', note: 'Experiment 10 · Writing. A cursive writing app on the phone asks Greek root questions. The fly answers by flying nose-up and dragging the tip of its abdomen across the glass, writing the answer in joined cursive, lifting it for dots and crosses. Then it taps Submit and the app reads the handwriting.', phys: 'Hover flight · abdomen tip on the glass', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-12, 9, 14] },
+  11: { name: 'VR', note: 'Experiment 11 · VR. The fly wears a headset made for its head and stands on an air-supported ball, the omnidirectional treadmill of fly VR rigs. The headset puts it at a desk in a third grade class. The teacher writes word parts on the chalkboard, and the student answers in pencil in an open booklet. Walking and turning on the ball move the student\'s view. A teacher fly on a second ball, in its own headset, teaches the same class from the front of the room; each rig is cabled through a control box to its laptop, which shows what that headset shows.', phys: 'Ball treadmill · VR headset', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-6, 32, -112], vrRig: true },
   9: { name: 'Reading', note: 'Experiment 9 · Reading. A tablet on a stand runs an illustrated storybook app. The fly hovers in front of the page, bobbing, and reads aloud in its wing buzz as each word lights up; vocabulary words are in bold. It starts at the library and flies up to tap a book, taps Next to turn pages, answers Stop & Think questions, and when a story ends it picks the next one.', phys: 'Tablet on a stand · hover flight', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-38, 9, 20], tablet: true },
   8: { name: 'Phonics', note: 'Experiment 8 · Phonics. The app shows a word, plays it, and asks the fly to say it back. A fly cannot speak, so it stands on the mic facing the word, holds the mic down with a foreleg, and sings each sound with one extended wing: pulse song for k, t, d, a formant-shaped hum for vowels, a fluttered hiss for s and sh. You hear the buzz only while it sings; the pill above the arena turns it off.', phys: 'Wing song · pulse and sine', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-13, 11, 20] },
 };
@@ -1078,6 +1103,7 @@ function rrect(x, y, w, h, r) { sc.beginPath(); sc.roundRect(x, y, w, h, r); }
 function drawScreen(now) {
   if (experiment === 8) return drawPhonics(now);
   if (experiment === 10) return drawWriting(now);
+  if (experiment === 11) return;
   const w = cur(); const L = layout(); const scroll = L.tapY ? game.scrollY : 0;
   sc.setTransform(1, 0, 0, 1, 0, 0);
   sc.fillStyle = C.page; sc.fillRect(0, 0, SW, SH);
@@ -1329,6 +1355,7 @@ function renderTrial() {
   if (experiment === 8) return renderPhonicsTrial();
   if (experiment === 9) return renderReadingTrial();
   if (experiment === 10) return renderWritingTrial();
+  if (experiment === 11) return renderVRTrial();
   if (experiment === 4 && typeof spell !== 'undefined' && spell.letters.length) {
     $('meaning').textContent = spell.word.meaning;
     $('chips').innerHTML = spell.letters.map((ch, i) => i < spell.typed.length ? `<span class="chip ${KINDS[partAtLetter(i)]}" style="padding:0 12px">${ch}</span>` : `<span class="chip empty" style="padding:0 10px">${KINDS[partAtLetter(i)][0]}</span>`).join('');
@@ -1364,6 +1391,7 @@ const agent = { phase: 'look', t: 0, target: null, standPos: null, tapLeg: null,
 const PHASE_TEXT = { look: 'Looking at the screen', walk: 'Walking to a tile', tap: 'Pressing the glass', react: 'Reading the outcome', celebrate: 'Word complete',
   takeoff: 'Taking off', hover: 'Hovering, reading the meaning', dive: 'Diving to the answer', land: 'Landing', scroll: 'Swiping the answers into reach',
   w_read: 'Reading the question', w_fly: 'Flying', w_write: 'Writing with the abdomen tip', w_tap: 'Tapping Submit', w_react: 'Checking the answer',
+  v_board: 'Watching the chalkboard', v_look: 'Looking down at the booklet', v_write: 'Writing in the booklet', v_mark: 'Teacher checks the answer', v_erase: 'The board is erased',
   r_read: 'Hovering and reading aloud', r_think: 'Thinking about the question', r_fly: 'Flying to the button', r_tap: 'Tapping the screen', r_feedback: 'Checking the answer', r_browse: 'Browsing the library',
   p_look: 'Reading the word', p_listen: 'Listening to the app', p_walk: 'Settling on the mic', p_tap: 'Pressing the mic', p_buzz: 'Holding the mic and singing with one wing', p_react: 'Hearing the score', p_celebrate: 'Word said right', p_back: 'Settling on the mic',
   t_read: 'Reading the screen', t_fly: 'Flying', t_walk: 'Walking', t_arm: 'Steering the cursor with a foreleg', t_press: 'Clicking', t_dip: 'Pressing a key', t_done: 'All students graded', s_celebrate: 'Word spelled', a_watch: 'Watching the nine sessions' };
@@ -1455,6 +1483,7 @@ function stepAgent(dt, now) {
   if (experiment === 8) return stepPhonics(dt, now);
   if (experiment === 9) return stepReading(dt, now);
   if (experiment === 10) return stepWriting(dt, now);
+  if (experiment === 11) return stepVR(dt, now);
   if (EXP[experiment].laptop) return stepTeacher(dt, now);
   const st = flyState; const s = phone.scale.x;
   switch (agent.phase) {
@@ -1575,7 +1604,7 @@ function animateFly(dt) {
   const st = flyState;
   fly.position.copy(st.pos); fly.rotation.y = st.yaw; fly.updateMatrixWorld(true);
   head.rotation.y = st.headYaw;
-  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz' || agent.phase === 'r_tap' || agent.phase === 'w_tap') ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
+  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz' || agent.phase === 'r_tap' || agent.phase === 'w_tap' || agent.phase === 'v_write') ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
   let stepping = legs.filter(L => L.step).length;
   legs.forEach(L => {
     if (L === busyLeg) return;
@@ -2117,7 +2146,7 @@ eyeScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMater
     }`,
 })));
 function renderEye() {
-  if (experiment === 7) return; // many flies: no single fly-eye view in the classroom
+  if (experiment === 7 || experiment === 11) return; // many flies: no single fly-eye view in the classroom
   const r = sceneCanvas.getBoundingClientRect(); if (r.width < 700) return;
   renderer.setRenderTarget(eyeRT); renderer.render(scene, eyeCam); renderer.setRenderTarget(null);
   const size = 220, pad = 16, x = r.width - size - pad;
@@ -2613,7 +2642,7 @@ function drawVision() {
 }
 
 // ---------- scenario panels: the right panel and bottom strip follow the experiment ----------
-const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9, 10]; // the teacher and admin panels show their screen and work queue instead of the brain
+const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9, 10, 11]; // the teacher and admin panels show their screen and work queue instead of the brain
 let rpAt = 0;
 // scenario history, 4 samples a second of the numbers the strip plots (the classroom keeps its own in cls.hist)
 const sh = []; let shAt = 0, shSim = 0; const shPrev = new THREE.Vector3();
@@ -2625,7 +2654,7 @@ function sampleScenario(now, dt) {
   sh.push({ t, exp: experiment, speed, h: Math.max(0, st.pos.y - ground), air: st.airborne ? 1 : 0, scroll: game.scrollY, typed: spell.typed.length,
     path: T.path, clicks: T.clicks, miss: T.miss, keys: T.keys, graded: T.graded.length,
     att: admin.students.length ? admin.students.reduce((a, s) => a + s.att, 0) / admin.students.length : null, flags: admin.flags.filter(f => f.open).length,
-    song: flyState.songAmp || 0, pen: experiment === 10 && agent.phase === 'w_write' && wr.path[Math.floor(wr.s)] && wr.path[Math.floor(wr.s)].down ? 1 : 0, rmem: wr.mem.size ? [...wr.mem.values()].reduce((a, b) => a + b, 0) / wr.mem.size : null, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
+    song: flyState.songAmp || 0, pen: (experiment === 10 && agent.phase === 'w_write' && wr.path[Math.floor(wr.s)] && wr.path[Math.floor(wr.s)].down) || (experiment === 11 && agent.phase === 'v_write') ? 1 : 0, ball: vr.speed, pmem: game.memory.size ? [...game.memory.values()].reduce((a, b) => a + b, 0) / game.memory.size : null, rmem: wr.mem.size ? [...wr.mem.values()].reduce((a, b) => a + b, 0) / wr.mem.size : null, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
     prec: A.tp + A.fp ? A.tp / (A.tp + A.fp) : null, checkins: A.checkins, det: A.detections.filter(d => t - d.t < 5).reduce((a, d) => a + d.lookaway + d.helper + d.device + d.offscreen, 0) });
   if (sh.length > 480) sh.shift();
 }
@@ -2691,6 +2720,12 @@ const STRIPS = {
     sHist('Greek root memory', 'rmem', () => { const p = shLast(); return p && p.rmem != null ? p.rmem.toFixed(2) : '–'; }, { ymax: 1 }, '#22884c'),
     { l: 'Answers right', v: () => `${wr.stats.right} of ${wr.stats.answers}`, d: id => barChart(id, wr.history.slice(-20).map(h => ({ v: 1, color: h.ok ? CH.green : CH.red, label: `${h.root}: wrote "${h.written}", ${h.ok ? 'right' : 'answer ' + h.answer}` })), { ymax: 1, positive: true, compact: true, empty: 'No answers yet' }) },
     sDopa],
+  11: [sHist('Ball speed', 'ball', () => (vr.speed / BL).toFixed(1) + ' BL/s', { k: 1 / BL }),
+    { l: 'Where the student looks', v: () => { const S = vr.stats, t = S.board + S.booklet + S.around; return t ? Math.round(100 * S.board / t) + '% board' : '–'; }, d: id => barChart(id, [['Board', vr.stats.board, CH.blue], ['Booklet', vr.stats.booklet, CH.green], ['Classmates', vr.stats.around, CH.amber]].map(([k, v, c]) => ({ v, color: c, label: `${k}: ${Math.round(v)} s` })), { positive: true, compact: true, empty: 'Not looking yet' }) },
+    sHist('Pencil on the paper', 'pen', () => agent.phase === 'v_write' ? 'writing' : 'resting', { ymax: 1 }, '#002657'),
+    { l: 'Answers right', v: () => `${vr.stats.right} of ${vr.stats.answers}`, d: id => barChart(id, vr.history.slice(-20).map(h => ({ v: 1, color: h.ok ? CH.green : CH.red, label: `${h.board}: wrote "${h.text}", ${h.ok ? 'right' : 'answer ' + h.answer}` })), { ymax: 1, positive: true, compact: true, empty: 'No answers yet' }) },
+    sHist('Word part memory', 'pmem', () => { const p = shLast(); return p && p.pmem != null ? p.pmem.toFixed(2) : '–'; }, { ymax: 1 }, '#22884c'),
+    sDopa],
 };
 let stripExp = 0;
 function drawStrip() {
@@ -2723,6 +2758,8 @@ function scenarioCard() {
     return ['Proctoring', `<h3>Open flags</h3><ul>${open.map(f => `<li class="now">${admin.students[f.student].name}: ${REASON[f.reason] || f.reason} · ${Math.round(TDT() - f.t)} s ago</li>`).join('') || '<li>None open</li>'}</ul>` +
       (ai ? `<p class="sub" style="margin:0">FlyAI: ${ai.text}</p>` : '') + `<h3>Next actions</h3><ol>${next.map((s, i) => `<li class="${i ? '' : 'now'}">${stepText(s)}</li>`).join('')}</ol>` +
       kv([['Flags · confirmed · false alarms', `${admin.flags.length} · ${A.tp} · ${A.fp}`], ['Check-ins sent', A.checkins]])]; }
+  if (e === 11) { const it = vr.items[vr.ii], S = vr.stats, look = vr.glance ? 'a classmate' : ['v_look', 'v_write', 'v_mark'].includes(agent.phase) ? 'the booklet' : 'the chalkboard', last = vr.history[vr.history.length - 1];
+    return ['In the headset', kv([['On the board', it ? it.board : 'being erased'], ['Looking at', look], ['Ball', `${(vr.speed / BL).toFixed(1)} body lengths/s · ${Math.round(S.ballDist / BL)} walked`], ['Turns to look around', S.turns], ['Pencil', agent.phase === 'v_write' && vr.write ? `writing "${vr.write.text}"` : 'resting'], ['Last answer', last ? `"${last.text}" · ${last.ok ? 'right' : 'wrong'}` : '–'], ['Right so far', `${S.right} of ${S.answers}`], ['Lesson', vr.lesson]])]; }
   if (e === 10) { const G = GREEK[wr.qi], P = wr.path, p = P[Math.min(P.length - 1, Math.floor(wr.s))], last = wr.history[wr.history.length - 1];
     return ['Writing with the tail', kv([['Question', wr.type === 'meaning' ? `What does ${G.root} mean?` : `Which root means ${G.meaning}?`], ['Writing', agent.phase === 'w_write' ? `"${wr.written}" · ${Math.round(Math.min(1, wr.s / Math.max(1, P.length - 1)) * 100)}%` : '–'], ['Abdomen tip', agent.phase === 'w_write' && p ? (p.down ? 'on the glass, inking' : 'lifted, moving to the next stroke') : 'lifted'], ['Body pitch', agent.phase === 'w_write' ? 'nose up ' + Math.round(-TAIL_PITCH * 57) + '°' : 'level'], ['Motor skill', wr.skill.toFixed(2) + ' · wobble ' + wr.wobble.toFixed(1) + ' px'], ['Last answer', last ? `"${last.read}" · ${last.ok ? 'right' : 'wrong'} · ${Math.round(last.legibility * 100)}% legible` : '–'], ['Right so far', `${wr.stats.right} of ${wr.stats.answers}`]])]; }
   if (e === 9) { const R = reading, S = STORIES[R.si], W = R.speaking ? R.words[R.wi] : null, last = R.pageLog[R.pageLog.length - 1];
@@ -2736,17 +2773,18 @@ function renderScenario(force) {
   if (view !== 'simulate' && !force) return;
   const [head, body] = scenarioCard(); if ($('rpScenHead').textContent !== head) $('rpScenHead').textContent = head;
   const B = $('rpScenBody'); if (B.innerHTML !== body) B.innerHTML = body;
-  if ([3, 4, 5, 6, 8, 9, 10].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
+  if ([3, 4, 5, 6, 8, 9, 10, 11].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
 }
 // a live copy of the phone or laptop screen
 function drawRpScreen() {
-  const cv = $('rpScreenCv'), w = cv.clientWidth; if (!w) return; const lap = EXP[experiment].laptop || experiment === 9, src = experiment === 9 ? bookCanvas : EXP[experiment].laptop ? lapCanvas : screenCanvas;
+  const cv = $('rpScreenCv'), w = cv.clientWidth; if (!w) return; const lap = EXP[experiment].laptop || experiment === 9 || experiment === 11, src = experiment === 11 ? vrCanvas : experiment === 9 ? bookCanvas : EXP[experiment].laptop ? lapCanvas : screenCanvas;
   const h = lap ? Math.round(w * 640 / 1024) : Math.min(300, Math.round(w * SH / SW)); const pr = Math.min(devicePixelRatio, 2);
   if (cv.height !== Math.round(h * pr) || cv.width !== Math.round(w * pr)) { cv.width = Math.round(w * pr); cv.height = Math.round(h * pr); cv.style.height = h + 'px'; }
   const g = cv.getContext('2d'); g.setTransform(pr, 0, 0, pr, 0, 0); g.fillStyle = '#0b0b0c'; g.fillRect(0, 0, w, h);
   const s = Math.min(w / src.width, h / src.height), dw = src.width * s, dh = src.height * s; g.drawImage(src, (w - dw) / 2, (h - dh) / 2, dw, dh);
-  $('rpScreenHead').textContent = experiment === 10 ? 'Writing app' : experiment === 9 ? 'Storybook app' : experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
-  $('rpScreenSub').textContent = experiment === 10 ? 'ink from the abdomen tip' : experiment === 9 ? 'the page the fly is reading' : experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
+  if (experiment === 11) { const iw = w * 0.36, ih = iw * 0.625, ix = w - iw - 6, iy = h - ih - 6; g.drawImage(vrCanvasT, ix, iy, iw, ih); g.strokeStyle = '#fff'; g.lineWidth = 2; g.strokeRect(ix, iy, iw, ih); g.fillStyle = 'rgba(0,38,87,0.85)'; g.fillRect(ix, iy, 52, 14); g.fillStyle = '#fff'; g.font = `700 9px ${DISPLAY}`; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText('Teacher', ix + 5, iy + 7.5); }
+  $('rpScreenHead').textContent = experiment === 11 ? 'Headset view' : experiment === 10 ? 'Writing app' : experiment === 9 ? 'Storybook app' : experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
+  $('rpScreenSub').textContent = experiment === 11 ? 'student, teacher inset' : experiment === 10 ? 'ink from the abdomen tip' : experiment === 9 ? 'the page the fly is reading' : experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
 }
 // classroom seating chart, top down
 const MAP = { x0: -56, x1: 56, z0: -40, z1: 32 };
@@ -3498,12 +3536,276 @@ function renderWritingTrial() {
 }
 window.__wr = wr; // debug hook, like window.__reading
 
+// =====================================================================
+// Experiment 11: VR. The fly stands on an air-supported ball, the omnidirectional treadmill used in fly VR rigs,
+// wearing a headset built for its head. A fly-sized laptop beside it shows what the headset shows: a third grade
+// classroom seen from a student's desk, a teacher writing morphemes on the chalkboard, and the student's own booklet,
+// where the student's hand writes the answers in pencil. Walking and turning on the ball move the student's head;
+// the fly's right foreleg moves as the pencil writes.
+// =====================================================================
+const BALL_R = 10;
+const vrRig = new THREE.Group(); vrRig.visible = false; scene.add(vrRig);
+const ballCanvas = document.createElement('canvas'); ballCanvas.width = 512; ballCanvas.height = 256; { const g = ballCanvas.getContext('2d'); g.fillStyle = '#f3efe6'; g.fillRect(0, 0, 512, 256); for (let i = 0; i < 260; i++) { g.fillStyle = `rgba(40,40,50,${0.25 + (i % 3) * 0.2})`; g.beginPath(); g.arc((i * 97) % 512, (i * 59) % 256, 2 + (i % 4), 0, Math.PI * 2); g.fill(); } }
+const ballTex = new THREE.CanvasTexture(ballCanvas); ballTex.colorSpace = THREE.SRGBColorSpace;
+const BALL_C = new THREE.Vector3(0, TABLE_Y + 7 + BALL_R * 0.72, 0), BALL_TOP = BALL_C.y + BALL_R;
+// the headset: one curved visor wrapped over both compound eyes, a glossy faceplate, a light strip, a foam gasket,
+// head and top straps, a battery puck at the back where the cable plugs in
+const VISOR_R = 0.97;
+function makeHeadset() {
+  const hs = new THREE.Group();
+  const shell = new THREE.MeshStandardMaterial({ color: 0xe9ecf1, roughness: 0.45, metalness: 0.05, side: THREE.DoubleSide }),
+    glass = new THREE.MeshPhysicalMaterial({ color: 0x0a0e18, roughness: 0.08, metalness: 0.4, clearcoat: 1, clearcoatRoughness: 0.05, side: THREE.DoubleSide }),
+    foam = new THREE.MeshStandardMaterial({ color: 0x23262d, roughness: 0.95 }), strapM = new THREE.MeshStandardMaterial({ color: 0x2b2f38, roughness: 0.8 });
+  // a band of a sphere round the front and sides of the head (front is +z: phi = pi/2)
+  const band = (r, half, t0, t1, mat) => { const m = new THREE.Mesh(new THREE.SphereGeometry(r, 40, 12, Math.PI / 2 - half, half * 2, t0, t1 - t0), mat); m.castShadow = true; hs.add(m); return m; };
+  band(VISOR_R, 1.95, 1.0, 2.05, shell); band(VISOR_R + 0.035, 1.05, 1.1, 1.95, glass);
+  band(VISOR_R + 0.05, 1.0, 1.5, 1.54, new THREE.MeshBasicMaterial({ color: 0x43e0ff, side: THREE.DoubleSide })).castShadow = false;
+  band(VISOR_R - 0.03, 1.95, 0.98, 1.04, foam); band(VISOR_R - 0.03, 1.95, 2.02, 2.09, foam);
+  const back = new THREE.Mesh(new THREE.TorusGeometry(0.8, 0.06, 6, 30, Math.PI * 0.95), strapM); back.rotation.x = Math.PI / 2; back.rotation.z = Math.PI * 1.025; back.position.y = 0.02; hs.add(back);
+  const top = new THREE.Mesh(new THREE.TorusGeometry(0.7, 0.05, 6, 24, Math.PI), strapM); top.rotation.y = Math.PI / 2; top.position.set(0, 0.05, -0.1); hs.add(top);
+  const puck = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.14, 16), shell); puck.rotation.x = Math.PI / 2; puck.position.set(0, 0.05, -0.82); hs.add(puck);
+  [-1, 1].forEach(sd => { const cam = new THREE.Mesh(new THREE.CircleGeometry(0.06, 12), glass); cam.position.set(sd * 0.55, 0.12, Math.sqrt(VISOR_R * VISOR_R - 0.3) + 0.06); cam.rotation.y = sd * 0.6; hs.add(cam); }); // tracking cameras
+  return hs;
+}
+const headset = makeHeadset(); headset.visible = false; head.add(headset);
+
+// ---------- the VR world is rendered twice: the student's headset and the teacher's ----------
+const vrCanvas = document.createElement('canvas'); vrCanvas.width = 640; vrCanvas.height = 400; let vrRenderer = null;
+const vrTex = new THREE.CanvasTexture(vrCanvas); vrTex.colorSpace = THREE.SRGBColorSpace;
+const vrCanvasT = document.createElement('canvas'); vrCanvasT.width = 640; vrCanvasT.height = 400; const vrCtxT = vrCanvasT.getContext('2d');
+const vrTexT = new THREE.CanvasTexture(vrCanvasT); vrTexT.colorSpace = THREE.SRGBColorSpace;
+// a station: ball treadmill, tether boom, control box, a fly-sized laptop on a stack of books, and the cables between them.
+// m = 1 for the student's station, -1 for the teacher's, mirrored so the two laptops sit side by side between the balls.
+const cableM = new THREE.MeshStandardMaterial({ color: 0x15171c, roughness: 0.6 }), steel = new THREE.MeshStandardMaterial({ color: 0x8d949c, roughness: 0.35, metalness: 0.7 });
+const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
+function makeStation(ox, m, tex, label) {
+  const g = new THREE.Group(); g.position.x = ox; vrRig.add(g);
+  const tube = (pts, r = 0.18) => { const t = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), Math.max(12, pts.length * 10), r, 6), cableM); t.castShadow = true; g.add(t); return t; };
+  const ball = new THREE.Mesh(new THREE.SphereGeometry(BALL_R, 48, 32), new THREE.MeshStandardMaterial({ map: ballTex, roughness: 0.8 })); ball.position.copy(BALL_C); ball.castShadow = true; g.add(ball);
+  const cup = new THREE.Mesh(new THREE.CylinderGeometry(BALL_R * 0.78, BALL_R * 0.55, 8, 40, 1, true), new THREE.MeshStandardMaterial({ color: 0x8d949c, roughness: 0.35, metalness: 0.7, side: THREE.DoubleSide })); cup.position.set(0, BALL_C.y - BALL_R * 0.45, 0); g.add(cup);
+  const stem = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 3, 8, 24), steel); stem.position.set(0, TABLE_Y + 3.5, 0); stem.castShadow = true; g.add(stem);
+  const base = new THREE.Mesh(new THREE.CylinderGeometry(9, 10, 1.4, 40), steel); base.position.set(0, TABLE_Y + 0.7, 0); base.receiveShadow = true; g.add(base);
+  const air = new THREE.Mesh(new THREE.TorusGeometry(6, 0.5, 8, 30, Math.PI * 0.8), new THREE.MeshStandardMaterial({ color: 0x3b6fb6, roughness: 0.5 })); air.position.set(9 * m, TABLE_Y + 3, 0); air.rotation.set(0, Math.PI / 2, 0); g.add(air);
+  // tether boom behind the fly, holding the headset cable up off the ball
+  const bBase = V3(0, TABLE_Y, 17), bTop = V3(0, BALL_TOP + 11, 17), tip = V3(0, BALL_TOP + 11, 2);
+  const post = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.9, 1, 12), steel); setBone(post, bBase, bTop); g.add(post);
+  const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 1, 12), steel); setBone(arm, bTop, tip); g.add(arm);
+  const foot = new THREE.Mesh(new THREE.CylinderGeometry(3, 3.4, 0.8, 24), steel); foot.position.set(0, TABLE_Y + 0.4, 17); g.add(foot);
+  const clip = new THREE.Mesh(new THREE.SphereGeometry(0.7, 12, 8), new THREE.MeshStandardMaterial({ color: 0x0021a5, roughness: 0.5 })); clip.position.copy(tip); g.add(clip);
+  // laptop on books, behind the ball on the inner side, screen toward the front
+  const lap = new THREE.Group(); lap.position.set(-14 * m, TABLE_Y, 30); lap.rotation.y = Math.PI + 0.25 * m; g.add(lap); let scr;
+  { [[0x0021a5, 30, 22], [0xd32737, 28, 21], [0xf2a900, 29, 20], [0x22884c, 27, 20]].forEach(([c, w, d], i) => { const b = new THREE.Mesh(new THREE.BoxGeometry(w, 3.2, d), new THREE.MeshStandardMaterial({ color: c, roughness: 0.8 })); b.position.set(i % 2 ? 0.8 : -0.6, 1.6 + i * 3.2, i === 1 ? 0.6 : 0); b.castShadow = b.receiveShadow = true; lap.add(b); });
+    const alu = new THREE.MeshStandardMaterial({ color: 0xc9ccd1, roughness: 0.4, metalness: 0.6 }), Y = 12.8;
+    const deck = new THREE.Mesh(new THREE.BoxGeometry(26, 1, 17), alu); deck.position.y = Y + 0.5; deck.castShadow = true; lap.add(deck);
+    const keys = new THREE.Mesh(new THREE.PlaneGeometry(22, 7), new THREE.MeshStandardMaterial({ color: 0x2a2d33, roughness: 0.8 })); keys.rotation.x = -Math.PI / 2; keys.position.set(0, Y + 1.02, -0.5); lap.add(keys);
+    const lid = new THREE.Group(); lid.position.set(0, Y + 1, -8.5); lid.rotation.x = -0.2; lap.add(lid);
+    const back = new THREE.Mesh(new THREE.BoxGeometry(26, 17, 0.8), alu); back.position.set(0, 8.5, -0.4); back.castShadow = true; lid.add(back);
+    scr = new THREE.Mesh(new THREE.PlaneGeometry(24.4, 15.25), new THREE.MeshBasicMaterial({ map: tex })); scr.position.set(0, 8.5, 0.02); lid.add(scr);
+    const tag = document.createElement('canvas'); tag.width = 256; tag.height = 48; const tg = tag.getContext('2d'); tg.fillStyle = '#002657'; tg.fillRect(0, 0, 256, 48); tg.fillStyle = '#fff'; tg.font = `700 26px ${DISPLAY}`; tg.textAlign = 'center'; tg.textBaseline = 'middle'; tg.fillText(label, 128, 25);
+    const tt = new THREE.CanvasTexture(tag); tt.colorSpace = THREE.SRGBColorSpace; const lab = new THREE.Mesh(new THREE.PlaneGeometry(10, 1.9), new THREE.MeshBasicMaterial({ map: tt })); lab.position.set(0, 1.6, 11.3); lap.add(lab); } // a label on the front of the book stack
+  // control box on the outer side: headset link, ball tracking, display
+  const bx = 18 * m, bz = 12, y = TABLE_Y + 0.2;
+  const box = new THREE.Mesh(new THREE.BoxGeometry(8, 3.4, 6), new THREE.MeshStandardMaterial({ color: 0x2b2f38, roughness: 0.5, metalness: 0.3 })); box.position.set(bx, TABLE_Y + 1.7, bz); box.castShadow = true; g.add(box);
+  [0x43e0ff, 0x22884c, 0xf2a900].forEach((c, i) => { const l = new THREE.Mesh(new THREE.SphereGeometry(0.28, 8, 6), new THREE.MeshBasicMaterial({ color: c })); l.position.set(bx - 2 + i * 1.2, TABLE_Y + 2.4, bz - 3.02); g.add(l); });
+  lap.updateMatrix(); const lapBack = V3(0, 14, -9).applyMatrix4(lap.matrix);
+  tube([tip.clone().add(V3(0, 0.6, 0)), bTop.clone().add(V3(0.7 * m, 0.6, 0)), bBase.clone().add(V3(1 * m, 3, 0)), V3(5 * m, y, 17.5), V3(bx - 2 * m, y, bz + 4), V3(bx - 2 * m, TABLE_Y + 1.7, bz + 3)]); // headset link along the boom
+  tube([V3(bx - 4 * m, TABLE_Y + 1.5, bz - 1), V3(11 * m, y, 7), V3(7.5 * m, TABLE_Y + 0.9, 4.5)]); // ball tracking and air
+  tube([V3(bx + 1 * m, TABLE_Y + 1.5, bz + 3), V3(bx, y, 24), V3(bx - 10 * m, y, 40), V3(lapBack.x, y, lapBack.z + 2), lapBack]); // display to the laptop
+  return { g, ball, scr, tip, cable: null, tube };
+}
+const ST = makeStation(0, 1, vrTex, 'Student headset'), STT = makeStation(-56, -1, vrTexT, 'Teacher headset');
+const ball = ST.ball, vrScr = ST.scr, VR_MID = V3(-28, TABLE_Y + 20, 12);
+// the headset cable of each station runs from the back of the head up to the boom tip; it is rebuilt as the head moves
+function updateCable(S, h) {
+  h.updateWorldMatrix(true, false); const a = S.g.worldToLocal(h.localToWorld(V3(0, 0.05, -0.9))), b = S.g.worldToLocal(h.localToWorld(V3(0, 0.4, -2.2))), t = S.tip;
+  const mid = a.clone().lerp(t, 0.55); mid.y = Math.max(a.y, t.y) - 1.8;
+  if (S.cable) { S.g.remove(S.cable); S.cable.geometry.dispose(); } S.cable = S.tube([a, b, mid, t], 0.12);
+}
+// the teacher fly: a second fly on the second ball, in its own headset, teaching the same class
+const tfly = { rig: makeRig('F'), pos: V3(-56, BALL_TOP - 0.15, 0), yaw: Math.PI, speed: 0, gait: 0, turn: 0 };
+{ const R = tfly.rig; vrRig.add(R.group); R.ring.parent.remove(R.ring); R.glyph.parent.remove(R.glyph); R.head.add(makeHeadset());
+  R.group.position.copy(tfly.pos); R.group.rotation.y = tfly.yaw; R.group.updateMatrixWorld(true); R.legs.forEach(L => { L.foot.copy(R.group.localToWorld(L.rest.clone())); L.foot.y = tfly.pos.y; });
+  R.wings.forEach(w => { const sd = w.userData.side; w.rotation.z = sd * 0.25; w.rotation.y = -sd * 0.35; }); }
+function updateHeadCable() { updateCable(ST, head); updateCable(STT, tfly.rig.head); }
+function stepTeacherFly(dt, now, writing, look) {
+  const T = tfly, R = T.rig, GY = T.pos.y;
+  T.speed += ((writing ? 1.5 : 4 + Math.sin(now / 2100) * 2) - T.speed) * Math.min(1, dt * 2); T.gait += dt * 10 * T.speed / 5;
+  const fw = V3(Math.sin(T.yaw), 0, Math.cos(T.yaw)); let stepping = R.legs.filter(L => L.step).length;
+  R.group.position.copy(T.pos); R.group.rotation.y = T.yaw; R.group.updateMatrixWorld(true); R.head.rotation.y = look * 0.6;
+  R.legs.forEach((L, i) => {
+    if (i === 1 && writing) { L.step = null; L.foot.copy(R.group.localToWorld(V3(0.7 + Math.sin(now / 95) * 0.3, 1.0 + Math.cos(now / 70) * 0.2, 2.3))); return; } // right foreleg writes with the chalk
+    if (!L.step) L.foot.addScaledVector(fw, -T.speed * dt);
+    const rest = R.group.localToWorld(L.rest.clone()); rest.y = GY;
+    if (L.step) { L.step.t += dt / 0.09; const k = Math.min(1, L.step.t); L.foot.lerpVectors(L.step.from, L.step.to, k); L.foot.y = GY + Math.sin(k * Math.PI) * 0.5; if (k >= 1) { L.step = null; L.foot.y = GY; } }
+    else if (L.foot.distanceTo(rest) > 0.5 && stepping < 3) { L.step = { from: L.foot.clone(), to: rest.addScaledVector(fw, 0.6), t: 0 }; stepping++; }
+  });
+  const bob = Math.sin(T.gait * 2) * 0.04; R.body.position.y = bob; R.legs.forEach(L => solveStudentLeg(R, L, bob));
+  T.turn += (look - T.turn) * Math.min(1, dt * 2);
+  STT.ball.rotateOnWorldAxis(V3(1, 0, 0), T.speed * dt / BALL_R); STT.ball.rotateOnWorldAxis(V3(0, 1, 0), -(look - T.turn) * dt * 4);
+}
+const vrScene = new THREE.Scene(); vrScene.background = new THREE.Color(0xe9e2d4);
+const vrCam = new THREE.PerspectiveCamera(70, 640 / 400, 0.02, 40); vrCam.rotation.order = 'YXZ';
+const vrCamT = new THREE.PerspectiveCamera(70, 640 / 400, 0.02, 40); vrCamT.rotation.order = 'YXZ';
+vrScene.add(new THREE.HemisphereLight(0xffffff, 0x8a7a66, 1.0)); { const d = new THREE.DirectionalLight(0xfff1dc, 1.2); d.position.set(-4, 6, 3); vrScene.add(d); }
+const vrM = c => new THREE.MeshStandardMaterial({ color: c, roughness: 0.8 });
+const vrBox = (w, h, d, c, x, y, z, parent = vrScene) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), vrM(c)); m.position.set(x, y, z); parent.add(m); return m; };
+vrBox(10, 0.02, 14, 0xb58c5e, 0, 0, -3); vrBox(10, 3.2, 0.1, 0xf1e7d3, 0, 1.6, -7.05); vrBox(0.1, 3.2, 14, 0xeee3cc, -5, 1.6, -3); vrBox(0.1, 3.2, 14, 0xeee3cc, 5, 1.6, -3); vrBox(10, 0.05, 14, 0xfaf7f0, 0, 3.2, -3);
+[-4.5, -2, 0.5].forEach(z => { const w = new THREE.Mesh(new THREE.PlaneGeometry(1.8, 1.3), new THREE.MeshBasicMaterial({ color: 0xbfe3ff })); w.position.set(-4.94, 1.8, z); w.rotation.y = Math.PI / 2; vrScene.add(w); });
+[-5.5, -3, -0.5].forEach(z => { const l = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 0.3), new THREE.MeshBasicMaterial({ color: 0xffffff })); l.position.set(0, 3.17, z); l.rotation.x = Math.PI / 2; vrScene.add(l); });
+// chalkboard with its own canvas
+const chalkCanvas = document.createElement('canvas'); chalkCanvas.width = 1024; chalkCanvas.height = 340; const chk = chalkCanvas.getContext('2d');
+const chalkTex = new THREE.CanvasTexture(chalkCanvas); chalkTex.colorSpace = THREE.SRGBColorSpace;
+vrBox(4.5, 1.6, 0.06, 0x7a5a3a, 0, 1.65, -6.98);
+const board = new THREE.Mesh(new THREE.PlaneGeometry(4.3, 1.43), new THREE.MeshBasicMaterial({ map: chalkTex })); board.position.set(0, 1.65, -6.94); vrScene.add(board);
+vrBox(4.3, 0.04, 0.1, 0x7a5a3a, 0, 0.92, -6.9);
+const boardPoint = (px, py) => new THREE.Vector3(-2.15 + px / 1024 * 4.3, 1.65 + 0.715 - py / 340 * 1.43, -6.9);
+// people: a teacher at the board and classmates at their desks
+function person(shirt, hair, skin, seated) {
+  const g = new THREE.Group();
+  if (!seated) { vrBox(0.12, 0.8, 0.12, 0x2e3440, -0.1, 0.4, 0, g); vrBox(0.12, 0.8, 0.12, 0x2e3440, 0.1, 0.4, 0, g); }
+  const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.2, seated ? 0.45 : 0.62, 14), vrM(shirt)); torso.position.y = seated ? 0.95 : 1.12; g.add(torso);
+  const headM = new THREE.Mesh(new THREE.SphereGeometry(seated ? 0.11 : 0.12, 16, 12), vrM(skin)); headM.position.y = seated ? 1.3 : 1.58; g.add(headM);
+  const hairM = new THREE.Mesh(new THREE.SphereGeometry(seated ? 0.118 : 0.128, 16, 12, 0, Math.PI * 2, 0, Math.PI * 0.55), vrM(hair)); hairM.position.copy(headM.position); hairM.position.y += 0.01; g.add(hairM);
+  g.userData = { head: headM, hair: hairM }; return g;
+}
+const vrTeacher = person(0x3b6fb6, 0x4a2c1a, 0xe0b48f, false); vrTeacher.position.set(-0.9, 0, -6.3); vrScene.add(vrTeacher);
+const vrStudent = person(0x0021a5, 0x6b4a2a, 0xe0b48f, true); vrStudent.position.set(0, 0, 0.95); vrStudent.rotation.y = Math.PI; vrStudent.visible = false; vrScene.add(vrStudent); // seen only from the teacher's headset
+const tArm = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.04, 1, 8), vrM(0x3b6fb6)); vrScene.add(tArm); const tHand = new THREE.Mesh(new THREE.SphereGeometry(0.05, 8, 6), vrM(0xe0b48f)); vrScene.add(tHand);
+const classmates = [];
+const SHIRTS = [0xd9534f, 0x2f8a57, 0xf2a900, 0x6f42c1, 0x17a2b8, 0xe83e8c, 0x2e3440, 0xfd7e14], HAIRS = [0x2b1a10, 0x6b4a2a, 0xd8b36a, 0x1a1a1a, 0xa0522d], SKINS = [0xf1c9a5, 0xe0b48f, 0xb98a64, 0x8d5a3b, 0x5c3a21];
+[-4.8, -3.6, -2.4, -1.2].forEach((z, r) => [-1.9, -0.65, 0.65, 1.9].forEach((x, c) => {
+  vrBox(0.7, 0.04, 0.5, 0xc8a27a, x, 0.72, z + 0.3); vrBox(0.04, 0.7, 0.04, 0x6b6f76, x - 0.3, 0.36, z + 0.1); vrBox(0.04, 0.7, 0.04, 0x6b6f76, x + 0.3, 0.36, z + 0.1);
+  vrBox(0.42, 0.04, 0.4, 0x3b6fb6, x, 0.45, z + 0.75);
+  if ((r * 4 + c) % 5 === 3) return; // a few empty seats so the board stays in view
+  const k = r * 4 + c; const p = person(SHIRTS[k % SHIRTS.length], HAIRS[k % HAIRS.length], SKINS[k % SKINS.length], true); p.position.set(x, 0, z + 0.8); p.rotation.y = Math.PI; p.userData.phase = k * 1.3; vrScene.add(p); classmates.push(p); }));
+// the student's own desk, open booklet, hand and pencil
+vrBox(0.8, 0.04, 0.55, 0xc8a27a, 0, 0.72, 0.4);
+const bookletCanvas = document.createElement('canvas'); bookletCanvas.width = 1024; bookletCanvas.height = 640; const bkl = bookletCanvas.getContext('2d');
+const bookletTex = new THREE.CanvasTexture(bookletCanvas); bookletTex.colorSpace = THREE.SRGBColorSpace;
+const booklet = new THREE.Mesh(new THREE.PlaneGeometry(0.56, 0.35), new THREE.MeshStandardMaterial({ map: bookletTex, roughness: 0.9 })); booklet.rotation.x = -Math.PI / 2; booklet.position.set(0, 0.745, 0.42); vrScene.add(booklet);
+const bookletPoint = (px, py) => new THREE.Vector3(-0.28 + px / 1024 * 0.56, 0.748, 0.42 - 0.175 + py / 640 * 0.35);
+const hand = new THREE.Group(); vrScene.add(hand);
+{ const skin = vrM(0xe0b48f); const palm = new THREE.Mesh(new THREE.SphereGeometry(0.034, 12, 10), skin); palm.scale.set(1, 0.6, 1.3); palm.position.set(0.02, 0.03, 0.05); hand.add(palm);
+  const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.032, 1, 10), vrM(0xf2a900)); setBone(arm, new THREE.Vector3(0.04, 0.03, 0.08), new THREE.Vector3(0.34, 0.1, 0.3)); hand.add(arm);
+  const pencil = new THREE.Mesh(new THREE.CylinderGeometry(0.004, 0.004, 0.15, 6), vrM(0xf2c200)); pencil.rotation.set(0.9, 0, 0.35); pencil.position.set(-0.01, 0.05, 0.02); hand.add(pencil);
+  const tip = new THREE.Mesh(new THREE.ConeGeometry(0.004, 0.018, 6), vrM(0x333333)); tip.rotation.set(0.9 + Math.PI, 0, 0.35); tip.position.set(-0.034, 0.0, -0.028); hand.add(tip); }
+function renderVR() {
+  if (!vrRenderer) { vrRenderer = new THREE.WebGLRenderer({ canvas: vrCanvas, antialias: true, preserveDrawingBuffer: true }); vrRenderer.setPixelRatio(1); vrRenderer.setSize(640, 400, false); vrRenderer.outputColorSpace = THREE.SRGBColorSpace; }
+  vrTeacher.visible = false; vrStudent.visible = true; vrRenderer.render(vrScene, vrCamT); vrCtxT.drawImage(vrCanvas, 0, 0); vrTexT.needsUpdate = true; // the teacher's eyes
+  vrTeacher.visible = true; vrStudent.visible = false; vrRenderer.render(vrScene, vrCam); vrTex.needsUpdate = true; // the student's eyes
+}
+
+// ---------- the lesson ----------
+const VRI = 6; // items per booklet page
+const vr = { tYaw: 0, items: [], ii: 0, lesson: 1, stage: 'board', boardP: 0, write: null, writeP: 0, yaw: 0, yawT: 0, pitch: -0.05, speed: 2, turn: 0, glance: 0, answers: [], stats: { answers: 0, right: 0, board: 0, booklet: 0, around: 0, ballDist: 0, turns: 0 }, log: [], history: [], drawAt: 0 };
+function vrLog(text) { vr.log.push({ t: TDT(), text }); if (vr.log.length > 80) vr.log.shift(); game.feedback = text; }
+function vrItems() { // alternate building a word from its parts and giving a prefix's meaning
+  return shuffle(WORDS.slice()).slice(0, VRI).map((w, k) => k % 2 === 0 ? { kind: 'build', w, board: `${w.parts.map(p => p.replace(/-/g, '')).join(' + ')} = ?`, answer: w.word }
+    : { kind: 'mean', w, board: `${w.parts[0]} means ?`, answer: w.glosses[0].split(',')[0] });
+}
+function vrStart() {
+  const st = flyState; st.airborne = false; st.buzz = 0; st.pos.set(0, BALL_TOP - 0.15, 0); st.groundY = BALL_TOP - 0.15; legs.forEach(L => { L.groundY = st.groundY; }); st.yaw = Math.PI; plantFeet();
+  vr.items = vrItems(); vr.ii = 0; vr.answers = []; vr.stage = 'board'; vr.boardP = 0; drawChalk(); drawBooklet(); updateHeadCable(); setPhase('v_board'); renderTrial(); game.feedback = 'Headset on. The teacher is writing on the board.';
+}
+// cursive for the booklet: the same Hershey glyphs, laid out at a given place and size
+function cursiveSamples(word, x0, base, k) { const out = []; let x = x0; [...word.toLowerCase()].forEach(ch => { if (ch === ' ') { x += 12 * k; return; } const g = CURSIVE[ch]; if (!g) return; g[0].split('M').filter(Boolean).forEach(part => { const pts = part.replace('L', ' ').trim().split(/\s+/).map(q => { const [a, b] = q.split(',').map(Number); return [x + a * k, base + (b - 22) * k]; }); out.push(pts); }); x += 2 * g[1] * k; }); return out; }
+function stepVR(dt, now) {
+  const st = flyState, it = vr.items[vr.ii];
+  // walking on the ball: the ball turns under the feet, so the feet drift back and step; turning spins it about the vertical
+  const fw = new THREE.Vector3(Math.sin(st.yaw), 0, Math.cos(st.yaw));
+  const walking = agent.phase !== 'v_write' && agent.phase !== 'v_mark';
+  vr.speed += ((walking ? 5 + Math.sin(now / 1700) * 2.2 : 0) - vr.speed) * Math.min(1, dt * 2); vr.turn += ((vr.glance ? Math.sign(vr.glance) * 0.8 : 0) - vr.turn) * Math.min(1, dt * 3);
+  legs.forEach(L => { if (!L.step && L !== agent.tapLeg) L.foot.addScaledVector(fw, -vr.speed * dt); });
+  st.walking = vr.speed > 0.3; st.gaitPhase += dt * 10 * vr.speed / 5;
+  ball.rotateOnWorldAxis(new THREE.Vector3(1, 0, 0), -vr.speed * dt / BALL_R * Math.sign(fw.z || 1)); ball.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), -vr.turn * dt);
+  vr.stats.ballDist += vr.speed * dt; vr.yaw += vr.turn * dt * 0.5; vr.yaw *= 1 - Math.min(1, dt * 0.8);
+  if (walking) { pulse(12, 0.5 + 0.3 * Math.abs(Math.sin(st.gaitPhase))); pulse(13, 0.5); pulse(14, 0.5); pulse(5, 0.7); }
+  pulse(0, 0.85); pulse(1, 0.85);
+  // where the student is looking
+  const lookDown = agent.phase === 'v_write' || agent.phase === 'v_mark' || agent.phase === 'v_look';
+  vr.pitch += ((lookDown ? -0.95 : -0.04) - vr.pitch) * Math.min(1, dt * 3.5);
+  if (vr.glance) { vr.glance -= Math.sign(vr.glance) * dt; if (Math.abs(vr.glance) < 0.05) vr.glance = 0; }
+  const S = vr.stats; if (vr.glance) S.around += dt; else if (lookDown) S.booklet += dt; else S.board += dt;
+  head.rotation.x = -vr.pitch * 0.35; st.headYaw = -vr.yaw * 0.6;
+  switch (agent.phase) {
+    case 'v_board': { vr.boardP = Math.min(1, vr.boardP + dt / 3.2); if (now - vr.drawAt > 90) { vr.drawAt = now; drawChalk(); } pulse(2, 0.6);
+      if (!vr.glance && Math.random() < dt * 0.12) { vr.glance = (Math.random() < 0.5 ? -1 : 1) * 1.4; S.turns++; vrLog('The fly turns on the ball, and the student looks at a classmate.'); }
+      if (vr.boardP >= 1 && agent.t > 3.6 && !vr.glance) setPhase('v_look'); break; }
+    case 'v_look': if (agent.t > 0.8) { const ok = Math.random() < 0.35 + 0.6 * (it.kind === 'build' ? Math.min(...it.w.parts.map(memoryOf)) : memoryOf(it.w.parts[0]));
+        let text = it.answer; if (!ok) { if (it.kind === 'build') { const k = 1 + Math.floor(Math.random() * (text.length - 2)); text = text.slice(0, k) + text.slice(k + 1); } else { const o = WORDS.filter(w => w.parts[0] !== it.w.parts[0]); text = o[Math.floor(Math.random() * o.length)].glosses[0].split(',')[0]; } }
+        const y = 150 + vr.ii * 78, k = Math.min(2.2, 340 / Math.max(1, [...text].reduce((a, ch) => a + (CURSIVE[ch] ? 2 * CURSIVE[ch][1] : 12), 0)));
+        vr.write = { text, ok, strokes: cursiveSamples(text, 620, y, k), prev: null }; vr.writeP = 0; setPhase('v_write'); } break;
+    case 'v_write': { const W = vr.write, total = W.strokes.reduce((a, s) => a + s.length, 0); vr.writeP = Math.min(total, vr.writeP + dt * 26); pulse(12, 0.9); pulse(11, 0.7); pulse(5, 0.6);
+        // the pencil point, and the fly's right foreleg tracing the same shape in small
+        let n = Math.floor(vr.writeP), p = null; for (const s of W.strokes) { if (n < s.length) { p = s[n]; break; } n -= s.length; }
+        if (p) { const q = bookletPoint(p[0], p[1]); hand.position.set(q.x, q.y, q.z); const L = legs[1]; agent.tapLeg = L; L.step = null; const loc = new THREE.Vector3(0.9 + (p[0] - 800) / 400, 0.4 + (1 - (p[1] % 60) / 60) * 0.5, 2.4); L.foot.copy(fly.localToWorld(loc)); }
+        if (now - vr.drawAt > 60) { vr.drawAt = now; drawBooklet(); }
+        if (vr.writeP >= total) { agent.tapLeg = null; vrMark(); setPhase('v_mark'); } break; }
+    case 'v_mark': if (agent.t > 1.4) { vr.ii++; if (vr.ii >= VRI) { vr.stage = 'erase'; setPhase('v_erase'); } else { vr.boardP = 0; drawChalk(); setPhase('v_board'); } renderTrial(); } break;
+    case 'v_erase': vr.boardP = Math.max(0, 1 - agent.t / 1.5); drawChalk(); if (agent.t > 1.8) { vr.lesson++; vr.items = vrItems(); vr.ii = 0; vr.answers = []; vr.boardP = 0; vr.stage = 'board'; drawBooklet(); drawChalk(); setPhase('v_board'); vrLog(`New page. Lesson ${vr.lesson}.`); } break;
+  }
+  // the teacher writes with her arm while the chalk goes on, then turns to the class
+  // the teacher fly walks on its ball: while chalking it steps along the board; then it turns to the class and looks across the desks
+  const writingBoard = agent.phase === 'v_board' && vr.boardP < 1, tLook = writingBoard ? 0 : Math.sin(now / 2600) * 0.55;
+  const tx = writingBoard ? boardPoint(180 + vr.boardP * 700, 0).x - 0.45 : Math.sin(now / 5200) * 1.2; vrTeacher.position.x += (tx - vrTeacher.position.x) * Math.min(1, dt * 2);
+  vr.tYaw += ((writingBoard ? Math.PI : tLook) - vr.tYaw) * Math.min(1, dt * 3); vrTeacher.rotation.y = vr.tYaw; stepTeacherFly(dt, now, writingBoard, tLook);
+  vrStudent.userData.head.rotation.x = vr.pitch * 0.6; vrStudent.userData.hair.rotation.x = vr.pitch * 0.6; vrStudent.rotation.y = Math.PI - (vr.glance ? Math.sign(vr.glance) * 0.5 : 0);
+  const sh = vrTeacher.localToWorld(new THREE.Vector3(0.2, 1.38, 0));
+  const hp = writingBoard ? boardPoint(180 + vr.boardP * 700, 170 + Math.sin(now / 90) * 12).add(new THREE.Vector3(0, 0, 0.05)) : vrTeacher.localToWorld(new THREE.Vector3(0.26, 0.95, 0.1));
+  setBone(tArm, sh, hp); tHand.position.copy(hp);
+  classmates.forEach(c => { c.userData.head.rotation.y = Math.sin(now / 1500 + c.userData.phase) * 0.3; c.userData.hair.rotation.y = c.userData.head.rotation.y; });
+  if (agent.phase !== 'v_write') hand.position.lerp(new THREE.Vector3(0.18, 0.76, 0.52), Math.min(1, dt * 3));
+  updateHeadCable();
+  { const hp2 = vrTeacher.localToWorld(new THREE.Vector3(0, 1.58, 0.14)); vrCamT.position.copy(hp2); vrCamT.rotation.set(writingBoard ? 0.05 : -0.2, vr.tYaw + Math.PI, 0); } // the teacher's headset, from her eyes
+  vrCam.position.set(Math.sin(st.gaitPhase) * 0.004, 1.12 + Math.abs(Math.sin(st.gaitPhase)) * 0.006, 0.86); vrCam.rotation.set(vr.pitch, vr.yaw + (vr.glance ? Math.sign(vr.glance) * 0.9 * Math.min(1, Math.abs(vr.glance)) : 0), 0);
+}
+function vrMark() {
+  const it = vr.items[vr.ii], W = vr.write, ok = W.text === it.answer; vr.answers[vr.ii] = { text: W.text, ok }; vr.stats.answers++; if (ok) vr.stats.right++;
+  const parts = it.kind === 'build' ? it.w.parts : [it.w.parts[0]]; parts.forEach(p => { const V = memoryOf(p), dw = ETA * ((ok ? 1 : 0) - V); game.memory.set(p, V + dw);
+    tele.trials.push({ t: TDT(), exp: 11, correct: ok, pos: Math.min(2, it.w.parts.indexOf(p)), needed: p, chosen: W.text, sameKind: true, offset: 0, R: ok ? 1 : 0, V, dw, level: tele.ddt.level, divergence: 0, dwell: 0, word: it.w.word }); });
+  if (tele.trials.length > 400) tele.trials.splice(0, tele.trials.length - 400);
+  vr.history.push({ t: TDT(), board: it.board, answer: it.answer, text: W.text, ok }); if (vr.history.length > 80) vr.history.shift();
+  game.dopamine = Math.max(0, Math.min(1, game.dopamine + (ok ? 0.3 : -0.1))); ok ? (pulse(3, 1), pulse(4, 1), pulse(10, 0.9)) : (pulse(8, 0.8), pulse(9, 0.8));
+  vrLog(ok ? `Wrote "${W.text}" for ${it.board.replace(' = ?', '').replace(' means ?', '')}. Correct.` : `Wrote "${W.text}"; the answer is "${it.answer}".`); drawBooklet();
+}
+function drawChalk() {
+  const g = chk, it = vr.items[vr.ii]; g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = '#244a36'; g.fillRect(0, 0, 1024, 340);
+  g.fillStyle = 'rgba(255,255,255,0.05)'; for (let i = 0; i < 40; i++) g.fillRect((i * 173) % 1024, (i * 71) % 340, 60, 3);
+  g.fillStyle = '#f4f1e8'; g.font = `700 34px ${DISPLAY}`; g.textAlign = 'left'; g.textBaseline = 'alphabetic'; g.fillText('Word parts', 40, 60);
+  g.font = `400 22px ${BODY}`; g.fillStyle = 'rgba(244,241,232,0.8)'; g.fillText(`Lesson ${vr.lesson} · question ${Math.min(vr.ii + 1, VRI)} of ${VRI}`, 40, 94);
+  if (it) { const s = it.board, n = Math.floor(s.length * vr.boardP); g.fillStyle = '#fffbe8'; g.font = `700 64px ${DISPLAY}`; g.fillText(s.slice(0, n), 180, 200); }
+  g.font = `400 24px ${BODY}`; g.fillStyle = 'rgba(244,241,232,0.75)'; g.fillText('re- again · un- not · pre- before · dis- not · mis- wrongly', 40, 300);
+  chalkTex.needsUpdate = true;
+}
+function drawBooklet() {
+  const g = bkl; g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = '#fbf8ef'; g.fillRect(0, 0, 1024, 640); g.fillStyle = 'rgba(0,0,0,0.12)'; g.fillRect(508, 0, 8, 640);
+  g.fillStyle = C.darkBlue; g.font = `700 30px ${DISPLAY}`; g.textAlign = 'left'; g.textBaseline = 'alphabetic'; g.fillText('Word Parts Booklet', 40, 60); g.fillStyle = C.inkMuted; g.font = `400 20px ${BODY}`; g.fillText(`Lesson ${vr.lesson} · Grade 3`, 40, 92);
+  vr.items.forEach((it, k) => { const y = 150 + k * 78; g.fillStyle = k === vr.ii ? C.coreBlue : C.darkBlue; g.font = `${k === vr.ii ? 700 : 400} 24px ${BODY}`; g.fillText(`${k + 1}. ${it.kind === 'build' ? it.board.replace(' = ?', ' =') : `What does ${it.w.parts[0]} mean?`}`, 40, y); });
+  g.strokeStyle = '#9fbde6'; g.lineWidth = 2; for (let k = 0; k < VRI; k++) { const y = 150 + k * 78; g.beginPath(); g.moveTo(560, y); g.lineTo(990, y); g.stroke(); g.fillStyle = C.inkMuted; g.font = `400 18px ${BODY}`; g.fillText(`${k + 1}.`, 530, y); }
+  g.strokeStyle = '#3a3a3a'; g.lineWidth = 3; g.lineCap = g.lineJoin = 'round';
+  vr.answers.forEach((a, k) => { if (!a) return; cursiveSamples(a.text, 620, 150 + k * 78, Math.min(2.2, 340 / Math.max(1, [...a.text].reduce((s, ch) => s + (CURSIVE[ch] ? 2 * CURSIVE[ch][1] : 12), 0)))).forEach(st => { g.beginPath(); st.forEach((q, i) => i ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1])); g.stroke(); });
+    g.strokeStyle = a.ok ? '#1e7a44' : C.bottlebrush; g.lineWidth = 4; g.beginPath(); const y = 150 + k * 78; if (a.ok) { g.moveTo(960, y - 18); g.lineTo(972, y - 4); g.lineTo(996, y - 40); } else { g.moveTo(962, y - 36); g.lineTo(994, y - 4); g.moveTo(994, y - 36); g.lineTo(962, y - 4); } g.stroke(); g.strokeStyle = '#3a3a3a'; g.lineWidth = 3; });
+  if (agent.phase === 'v_write' && vr.write) { let n = Math.floor(vr.writeP); for (const s of vr.write.strokes) { if (n <= 0) break; g.beginPath(); s.slice(0, Math.min(s.length, n + 1)).forEach((q, i) => i ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1])); g.stroke(); n -= s.length; } }
+  bookletTex.needsUpdate = true;
+}
+function renderVRTrial() {
+  const it = vr.items[vr.ii] || vr.items[vr.items.length - 1], T = vr.stats;
+  $('meaning').textContent = it ? (it.kind === 'build' ? `On the board: ${it.board}` : `On the board: ${it.w.parts[0]} means what?`) : 'New page';
+  $('chips').innerHTML = it ? it.w.parts.map((p, i) => `<span class="chip ${KINDS[i]}">${p}<small>${it.w.glosses[i]}</small></span>`).join('<span class="plus" aria-hidden="true">+</span>') : '';
+  $('placedCount').textContent = `${Math.min(vr.ii, VRI)} of ${VRI} answered`; $('placedBar').classList.toggle('done', vr.ii >= VRI); $('placedBar').firstElementChild.style.width = `${Math.min(1, vr.ii / VRI) * 100}%`;
+  $('feedback').textContent = game.feedback; $('nowLine').textContent = `VR classroom · lesson ${vr.lesson} · question ${Math.min(vr.ii + 1, VRI)} of ${VRI}`;
+  $('stWords').textContent = T.right; $('stTaps').textContent = T.answers; $('stAcc').textContent = T.answers ? Math.round(100 * T.right / T.answers) + '%' : '0%';
+  const parts = [...new Set(WORDS.flatMap(x => x.parts))].filter(p => game.memory.has(p)).sort((a, b) => game.memory.get(b) - game.memory.get(a));
+  $('memory').innerHTML = parts.map(p => { const m = game.memory.get(p); return `<div class="m"><span>${p}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${m >= 0.8 ? 'mastered' : Math.round(m * 100) + '% · learning'}</span></div>`; }).join('');
+}
+window.__vr = vr; // debug hook
+
 // ---------- Cameras ----------
 let camMode = 'follow';
 let view = 'simulate';
 function updateCamera() {
   if (camMode === 'follow') {
-    const goal = flyState.pos.clone(); goal.y += 1;
+    const goal = experiment === 11 ? VR_MID.clone() : flyState.pos.clone(); goal.y += 1;
     const delta = goal.clone().sub(controls.target).multiplyScalar(flyState.airborne ? 0.25 : 0.12);
     controls.target.add(delta); camera.position.add(delta);
   }
@@ -3513,11 +3815,12 @@ function setCamMode(m) {
   camMode = m;
   document.querySelectorAll('[data-cam]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === m)));
   const s = phone.scale.x;
-  if (m === 'phone' && EXP[experiment].tablet) { const c = bookPoint(512, 320); controls.target.copy(c); camera.position.copy(c).addScaledVector(bookNormal(), 150).add(new THREE.Vector3(-40, 20, 0)); }
+  if (m === 'phone' && EXP[experiment].vrRig) { const c = vrScr.getWorldPosition(new THREE.Vector3()), nrm = new THREE.Vector3(0, 0, 1).applyQuaternion(vrScr.getWorldQuaternion(new THREE.Quaternion())); controls.target.copy(c); camera.position.copy(c).addScaledVector(nrm, 44).add(new THREE.Vector3(0, 6, 0)); }
+  else if (m === 'phone' && EXP[experiment].tablet) { const c = bookPoint(512, 320); controls.target.copy(c); camera.position.copy(c).addScaledVector(bookNormal(), 150).add(new THREE.Vector3(-40, 20, 0)); }
   else if (m === 'phone' && EXP[experiment].classroom) { controls.target.set(0, CLS.topY - 2, -10); camera.position.set(0, CLS.topY + 78, 104); }
   else if (m === 'phone' && EXP[experiment].laptop) { const L = laptop.position; controls.target.set(L.x, TABLE_Y + 60 * s, -30 * s); camera.position.set(L.x, TABLE_Y + 190 * s + (experiment === 5 ? 3 : 0), 300 * s + (experiment === 5 ? 5 : 0)); }
   else if (m === 'phone') { controls.target.set(0, screenTopY(), 0); camera.position.set(0, 120 * s + (experiment === 3 ? 2 : 0), 150 * s + (experiment === 3 ? 4 : 0)); }
-  else { controls.target.copy(flyState.pos); camera.position.copy(flyState.pos).add(new THREE.Vector3(...EXP[experiment].camOffset)); }
+  else { const t = experiment === 11 ? VR_MID : flyState.pos; controls.target.copy(t); camera.position.copy(t).add(new THREE.Vector3(...EXP[experiment].camOffset)); }
 }
 document.querySelectorAll('[data-cam]').forEach(b => b.addEventListener('click', () => setCamMode(b.dataset.cam)));
 
@@ -3526,16 +3829,16 @@ function setExperiment(n) {
   experiment = n; const cfg = EXP[n]; const s = cfg.phoneScale;
   document.querySelectorAll('[data-exp]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.exp) === n)));
   $('expNote').textContent = cfg.note; $('physPill').textContent = cfg.phys;
-  $('gripPill').textContent = n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
-  document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
+  $('gripPill').textContent = n === 11 ? 'Six feet on the ball' : n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
+  document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.vrRig ? 'Laptop' : cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
   const wasClass = classroom.visible; classroom.visible = !!cfg.classroom; fly.visible = !cfg.classroom;
-  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n >= 8; $('soundBtn').hidden = n !== 8 && n !== 9; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; flyState.pitchOverride = null; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom; $('vision').hidden = !(cfg.classroom && visionOn);
-  $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : n === 10 ? 'answers right' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : n === 10 ? 'answers written' : 'answers';
+  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n >= 8; $('soundBtn').hidden = n !== 8 && n !== 9; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; flyState.pitchOverride = null; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom || n === 11; $('vision').hidden = !(cfg.classroom && visionOn);
+  $('stWords').nextElementSibling.textContent = cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : n === 10 || n === 11 ? 'answers right' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : n === 10 || n === 11 ? 'answers written' : 'answers';
   $('memHead').textContent = cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : n === 9 ? 'Vocabulary memory · Kenyon cell to MBON weights' : n === 10 ? 'Greek root memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
   document.querySelectorAll('#brainPanel [data-rp]').forEach(el => { el.hidden = !el.dataset.rp.split(' ').includes(String(n)); }); requestAnimationFrame(() => { sizeCharts(); resize(); renderScenario(true); }); // right panel sections for this scenario
   if (cfg.classroom) { setFocal(cls.focal); classroomStart(); } else head.add(eyeCam);
   phone.scale.setScalar(s); phone.position.set(0, TABLE_Y + 4 * s, 0); phone.updateMatrixWorld(true);
-  phone.visible = !cfg.laptop && !cfg.classroom && !cfg.tablet; laptop.visible = !!cfg.laptop; tabletRig.visible = !!cfg.tablet;
+  phone.visible = !cfg.laptop && !cfg.classroom && !cfg.tablet && !cfg.vrRig; vrRig.visible = headset.visible = !!cfg.vrRig; head.rotation.x = 0; agent.tapLeg = null; laptop.visible = !!cfg.laptop; tabletRig.visible = !!cfg.tablet;
   if (cfg.laptop) { laptop.scale.setScalar(s); laptop.position.set(0, TABLE_Y, 0); laptop.updateMatrixWorld(true); }
   Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === n; });
   ghostLine.visible = false; agent.ghost = null;
@@ -3556,10 +3859,11 @@ function setExperiment(n) {
   if (n === 8) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); phonicsStart(); }
   if (n === 9) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); readingStart(); }
   if (n === 10) writingStart();
+  if (n === 11) vrStart();
   // the side panel follows the experiment to its most related dashboard (after start-up, once the dock code exists)
   requestAnimationFrame(() => { dockChoice = DOCK_FOR[n]; if (view === 'simulate') dock(dockChoice); });
 }
-const DOCK_FOR = { 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
+const DOCK_FOR = { 11: 'd-vr-sec', 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
 document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => setExperiment(Number(b.dataset.exp))));
 $('pathsBtn').addEventListener('click', () => { showPaths = !showPaths; $('pathsBtn').setAttribute('aria-pressed', String(showPaths)); $('pathsBtn').textContent = showPaths ? 'Hide paths' : 'Show paths'; Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === experiment; }); ghostLine.visible = showPaths && experiment !== 3 && !!agent.ghost; });
 $('seasonBtn').addEventListener('click', () => { cls.season = !cls.season; $('seasonBtn').setAttribute('aria-pressed', String(cls.season)); $('seasonBtn').textContent = cls.season ? 'Mating season on' : 'Mating season off'; clsLog(cls.season ? 'Mating season: courtship drive restored.' : 'Out of season: courtship drive drops to a tenth.'); drawBoard(); });
@@ -3575,7 +3879,7 @@ $('playBtn').addEventListener('click', () => { playing = !playing; $('playBtn').
 $('resetBtn').addEventListener('click', () => {
   game.memory.clear(); game.taps = 0; game.correct = 0; game.wordsBuilt = 0; game.dopamine = 0.5; game.placed = 0; game.wordIdx = 0; game.lesson = 1;
   for (const e of [1, 2, 3, 4, 5, 6]) heat[e].getContext('2d').clearRect(0, 0, heat[e].width, heat[e].height);
-  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; }); reading.vocab.clear(); reading.pageLog = []; reading.checkLog = []; reading.log = []; reading.storyLog = []; reading.si = 0; reading.pi = 0; reading.answered = -1; reading.mode = 'library'; reading.opening = true; Object.keys(reading.stats).forEach(k => { reading.stats[k] = 0; }); wr.mem.clear(); wr.history = []; wr.log = []; wr.qi = 0; wr.lesson = 1; wr.skill = 0.35; Object.keys(wr.stats).forEach(k => { wr.stats[k] = 0; });
+  teacherReset(); adminReset(); classroomReset(); phon.mem.clear(); phon.conf.clear(); phon.history = []; phon.log = []; phon.idx = PWORDS.length - 1; phon.lesson = 1; nextPhonicsWord(); phon.lesson = 1; Object.keys(phon.stats).forEach(k => { phon.stats[k] = 0; }); reading.vocab.clear(); reading.pageLog = []; reading.checkLog = []; reading.log = []; reading.storyLog = []; reading.si = 0; reading.pi = 0; reading.answered = -1; reading.mode = 'library'; reading.opening = true; Object.keys(reading.stats).forEach(k => { reading.stats[k] = 0; }); vr.history = []; vr.log = []; vr.lesson = 1; Object.keys(vr.stats).forEach(k => { vr.stats[k] = 0; }); wr.mem.clear(); wr.history = []; wr.log = []; wr.qi = 0; wr.lesson = 1; wr.skill = 0.35; Object.keys(wr.stats).forEach(k => { wr.stats[k] = 0; });
   Object.values(trajGroups).forEach(g => { while (g.children.length) { const c = g.children[0]; g.remove(c); c.geometry.dispose(); } });
   game.feedback = 'Memory cleared. The fly is looking for the prefix.'; cur().parts.forEach(memoryOf); setExperiment(experiment);
 });
@@ -3639,6 +3943,7 @@ function frame(now) {
   if (dt > 0) {
     if (experiment === 7) { for (let rem = dt; rem > 1e-6; rem -= 0.025) stepClassroom(Math.min(rem, 0.025), now); poseClassroom(now); }
     else for (let rem = dt; rem > 1e-6; rem -= 0.025) { const h = Math.min(rem, 0.025); stepAgent(h, now); animateFly(h); }
+    if (experiment === 11) renderVR();
     for (let i = 0; i < 16; i++) act[i] = Math.max(0.08, act[i] - (act[i] - 0.08) * Math.min(1, dt * 2.6));
     game.dopamine += (0.5 - game.dopamine) * Math.min(1, dt * 0.12);
     for (let f = 0; f < FIBRES.length; f++) {
@@ -3930,6 +4235,17 @@ function drawDashboards(now, force) {
     const pct = x => Math.round(x * 100) + '%';
     const rows = St.map(s => { const T = s.stats, tt = T.onTask + T.courtT + T.groomT + T.away; return `<tr><th scope="row">${s.name} ${SEXSYM(s)}</th><td>${doing(s)}</td><td class="${s.progress >= CLS.items ? 'yes' : ''}">${Math.min(s.progress, CLS.items)} / ${CLS.items}</td><td>${T.taps ? pct(T.correct / T.taps) : '–'}</td><td>${tt ? pct(T.onTask / tt) : '–'}</td><td>${T.courted} · ${T.court}</td><td>${T.rejections} · ${T.rejectedBy}</td><td>${s.sex === 'M' ? s.drive.toFixed(2) : s.receptive.toFixed(2)}</td><td>${s.attention.toFixed(2)}</td></tr>`; }).join('');
     const tb = document.querySelector('#cRoster tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
+  }
+  // ---- dashboard 11: VR ----
+  { const S = vr.stats, it = vr.items[vr.ii];
+    $t('vrMode', experiment === 11 ? `Experiment 11 · VR · lesson ${vr.lesson}` : 'switch to Experiment 11 to run');
+    $t('vrRight', S.right); $t('vrAnswers', S.answers); $t('vrAcc', S.answers ? Math.round(100 * S.right / S.answers) + '%' : '–'); $t('vrDist', Math.round(S.ballDist / BL) + ' body lengths'); $t('vrSpeed', (vr.speed / BL).toFixed(1) + ' body lengths/s'); $t('vrTurns', S.turns); $t('vrLesson', it ? `${vr.lesson} · ${vr.ii + 1} of ${VRI}` : '–');
+    barChart('cVrGaze', [['Chalkboard', S.board, CH.blue], ['Booklet', S.booklet, CH.green], ['Classmates', S.around, CH.amber]].map(([k, v, c]) => ({ v, color: c, label: `${k}: ${Math.round(v)} s` })), { positive: true, empty: 'Runs in Experiment 11' });
+    const ml = [...new Set(vr.items.flatMap(x => x.w.parts))].map(p => { const m = game.memory.has(p) ? game.memory.get(p) : 0; return `<div class="m"><span>${p}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${Math.round(m * 100)}%</span></div>`; }).join('') || '<p class="sub">Runs in Experiment 11.</p>';
+    const me = document.getElementById('vrMem'); if (me.innerHTML !== ml) me.innerHTML = ml;
+    const rows = vr.history.slice(-12).reverse().map(h => `<tr><th scope="row">${h.board}</th><td>${h.answer}</td><td>${h.text}</td><td class="${h.ok ? 'yes' : ''}">${h.ok ? 'yes' : 'no'}</td></tr>`).join('');
+    const tb = document.querySelector('#vrBook tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
+    document.getElementById('vrLogL').innerHTML = vr.log.slice(-10).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing yet</li>';
   }
   // ---- dashboard 10: writing ----
   { const W = wr.stats, H = wr.history, last = H[H.length - 1];
