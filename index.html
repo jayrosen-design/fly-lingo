@@ -348,6 +348,7 @@ pre.mermaid svg{max-width:none;height:auto}
             <button type="button" data-exp="15" aria-pressed="false">Geography</button>
             <button type="button" data-exp="16" aria-pressed="false">Mathematics</button>
             <button type="button" data-exp="17" aria-pressed="false">Retro computer</button>
+            <button type="button" data-exp="18" aria-pressed="false">Arcade</button>
         </div>
       </div>
       <div class="seg" role="group" aria-label="Speed">
@@ -378,8 +379,8 @@ pre.mermaid svg{max-width:none;height:auto}
       </div>
 
       <div>
-        <h3 class="sec">Seventeen experiments</h3>
-        <p class="sub">Fifteen student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all seventeen.</p>
+        <h3 class="sec">Eighteen experiments</h3>
+        <p class="sub">Sixteen student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all eighteen.</p>
       </div>
       <div class="expgrid">
         <a class="expcard" href="#simulate" data-run="1"><img loading="lazy" src="docs/screenshots/overview.png" alt="Experiment 1: the fly walking across the phone screen toward a tile"><div class="body"><span class="num">Experiment 1</span><h3>Walking</h3><p>The fly walks across a phone lying on the table, reads the meaning with head sweeps, and presses word-part tiles with a foreleg.</p><span class="role student">Student</span></div></a>
@@ -399,6 +400,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <a class="expcard" href="#simulate" data-run="15"><img loading="lazy" src="docs/screenshots/exp15-geography.png" alt="Experiment 15: a globe on a school desk with Poland lit green after the fly tapped it, a trivia card on the desk"><div class="body"><span class="num">Experiment 15</span><h3>Geography</h3><p>Trivia on a globe with real country outlines. The fly reads the card, flies to the globe, spins it round and taps the country; it lights green if right, red if wrong.</p><span class="role student">Student</span></div></a>
         <a class="expcard" href="#simulate" data-run="16"><img loading="lazy" src="docs/screenshots/exp16-math.png" alt="Experiment 16: a graphing calculator and a children's calculator on a desk, the insect tapping keys on one and the caterpillar on the other"><div class="body"><span class="num">Experiment 16</span><h3>Mathematics</h3><p>College algebra on a graphing calculator: the insect taps keys with its abdomen and a hind leg, graphs the equations and reads the answer from CALC. The caterpillar does 4th grade sums on a children's calculator.</p></div></a>
         <a class="expcard" href="#simulate" data-run="17"><img loading="lazy" src="docs/screenshots/exp17-retro.png" alt="Experiment 17: a beige 1984-style all-in-one computer showing a black and white typing game, the fly over its keyboard"><div class="body"><span class="num">Experiment 17</span><h3>Retro computer</h3><p>The word-part game as an early typing game on a 1984 computer styled after the original Macintosh. The fly taps each letter with a foreleg and fires with Return.</p></div></a>
+        <a class="expcard" href="#simulate" data-run="18"><img loading="lazy" src="docs/screenshots/exp18-arcade.png" alt="Experiment 18: an upright arcade cabinet running a pixel shooter, the fly on the joystick and the caterpillar by the A button"><div class="body"><span class="num">Experiment 18</span><h3>Arcade</h3><p>Root Blaster on an 80s cabinet: shoot the bug carrying the right word part and catch its capsule. The fly works the joystick; the caterpillar presses A.</p></div></a>
       </div>
 
       <h3 class="sec">What you can measure</h3>
@@ -436,6 +438,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <button type="button" data-dock="d-geo-sec" aria-pressed="false"><span>Geography</span></button>
         <button type="button" data-dock="d-math-sec" aria-pressed="false"><span>Mathematics</span></button>
         <button type="button" data-dock="d-retro-sec" aria-pressed="false"><span>Retro computer</span></button>
+        <button type="button" data-dock="d-arc-sec" aria-pressed="false"><span>Arcade</span></button>
       </div>
       <div id="dockBody"></div>
     </aside>
@@ -468,10 +471,10 @@ pre.mermaid svg{max-width:none;height:auto}
 
     <aside id="brainPanel" aria-label="Scenario panel">
       <div id="nowLine" aria-live="polite">Walking · building a word</div>
-      <section id="rpScreen" data-rp="3 4 5 6 8 9 10 11 13 14 15 16 17" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
+      <section id="rpScreen" data-rp="3 4 5 6 8 9 10 11 13 14 15 16 17 18" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
       <section id="rpMap" data-rp="7" class="rp"><div class="rowlbl"><h3>Seating chart</h3><span class="sub">click a fly to follow it</span></div><canvas id="rpMapCv" aria-label="Top-down seating chart of the six tables; click a fly to follow it"></canvas></section>
       <section id="rpScen" class="rp"><h3 id="rpScenHead"></h3><div id="rpScenBody"></div></section>
-      <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17" style="display:flex;flex-direction:column;gap:8px">
+      <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <h2>Central nervous system</h2>
           <span class="sub">Each point is a neuron after the FlyWire and MaleCNS neuropils. Spikes show as calcium flashes; a heading bump circles the ellipsoid body. Drag to turn.</span>
@@ -479,17 +482,17 @@ pre.mermaid svg{max-width:none;height:auto}
         <div id="brainWrap"><canvas id="brain" aria-label="Rotating point cloud of the fly's nervous system; neurons flash as they fire"></canvas><div id="brainLbl" hidden></div></div>
         <div class="brainKey"><span class="brainKey" aria-hidden="true"><span>resting</span><i style="background:#3f74e0"></i><i style="background:#a27dff"></i><i style="background:#3fd0e2"></i><i style="background:#46c486"></i><i style="background:#e07ab4"></i><i style="background:#8aa8ff"></i><i style="background:#5b82ea"></i><span style="margin-left:10px">firing</span><b></b></span><button type="button" id="brainLblBtn" class="mini" aria-pressed="false">Name the parts</button></div>
       </section>
-      <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18" style="display:flex;flex-direction:column;gap:10px">
         <div class="rowlbl"><span>Dopamine · PAM cluster</span><span id="dopaVal">0.50</span></div>
         <div class="bar" id="dopaBar"><span style="width:50%"></span></div>
         <ul class="regions" id="regions"></ul>
       </section>
-      <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18" style="display:flex;flex-direction:column;gap:10px">
         <h3 id="memHead">Word part memory · Kenyon cell to MBON weights</h3>
         <div class="memory" id="memory"></div>
       </section>
       <section style="display:flex;flex-direction:column;gap:12px">
-        <div class="stat-row" data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17">
+        <div class="stat-row" data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18">
           <div class="stat good"><b id="stWords">0</b><span class="sub">words built</span></div>
           <div class="stat plain"><b id="stTaps">0</b><span class="sub">answers</span></div>
           <div class="stat"><b id="stAcc">0%</b><span class="sub">correct</span></div>
@@ -512,7 +515,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <p class="lead">Four dashboards from the psychometric specification, fed by the running fly. Values update while the simulation runs in the Simulate view. Where a quantity is a stand-in for a sensor or model the app does not yet have, the card says so.</p>
       </div>
       <nav class="subnav" aria-label="Dashboards">
-        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a><a href="#d-writing">Writing</a><a href="#d-vr">VR</a><a href="#d-ar">AR</a><a href="#d-sc">Scrabble</a><a href="#d-pb">Paper book</a><a href="#d-geo">Geography</a><a href="#d-math">Mathematics</a><a href="#d-retro">Retro computer</a>
+        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a><a href="#d-writing">Writing</a><a href="#d-vr">VR</a><a href="#d-ar">AR</a><a href="#d-sc">Scrabble</a><a href="#d-pb">Paper book</a><a href="#d-geo">Geography</a><a href="#d-math">Mathematics</a><a href="#d-retro">Retro computer</a><a href="#d-arc">Arcade</a>
       </nav>
 
       <section id="d-session" class="grid" data-dockable>
@@ -746,6 +749,19 @@ pre.mermaid svg{max-width:none;height:auto}
         <article class="card span4"><header><h3>Hits by kind</h3><span class="sub">prefix, root, suffix</span></header><canvas class="chart" id="cRtKind" aria-label="Share of parts hit for prefixes, roots and suffixes"></canvas></article>
         <article class="card span4"><header><h3>Word-part memory</h3><span class="sub">shared with Experiments 1 to 4</span></header><div id="rtMem" class="memory"></div></article>
         <article class="card span4"><header><h3>Typing log</h3><span class="sub">shots, hits and words</span></header><ul class="events" id="rtLogL" style="max-height:260px"></ul></article>
+      </section>
+
+      <h3 class="sec" id="d-arc">Dashboard 18 · Root Blaster in the arcade</h3>
+      <p class="sub">Experiment 18. An upright cabinet runs a 2D pixel shooter in the style of the formation-and-dive and centipede-in-the-mushrooms classics. The insect works the joystick with both forelegs; the caterpillar presses A to fire. Shooting a bug drops a capsule with its word part; the ship collects it by steering under it. Which bug the insect goes for comes from the shared word-part memory, updated with Δw = η(R − V).</p>
+      <section class="grid" id="d-arc-sec" data-dockable>
+        <article class="card span4"><header><h3>Arcade session</h3><span class="sub" id="arcMode">not running</span></header>
+          <div class="stat-row"><div class="stat good"><b id="arcWords">0</b><span class="sub">words built</span></div><div class="stat plain"><b id="arcCaught">0</b><span class="sub">capsules caught</span></div><div class="stat"><b id="arcAcc">–</b><span class="sub">right part</span></div></div>
+          <div class="kv"><span>Score</span><b id="arcScore">0</b><span>A presses by the caterpillar</span><b id="arcShots">0</b><span>Bugs hit · centipede segments · mushrooms</span><b id="arcHits">0</b><span>Ships lost</span><b id="arcLost">0</b></div>
+          <p class="sub">The insect pushes the stick toward its goal: under the bug it chose, then under the falling capsule. It asks for a shot when lined up or when the centipede comes overhead.</p></article>
+        <article class="card span8"><header><h3>Joystick</h3><span class="sub">stick position over the last minute</span></header><canvas class="chart tall" id="cArcJoy" aria-label="Joystick position from left to right over time, with marks for each A press and each capsule caught"></canvas><div class="legend"><span><i style="background:#0021a5"></i>stick, left to right</span><span><i style="background:#b06f00"></i>A press</span><span><i style="background:#22884c"></i>right capsule</span><span><i style="background:#d32737"></i>wrong capsule</span></div></article>
+        <article class="card span4"><header><h3>What the shots hit</h3><span class="sub">this session</span></header><canvas class="chart" id="cArcHits" aria-label="Counts of bugs hit, centipede segments and mushrooms cleared"></canvas></article>
+        <article class="card span4"><header><h3>Word-part memory</h3><span class="sub">shared with Experiments 1 to 4</span></header><div id="arcMem" class="memory"></div></article>
+        <article class="card span4"><header><h3>Arcade log</h3><span class="sub">capsules and words</span></header><ul class="events" id="arcLogL" style="max-height:260px"></ul></article>
       </section>
     </div>
   </section>
@@ -996,7 +1012,7 @@ pre.mermaid svg{max-width:none;height:auto}
 </pre></article><article class="card"><h3>From this app to the full EDLS</h3><pre class="mermaid">flowchart LR
   subgraph Now[&quot;In this repo today&quot;]
     UI[&quot;3D language interface&lt;br/&gt;screen · tiles · trial card&quot;]
-    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;seventeen experiments&quot;]
+    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;eighteen experiments&quot;]
     Policy[&quot;Behavioural policy&lt;br/&gt;memory-weighted tile choice&quot;]
     BrainViz[&quot;Stylised CNS point cloud&lt;br/&gt;16 regions, act[]&quot;]
     Eye[&quot;Fly-eye mosaic&lt;br/&gt;750 ommatidia, 4.5°&quot;]
@@ -1250,6 +1266,7 @@ const EXP = {
   13: { name: 'Scrabble', note: 'Experiment 13 · Scrabble. The fruit fly plays a Blue Morpho butterfly on a full 15 by 15 board with premium squares and a 98-tile bag. On its turn the fly walks to its rack, takes each tile with a foreleg, walks it to its square and sets it down; the butterfly flies its tiles in and drops them. Words have to cross a word already on the board. Each player starts knowing only part of the word list and learns the words its opponent plays.', phys: 'Fly walks · butterfly flies', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [0, 70, 86], scrabble: true },
   14: { name: 'Paper book', note: 'Experiment 14 · Paper book. Flynn and the Giant Peach as a hardback picture book lying open on the table, the picture on the left page and the text on the right. The fly looks over the picture, then flies from word to word above the text, buzzing each one aloud. At the end of the page it flies to the corner, grips it with both forelegs, beats its wings to lift the page past upright and lets it fall over.', phys: 'Hover flight · forelegs grip the page', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [0, 52, 58], paper: true },
   15: { name: 'Geography', note: 'Experiment 15 · Geography. A globe with real country outlines stands on a school desk beside a trivia card. The fly walks to the card and reads the question, flies to the globe and sweeps it round with a foreleg, then flies to the country it thinks is the answer and taps it. The country lights up green if right; if wrong it lights red and the right one lights green.', phys: 'Walks, flies · a foreleg taps the globe', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [4, 34, 74], geo: true },
+  18: { name: 'Arcade', note: 'Experiment 18 · Arcade. An upright 80s cabinet runs Root Blaster, a 2D pixel shooter in the style of the formation-and-dive and centipede-in-the-mushrooms classics. A formation of bugs carries word parts; shooting one drops a capsule with its part, and steering the ship under it collects it, while a centipede winds down through the mushrooms. The insect works the joystick with both forelegs; the caterpillar sits by the A button and bonks it to fire.', phys: 'Standing on the panel · forelegs on the joystick', phoneScale: 1, layout: 'grid', jitter: 0, arcade: true, camOffset: [-30, 26, 70] },
   17: { name: 'Retro computer', note: 'Experiment 17 · Retro computer. A beige all-in-one from 1984, styled after the original Macintosh and the Lisa, with its keyboard and one-button mouse, runs the word-part game recreated as an early typing game in 1-bit black and white at 512 × 342. Word parts fall toward a turret. The fly reads the meaning on the screen, flies to the keyboard, taps the letters of a part with a foreleg and presses Return to fire; the right part drops into its slot.', phys: 'Hover flight · a foreleg taps each key', phoneScale: 1, layout: 'grid', jitter: 0, retro: true, camOffset: [-26, 40, 96] },
   16: { name: 'Mathematics', note: 'Experiment 16 · Mathematics. A graphing calculator styled after the TI-84 and a children\'s calculator lie on a desk. The insect reads a college algebra problem, flies key to key and taps digits with the tip of its abdomen and command keys with a hind leg, enters the equations in Y=, graphs them and asks CALC for the zero, vertex or intersection. The caterpillar crawls over the children\'s calculator and bonks the keys with its head to answer 4th grade problems.', phys: 'Hover flight · abdomen and hind-leg taps', phoneScale: 1, layout: 'grid', jitter: 0, math: true, camOffset: [-10, 30, 46] },
   9: { name: 'Reading', note: 'Experiment 9 · Reading. A tablet on a stand runs an illustrated storybook app. The fly hovers in front of the page, bobbing, and reads aloud in its wing buzz as each word lights up; vocabulary words are in bold. It starts at the library and flies up to tap a book, taps Next to turn pages, answers Stop & Think questions, and when a story ends it picks the next one.', phys: 'Tablet on a stand · hover flight', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [-38, 9, 20], tablet: true },
@@ -1777,6 +1794,7 @@ function renderTrial() {
   if (experiment === 15) return renderGeoTrial();
   if (experiment === 16) return renderMathTrial();
   if (experiment === 17) return renderRetroTrial();
+  if (experiment === 18) return renderArcadeTrial();
   if (experiment === 4 && typeof spell !== 'undefined' && spell.letters.length) {
     $('meaning').textContent = spell.word.meaning;
     $('chips').innerHTML = spell.letters.map((ch, i) => i < spell.typed.length ? `<span class="chip ${KINDS[partAtLetter(i)]}" style="padding:0 12px">${ch}</span>` : `<span class="chip empty" style="padding:0 10px">${KINDS[partAtLetter(i)][0]}</span>`).join('');
@@ -1816,6 +1834,7 @@ const PHASE_TEXT = { look: 'Looking at the screen', walk: 'Walking to a tile', t
   a_look: 'Reading the word frame', a_walk: 'Walking around the blocks', a_grab: 'Pinching a block', a_carry: 'Carrying the block', a_rotate: 'Rotating the block', a_place: 'Snapping it in', a_done: 'Word built',
   s_think: 'Looking for a word', f_go: 'Walking to its rack', f_pick: 'Taking a tile', f_carry: 'Carrying a tile', f_drop: 'Setting the tile down', f_home: 'Back to its side', b_go: 'Butterfly flying to its rack', b_pick: 'Butterfly takes a tile', b_carry: 'Butterfly flying a tile over', b_drop: 'Butterfly drops the tile', b_home: 'Butterfly back to its side', s_score: 'Scoring the word', s_over: 'Game over',
   pb_look: 'Looking at the picture', pb_read: 'Reading aloud', pb_go: 'Flying to the page corner', pb_grab: 'Gripping the corner', pb_lift: 'Lifting the page with its wings', pb_fall: 'The page falls over', pb_end: 'The End', pb_rewind: 'Back to the beginning',
+  j_play: 'Playing: forelegs on the joystick',
   o_read: 'Reading the screen', o_fly: 'Flying to the keyboard', o_aim: 'Lining up the next key', o_hop: 'Hopping to the next key', o_tap: 'Tapping a key with a foreleg', o_watch: 'Watching the shot', o_back: 'Flying back up to the screen',
   m_read: 'Reading the problem card', m_fly: 'Flying to the calculator', m_aim: 'Lining up the next key', m_hop: 'Hopping to the next key', m_tail: 'Tapping a key with the tip of its abdomen', m_leg: 'Tapping a key with a hind leg', m_graph: 'Watching the graph draw', m_watch: 'Reading the answer off the screen', m_react: 'Checking the answer', m_home: 'Flying back to the problem card',
   g_wait: 'Loading the map', g_walk: 'Walking to the question card', g_read: 'Reading the question', g_fly: 'Flying to the globe', g_spin: 'Spinning the globe', g_seek: 'Flying to a country', g_tap: 'Tapping the country', g_react: 'Checking the answer', g_home: 'Flying back to the desk',
@@ -1917,6 +1936,7 @@ function stepAgent(dt, now) {
   if (experiment === 15) return stepGeo(dt, now);
   if (experiment === 16) return stepMath(dt, now);
   if (experiment === 17) return stepRetro(dt, now);
+  if (experiment === 18) return stepArcade(dt, now);
   if (EXP[experiment].laptop) return stepTeacher(dt, now);
   const st = flyState; const s = phone.scale.x;
   switch (agent.phase) {
@@ -2045,7 +2065,7 @@ function animateFly(dt) {
   const st = flyState;
   fly.position.copy(st.pos); fly.rotation.y = st.yaw + (butterfly && experiment !== 13 && st.airborne ? Math.sin(performance.now() / 260) * 0.12 : 0); fly.updateMatrixWorld(true); // a butterfly weaves as it flies
   head.rotation.y = st.headYaw;
-  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz' || agent.phase === 'r_tap' || agent.phase === 'w_tap' || agent.phase === 'v_write' || ['a_grab', 'a_carry', 'a_rotate', 'a_place', 'f_pick', 'f_carry', 'f_drop', 'pb_grab', 'pb_lift', 'g_spin', 'g_tap', 'm_leg', 'o_tap'].includes(agent.phase)) ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
+  const busyLeg = (agent.phase === 'tap' || agent.phase === 't_press' || agent.phase === 'p_tap' || agent.phase === 'p_buzz' || agent.phase === 'r_tap' || agent.phase === 'w_tap' || agent.phase === 'v_write' || ['a_grab', 'a_carry', 'a_rotate', 'a_place', 'f_pick', 'f_carry', 'f_drop', 'pb_grab', 'pb_lift', 'g_spin', 'g_tap', 'm_leg', 'o_tap', 'j_play'].includes(agent.phase)) ? agent.tapLeg : ((agent.phase === 'scroll' && agent.swipe) || agent.phase === 't_arm' || ((experiment === 5 || experiment === 6) && !st.walking && !st.airborne && agent.phase !== 't_walk')) ? legs[1] : null;
   let stepping = legs.filter(L => L.step).length;
   legs.forEach(L => {
     if (L === busyLeg || (agent.tapLeg2 && L === agent.tapLeg2)) return; // the paper book grips with both forelegs
@@ -3098,7 +3118,7 @@ function drawVision() {
 }
 
 // ---------- scenario panels: the right panel and bottom strip follow the experiment ----------
-const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]; // the teacher and admin panels show their screen and work queue instead of the brain
+const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]; // the teacher and admin panels show their screen and work queue instead of the brain
 let rpAt = 0;
 // scenario history, 4 samples a second of the numbers the strip plots (the classroom keeps its own in cls.hist)
 const sh = []; let shAt = 0, shSim = 0; const shPrev = new THREE.Vector3();
@@ -3110,7 +3130,7 @@ function sampleScenario(now, dt) {
   sh.push({ t, exp: experiment, speed, h: Math.max(0, st.pos.y - ground), air: st.airborne ? 1 : 0, scroll: game.scrollY, typed: spell.typed.length,
     path: T.path, clicks: T.clicks, miss: T.miss, keys: T.keys, graded: T.graded.length,
     att: admin.students.length ? admin.students.reduce((a, s) => a + s.att, 0) / admin.students.length : null, flags: admin.flags.filter(f => f.open).length,
-    song: flyState.songAmp || 0, pen: (experiment === 10 && agent.phase === 'w_write' && wr.path[Math.floor(wr.s)] && wr.path[Math.floor(wr.s)].down) || (experiment === 11 && agent.phase === 'v_write') ? 1 : 0, ball: vr.speed, oH: experiment === 17 ? Math.max(0, flyState.pos.y - RT.Y - RT.kb.h) : null, mH: experiment === 16 ? Math.max(0, flyState.pos.y - MATH.Y - MATH.ti.h) : null, gH: experiment === 15 ? Math.max(0, flyState.pos.y - TABLE_Y) : null, gSpin: experiment === 15 ? (gq.spinRate || 0) : null, gMemM: gq.mem.size ? [...gq.mem.values()].reduce((a, b) => a + b, 0) / gq.mem.size : null, pbH: experiment === 14 ? Math.max(0, flyState.pos.y - PB.Y) : null, scF: scr.scores[0], scB: scr.scores[1], scBag: scr.bag.length, arHold: experiment === 12 && ['a_carry', 'a_rotate'].includes(agent.phase) ? 1 : 0, arRot: experiment === 12 && ar.pick ? Math.abs(arWrap(ar.pick.g.rotation.y)) * 57.3 : null, pmem: game.memory.size ? [...game.memory.values()].reduce((a, b) => a + b, 0) / game.memory.size : null, rmem: wr.mem.size ? [...wr.mem.values()].reduce((a, b) => a + b, 0) / wr.mem.size : null, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
+    song: flyState.songAmp || 0, pen: (experiment === 10 && agent.phase === 'w_write' && wr.path[Math.floor(wr.s)] && wr.path[Math.floor(wr.s)].down) || (experiment === 11 && agent.phase === 'v_write') ? 1 : 0, ball: vr.speed, arcX: experiment === 18 ? arc.ship.x / ARC.sw : null, oH: experiment === 17 ? Math.max(0, flyState.pos.y - RT.Y - RT.kb.h) : null, mH: experiment === 16 ? Math.max(0, flyState.pos.y - MATH.Y - MATH.ti.h) : null, gH: experiment === 15 ? Math.max(0, flyState.pos.y - TABLE_Y) : null, gSpin: experiment === 15 ? (gq.spinRate || 0) : null, gMemM: gq.mem.size ? [...gq.mem.values()].reduce((a, b) => a + b, 0) / gq.mem.size : null, pbH: experiment === 14 ? Math.max(0, flyState.pos.y - PB.Y) : null, scF: scr.scores[0], scB: scr.scores[1], scBag: scr.bag.length, arHold: experiment === 12 && ['a_carry', 'a_rotate'].includes(agent.phase) ? 1 : 0, arRot: experiment === 12 && ar.pick ? Math.abs(arWrap(ar.pick.g.rotation.y)) * 57.3 : null, pmem: game.memory.size ? [...game.memory.values()].reduce((a, b) => a + b, 0) / game.memory.size : null, rmem: wr.mem.size ? [...wr.mem.values()].reduce((a, b) => a + b, 0) / wr.mem.size : null, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
     prec: A.tp + A.fp ? A.tp / (A.tp + A.fp) : null, checkins: A.checkins, det: A.detections.filter(d => t - d.t < 5).reduce((a, d) => a + d.lookaway + d.helper + d.device + d.offscreen, 0) });
   if (sh.length > 480) sh.shift();
 }
@@ -3214,6 +3234,10 @@ const STRIPS = {
     { l: 'Letters per minute', v: () => { const h = rt.history[rt.history.length - 1]; return h ? String(Math.round(h.lpm)) : '–'; }, d: id => barChart(id, rt.history.slice(-20).map(h => ({ v: h.lpm, color: h.ok ? CH.green : CH.red, label: `"${h.typed}": ${Math.round(h.lpm)} letters/min` })), { positive: true, compact: true, empty: 'No parts typed yet' }) },
     { l: 'Parts hit', v: () => `${rt.stats.right} of ${rt.stats.parts}`, d: id => barChart(id, rt.history.slice(-20).map(h => ({ v: 1, color: h.ok ? CH.green : CH.red, label: `${h.need}: typed ${h.typed}` })), { ymax: 1, positive: true, compact: true, empty: 'No parts yet' }) },
     sDopa],
+  18: [sHist('Ship position', 'arcX', () => `${Math.round(arc.ship.x)} px`, { ymax: 1 }),
+    { l: 'A presses', v: () => String(arc.stats.shots), d: id => barChart(id, [{ v: arc.stats.hits, color: CH.green, label: `bugs hit: ${arc.stats.hits}` }, { v: arc.stats.segs, color: CH.amber, label: `centipede segments: ${arc.stats.segs}` }, { v: arc.stats.mush, color: CH.blue, label: `mushrooms cleared: ${arc.stats.mush}` }], { positive: true, compact: true, empty: 'No shots yet' }) },
+    { l: 'Capsules right', v: () => `${arc.stats.right} of ${arc.stats.caught}`, d: id => barChart(id, arc.history.slice(-20).map(h => ({ v: 1, color: h.ok ? CH.green : CH.red, label: `${h.need}: caught ${h.got}` })), { ymax: 1, positive: true, compact: true, empty: 'No capsules yet' }) },
+    sDopa],
 };
 let stripExp = 0;
 function drawStrip() {
@@ -3246,6 +3270,8 @@ function scenarioCard() {
     return ['Proctoring', `<h3>Open flags</h3><ul>${open.map(f => `<li class="now">${admin.students[f.student].name}: ${REASON[f.reason] || f.reason} · ${Math.round(TDT() - f.t)} s ago</li>`).join('') || '<li>None open</li>'}</ul>` +
       (ai ? `<p class="sub" style="margin:0">FlyAI: ${ai.text}</p>` : '') + `<h3>Next actions</h3><ol>${next.map((s, i) => `<li class="${i ? '' : 'now'}">${stepText(s)}</li>`).join('')}</ol>` +
       kv([['Flags · confirmed · false alarms', `${admin.flags.length} · ${A.tp} · ${A.fp}`], ['Check-ins sent', A.checkins]])]; }
+  if (e === 18) { const last = arc.history[arc.history.length - 1], need = arc.word ? arc.word.parts[arc.slot] : null;
+    return ['Arcade', kv([['Build', arc.word ? arc.word.meaning : '–'], ['Going for', arc.caps.length ? `the "${arc.caps[0].label}" capsule` : arc.aim ? `the bug carrying "${arc.aim.label}"` : '–'], ['Needed now', need ? `${need} · ${kindOf(need)}` : '–'], ['Joystick', `${arc.joy < -0.15 ? 'left' : arc.joy > 0.15 ? 'right' : 'centre'} · ${Math.round(Math.abs(arc.joy) * 100)}%`], ['Caterpillar on A', arc.pressT != null ? 'pressing' : 'waiting'], ['Score · lives', `${arc.score} · ${arc.lives}`], ['Last capsule', last ? `"${last.got}" · ${last.ok ? 'right' : `wrong, needed "${last.need}"`}` : '–']])]; }
   if (e === 17) { const last = rt.history[rt.history.length - 1], id = rt.plan[rt.pi];
     return ['Retro computer', kv([['Build', rt.word ? rt.word.meaning : '–'], ['Typing', ['o_aim', 'o_hop', 'o_tap'].includes(agent.phase) ? `"${rt.choice}" · next key ${id === 'RETURN' ? 'Return' : id}` : '–'], ['On screen', `> ${rt.typed}`], ['Slots filled', `${rt.slot} of 3`], ['Score · lives', `${rt.score} · ${rt.lives}`], ['Keys tapped', rt.stats.keys], ['Last part', last ? `"${last.typed}" · ${last.ok ? 'hit' : `wrong, needed "${last.need}"`}` : '–']])]; }
   if (e === 16) { const P = mq.P, last = mq.history[mq.history.length - 1], id = mq.plan[mq.pi], kp = kc.problem;
@@ -3273,19 +3299,19 @@ function renderScenario(force) {
   if (view !== 'simulate' && !force) return;
   const [head, body] = scenarioCard(); if ($('rpScenHead').textContent !== head) $('rpScenHead').textContent = head;
   const B = $('rpScenBody'); if (B.innerHTML !== body) B.innerHTML = body;
-  if ([3, 4, 5, 6, 8, 9, 10, 11, 13, 14, 15, 16, 17].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
+  if ([3, 4, 5, 6, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
 }
 // a live copy of the phone or laptop screen
 function drawRpScreen() {
-  const cv = $('rpScreenCv'), w = cv.clientWidth; if (!w) return; const lap = EXP[experiment].laptop || experiment === 9 || experiment === 11 || experiment === 13 || experiment === 14 || experiment === 15 || experiment === 16 || experiment === 17, src = experiment === 17 ? rtCanvas : experiment === 16 ? tiCanvas : experiment === 15 ? geoMap : experiment === 14 ? pbSpread : experiment === 13 ? scMini : experiment === 11 ? vrCanvas : experiment === 9 ? bookCanvas : EXP[experiment].laptop ? lapCanvas : screenCanvas;
-  const h = lap ? Math.round(w * 640 / 1024) : Math.min(300, Math.round(w * SH / SW)); const pr = Math.min(devicePixelRatio, 2);
+  const cv = $('rpScreenCv'), w = cv.clientWidth; if (!w) return; const lap = EXP[experiment].laptop || experiment === 9 || experiment === 11 || experiment === 13 || experiment === 14 || experiment === 15 || experiment === 16 || experiment === 17, src = experiment === 18 ? arcCanvas : experiment === 17 ? rtCanvas : experiment === 16 ? tiCanvas : experiment === 15 ? geoMap : experiment === 14 ? pbSpread : experiment === 13 ? scMini : experiment === 11 ? vrCanvas : experiment === 9 ? bookCanvas : EXP[experiment].laptop ? lapCanvas : screenCanvas;
+  const h = experiment === 18 ? Math.min(380, Math.round(w * ARC.sh / ARC.sw)) : lap ? Math.round(w * 640 / 1024) : Math.min(300, Math.round(w * SH / SW)); const pr = Math.min(devicePixelRatio, 2);
   if (cv.height !== Math.round(h * pr) || cv.width !== Math.round(w * pr)) { cv.width = Math.round(w * pr); cv.height = Math.round(h * pr); cv.style.height = h + 'px'; }
   const g = cv.getContext('2d'); g.setTransform(pr, 0, 0, pr, 0, 0); g.fillStyle = '#0b0b0c'; g.fillRect(0, 0, w, h);
   const s = Math.min(w / src.width, h / src.height), dw = src.width * s, dh = src.height * s; g.drawImage(src, (w - dw) / 2, (h - dh) / 2, dw, dh);
   if (experiment === 13) {}
   if (experiment === 11) { const iw = w * 0.36, ih = iw * 0.625, ix = w - iw - 6, iy = h - ih - 6; g.drawImage(vrCanvasT, ix, iy, iw, ih); g.strokeStyle = '#fff'; g.lineWidth = 2; g.strokeRect(ix, iy, iw, ih); g.fillStyle = 'rgba(0,38,87,0.85)'; g.fillRect(ix, iy, 52, 14); g.fillStyle = '#fff'; g.font = `700 9px ${DISPLAY}`; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText('Teacher', ix + 5, iy + 7.5); }
-  $('rpScreenHead').textContent = experiment === 17 ? 'Computer screen' : experiment === 16 ? 'Graphing calculator' : experiment === 15 ? 'World map' : experiment === 14 ? 'The open book' : experiment === 13 ? 'Scoreboard' : experiment === 11 ? 'Headset view' : experiment === 10 ? 'Writing app' : experiment === 9 ? 'Storybook app' : experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
-  $('rpScreenSub').textContent = experiment === 17 ? '1-bit, 512 × 342' : experiment === 16 ? 'Y=, ZOOM, the graph and CALC' : experiment === 15 ? 'the globe, flattened' : experiment === 14 ? 'the spread the fly is reading' : experiment === 13 ? 'board, racks and scores' : experiment === 11 ? 'student, teacher inset' : experiment === 10 ? 'ink from the abdomen tip' : experiment === 9 ? 'the page the fly is reading' : experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
+  $('rpScreenHead').textContent = experiment === 18 ? 'Arcade screen' : experiment === 17 ? 'Computer screen' : experiment === 16 ? 'Graphing calculator' : experiment === 15 ? 'World map' : experiment === 14 ? 'The open book' : experiment === 13 ? 'Scoreboard' : experiment === 11 ? 'Headset view' : experiment === 10 ? 'Writing app' : experiment === 9 ? 'Storybook app' : experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
+  $('rpScreenSub').textContent = experiment === 18 ? 'Root Blaster, 224 × 288' : experiment === 17 ? '1-bit, 512 × 342' : experiment === 16 ? 'Y=, ZOOM, the graph and CALC' : experiment === 15 ? 'the globe, flattened' : experiment === 14 ? 'the spread the fly is reading' : experiment === 13 ? 'board, racks and scores' : experiment === 11 ? 'student, teacher inset' : experiment === 10 ? 'ink from the abdomen tip' : experiment === 9 ? 'the page the fly is reading' : experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
 }
 // classroom seating chart, top down
 const MAP = { x0: -56, x1: 56, z0: -40, z1: 32 };
@@ -5294,6 +5320,195 @@ function renderRetroTrial() {
 drawRetro();
 window.__rt = () => rt; // debug hook
 
+// =====================================================================
+// Experiment 18: Arcade. An upright 80s cabinet runs "Root Blaster", a 2D pixel shooter in the style of the
+// formation-and-dive and centipede-in-the-mushrooms classics. A formation of bugs carries word parts; shooting one
+// drops a capsule with its part, and steering the ship under it collects it. A centipede winds down through the
+// mushrooms. The insect works the joystick with both forelegs; the caterpillar sits by the A button and bonks it
+// to fire. Which bug the insect goes for comes from the word-part memory shared with Experiments 1 to 4.
+// =====================================================================
+const ARC = { Y: TABLE_Y, cp: TABLE_Y + 38, sw: 224, sh: 288 };
+const ARC_JOY = new THREE.Vector3(-12, ARC.cp, 3), ARC_A = new THREE.Vector3(7, ARC.cp, 3.2), ARC_B = new THREE.Vector3(13.5, ARC.cp, 1.4);
+const ARC_MID = new THREE.Vector3(0, ARC.cp + 14, -4);
+const arcGroup = new THREE.Group(); arcGroup.visible = false; scene.add(arcGroup);
+const arcCanvas = document.createElement('canvas'); arcCanvas.width = ARC.sw; arcCanvas.height = ARC.sh; const arx = arcCanvas.getContext('2d');
+const arcTex = new THREE.CanvasTexture(arcCanvas); arcTex.magFilter = THREE.NearestFilter; arcTex.minFilter = THREE.LinearFilter; arcTex.generateMipmaps = false; arcTex.colorSpace = THREE.SRGBColorSpace;
+function arcLabelTex(w, h, paint) { const c = document.createElement('canvas'); c.width = w; c.height = h; paint(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t; }
+// ---------- the cabinet ----------
+const arcStick = new THREE.Group(), arcBtn = {};
+{ const black = new THREE.MeshStandardMaterial({ color: 0x15121c, roughness: 0.5 }), trim = new THREE.MeshStandardMaterial({ color: 0x6b2bd9, roughness: 0.4, metalness: 0.2 });
+  const sideArt = arcLabelTex(256, 512, (g, w, h) => { const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#2a0b5c'); gr.addColorStop(0.55, '#7a1fd1'); gr.addColorStop(1, '#13051f'); g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 60; i++) { g.fillStyle = ['#ffe100', '#00e5ff', '#ff2a8a', '#ffffff'][i % 4]; g.fillRect(Math.random() * w, Math.random() * h, 3, 3); }
+    g.save(); g.translate(w / 2 + 30, h * 0.62); g.rotate(-Math.PI / 2); g.font = `900 52px ${DISPLAY}`; g.textAlign = 'center'; g.lineWidth = 8; g.strokeStyle = '#13051f'; g.strokeText('ROOT BLASTER', 0, 0); g.fillStyle = '#ffe100'; g.fillText('ROOT BLASTER', 0, 0); g.restore(); });
+  const sideM = new THREE.MeshStandardMaterial({ map: sideArt, roughness: 0.6 });
+  [-1, 1].forEach(sd => { const shape = new THREE.Shape([[0, 0], [40, 0], [40, 40], [30, 46], [22, 50], [22, 92], [30, 100], [0, 100]].map(([z, y]) => new THREE.Vector2(z, y)));
+    const geo = new THREE.ExtrudeGeometry(shape, { depth: 1.6, bevelEnabled: false }); const m = new THREE.Mesh(geo, [sideM, black]); m.rotation.y = Math.PI / 2; m.position.set(sd * 27 - 0.8, ARC.Y, 10); m.castShadow = true; arcGroup.add(m);
+    const pos = geo.attributes.position, uv = geo.attributes.uv; for (let i = 0; i < pos.count; i++) uv.setXY(i, pos.getX(i) / 40, pos.getY(i) / 100); uv.needsUpdate = true; });
+  const box = (w, h, d, x, y, z, mat, rx = 0) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat); m.position.set(x, y, z); m.rotation.x = rx; m.castShadow = m.receiveShadow = true; arcGroup.add(m); return m; };
+  box(52, 38, 34, 0, ARC.Y + 19, -7, black); box(52, 2, 1, 0, ARC.Y + 38, 10.3, trim);
+  // the coin door
+  box(18, 14, 0.6, 0, ARC.Y + 16, 10.4, new THREE.MeshStandardMaterial({ color: 0x2a2a30, roughness: 0.35, metalness: 0.6 }));
+  [-4, 4].forEach(x => { const s = box(3.2, 4.2, 0.4, x, ARC.Y + 18, 10.8, new THREE.MeshStandardMaterial({ color: 0xff2a2a, emissive: 0xff2a2a, emissiveIntensity: 1.2 })); s.userData.coin = true; });
+  const coinT = arcLabelTex(256, 48, (g, w, h) => { g.fillStyle = '#ffffff'; g.font = `800 30px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('INSERT COIN', w / 2, h / 2); });
+  const coin = new THREE.Mesh(new THREE.PlaneGeometry(14, 2.6), new THREE.MeshBasicMaterial({ map: coinT, transparent: true })); coin.position.set(0, ARC.Y + 12, 10.75); arcGroup.add(coin);
+  // control panel with art
+  const cpT = arcLabelTex(512, 200, (g, w, h) => { g.fillStyle = '#1b0d33'; g.fillRect(0, 0, w, h); g.strokeStyle = '#ffe100'; g.lineWidth = 6; g.strokeRect(8, 8, w - 16, h - 16); g.fillStyle = '#00e5ff'; g.font = `800 22px ${DISPLAY}`; g.fillText('1 PLAYER', 330, 40); g.fillStyle = '#ff2a8a'; g.fillText('A FIRE', 340, 186); g.fillText('B', 452, 150); });
+  const cp = box(52, 2.4, 22, 0, ARC.cp - 1.2, 1, black); cp.material = [black, black, new THREE.MeshStandardMaterial({ map: cpT, roughness: 0.5 }), black, black, black];
+  // the screen, tilted back in its bezel, and the marquee
+  const scr = new THREE.Group(); scr.position.set(0, ARC.cp + 24, -10); scr.rotation.x = -0.26; arcGroup.add(scr);
+  const bz = new THREE.Mesh(new THREE.BoxGeometry(50, 52, 1.5), black); scr.add(bz);
+  const crt = new THREE.Mesh(new THREE.PlaneGeometry(34, 34 * ARC.sh / ARC.sw), new THREE.MeshBasicMaterial({ map: arcTex, toneMapped: false })); crt.position.z = 0.8; scr.add(crt); ARC.crt = crt;
+  box(52, 6, 10, 0, ARC.cp + 3, -8, black);
+  const mq = arcLabelTex(512, 96, (g, w, h) => { const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#13051f'); gr.addColorStop(1, '#3a0f73'); g.fillStyle = gr; g.fillRect(0, 0, w, h); g.font = `900 64px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineWidth = 10; g.strokeStyle = '#ff2a8a'; g.strokeText('ROOT BLASTER', w / 2, h / 2 + 4); g.fillStyle = '#ffe100'; g.fillText('ROOT BLASTER', w / 2, h / 2 + 4); });
+  const mqm = new THREE.Mesh(new THREE.BoxGeometry(52, 10, 6), [black, black, black, black, new THREE.MeshBasicMaterial({ map: mq, toneMapped: false }), black]); mqm.position.set(0, ARC.Y + 95, 1); arcGroup.add(mqm);
+  // the joystick: a base, a shaft on a pivot and a red ball
+  const base = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 2.4, 0.5, 24), new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.4 })); base.position.copy(ARC_JOY).add(V3(0, 0.25, 0)); arcGroup.add(base);
+  arcStick.position.copy(ARC_JOY).add(V3(0, 0.4, 0)); arcGroup.add(arcStick);
+  const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 2.4, 10), new THREE.MeshStandardMaterial({ color: 0xc8c8cc, roughness: 0.3, metalness: 0.8 })); shaft.position.y = 1.2; arcStick.add(shaft);
+  const ball = new THREE.Mesh(new THREE.SphereGeometry(1.15, 24, 16), new THREE.MeshStandardMaterial({ color: 0xe0161e, roughness: 0.25 })); ball.position.y = 2.9; ball.castShadow = true; arcStick.add(ball); ARC.ball = ball;
+  [['A', ARC_A, 0xe0161e], ['B', ARC_B, 0x1f6bff]].forEach(([id, p, col]) => { const ring = new THREE.Mesh(new THREE.CylinderGeometry(1.9, 1.9, 0.35, 24), new THREE.MeshStandardMaterial({ color: 0x111111 })); ring.position.copy(p).add(V3(0, 0.17, 0)); arcGroup.add(ring);
+    const b = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.55, 0.7, 24), new THREE.MeshStandardMaterial({ color: col, roughness: 0.25 })); b.position.copy(p).add(V3(0, 0.55, 0)); b.userData.rest = b.position.y; b.castShadow = true; arcGroup.add(b); arcBtn[id] = b; }); }
+const arcBallWorld = () => ARC.ball.getWorldPosition(new THREE.Vector3());
+// ---------- pixel sprites ----------
+const ARC_PAL = { y: '#ffe100', b: '#2c6bff', r: '#ff2a2a', w: '#ffffff', g: '#34d058', p: '#b04cff', c: '#00e5ff', o: '#ff8a00', k: '#ff6ec7' };
+const ARC_SPR = {
+  bee: ['..b.....b..', '...b...b...', '..yyyyyyy..', '.yryyyyyry.', 'bbyyyyyyybb', 'bbb.yyy.bbb', 'b...y.y...b'],
+  moth: ['...w...w...', '....w.w....', '.rrrrwrrrr.', 'rrwrrwrrwrr', 'rrrrrwrrrrr', '.rr.rwr.rr.', 'r...r.r...r'],
+  boss: ['....p.p....', '...ggggg...', '..gcgggcg..', '.ggggggggg.', 'gggpgggpggg', 'g.ggg.ggg.g', 'g..g...g..g'],
+  ship: ['.....w.....', '.....w.....', '....rwr....', '....www....', '..w.www.w..', '..wwwrwww..', '.wwwrrrwww.', 'ww.wwwww.ww', 'w...w.w...w'],
+  seg: ['..gggg..', '.gggggg.', 'gggggggg', 'gkggggkg', 'gggggggg', '.gggggg.', '..g..g..'],
+  head: ['..gggg..', '.gggggg.', 'grggggrg', 'gggggggg', 'gkggggkg', '.gggggg.', '..k..k..'],
+};
+function arcSpr(g, name, x, y) { const S = ARC_SPR[name], h = S.length, w = S[0].length; for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) { const c = S[j][i]; if (c !== '.') { g.fillStyle = ARC_PAL[c]; g.fillRect(Math.round(x - w / 2 + i), Math.round(y - h / 2 + j), 1, 1); } } }
+const ARC_FONT = n => `700 ${n}px ui-monospace, Menlo, Consolas, monospace`;
+// ---------- the game ----------
+const arc = { word: null, wi: 0, slot: 0, bugs: [], segs: [], mush: [], bullets: [], caps: [], booms: [], stars: [], ship: { x: 112, y: 262, inv: 0 }, joy: 0, joyY: 0, aim: null, fireReq: false, pressT: null, dip: 0, catTarget: null,
+  score: 0, hi: 20000, lives: 3, t: 0, diveT: 4, banner: 0, msg: '', msgT: 0, trace: [], cool: 0,
+  stats: { words: 0, caught: 0, right: 0, shots: 0, hits: 0, segs: 0, mush: 0, lost: 0 }, history: [], log: [], feedback: '' };
+function arcLog(text) { arc.log.push({ t: TDT(), text }); if (arc.log.length > 80) arc.log.shift(); arc.feedback = text; }
+const ARC_TYPES = ['bee', 'moth', 'boss'];
+function arcLabels() { const need = arc.word.parts[arc.slot], pool = shuffle([...new Set([...DISTRACTORS, ...WORDS.flatMap(w => w.parts)])].filter(p => p !== need)); return shuffle([need, ...pool.slice(0, 5)]); }
+function arcDeal() { const L = arcLabels(); arc.bugs = L.map((label, i) => ({ label, i, hx: 26 + i * 34.4, hy: 72 + (i % 2) * 14, x: 26 + i * 34.4, y: -20 - i * 12, alive: true, dive: null, back: true, type: ARC_TYPES[i % 3], respawn: 0 })); arc.aim = null; }
+function arcRelabel() { const L = arcLabels(); arc.bugs.forEach((b, i) => { b.label = L[i]; }); arc.aim = null; }
+function arcNextWord() { arc.word = WORDS[arc.wi % WORDS.length]; arc.wi++; arc.slot = 0; arcDeal(); }
+function arcCentipede() { arc.segs = []; for (let i = 0; i < 9; i++) arc.segs.push({ x: 16 + i * 8, y: 108, dir: 1, head: i === 8 }); }
+function arcInit() { arc.stars = Array.from({ length: 46 }, () => ({ x: Math.random() * ARC.sw, y: Math.random() * ARC.sh, v: 18 + Math.random() * 40, c: ['#ffffff', '#ffe100', '#00e5ff', '#ff6ec7', '#ff2a2a'][Math.floor(Math.random() * 5)] }));
+  arc.mush = []; for (let i = 0; i < 22; i++) arc.mush.push({ x: 8 + Math.floor(Math.random() * 26) * 8, y: 120 + Math.floor(Math.random() * 15) * 8, hp: 3, c: ['k', 'c', 'o'][i % 3] }); arcCentipede(); arcNextWord(); }
+function arcFire() { if (arc.bullets.length >= 2) return; arc.bullets.push({ x: arc.ship.x, y: arc.ship.y - 8 }); arc.stats.shots++; arcBtn.A.userData.press = 1; }
+function arcCatch(c) {
+  if (arc.slot >= arc.word.parts.length) return; /* the word is already built: the banner is up */
+  const need = arc.word.parts[arc.slot], ok = c.label === need, V = memoryOf(need), dw = ETA * ((ok ? 1 : 0) - V); game.memory.set(need, V + dw); arc.stats.caught++; if (ok) arc.stats.right++;
+  arc.history.push({ t: TDT(), word: arc.word.word, need, got: c.label, ok, kind: kindOf(need) }); if (arc.history.length > 80) arc.history.shift();
+  tele.trials.push({ t: TDT(), exp: 18, correct: ok, pos: arc.slot, needed: need, chosen: c.label, sameKind: kindOf(c.label) === kindOf(need), offset: 0, R: ok ? 1 : 0, V, dw, level: tele.ddt.level, divergence: 0, dwell: 0, word: arc.word.word }); if (tele.trials.length > 400) tele.trials.shift();
+  game.dopamine = Math.max(0, Math.min(1, game.dopamine + (ok ? 0.28 : -0.12))); ok ? (pulse(3, 1), pulse(4, 1), pulse(10, 0.8)) : (pulse(8, 0.8), pulse(9, 0.8));
+  if (ok) { arc.score += 500; arc.slot++; arc.msg = 'GOT IT!'; arcLog(`Caught "${c.label}" for the ${kindOf(need)}.`);
+    if (arc.slot >= 3) { arc.stats.words++; arc.score += 2000; arc.banner = 2.8; arcLog(`Built "${arc.word.word}" from ${arc.word.parts.join(' + ')}.`); } else arcRelabel(); }
+  else { arc.msg = 'WRONG PART'; arcLog(`Caught "${c.label}", but the ${kindOf(need)} needed was "${need}".`); arcRelabel(); }
+  arc.msgT = 1.6; arc.choice = null; arc.aim = null; arc.trace.push({ t: arc.t, joy: arc.joy, ev: ok ? 'ok' : 'bad' });
+}
+function arcLoseLife() { arc.stats.lost++; arc.booms.push({ x: arc.ship.x, y: arc.ship.y, t: 0, big: true }); arc.lives--; arc.ship.inv = 2.2; arc.msg = arc.lives > 0 ? 'SHIP LOST' : 'GAME OVER'; arc.msgT = 1.6; if (arc.lives <= 0) { arc.lives = 3; arcLog('Game over. A new credit.'); } else arcLog('The ship was hit.'); pulse(8, 1); pulse(9, 1); }
+// the insect's plan: which bug to shoot, then where the capsule falls
+function arcPlan() {
+  const need = arc.word.parts[arc.slot], mine = arc.caps.find(c => c.label === arc.choice);
+  if (mine) return { x: mine.x, fire: false };
+  const bad = arc.caps.find(c => c.label !== arc.choice && c.y > arc.ship.y - 70 && Math.abs(c.x - arc.ship.x) < 16); /* sidestep a capsule it did not choose */
+  if (bad) return { x: bad.x + (arc.ship.x >= bad.x ? 34 : -34), fire: false };
+  if (!arc.aim || !arc.aim.alive || arc.aim.dive) { const live = arc.bugs.filter(b => b.alive && !b.dive && b.back); if (!live.length) return { x: 112, fire: false };
+    const right = live.find(b => b.label === need), ok = Math.random() < 0.35 + 0.6 * memoryOf(need); arc.aim = ok && right ? right : live[Math.floor(Math.random() * live.length)]; arc.choice = arc.aim.label; }
+  return { x: arc.aim.x, fire: Math.abs(arc.aim.x - arc.ship.x) < 4 };
+}
+function arcStep(dt) {
+  arc.t += dt; arc.cool = Math.max(0, arc.cool - dt); const S = arc.ship;
+  arc.stars.forEach(s => { s.y += s.v * dt; if (s.y > ARC.sh) { s.y = 0; s.x = Math.random() * ARC.sw; } });
+  if (arc.banner > 0) { arc.banner -= dt; if (arc.banner <= 0) arcNextWord(); }
+  if (arc.msgT > 0) arc.msgT -= dt;
+  // formation sway, dives and respawns
+  const sway = Math.sin(arc.t * 0.9) * 10; arc.diveT -= dt;
+  arc.bugs.forEach(b => { if (!b.alive) { if ((b.respawn -= dt) <= 0) { b.alive = true; b.back = false; b.x = b.hx; b.y = -14; } return; }
+    if (b.dive) { const D = b.dive; D.t += dt / D.dur; const k = D.t; b.x = D.x0 + Math.sin(k * Math.PI * 1.5) * D.amp; b.y = D.y0 + k * (ARC.sh + 30 - D.y0); if (D.t >= 1) { b.dive = null; b.back = false; b.y = -14; } }
+    else if (!b.back) { b.x += (b.hx + sway - b.x) * Math.min(1, dt * 3); b.y += (b.hy - b.y) * Math.min(1, dt * 2); if (Math.abs(b.y - b.hy) < 1) b.back = true; }
+    else { b.x = b.hx + sway; b.y = b.hy + Math.sin(arc.t * 2 + b.i) * 1.5; }
+    if (b.dive && Math.abs(b.x - S.x) < 9 && Math.abs(b.y - S.y) < 7 && S.inv <= 0) { arcLoseLife(); b.alive = false; b.dive = null; b.respawn = 2.5; } });
+  if (arc.diveT <= 0) { const c = arc.bugs.filter(b => b.alive && b.back && !b.dive && b !== arc.aim); if (c.length) { const b = c[Math.floor(Math.random() * c.length)]; b.dive = { t: 0, dur: 3.2, x0: b.x, y0: b.y, amp: (S.x - b.x) * 0.8 + (Math.random() - 0.5) * 60 }; } arc.diveT = 5 + Math.random() * 4; }
+  // the centipede: across, down a row at a wall or a mushroom, back to the top when it reaches the bottom
+  arc.segs.forEach(s => { s.x += s.dir * 46 * dt; const hitM = arc.mush.some(m => m.hp > 0 && Math.abs(m.x - s.x) < 6 && Math.abs(m.y - s.y) < 4);
+    if (s.x < 5 || s.x > ARC.sw - 5 || hitM) { s.dir *= -1; s.x = THREE.MathUtils.clamp(s.x, 5, ARC.sw - 5) + s.dir * 2; s.y += 8; if (s.y > 276) s.y = 108; }
+    if (Math.abs(s.x - S.x) < 7 && Math.abs(s.y - S.y) < 6 && S.inv <= 0) { arcLoseLife(); s.y = 108; } });
+  if (!arc.segs.length) arcCentipede();
+  // the ship follows the joystick
+  S.x = THREE.MathUtils.clamp(S.x + arc.joy * 120 * dt, 8, ARC.sw - 8); S.inv = Math.max(0, S.inv - dt);
+  // shots
+  arc.bullets.forEach(u => { u.y -= 260 * dt; });
+  arc.bullets = arc.bullets.filter(u => { if (u.y < 0) return false;
+    for (const b of arc.bugs) if (b.alive && Math.abs(b.x - u.x) < 7 && Math.abs(b.y - u.y) < 6) { b.alive = false; b.dive = null; b.respawn = 2.6; arc.booms.push({ x: b.x, y: b.y, t: 0 }); arc.caps.push({ x: b.x, y: b.y, label: b.label }); arc.score += b.dive ? 160 : 80; arc.stats.hits++; return false; }
+    for (let i = 0; i < arc.segs.length; i++) { const s = arc.segs[i]; if (Math.abs(s.x - u.x) < 5 && Math.abs(s.y - u.y) < 5) { arc.segs.splice(i, 1); if (arc.segs[i]) arc.segs[i].head = true; arc.mush.push({ x: Math.round(s.x / 8) * 8, y: s.y, hp: 3, c: 'g' }); arc.booms.push({ x: s.x, y: s.y, t: 0 }); arc.score += 100; arc.stats.segs++; return false; } }
+    for (const m of arc.mush) if (m.hp > 0 && Math.abs(m.x - u.x) < 4 && Math.abs(m.y - u.y) < 4) { m.hp--; arc.score += 1; if (!m.hp) arc.stats.mush++; return false; }
+    return true; });
+  arc.mush = arc.mush.filter(m => m.hp > 0);
+  // capsules fall; the ship catches them
+  arc.caps.forEach(c => { c.y += 46 * dt; }); arc.caps = arc.caps.filter(c => { if (Math.abs(c.x - S.x) < 10 && Math.abs(c.y - S.y) < 8) { arcCatch(c); return false; } if (c.y > ARC.sh + 6) { arcLog(`Missed the "${c.label}" capsule.`); return false; } return true; });
+  arc.booms.forEach(b => { b.t += dt * 2.2; }); arc.booms = arc.booms.filter(b => b.t < 1);
+  // the insect pushes the stick toward its goal; it asks the caterpillar to fire when lined up, or at the centipede overhead
+  const P = arc.banner > 0 ? { x: 112, fire: false } : arcPlan(), want = THREE.MathUtils.clamp((P.x - S.x) / 26, -1, 1);
+  arc.joy += (want - arc.joy) * Math.min(1, dt * 5);
+  const segAbove = arc.segs.some(s => Math.abs(s.x - S.x) < 5 && s.y > 150);
+  if ((P.fire || segAbove) && arc.bullets.length < 2 && arc.cool <= 0) arc.fireReq = true;
+  if (arc.trace.length === 0 || arc.t - arc.trace[arc.trace.length - 1].t > 0.1) { arc.trace.push({ t: arc.t, joy: arc.joy, x: S.x }); if (arc.trace.length > 900) arc.trace.shift(); }
+}
+function drawArcade() {
+  const g = arx; g.imageSmoothingEnabled = false; g.fillStyle = '#000'; g.fillRect(0, 0, ARC.sw, ARC.sh);
+  arc.stars.forEach((s, i) => { if ((Math.floor(arc.t * 3) + i) % 7) { g.fillStyle = s.c; g.fillRect(Math.round(s.x), Math.round(s.y), 1, 1); } });
+  // HUD
+  g.font = ARC_FONT(8); g.textBaseline = 'top'; g.textAlign = 'left'; g.fillStyle = '#ff2a2a'; g.fillText('1UP', 16, 2); g.textAlign = 'center'; g.fillText('HIGH SCORE', 112, 2); g.fillStyle = '#fff'; g.textAlign = 'left'; g.fillText(String(arc.score).padStart(6, '0'), 8, 11); g.textAlign = 'center'; g.fillText(String(Math.max(arc.hi, arc.score)).padStart(6, '0'), 112, 11);
+  if (arc.word) { g.fillStyle = '#00e5ff'; g.textAlign = 'center'; g.font = ARC_FONT(7); g.fillText(arc.word.meaning.toUpperCase().slice(0, 36), 112, 22);
+    ['PREFIX', 'ROOT', 'SUFFIX'].forEach((k, i) => { const x = 10 + i * 70; g.strokeStyle = i < arc.slot ? '#ffe100' : '#2c6bff'; g.strokeRect(x + 0.5, 32.5, 64, 11); g.fillStyle = i < arc.slot ? '#ffe100' : '#3a4a7a'; g.fillText(i < arc.slot ? arc.word.parts[i].toUpperCase() : k, x + 32, 34); }); }
+  // mushrooms
+  arc.mush.forEach(m => { g.fillStyle = ARC_PAL[m.c]; g.fillRect(m.x - 3, m.y - 3, 7, 3 + m.hp); g.fillStyle = '#fff'; g.fillRect(m.x - 1, m.y, 3, 3); });
+  // the formation with its parts
+  g.font = ARC_FONT(6); arc.bugs.forEach(b => { if (!b.alive) return; arcSpr(g, b.type, b.x, b.y); g.fillStyle = b === arc.aim && !arc.caps.length ? '#ffe100' : '#ffffff'; g.textAlign = 'center'; g.fillText(b.label, b.x, b.y + 5); });
+  arc.segs.forEach(s => arcSpr(g, s.head ? 'head' : 'seg', s.x, s.y));
+  arc.caps.forEach(c => { g.fillStyle = '#ffe100'; g.fillRect(c.x - 12, c.y - 4, 24, 9); g.fillStyle = '#000'; g.textAlign = 'center'; g.font = ARC_FONT(6); g.fillText(c.label, c.x, c.y - 3); });
+  arc.bullets.forEach(u => { g.fillStyle = '#ffe100'; g.fillRect(Math.round(u.x), Math.round(u.y) - 3, 1, 4); });
+  if (arc.ship.inv <= 0 || Math.floor(arc.t * 10) % 2) arcSpr(g, 'ship', arc.ship.x, arc.ship.y);
+  arc.booms.forEach(b => { const r = (b.big ? 14 : 8) * b.t; ['#ffe100', '#ff2a2a', '#ffffff'].forEach((c, k) => { g.fillStyle = c; for (let i = 0; i < 8; i++) { const a = i / 8 * Math.PI * 2 + k * 0.4; g.fillRect(Math.round(b.x + Math.cos(a) * r * (1 - k * 0.25)), Math.round(b.y + Math.sin(a) * r * (1 - k * 0.25)), 2, 2); } }); });
+  for (let i = 0; i < arc.lives - 1; i++) arcSpr(g, 'ship', 12 + i * 14, 280);
+  g.fillStyle = '#fff'; g.font = ARC_FONT(7); g.textAlign = 'right'; g.fillText('CREDIT 01', 216, 276);
+  if (arc.msgT > 0) { g.fillStyle = arc.msg === 'GOT IT!' ? '#34d058' : '#ff2a2a'; g.font = ARC_FONT(10); g.textAlign = 'center'; g.fillText(arc.msg, 112, 236); }
+  if (arc.banner > 0 && arc.word) { g.fillStyle = '#000'; g.fillRect(24, 122, 176, 40); g.strokeStyle = '#ffe100'; g.strokeRect(24.5, 122.5, 175, 39); g.fillStyle = '#ffe100'; g.font = ARC_FONT(10); g.textAlign = 'center'; g.fillText('WORD BUILT!', 112, 128); g.fillStyle = '#fff'; g.font = ARC_FONT(8); g.fillText(arc.word.word.toUpperCase(), 112, 144); }
+  arcTex.needsUpdate = true;
+}
+function arcadeStart() {
+  const st = flyState, k = fly.scale.x; st.airborne = false; st.buzz = 0; st.walking = false; st.yaw = Math.PI; st.pitchOverride = -0.32; st.groundY = ARC.cp; legs.forEach(L => { L.groundY = ARC.cp; });
+  st.pos.copy(ARC_JOY).add(V3(0, 0, 2.6 * k)); plantFeet(); agent.tapLeg = legs[0]; agent.tapLeg2 = legs[1]; legs[0].step = legs[1].step = null;
+  if (!arc.word) arcInit(); drawArcade(); setPhase('j_play'); renderTrial();
+}
+function stepArcade(dt, now) {
+  const st = flyState, k = fly.scale.x; arcStep(dt); if ((arc.redraw = (arc.redraw || 0) + dt) > 0.05) { arc.redraw = 0; drawArcade(); }
+  // the stick tilts with the push; the insect leans with it, both forelegs on the ball
+  arcStick.rotation.z = -arc.joy * 0.42; arcStick.updateMatrixWorld(true); const bp = arcBallWorld();
+  st.pitchOverride = -0.32; st.airborne = false; st.walking = false; st.yaw = Math.PI; st.pos.set(ARC_JOY.x + (bp.x - ARC_JOY.x) * 0.55, ARC.cp, ARC_JOY.z + 2.6 * k);
+  agent.tapLeg = legs[0]; agent.tapLeg2 = legs[1]; legs[0].foot.copy(bp).add(V3(-0.55, 0.2, 0.75)); legs[1].foot.copy(bp).add(V3(0.55, 0.2, 0.75));
+  for (const id of ['A', 'B']) { const B = arcBtn[id]; B.userData.press = Math.max(0, (B.userData.press || 0) - dt * 6); B.position.y = B.userData.rest - 0.35 * Math.min(1, B.userData.press * 2); }
+  st.headYaw = (arc.ship.x - 112) / 112 * 0.25; pulse(0, 1); pulse(1, 1); pulse(5, 0.4 + 0.6 * Math.abs(arc.joy)); pulse(12, 0.5 + 0.5 * Math.abs(arc.joy)); pulse(11, 0.6);
+  if (Math.floor(now / 400) !== Math.floor((now - dt * 1000) / 400)) renderTrial();
+}
+// the caterpillar by the A button: it keeps its head over the button, and bonks it when asked
+function arcCatStep(dt, H) {
+  arc.catTarget = { x: ARC_A.x, z: ARC_A.z + 0.9 };
+  if (arc.fireReq && arc.pressT == null && Math.hypot(H.x - arc.catTarget.x, H.z - arc.catTarget.z) < 0.9) { arc.pressT = 0; arc.fireReq = false; }
+  if (arc.pressT != null) { arc.pressT += dt; arc.dip = Math.sin(Math.min(1, arc.pressT / 0.3) * Math.PI); if (arc.pressT >= 0.14 && !arc.fired) { arc.fired = true; arcFire(); } if (arc.pressT >= 0.3) { arc.pressT = null; arc.fired = false; arc.dip = 0; arc.cool = 0.12; } }
+}
+function renderArcadeTrial() {
+  const W = arc.word, S = arc.stats; if (!W) return; $('meaning').textContent = W.meaning;
+  $('chips').innerHTML = W.parts.map((p, i) => `<span class="chip ${i < arc.slot ? kindOf(p) : 'empty'}">${i < arc.slot ? p : '?'}<small>${kindOf(p)}</small></span>`).join('');
+  $('placedCount').textContent = `${arc.slot} of 3 caught`; $('placedBar').classList.toggle('done', arc.slot >= 3); $('placedBar').firstElementChild.style.width = `${arc.slot / 3 * 100}%`;
+  $('feedback').textContent = arc.feedback; $('nowLine').textContent = `Arcade · Root Blaster · score ${arc.score}`;
+  $('stWords').textContent = S.words; $('stTaps').textContent = S.caught; $('stAcc').textContent = S.caught ? Math.round(100 * S.right / S.caught) + '%' : '0%';
+  $('memory').innerHTML = W.parts.map(p => { const m = memoryOf(p); return `<div class="m"><span>${p}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${m >= 0.8 ? 'mastered' : Math.round(m * 100) + '% · learning'}</span></div>`; }).join('');
+}
+arcInit(); drawArcade();
+window.__arc = () => arc; // debug hook
+
 // ---------- Cameras ----------
 let camMode = 'follow';
 let view = 'simulate';
@@ -5309,7 +5524,7 @@ function updateCamera() {
   if (camMode === 'back') return updateBackCam(false);
   if (camMode === 'phone' && experiment === 12) { const h = head.getWorldPosition(new THREE.Vector3()), f = new THREE.Vector3(Math.sin(flyState.yaw), 0, Math.cos(flyState.yaw)); const k = fly.scale.x; camera.position.copy(h).addScaledVector(f, 1.3 * k).add(new THREE.Vector3(0, 0.5 * k, 0)); controls.target.copy(h).addScaledVector(f, 12); } // what the fly sees through the glass headset, overlays included
   if (camMode === 'follow') {
-    const goal = experiment === 17 ? flyState.pos.clone().lerp(RT_MID, 0.35) : experiment === 16 ? flyState.pos.clone().lerp(MATH_MID, 0.25) : experiment === 11 ? VR_MID.clone() : experiment === 13 ? SC_MID.clone() : experiment === 14 ? PB_MID.clone() : experiment === 15 ? GEO_MID.clone() : flyState.pos.clone(); goal.y += 1;
+    const goal = experiment === 18 ? ARC_MID.clone() : experiment === 17 ? flyState.pos.clone().lerp(RT_MID, 0.35) : experiment === 16 ? flyState.pos.clone().lerp(MATH_MID, 0.25) : experiment === 11 ? VR_MID.clone() : experiment === 13 ? SC_MID.clone() : experiment === 14 ? PB_MID.clone() : experiment === 15 ? GEO_MID.clone() : flyState.pos.clone(); goal.y += 1;
     const delta = goal.clone().sub(controls.target).multiplyScalar(flyState.airborne ? 0.25 : 0.12);
     controls.target.add(delta); camera.position.add(delta);
   }
@@ -5320,7 +5535,8 @@ function setCamMode(m) {
   document.querySelectorAll('[data-cam]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === m)));
   const s = phone.scale.x;
   if (m === 'back') { updateBackCam(true); return; }
-  if (m === 'phone' && EXP[experiment].retro) { const c = RT.crt.getWorldPosition(new THREE.Vector3()); controls.target.copy(c); camera.position.copy(c).add(new THREE.Vector3(0, 4, 62)); }
+  if (m === 'phone' && EXP[experiment].arcade) { const c = ARC.crt.getWorldPosition(new THREE.Vector3()); controls.target.copy(c); camera.position.copy(c).add(new THREE.Vector3(0, 22, 86)); }
+  else if (m === 'phone' && EXP[experiment].retro) { const c = RT.crt.getWorldPosition(new THREE.Vector3()); controls.target.copy(c); camera.position.copy(c).add(new THREE.Vector3(0, 4, 62)); }
   else if (m === 'phone' && EXP[experiment].math) { controls.target.copy(MATH_MID); camera.position.set(MATH_MID.x, MATH.Y + 125, MATH_MID.z + 34); }
   else if (m === 'phone' && EXP[experiment].geo) { controls.target.copy(GEO.C); camera.position.copy(GEO.C).add(new THREE.Vector3(10, 6, 44)); }
   else if (m === 'phone' && EXP[experiment].paper) { controls.target.set(0, PB.Y, 0); camera.position.set(0, PB.Y + 52, 20); }
@@ -5331,7 +5547,7 @@ function setCamMode(m) {
   else if (m === 'phone' && EXP[experiment].classroom) { const k = camera.aspect < 1 ? Math.min(2.2, Math.pow(1 / camera.aspect, 0.75)) : 1; controls.target.set(0, CLS.topY - 2, -10); camera.position.set(0, CLS.topY + 78 * k, -10 + 114 * k); }
   else if (m === 'phone' && EXP[experiment].laptop) { const L = laptop.position; controls.target.set(L.x, TABLE_Y + 60 * s, -30 * s); camera.position.set(L.x, TABLE_Y + 190 * s + (experiment === 5 ? 3 : 0), 300 * s + (experiment === 5 ? 5 : 0)); }
   else if (m === 'phone') { controls.target.set(0, screenTopY(), 0); camera.position.set(0, 120 * s + (experiment === 3 ? 2 : 0), 150 * s + (experiment === 3 ? 4 : 0)); }
-  else { const t = experiment === 17 ? flyState.pos.clone().lerp(RT_MID, 0.35) : experiment === 16 ? flyState.pos.clone().lerp(MATH_MID, 0.25) : experiment === 11 ? VR_MID : experiment === 13 ? SC_MID : experiment === 14 ? PB_MID : experiment === 15 ? GEO_MID : flyState.pos; controls.target.copy(t); camera.position.copy(t).add(new THREE.Vector3(...EXP[experiment].camOffset).multiplyScalar((butterfly && !EXP[experiment].vrRig && !EXP[experiment].scrabble ? 1.7 : 1) * (camera.aspect < 1 ? Math.min(2.2, Math.pow(1 / camera.aspect, 0.75)) : 1))); } // step back for the bigger butterfly, and for a narrow portrait screen
+  else { const t = experiment === 18 ? ARC_MID : experiment === 17 ? flyState.pos.clone().lerp(RT_MID, 0.35) : experiment === 16 ? flyState.pos.clone().lerp(MATH_MID, 0.25) : experiment === 11 ? VR_MID : experiment === 13 ? SC_MID : experiment === 14 ? PB_MID : experiment === 15 ? GEO_MID : flyState.pos; controls.target.copy(t); camera.position.copy(t).add(new THREE.Vector3(...EXP[experiment].camOffset).multiplyScalar((butterfly && !EXP[experiment].vrRig && !EXP[experiment].scrabble ? 1.7 : 1) * (camera.aspect < 1 ? Math.min(2.2, Math.pow(1 / camera.aspect, 0.75)) : 1))); } // step back for the bigger butterfly, and for a narrow portrait screen
 }
 document.querySelectorAll('[data-cam]').forEach(b => b.addEventListener('click', () => setCamMode(b.dataset.cam)));
 
@@ -5341,16 +5557,16 @@ function setExperiment(n) {
   document.querySelectorAll('[data-exp]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.exp) === n)));
   $('expDropName').textContent = cfg.name;
   $('expNote').textContent = cfg.note; $('physPill').textContent = cfg.phys;
-  $('gripPill').textContent = n === 17 ? 'A foreleg taps each key' : n === 16 ? 'Abdomen tip and a hind leg press keys' : n === 15 ? 'A foreleg taps the globe' : n === 14 ? 'Both forelegs grip the page' : n === 13 ? 'A foreleg carries each tile' : n === 12 ? 'A foreleg pinches the holograms' : n === 11 ? 'Six feet on the ball' : n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
-  document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.retro ? 'Screen' : cfg.math ? 'Calculators' : cfg.geo ? 'Globe' : cfg.paper ? 'Book' : cfg.scrabble ? 'Board' : cfg.ar ? 'Headset' : cfg.vrRig ? 'Laptop' : cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
+  $('gripPill').textContent = n === 18 ? 'Both forelegs on the joystick' : n === 17 ? 'A foreleg taps each key' : n === 16 ? 'Abdomen tip and a hind leg press keys' : n === 15 ? 'A foreleg taps the globe' : n === 14 ? 'Both forelegs grip the page' : n === 13 ? 'A foreleg carries each tile' : n === 12 ? 'A foreleg pinches the holograms' : n === 11 ? 'Six feet on the ball' : n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
+  document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.arcade ? 'Screen' : cfg.retro ? 'Screen' : cfg.math ? 'Calculators' : cfg.geo ? 'Globe' : cfg.paper ? 'Book' : cfg.scrabble ? 'Board' : cfg.ar ? 'Headset' : cfg.vrRig ? 'Laptop' : cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
   const wasClass = classroom.visible; classroom.visible = !!cfg.classroom; fly.visible = !cfg.classroom;
   $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n >= 8; $('soundBtn').hidden = n !== 8 && n !== 9 && n !== 14; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; flyState.pitchOverride = null; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom || n === 11; $('eyeBtn').hidden = !!cfg.classroom || n === 11; $('vision').hidden = !(cfg.classroom && visionOn);
-  $('stWords').nextElementSibling.textContent = n === 17 ? 'words built' : n === 16 ? 'problems right' : cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : n === 15 ? 'countries right' : n === 14 ? 'pages read' : n === 13 ? 'words played' : n === 10 || n === 11 ? 'answers right' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : n === 12 ? 'blocks placed' : n === 13 ? 'points' : n === 14 ? 'words read' : n === 15 ? 'questions' : n === 10 || n === 11 ? 'answers written' : 'answers';
-  $('memHead').textContent = n === 17 ? 'Word-part memory · shared with Experiments 1 to 4' : n === 16 ? 'Problem-type memory · the insect, then the caterpillar' : cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : n === 9 ? 'Vocabulary memory · Kenyon cell to MBON weights' : n === 10 ? 'Greek root memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
+  $('stWords').nextElementSibling.textContent = n === 18 ? 'words built' : n === 17 ? 'words built' : n === 16 ? 'problems right' : cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : n === 15 ? 'countries right' : n === 14 ? 'pages read' : n === 13 ? 'words played' : n === 10 || n === 11 ? 'answers right' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : n === 12 ? 'blocks placed' : n === 13 ? 'points' : n === 14 ? 'words read' : n === 15 ? 'questions' : n === 10 || n === 11 ? 'answers written' : 'answers';
+  $('memHead').textContent = n === 18 ? 'Word-part memory · shared with Experiments 1 to 4' : n === 17 ? 'Word-part memory · shared with Experiments 1 to 4' : n === 16 ? 'Problem-type memory · the insect, then the caterpillar' : cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : n === 9 ? 'Vocabulary memory · Kenyon cell to MBON weights' : n === 10 ? 'Greek root memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
   document.querySelectorAll('#brainPanel [data-rp]').forEach(el => { el.hidden = !el.dataset.rp.split(' ').includes(String(n)); }); requestAnimationFrame(() => { sizeCharts(); resize(); renderScenario(true); }); // right panel sections for this scenario
   if (cfg.classroom) { setFocal(cls.focal); classroomStart(); } else head.add(eyeCam);
   phone.scale.setScalar(s); phone.position.set(0, TABLE_Y + 4 * s, 0); phone.updateMatrixWorld(true);
-  phone.visible = !cfg.laptop && !cfg.classroom && !cfg.tablet && !cfg.vrRig && !cfg.ar && !cfg.scrabble && !cfg.paper && !cfg.geo && !cfg.math && !cfg.retro; mathGroup.visible = !!cfg.math; retroGroup.visible = !!cfg.retro; vrRig.visible = headset.visible = !!cfg.vrRig; arGroup.visible = arHeadset.visible = !!cfg.ar; scGroup.visible = !!cfg.scrabble; pbGroup.visible = !!cfg.paper; geoGroup.visible = !!cfg.geo; table.visible = !cfg.geo; agent.tapLeg2 = null; applyMainLook(cfg.scrabble ? false : butterfly); head.rotation.x = 0; agent.tapLeg = null; laptop.visible = !!cfg.laptop; tabletRig.visible = !!cfg.tablet;
+  phone.visible = !cfg.laptop && !cfg.classroom && !cfg.tablet && !cfg.vrRig && !cfg.ar && !cfg.scrabble && !cfg.paper && !cfg.geo && !cfg.math && !cfg.retro && !cfg.arcade; mathGroup.visible = !!cfg.math; retroGroup.visible = !!cfg.retro; arcGroup.visible = !!cfg.arcade; vrRig.visible = headset.visible = !!cfg.vrRig; arGroup.visible = arHeadset.visible = !!cfg.ar; scGroup.visible = !!cfg.scrabble; pbGroup.visible = !!cfg.paper; geoGroup.visible = !!cfg.geo; table.visible = !cfg.geo; agent.tapLeg2 = null; applyMainLook(cfg.scrabble ? false : butterfly); head.rotation.x = 0; agent.tapLeg = null; laptop.visible = !!cfg.laptop; tabletRig.visible = !!cfg.tablet;
   if (cfg.laptop) { laptop.scale.setScalar(s); laptop.position.set(0, TABLE_Y, 0); laptop.updateMatrixWorld(true); }
   Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === n; });
   ghostLine.visible = false; agent.ghost = null;
@@ -5377,12 +5593,13 @@ function setExperiment(n) {
   if (n === 15) geoStart();
   if (n === 16) mathStart();
   if (n === 17) retroStart();
+  if (n === 18) arcadeStart();
   if (n === 14) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); pbStart(); }
   // the side panel follows the experiment to its most related dashboard (after start-up, once the dock code exists)
   requestAnimationFrame(() => { dockChoice = DOCK_FOR[n]; if (view === 'simulate') dock(dockChoice); });
   catSync();
 }
-const DOCK_FOR = { 17: 'd-retro-sec', 16: 'd-math-sec', 15: 'd-geo-sec', 14: 'd-pb-sec', 13: 'd-sc-sec', 12: 'd-ar-sec', 11: 'd-vr-sec', 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
+const DOCK_FOR = { 18: 'd-arc-sec', 17: 'd-retro-sec', 16: 'd-math-sec', 15: 'd-geo-sec', 14: 'd-pb-sec', 13: 'd-sc-sec', 12: 'd-ar-sec', 11: 'd-vr-sec', 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
 document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => { setExperiment(Number(b.dataset.exp)); expMenuOpen(false, true); }));
 // the experiment dropdown: a vertical list, placed under its button (fixed, so the header's scrolling row does not clip it)
 function expMenuOpen(on, refocus) {
@@ -5401,7 +5618,7 @@ addEventListener('resize', () => expMenuOpen(false));
 // ---------- Caterpillar companion (butterfly mode) ----------
 // The larva of the butterfly on display crawls in some scenes, trying to read too. Its colouring follows each
 // species' real caterpillar. In the paper book it clings to the page as it turns, then crawls back over.
-const CAT_EXPS = [1, 9, 13, 14, 15, 16, 17], CAT_N = 11, CAT_D = 0.66;
+const CAT_EXPS = [1, 9, 13, 14, 15, 16, 17, 18], CAT_N = 11, CAT_D = 0.66;
 const catDots = (g, xs, ys, r, c) => { g.fillStyle = c; xs.forEach(x => ys.forEach(y => { g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill(); })); };
 // textures wrap a segment: x runs round it (dorsal at a quarter, flanks at 0 and a half), y runs head to tail
 const CAT_LOOK = {
@@ -5455,6 +5672,7 @@ function catZone() {
   if (e === 9) return { y: TABLE_Y + 3, box: [-40, 40, 12, 20], look: V3(0, TABLE_Y + 50, -15) };
   if (e === 13) { const b = SC.n * SC.cell / 2; return { y: TABLE_Y, box: [b + 8, b + 17, -18, 18], look: SC_MID }; }
   if (e === 15) return { y: TABLE_Y + 0.12, box: [-38, -12, 14, 23], look: GEO.C };
+  if (e === 18) return { y: ARC.cp, box: [ARC_A.x - 2, ARC_A.x + 2, ARC_A.z + 1, ARC_A.z + 7] };
   if (e === 17) return { y: TABLE_Y, box: [-86, -62, 4, 36], look: RT.crt.getWorldPosition(new THREE.Vector3()) };
   if (e === 16) return { y: kcTopY, box: [MATH.kc.x - 13, MATH.kc.x + 13, MATH.kc.z - 8, MATH.kc.z + 22] };
   return null;
@@ -5475,7 +5693,7 @@ function catPlace() {
 }
 function catSync() {
   // in Experiment 16 the caterpillar is the second learner, so it is always there (green Tiger Swallowtail when the insect is a fruit fly)
-  const on = experiment === 16 || (butterfly && cat.on && CAT_EXPS.includes(experiment)); catGroup.visible = on; if (!on) return;
+  const on = experiment === 16 || experiment === 18 || (butterfly && cat.on && CAT_EXPS.includes(experiment)); catGroup.visible = on; if (!on) return;
   catBuild(butterfly ? bfMain() : GNV_BUTTERFLIES[3]); if (cat.exp !== experiment || !cat.chain.length) { cat.exp = experiment; catPlace(); }
 }
 // the book: it rides a forward page turn if it is on the right-hand page, then lands mirrored on the left
@@ -5486,6 +5704,7 @@ function catStep(dt, now) {
   const Z = catZone(); if (!Z || !cat.chain.length) return; const C = cat.chain, H = C[0], [x0, x1, z0, z1] = Z.box;
   // where to go: in the book, along the line being read (or back over to the right page); elsewhere, wander the zone away from the bug
   if (cat.exp === 16) { kidStep(dt, H); cat.target = kc.target || { x: H.x, z: H.z }; }
+  else if (cat.exp === 18) { arcCatStep(dt, H); cat.target = arc.catTarget; }
   else if (cat.exp === 14) {
     if (H.x < 1.5) cat.target = { x: 6, z: -PB.H / 2 + 5 };
     else if (agent.phase === 'pb_read' && pb.words.length) { const W = pb.words[Math.max(0, Math.min(pb.words.length - 1, pb.wi))]; const p = pbWorld(W.x - 120, W.y + 46, false); cat.target = { x: THREE.MathUtils.clamp(p.x, x0, x1), z: THREE.MathUtils.clamp(p.z, z0, z1) }; }
@@ -5495,17 +5714,17 @@ function catStep(dt, now) {
     if (!cat.target || (Math.hypot(cat.target.x - H.x, cat.target.z - H.z) < 0.6 && (cat.wait -= dt) <= 0) || near(cat.target)) { cat.target = { x: x0 + Math.random() * (x1 - x0), z: z0 + Math.random() * (z1 - z0) }; cat.wait = 4 + Math.random() * 6; }
   }
   const dx = cat.target.x - H.x, dz = cat.target.z - H.z, dist = Math.hypot(dx, dz);
-  const go = !cat.attach && dist > 0.5; cat.moving += ((go ? 1 : 0) - cat.moving) * Math.min(1, dt * 3);
+  const go = !cat.attach && dist > (cat.exp === 18 ? 0.35 : 0.5); cat.moving += ((go ? 1 : 0) - cat.moving) * Math.min(1, dt * 3);
   if (go) { cat.phase += dt * 5.5; let dy = Math.atan2(dz, dx) - cat.yaw; dy = Math.atan2(Math.sin(dy), Math.cos(dy)); cat.yaw += THREE.MathUtils.clamp(dy, -1.6 * dt, 1.6 * dt);
     const v = (cat.exp === 16 ? 4.6 : cat.exp === 14 && H.x < 1.5 ? 2.2 : 1.3) * (0.25 + 0.75 * Math.max(0, Math.sin(cat.phase))); H.x += Math.cos(cat.yaw) * v * dt; H.z += Math.sin(cat.yaw) * v * dt; }
   for (let k = 1; k < C.length; k++) { const P = C[k], Q = C[k - 1], ex = P.x - Q.x, ez = P.z - Q.z, d = Math.hypot(ex, ez) || 1; if (d > CAT_D) { P.x = Q.x + ex / d * CAT_D; P.z = Q.z + ez / d * CAT_D; } }
-  cat.read += ((cat.exp === 16 ? (kc.reading > 0 || kc.wait > 0 ? 1 : 0) : go || cat.attach ? 0 : 1) - cat.read) * Math.min(1, dt * 1.5); // rears up to read when it stops
+  cat.read += ((cat.exp === 18 ? 0.75 : cat.exp === 16 ? (kc.reading > 0 || kc.wait > 0 ? 1 : 0) : go || cat.attach ? 0 : 1) - cat.read) * Math.min(1, dt * 1.5); // rears up to read when it stops
   // pose each part on the surface: a peristaltic hump travels tail to head while it crawls
   const S = C.map(c => catSurf(c.x, c.z));
   for (let k = 0; k < C.length; k++) {
     const part = cat.parts[k]; if (!part) continue; const r = part.r, n = S[k].n;
     if (k === 0) catV.f.subVectors(S[0].p, S[1].p); else catV.f.subVectors(S[k - 1].p, S[k].p); catV.f.addScaledVector(n, -catV.f.dot(n)).normalize();
-    const lift = cat.read * Math.max(0, 3.2 - k) ** 1.4 * 0.16 - (cat.exp === 16 && k < 3 ? kc.dip * [0.62, 0.36, 0.12][k] : 0), hump = cat.moving * Math.max(0, Math.sin(cat.phase - k * 0.8)) * 0.3 * r, sway = cat.read * Math.sin(now / 700) * 0.35 * Math.max(0, 3 - k) / 3;
+    const lift = cat.read * Math.max(0, 3.2 - k) ** 1.4 * 0.16 - ((cat.exp === 16 || cat.exp === 18) && k < 3 ? (cat.exp === 16 ? kc.dip : arc.dip * 1.25) * [0.62, 0.36, 0.12][k] : 0), hump = cat.moving * Math.max(0, Math.sin(cat.phase - k * 0.8)) * 0.3 * r, sway = cat.read * Math.sin(now / 700) * 0.35 * Math.max(0, 3 - k) / 3;
     if (k < 3 && cat.read > 0.05) catV.f.addScaledVector(n, cat.read * 0.45 * (3 - k) / 3).normalize();
     catV.r.crossVectors(catV.f, n).normalize(); catV.b.crossVectors(catV.r, catV.f).normalize();
     part.g.position.copy(S[k].p).addScaledVector(n, r * 0.9 + 0.05 + hump + lift).addScaledVector(catV.r, sway + (cat.attach ? Math.sin(now / 90 + k) * 0.05 : 0));
@@ -6012,6 +6231,20 @@ function drawDashboards(now, force) {
     const rows = H.slice(-12).reverse().map(h => `<tr><th scope="row">${h.q}</th><td>${geoName(h.answer)}</td><td class="${h.ok ? 'yes' : ''}">${geoName(h.picked)}</td><td>${h.ok ? '–' : h.km.toLocaleString() + ' km'}</td></tr>`).join('');
     const tb = document.querySelector('#geoTable tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
     document.getElementById('geoLogL').innerHTML = gq.log.slice(-10).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing yet</li>';
+  }
+  // ---- dashboard 18: arcade ----
+  { const S = arc.stats;
+    $t('arcMode', experiment === 18 ? `Experiment 18 · ${arc.word ? arc.word.word : ''}` : 'switch to Experiment 18 to run'); $t('arcWords', S.words); $t('arcCaught', S.caught); $t('arcAcc', S.caught ? Math.round(100 * S.right / S.caught) + '%' : '–');
+    $t('arcScore', arc.score); $t('arcShots', S.shots); $t('arcHits', `${S.hits} · ${S.segs} · ${S.mush}`); $t('arcLost', S.lost);
+    { const Tr = arc.trace.filter(p => p.joy != null && arc.t - p.t < 60), ev = arc.trace.filter(p => p.ev && arc.t - p.t < 60);
+      if (Tr.length < 2) emptyChart('cArcJoy', 'Runs in Experiment 18');
+      else { const t0 = Tr[0].t, t1 = Tr[Tr.length - 1].t; const G = plot('cArcJoy', { x: [t0, t1], y: [-1, 1], yt: [-1, 0, 1], yfmt: v => v < 0 ? 'left' : v > 0 ? 'right' : '0', xl: `last ${Math.round(t1 - t0)} s →` });
+        if (G) { const { ctx, X, Y, o, h, pad } = G; pline(ctx, Tr.map(p => [X(p.t), Y(p.joy)]), CH.blue, 2); ev.forEach(p => dot(ctx, X(p.t), Y(p.joy), 4.5, p.ev === 'ok' ? CH.green : '#fff', p.ev === 'ok' ? null : CH.red));
+          tipNear(o, Tr.filter((_, i) => i % 3 === 0).map(p => ({ x: X(p.t), y: 0, t: `stick ${p.joy.toFixed(2)} · ship at ${Math.round(p.x)} px · ${Math.round(t1 - p.t)} s ago` })), true); } } }
+    barChart('cArcHits', [{ v: S.hits, color: CH.green, label: `bugs hit: ${S.hits}` }, { v: S.segs, color: CH.amber, label: `centipede segments: ${S.segs}` }, { v: S.mush, color: CH.blue, label: `mushrooms cleared: ${S.mush}` }], { positive: true, empty: 'Runs in Experiment 18' });
+    const ml = [...new Set(WORDS.flatMap(w => w.parts))].filter(p => game.memory.has(p)).sort((a, b) => memoryOf(b) - memoryOf(a)).slice(0, 12).map(p => { const m = memoryOf(p); return `<div class="m"><span>${p}</span><div class="bar${m >= 0.8 ? ' done' : ''}"><span style="width:${Math.round(m * 100)}%"></span></div><span class="sub">${Math.round(m * 100)}%</span></div>`; }).join('') || '<p class="sub">Runs in Experiment 18.</p>';
+    const me = document.getElementById('arcMem'); if (me.innerHTML !== ml) me.innerHTML = ml;
+    document.getElementById('arcLogL').innerHTML = arc.log.slice(-10).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing yet</li>';
   }
   // ---- dashboard 17: retro computer ----
   { const S = rt.stats, H = rt.history;
