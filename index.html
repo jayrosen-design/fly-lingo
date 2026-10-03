@@ -5020,7 +5020,7 @@ const KC_NEIGH = { 1: '24', 2: '135', 3: '26', 4: '157', 5: '2468', 6: '359', 7:
 function kidNext() {
   const type = KID_TYPES[rInt(0, 3)], P = genKid(type); kc.problem = P; const m = kc.mem.get(type) ?? 0.2; kc.mem.set(type, m);
   let T = ['C', ...String(P.a).split(''), P.op, ...String(P.b).split(''), '='];
-  if (Math.random() > 0.35 + 0.6 * m) { const idx = T.map((t, i) => /[0-9]/.test(t) ? i : -1).filter(i => i >= 0); const j = idx[rInt(0, idx.length - 1)], nb = KC_NEIGH[T[j]]; T = T.slice(); T[j] = nb[rInt(0, nb.length - 1)]; }
+  if (Math.random() > 0.35 + 0.6 * m) { const idx = T.map((t, i) => /^[0-9]$/.test(t) ? i : -1).filter(i => i >= 0); const j = idx[rInt(0, idx.length - 1)], nb = KC_NEIGH[T[j]]; T = T.slice(); T[j] = nb[rInt(0, nb.length - 1)]; }
   kc.toks = T; kc.i = 0; kc.typed = ''; kc.reading = 1.6; drawMathCard(kcCard, '4th grade · Caterpillar', '#2f86e8', P.text);
 }
 function kidPress(t) { const K = kcKeys[t]; if (K) K.userData.press = 1; kc.stats.keys++;
@@ -5048,9 +5048,9 @@ const LEG_KEYS = new Set(['Y=', 'CLEAR', 'DOWN', 'ZOOM', '2ND', 'TRACE', 'GRAPH'
 function algNext() {
   const type = ALG_TYPES[mq.round++ % ALG_TYPES.length], P = genAlgebra(type); mq.P = P; const m = mq.mem.get(type) ?? 0.2; mq.mem.set(type, m);
   // the keystrokes: Y=, clear and enter each function, zoom, then CALC; a slip changes one number or sign
-  const Ys = P.y.map(T => T.slice()); if (Math.random() > 0.35 + 0.6 * m) { const T = Ys[rInt(0, Ys.length - 1)], idx = T.map((t, i) => /[0-9]/.test(t) || t === '+' || t === '−' ? i : -1).filter(i => i >= 0); const j = idx[rInt(0, idx.length - 1)];
+  const Ys = P.y.map(T => T.slice()); if (Math.random() > 0.35 + 0.6 * m) { const T = Ys[rInt(0, Ys.length - 1)], idx = T.map((t, i) => /^[0-9]$/.test(t) || t === '+' || t === '−' ? i : -1).filter(i => i >= 0); /* single digits and signs only: 'x2' is a key, not a number */ const j = idx[rInt(0, idx.length - 1)];
     T[j] = T[j] === '+' ? '−' : T[j] === '−' ? '+' : String((+T[j] + (Math.random() < 0.5 ? 1 : 9)) % 10); }
-  mq.plan = ['Y=', 'CLEAR', ...Ys[0]]; if (Ys[1]) mq.plan.push('DOWN', 'CLEAR', ...Ys[1]); else mq.plan.push('DOWN', 'CLEAR'); mq.plan.push('ZOOM', P.zoom, '2ND', 'TRACE', P.calc); mq.pi = 0; mq.typedYs = Ys;
+  mq.plan = ['Y=', 'CLEAR', ...Ys[0]]; if (Ys[1]) mq.plan.push('DOWN', 'CLEAR', ...Ys[1]); else mq.plan.push('DOWN', 'CLEAR'); mq.plan.push('ZOOM', P.zoom, '2ND', 'TRACE', P.calc); mq.plan = mq.plan.filter(id => tiKeys[id]); /* never plan a key the calculator does not have */ mq.pi = 0; mq.typedYs = Ys;
   drawMathCard(tiCard, `College algebra · ${ALG_NAME[type]}`, '#002657', P.text);
 }
 function tiPress(id) {
