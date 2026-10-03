@@ -52,7 +52,7 @@ header .brand{display:flex;flex-direction:column;gap:2px;min-width:0}
 .expmenu button[aria-pressed="true"]{background:#fff;color:var(--dark-blue)}
 #bfSpecies{height:28px;max-width:190px;border-radius:8px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);color:#fff;font:700 12px/16px var(--display);padding:0 6px;cursor:pointer}
 #bfSpecies option{color:#10223f;background:#fff}
-#bfSpecies[hidden]{display:none}
+#bfSpecies[hidden],#catGroup[hidden]{display:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border-radius:10px;font:700 16px/20px var(--display);cursor:pointer;border:2px solid transparent;text-decoration:none;white-space:nowrap}
 .btn-accent{background:var(--alachua);color:var(--dark-blue);border-color:var(--dark-blue)}
 header .btn-accent{border-color:var(--alachua);flex-shrink:0}
@@ -306,6 +306,7 @@ pre.mermaid svg{max-width:none;height:auto}
           <button type="button" data-species="fly" aria-pressed="true" title="Fruit fly" aria-label="Fruit fly"><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="10" cy="12" rx="8" ry="4.2" transform="rotate(-35 10 12)" fill="#dfe8ff" fill-opacity=".75" stroke="#b9c7e6" stroke-width=".8"/><ellipse cx="22" cy="12" rx="8" ry="4.2" transform="rotate(35 22 12)" fill="#dfe8ff" fill-opacity=".75" stroke="#b9c7e6" stroke-width=".8"/><ellipse cx="16" cy="19" rx="4" ry="7" fill="#c8894e"/><path d="M12.4 19h7.2M12.3 22h7.4M13 25h6" stroke="#5a3a1e" stroke-width="1.1"/><circle cx="16" cy="10.5" r="3.4" fill="#c8894e"/><circle cx="13.6" cy="10" r="2.3" fill="#d4262c"/><circle cx="18.4" cy="10" r="2.3" fill="#d4262c"/></svg></button>
           <button type="button" data-species="butterfly" aria-pressed="false" title="Blue Morpho butterfly" aria-label="Blue Morpho butterfly"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><radialGradient id="morphoG" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#0b3fc4"/><stop offset=".6" stop-color="#1f8bff"/><stop offset="1" stop-color="#5fd8ff"/></radialGradient></defs><path d="M15 14C11 5 4 3 2 6s1 9 5 10c-4 2-5 7-2 9s8-2 10-8z" fill="url(#morphoG)" stroke="#07080c" stroke-width="1.6"/><path d="M17 14c4-9 11-11 13-8s-1 9-5 10c4 2 5 7 2 9s-8-2-10-8z" fill="url(#morphoG)" stroke="#07080c" stroke-width="1.6"/><rect x="15" y="9" width="2" height="15" rx="1" fill="#1b120b"/><path d="M15.5 9 13 4M16.5 9 19 4" stroke="#1b120b" stroke-width=".9"/><circle cx="4" cy="7" r=".8" fill="#fff"/><circle cx="28" cy="7" r=".8" fill="#fff"/></svg></button>
         </div>
+        <div class="species" id="catGroup" role="group" aria-label="Caterpillar" hidden><button type="button" id="catBtn" aria-pressed="true" title="Caterpillar: the larva of the butterfly on display joins some scenes" aria-label="Caterpillar companion"><svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#7cc23a"><circle cx="8" cy="19" r="3.4"/><circle cx="12.5" cy="17" r="3.6"/><circle cx="17" cy="16.4" r="3.6"/><circle cx="21.5" cy="17.4" r="3.4"/></g><circle cx="26" cy="15" r="3.6" fill="#2a2a2a"/><path d="M27 11.6l1.6-3M25 11.4l-.6-3.2" stroke="#2a2a2a" stroke-width="1.2" stroke-linecap="round"/><g fill="#f2d22a"><circle cx="12.5" cy="15.4" r="1"/><circle cx="17" cy="14.8" r="1"/><circle cx="21.5" cy="15.8" r="1"/></g></svg></button></div>
         <select id="bfSpecies" aria-label="Butterfly species" title="Butterfly species" hidden>
           <option value="mix">Blue Morpho · mixed class</option>
           <option value="0">Blue Morpho</option>
@@ -4587,7 +4588,7 @@ function pbBend(theta, lead) {
   const P = pbLeafGeo.attributes.position, n = PB.seg, du = PB.W / n, pts = [[0, 0]]; let x = 0, y = 0;
   for (let i = 1; i <= n; i++) { const u = (i - 0.5) / n, a = theta + lead * u * u; x += Math.cos(a) * du; y += Math.sin(a) * du; pts.push([x, Math.max(-0.02, y)]); }
   for (let r = 0; r < 2; r++) for (let i = 0; i <= n; i++) P.setXYZ(r * (n + 1) + i, pts[i][0], PB.Y + 0.04 + pts[i][1], r === 0 ? -PB.H / 2 : PB.H / 2);
-  P.needsUpdate = true; pbLeafGeo.computeVertexNormals(); pbLeafGeo.computeBoundingSphere();
+  P.needsUpdate = true; pbLeafGeo.computeVertexNormals(); pbLeafGeo.computeBoundingSphere(); pbPts = pts;
   return new THREE.Vector3(pts[n][0], PB.Y + 0.04 + pts[n][1], PB.H / 2); // the near outer corner, where the fly holds it
 }
 // ---------- the pages ----------
@@ -4639,12 +4640,12 @@ function pbFinishWord() {
   pb.gap = /[.!?]["”]?$/.test(W.w) ? 0.35 : /[,:]$/.test(W.w) ? 0.18 : 0.07;
 }
 function pbBeginTurn(dir) { // dir 1: forward, the right page goes over to the left; -1: back
-  const s = pb.spread; pb.dir = dir; pbLeaf.visible = true; pb.omega = 0;
+  const s = pb.spread; pb.dir = dir; pbLeaf.visible = true; pb.omega = 0; if (dir > 0) catAttach();
   if (dir > 0) { pbDrawRight(pbF, s, false); pbDrawLeft(pbB, s + 1); pb.shownR = s + 1; pbDrawRight(pbR, s + 1, false); pb.theta = 0; pb.lead = 0; }
   else { pbDrawRight(pbF, s - 1, false); pbDrawLeft(pbB, s); pb.shownL = s - 1; pbDrawLeft(pbL, s - 1); pb.theta = Math.PI; pb.lead = 0; }
   pbComposite(); pbBend(pb.theta, 0);
 }
-function pbEndTurn() { pbLeaf.visible = false; const s = pb.spread + pb.dir; pbShow(s); }
+function pbEndTurn() { catRelease(); pbLeaf.visible = false; const s = pb.spread + pb.dir; pbShow(s); }
 function stepPaperBook(dt, now) {
   const st = flyState; st.airborne = true; st.buzz = 1; st.songAmp = 0; pb.sound = null; pb.stats.readTime += dt;
   const corner = () => pbBend(pb.theta, pb.lead);
@@ -4924,6 +4925,7 @@ function setExperiment(n) {
   if (n === 14) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); pbStart(); }
   // the side panel follows the experiment to its most related dashboard (after start-up, once the dock code exists)
   requestAnimationFrame(() => { dockChoice = DOCK_FOR[n]; if (view === 'simulate') dock(dockChoice); });
+  catSync();
 }
 const DOCK_FOR = { 15: 'd-geo-sec', 14: 'd-pb-sec', 13: 'd-sc-sec', 12: 'd-ar-sec', 11: 'd-vr-sec', 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
 document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => { setExperiment(Number(b.dataset.exp)); expMenuOpen(false, true); }));
@@ -4941,6 +4943,116 @@ $('expMenu').addEventListener('keydown', e => { const items = [...$('expMenu').q
   else if (e.key === 'Escape' || e.key === 'Tab') { expMenuOpen(false, e.key === 'Escape'); } });
 document.addEventListener('pointerdown', e => { if (!$('expMenu').hidden && !e.target.closest('#expDrop')) expMenuOpen(false); });
 addEventListener('resize', () => expMenuOpen(false));
+// ---------- Caterpillar companion (butterfly mode) ----------
+// The larva of the butterfly on display crawls in some scenes, trying to read too. Its colouring follows each
+// species' real caterpillar. In the paper book it clings to the page as it turns, then crawls back over.
+const CAT_EXPS = [1, 9, 13, 14, 15], CAT_N = 11, CAT_D = 0.66;
+const catDots = (g, xs, ys, r, c) => { g.fillStyle = c; xs.forEach(x => ys.forEach(y => { g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill(); })); };
+// textures wrap a segment: x runs round it (dorsal at a quarter, flanks at 0 and a half), y runs head to tail
+const CAT_LOOK = {
+  'Blue Morpho': { head: 0x5c1d10, hair: 0xd08a48, tufts: true, marks: [3, 4, 7, 8],
+    paint: (g, W, H, mark) => { g.fillStyle = '#7a2b1b'; g.fillRect(0, 0, W, H); g.fillStyle = '#4c150b'; g.fillRect(W * 0.25 - 2, 0, 4, H); g.fillStyle = '#e8c84a'; [W * 0.5, 0, W].forEach(x => g.fillRect(x - 2, 18, 4, 28));
+      if (mark) { g.fillStyle = '#f2e04a'; g.beginPath(); g.ellipse(W * 0.25, H / 2, W * 0.15, H * 0.46, 0, 0, Math.PI * 2); g.fill(); g.fillStyle = '#9fe03a'; g.beginPath(); g.ellipse(W * 0.25, H / 2, W * 0.12, H * 0.4, 0, 0, Math.PI * 2); g.fill(); } } },
+  'Zebra Longwing': { head: 0xe6d6b0, spines: 0x111111,
+    paint: (g, W, H) => { g.fillStyle = '#f3f0e6'; g.fillRect(0, 0, W, H); catDots(g, [W * 0.1, W * 0.25, W * 0.4, W * 0.6, W * 0.9], [14, 46], 4.5, '#141414'); } },
+  'Gulf Fritillary': { head: 0xd2560e, spines: 0x0e0e12,
+    paint: (g, W, H) => { g.fillStyle = '#ea6c12'; g.fillRect(0, 0, W, H); g.fillStyle = '#3c1838'; [W * 0.12, W * 0.38, W * 0.62, W * 0.88].forEach(x => g.fillRect(x - 4, 0, 8, H)); g.fillStyle = '#f39a3a'; g.fillRect(W * 0.25 - 2, 0, 4, H); } },
+  'Monarch': { head: 0x161616, filaments: [1, 8],
+    paint: (g, W, H) => { [['#141414', 0, 14], ['#f4f2ea', 14, 18], ['#f2d22a', 18, 30], ['#f4f2ea', 30, 34], ['#141414', 34, 50], ['#f4f2ea', 50, 54], ['#f2d22a', 54, 64]].forEach(([c, a, b]) => { g.fillStyle = c; g.fillRect(0, a, W, b - a); }); } },
+  'Eastern Tiger Swallowtail': { head: 0x7a5a2a, thorax: true, marks: [2], bands: [3],
+    paint: (g, W, H, mark, band) => { g.fillStyle = '#6cba3c'; g.fillRect(0, 0, W, H); catDots(g, [W * 0.18, W * 0.32], [10, 32, 54], 1.6, '#c6e070');
+      if (band) { g.fillStyle = '#141414'; g.fillRect(0, 22, W, 20); g.fillStyle = '#f2d22a'; g.fillRect(0, 26, W, 12); }
+      if (mark) [W * 0.15, W * 0.35].forEach(x => { g.fillStyle = '#141414'; g.beginPath(); g.arc(x, H / 2, 13, 0, Math.PI * 2); g.fill(); g.fillStyle = '#f2d22a'; g.beginPath(); g.arc(x, H / 2, 10, 0, Math.PI * 2); g.fill(); g.fillStyle = '#141414'; g.beginPath(); g.arc(x, H / 2, 6, 0, Math.PI * 2); g.fill(); g.fillStyle = '#ffffff'; g.beginPath(); g.arc(x - 2, H / 2 - 2, 2, 0, Math.PI * 2); g.fill(); }); } },
+  'Cloudless Sulphur': { head: 0x9cc23a,
+    paint: (g, W, H) => { g.fillStyle = '#b4d43a'; g.fillRect(0, 0, W, H); g.fillStyle = '#f4e04a'; [W * 0.5, 0, W].forEach(x => g.fillRect(x - 5, 0, 10, H)); catDots(g, [W * 0.08, W * 0.16, W * 0.25, W * 0.34, W * 0.42], [12, 44], 1.8, '#24407a'); } },
+};
+const catGroup = new THREE.Group(); catGroup.visible = false; scene.add(catGroup);
+const cat = { name: '', look: null, parts: [], chain: [], yaw: 0, phase: 0, read: 0, moving: 0, target: null, wait: 0, attach: false, exp: 0, on: true };
+const catR = k => { const L = cat.look, t = k / CAT_N; let r = 0.62 * (1 - 0.35 * t * t); if (k <= 1) r *= 0.86; if (L && L.thorax && k >= 1 && k <= 3) r *= 1.32; return r; };
+function catTex(paint) { const c = document.createElement('canvas'); c.width = 128; c.height = 64; paint(c.getContext('2d'), 128, 64); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; }
+function catBuild(set) {
+  if (cat.name === set.name) return; cat.name = set.name;
+  catGroup.children.slice().forEach(o => { catGroup.remove(o); o.traverse(m => { if (m.geometry) m.geometry.dispose(); if (m.material) { if (m.material.map) m.material.map.dispose(); m.material.dispose(); } }); });
+  const L = cat.look = CAT_LOOK[set.name] || CAT_LOOK['Blue Morpho']; cat.parts = [];
+  const tex = {}, matOf = (mark, band) => { const key = (mark ? 'm' : '') + (band ? 'b' : ''); if (!tex[key]) tex[key] = new THREE.MeshStandardMaterial({ map: catTex((g, W, H) => L.paint(g, W, H, mark, band)), roughness: 0.62 }); return tex[key]; };
+  const dark = new THREE.MeshStandardMaterial({ color: 0x1a140f, roughness: 0.7 }), spineM = L.spines ? new THREE.MeshStandardMaterial({ color: L.spines, roughness: 0.6 }) : null, hairM = L.hair ? new THREE.MeshStandardMaterial({ color: L.hair, roughness: 0.9 }) : null;
+  const up = new THREE.Vector3(0, 1, 0), stick = (grp, geo, m, dir, at) => { const o = new THREE.Mesh(geo, m); o.quaternion.setFromUnitVectors(up, dir.clone().normalize()); o.position.copy(at); grp.add(o); return o; };
+  const sph = new THREE.SphereGeometry(1, 18, 12);
+  // head: local frame y forward, z up
+  { const g = new THREE.Group(), hm = new THREE.MeshStandardMaterial({ color: L.head, roughness: 0.5 }); const h = new THREE.Mesh(sph, hm); h.scale.set(0.46, 0.42, 0.44); h.castShadow = true; g.add(h);
+    [-1, 1].forEach(sd => { stick(g, new THREE.ConeGeometry(0.035, 0.32, 5), dark, new THREE.Vector3(sd * 0.4, 1, 0.3), new THREE.Vector3(sd * 0.16, 0.48, 0.12)); const e = new THREE.Mesh(sph, dark); e.scale.setScalar(0.06); e.position.set(sd * 0.3, 0.22, 0.12); g.add(e); });
+    if (L.filaments) [-1, 1].forEach(sd => stick(g, new THREE.ConeGeometry(0.04, 1.5, 5), dark, new THREE.Vector3(sd * 0.5, 0.6, 1), new THREE.Vector3(sd * 0.2, -0.2, 0.9)));
+    catGroup.add(g); cat.parts.push({ g, r: 0.42 }); }
+  for (let k = 1; k <= CAT_N; k++) {
+    const g = new THREE.Group(), r = catR(k), m = new THREE.Mesh(sph, matOf(L.marks && L.marks.includes(k), L.bands && L.bands.includes(k))); m.scale.set(r, r * 1.22, r * 0.92); m.castShadow = true; g.add(m);
+    if (spineM) [-1.25, -0.55, 0.55, 1.25].forEach(a => { const d = new THREE.Vector3(Math.sin(a), 0, Math.cos(a)); stick(g, new THREE.ConeGeometry(0.06, 0.55, 5), spineM, d, d.clone().multiplyScalar(r * 0.95)); });
+    if (hairM && (k === 1 || k === CAT_N)) for (let i = 0; i < 7; i++) { const d = new THREE.Vector3((i - 3) * 0.25, k === 1 ? 0.5 : -0.6, 1); stick(g, new THREE.ConeGeometry(0.05, 0.6, 4), hairM, d, d.clone().normalize().multiplyScalar(r * 0.9)); }
+    if (L.filaments && L.filaments.includes(k) && k > 1) [-1, 1].forEach(sd => stick(g, new THREE.ConeGeometry(0.04, 1.3, 5), dark, new THREE.Vector3(sd * 0.5, -0.6, 1), new THREE.Vector3(sd * r * 0.4, 0, r * 0.8)));
+    if (k <= 3 || (k >= 6 && k <= 9) || k === CAT_N) [-1, 1].forEach(sd => { const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.07, k <= 3 ? 0.03 : 0.08, 0.26, 5), k <= 3 ? dark : m.material); leg.rotation.x = Math.PI / 2; leg.position.set(sd * r * 0.42, 0, -r * 0.62); g.add(leg); });
+    catGroup.add(g); cat.parts.push({ g, r });
+  }
+}
+// where each scene lets it crawl: a surface height, a box (x0, x1, z0, z1) and the thing it tries to read
+function catZone() {
+  const e = cat.exp;
+  if (e === 14) return { y: PB.Y + 0.04, box: [3.5, PB.W - 3.5, -PB.H / 2 + 2.6, PB.H / 2 - 2.6] };
+  if (e === 1) { const w = PHONE_W * phone.scale.x, h = PHONE_H * phone.scale.x; return { y: TABLE_Y, box: [w / 2 + 6, w / 2 + 22, -h / 3, h / 3], look: V3(0, screenTopY(), 0) }; }
+  if (e === 9) return { y: TABLE_Y + 3, box: [-40, 40, 12, 20], look: V3(0, TABLE_Y + 50, -15) };
+  if (e === 13) { const b = SC.n * SC.cell / 2; return { y: TABLE_Y, box: [b + 8, b + 17, -18, 18], look: SC_MID }; }
+  if (e === 15) return { y: TABLE_Y + 0.12, box: [-38, -12, 14, 23], look: GEO.C };
+  return null;
+}
+let pbPts = null; // the turning leaf's profile, from pbBend
+function catSurf(x, z) {
+  if (cat.exp === 14) {
+    if (cat.attach && pbLeaf.visible && pbPts && x > 0.3) { const du = PB.W / PB.seg, sI = Math.min(PB.W - 1e-3, x) / du, i = Math.min(PB.seg - 1, Math.floor(sI)), f = sI - i, a = pbPts[i], b = pbPts[i + 1], tx = b[0] - a[0], ty = b[1] - a[1], l = Math.hypot(tx, ty) || 1;
+      return { p: V3(a[0] + tx * f, PB.Y + 0.04 + a[1] + ty * f, z), n: V3(-ty / l, tx / l, 0) }; }
+    return { p: V3(x, PB.Y + 0.04 - 0.45 * Math.exp(-x * x / 1.6), z), n: V3(0, 1, 0) };
+  }
+  const Z = catZone(); return { p: V3(x, Z ? Z.y : TABLE_Y, z), n: V3(0, 1, 0) };
+}
+function catPlace() {
+  const Z = catZone(); if (!Z) return; const [x0, x1, z0, z1] = Z.box, hx = (x0 + x1) / 2, hz = z0 + (z1 - z0) * 0.3; cat.yaw = -Math.PI / 2; // head toward -z, body trailing behind
+  cat.chain = []; for (let k = 0; k <= CAT_N; k++) cat.chain.push({ x: hx, z: hz + k * CAT_D });
+  cat.target = null; cat.wait = 1; cat.read = 0; cat.attach = false;
+}
+function catSync() {
+  const on = butterfly && cat.on && CAT_EXPS.includes(experiment); catGroup.visible = on; if (!on) return;
+  catBuild(bfMain()); if (cat.exp !== experiment || !cat.chain.length) { cat.exp = experiment; catPlace(); }
+}
+// the book: it rides a forward page turn if it is on the right-hand page, then lands mirrored on the left
+function catAttach() { if (catGroup.visible && cat.exp === 14) cat.attach = cat.chain[0].x > 1; }
+function catRelease() { if (!cat.attach) return; cat.chain.forEach(c => { if (c.x > 0.3) c.x = -c.x; }); cat.attach = false; cat.yaw = Math.atan2(cat.chain[0].z - cat.chain[1].z, cat.chain[0].x - cat.chain[1].x); cat.wait = 0.8; }
+const catV = { a: new THREE.Vector3(), b: new THREE.Vector3(), f: new THREE.Vector3(), r: new THREE.Vector3(), m: new THREE.Matrix4() };
+function catStep(dt, now) {
+  const Z = catZone(); if (!Z || !cat.chain.length) return; const C = cat.chain, H = C[0], [x0, x1, z0, z1] = Z.box;
+  // where to go: in the book, along the line being read (or back over to the right page); elsewhere, wander the zone away from the bug
+  if (cat.exp === 14) {
+    if (H.x < 1.5) cat.target = { x: 6, z: -PB.H / 2 + 5 };
+    else if (agent.phase === 'pb_read' && pb.words.length) { const W = pb.words[Math.max(0, Math.min(pb.words.length - 1, pb.wi))]; const p = pbWorld(W.x - 120, W.y + 46, false); cat.target = { x: THREE.MathUtils.clamp(p.x, x0, x1), z: THREE.MathUtils.clamp(p.z, z0, z1) }; }
+    else if (!cat.target) cat.target = { x: (x0 + x1) / 2, z: 0 };
+  } else {
+    const near = t => Math.hypot(t.x - flyState.pos.x, t.z - flyState.pos.z) < 7;
+    if (!cat.target || (Math.hypot(cat.target.x - H.x, cat.target.z - H.z) < 0.6 && (cat.wait -= dt) <= 0) || near(cat.target)) { cat.target = { x: x0 + Math.random() * (x1 - x0), z: z0 + Math.random() * (z1 - z0) }; cat.wait = 4 + Math.random() * 6; }
+  }
+  const dx = cat.target.x - H.x, dz = cat.target.z - H.z, dist = Math.hypot(dx, dz);
+  const go = !cat.attach && dist > 0.5; cat.moving += ((go ? 1 : 0) - cat.moving) * Math.min(1, dt * 3);
+  if (go) { cat.phase += dt * 5.5; let dy = Math.atan2(dz, dx) - cat.yaw; dy = Math.atan2(Math.sin(dy), Math.cos(dy)); cat.yaw += THREE.MathUtils.clamp(dy, -1.6 * dt, 1.6 * dt);
+    const v = (cat.exp === 14 && H.x < 1.5 ? 2.2 : 1.3) * (0.25 + 0.75 * Math.max(0, Math.sin(cat.phase))); H.x += Math.cos(cat.yaw) * v * dt; H.z += Math.sin(cat.yaw) * v * dt; }
+  for (let k = 1; k < C.length; k++) { const P = C[k], Q = C[k - 1], ex = P.x - Q.x, ez = P.z - Q.z, d = Math.hypot(ex, ez) || 1; if (d > CAT_D) { P.x = Q.x + ex / d * CAT_D; P.z = Q.z + ez / d * CAT_D; } }
+  cat.read += ((go || cat.attach ? 0 : 1) - cat.read) * Math.min(1, dt * 1.5); // rears up to read when it stops
+  // pose each part on the surface: a peristaltic hump travels tail to head while it crawls
+  const S = C.map(c => catSurf(c.x, c.z));
+  for (let k = 0; k < C.length; k++) {
+    const part = cat.parts[k]; if (!part) continue; const r = part.r, n = S[k].n;
+    if (k === 0) catV.f.subVectors(S[0].p, S[1].p); else catV.f.subVectors(S[k - 1].p, S[k].p); catV.f.addScaledVector(n, -catV.f.dot(n)).normalize();
+    const lift = cat.read * Math.max(0, 3.2 - k) ** 1.4 * 0.16, hump = cat.moving * Math.max(0, Math.sin(cat.phase - k * 0.8)) * 0.3 * r, sway = cat.read * Math.sin(now / 700) * 0.35 * Math.max(0, 3 - k) / 3;
+    if (k < 3 && cat.read > 0.05) catV.f.addScaledVector(n, cat.read * 0.45 * (3 - k) / 3).normalize();
+    catV.r.crossVectors(catV.f, n).normalize(); catV.b.crossVectors(catV.r, catV.f).normalize();
+    part.g.position.copy(S[k].p).addScaledVector(n, r * 0.9 + 0.05 + hump + lift).addScaledVector(catV.r, sway + (cat.attach ? Math.sin(now / 90 + k) * 0.05 : 0));
+    catV.m.makeBasis(catV.r, catV.f, catV.b); part.g.quaternion.setFromRotationMatrix(catV.m);
+  }
+}
 // fruit fly or Blue Morpho butterfly: swaps the wings on every fly in every experiment
 // the student's own look: its wings and size (Scrabble keeps it a fruit fly, facing the butterfly)
 function applyMainLook(b) { fly.scale.setScalar(b ? BF_SCALE : 1); wings.forEach(g => { g.userData.flyWing.visible = !b; g.userData.bf.visible = b; const sd = g.userData.side; if (b) morphoPose(g, performance.now(), {}); else g.rotation.set(0, -sd * 0.35, sd * 0.25); }); }
@@ -4951,7 +5063,7 @@ const clsSpecies = st => bfChoice === 'mix' ? st.species : bfMain();
 function setBfSpecies(v, save) {
   bfChoice = v; $('bfSpecies').value = v; const main = bfMain();
   [wings, tfly.rig.wings, scBf.rig.wings].forEach(W => W.forEach(g => buildBf(g, main))); cls.students.forEach(st => st.rig.wings.forEach(g => buildBf(g, clsSpecies(st))));
-  if (save) { try { localStorage.setItem('ffl-bf', v); } catch (e) { /* storage blocked */ } } renderScenario(true);
+  if (save) { try { localStorage.setItem('ffl-bf', v); } catch (e) { /* storage blocked */ } } renderScenario(true); catSync();
 }
 function setSpecies(b) {
   butterfly = b; const now = performance.now();
@@ -4959,12 +5071,14 @@ function setSpecies(b) {
   if (experiment === 7) cls.students.forEach(st => { if (!st.flight) plantStudent(st); }); else plantFeet();
   if (camMode === 'follow') setCamMode('follow');
   WING_GROUPS.forEach(g => { g.userData.flyWing.visible = !b; g.userData.bf.visible = b; const sd = g.userData.side; if (b) morphoPose(g, now, {}); else g.rotation.set(0, -sd * 0.35, sd * 0.25); });
-  applyMainLook(experiment === 13 ? false : b); $('bfSpecies').hidden = !b; setEye(eyeOn, false); // in Scrabble the student stays a fruit fly
+  applyMainLook(experiment === 13 ? false : b); $('bfSpecies').hidden = !b; $('catGroup').hidden = !b; catSync(); setEye(eyeOn, false); // in Scrabble the student stays a fruit fly
   document.querySelectorAll('[data-species]').forEach(x => x.setAttribute('aria-pressed', String((x.dataset.species === 'butterfly') === b)));
   try { localStorage.setItem('ffl-species', b ? 'butterfly' : 'fly'); } catch (e) { /* storage blocked: the choice lasts this visit */ }
 }
 document.querySelectorAll('[data-species]').forEach(x => x.addEventListener('click', () => setSpecies(x.dataset.species === 'butterfly')));
 $('bfSpecies').addEventListener('change', e => setBfSpecies(e.target.value, true));
+$('catBtn').addEventListener('click', e => { cat.on = !cat.on; e.currentTarget.setAttribute('aria-pressed', String(cat.on)); try { localStorage.setItem('ffl-cat', cat.on ? '1' : '0'); } catch (err) { /* storage blocked */ } catSync(); });
+{ let c = null; try { c = localStorage.getItem('ffl-cat'); } catch (e) { /* storage blocked */ } if (c === '0') { cat.on = false; $('catBtn').setAttribute('aria-pressed', 'false'); } }
 { let saved = null, bf = null; try { saved = localStorage.getItem('ffl-species'); bf = localStorage.getItem('ffl-bf'); } catch (e) { /* storage blocked */ } if (bf && $('bfSpecies').querySelector(`option[value="${bf}"]`) && bf !== 'mix') setBfSpecies(bf, false); if (saved === 'butterfly') setSpecies(true); }
 $('pathsBtn').addEventListener('click', () => { showPaths = !showPaths; $('pathsBtn').setAttribute('aria-pressed', String(showPaths)); $('pathsBtn').textContent = showPaths ? 'Hide paths' : 'Show paths'; Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === experiment; }); ghostLine.visible = showPaths && experiment !== 3 && !!agent.ghost; });
 $('seasonBtn').addEventListener('click', () => { cls.season = !cls.season; $('seasonBtn').setAttribute('aria-pressed', String(cls.season)); $('seasonBtn').textContent = cls.season ? 'Mating season on' : 'Mating season off'; clsLog(cls.season ? 'Mating season: courtship drive restored.' : 'Out of season: courtship drive drops to a tenth.'); drawBoard(); });
@@ -5051,6 +5165,7 @@ function frame(now) {
   if (dt > 0) {
     if (experiment === 7) { for (let rem = dt; rem > 1e-6; rem -= 0.025) stepClassroom(Math.min(rem, 0.025), now); poseClassroom(now); }
     else for (let rem = dt; rem > 1e-6; rem -= 0.025) { const h = Math.min(rem, 0.025); stepAgent(h, now); animateFly(h); }
+    if (catGroup.visible) catStep(dt, now);
     if (experiment === 11) renderVR();
     for (let i = 0; i < 16; i++) act[i] = Math.max(0.08, act[i] - (act[i] - 0.08) * Math.min(1, dt * 2.6));
     game.dopamine += (0.5 - game.dopamine) * Math.min(1, dt * 0.12);

@@ -62,6 +62,16 @@ The two logos at the left of the header switch the insect. The fruit fly is the 
 
 ![Butterfly mode: one classroom table with four species](docs/screenshots/butterfly-species.png)
 
+#### Caterpillar companion
+
+In butterfly mode a third header button adds a caterpillar to five scenes: walking (on the table beside the phone), reading (on the tablet stand), Scrabble (beside the board), geography (on the desk by the trivia card) and the paper book. It is the larva of the butterfly on display, coloured after the real caterpillar: the Blue Morpho's red-brown with lime-green saddles and hair tufts, the Zebra Longwing's white with black spots and spines, the Gulf Fritillary's orange with dark stripes and spines, the Monarch's black, white and yellow bands with filaments, the Eastern Tiger Swallowtail's green with false eyespots behind a swollen thorax, and the Cloudless Sulphur's yellow-green with a yellow side stripe and blue dots. It crawls with a peristaltic wave from tail to head and rears its front segments to read whenever it stops, keeping clear of the insect.
+
+In the paper book it follows the line being read along the right-hand page. When the butterfly turns the page it clings to the leaf for the whole lift and fall, lands on the new left-hand page, and crawls back over the gutter to the next page of text. The choice is remembered.
+
+| ![The Eastern Tiger Swallowtail caterpillar rearing up to read a line of the paper book](docs/screenshots/caterpillar-book-reading.png) | ![After the page turn: the caterpillar on the picture page, crawling back toward the text](docs/screenshots/caterpillar-book-after-turn.png) |
+|---|---|
+| **Reading along.** Tiger swallowtail larva, front segments raised. | **After the turn.** It rode the page over and crawls back to the text. |
+
 ### Panels by experiment
 
 The left panel docks the most related dashboard. The right panel and the bottom strip show what matters for the scenario in front of you, so the three together cover different ground instead of repeating the same numbers.
