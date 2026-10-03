@@ -124,6 +124,10 @@ main{flex-grow:1;min-height:0;display:flex;flex-direction:column}
 .feet{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 10px;font:700 11px/16px var(--display)}
 .feet span{display:flex;align-items:center;gap:6px}.feet i{width:10px;height:10px;border-radius:50%;border:2px solid var(--core-blue)}.feet i.on{background:var(--core-blue)}
 #brain{display:block;width:100%;aspect-ratio:1/1;border-radius:16px;background:#041033;cursor:grab}
+#brainWrap{position:relative}#brainLbl{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:16px}
+#brainLbl span{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:#fff;border:2px solid;box-sizing:border-box;font:700 10px/14px var(--display);color:#002657;text-align:center;pointer-events:auto;cursor:help}
+.brainKey{display:flex;align-items:center;flex-wrap:wrap;gap:4px;row-gap:6px;font-size:11px;color:var(--muted, #6b7280)}.brainKey span{margin-right:2px}.brainKey i{width:9px;height:9px;border-radius:50%}.brainKey button{margin-left:auto;white-space:nowrap}.brainKey b{width:56px;height:8px;border-radius:4px;background:linear-gradient(90deg,#5b82ea,#f2a900 60%,#fff3d6)}
+button.mini{font:inherit;font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer}button.mini[aria-pressed=true]{background:#002657;color:#fff;border-color:#002657}
 .regions{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .regions li{display:flex;flex-direction:column;gap:4px}
 .rowlbl{display:flex;justify-content:space-between;gap:8px;font:700 12px/16px var(--display)}
@@ -463,9 +467,10 @@ pre.mermaid svg{max-width:none;height:auto}
       <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <h2>Central nervous system</h2>
-          <span class="sub">Neuropils after the FlyWire and MaleCNS atlases, each in its own hue; amber is firing. Drag to turn.</span>
+          <span class="sub">Each point is a neuron after the FlyWire and MaleCNS neuropils. Spikes show as calcium flashes; a heading bump circles the ellipsoid body. Drag to turn.</span>
         </div>
-        <canvas id="brain" aria-label="Rotating point cloud of the fly's brain; regions brighten when active"></canvas>
+        <div id="brainWrap"><canvas id="brain" aria-label="Rotating point cloud of the fly's nervous system; neurons flash as they fire"></canvas><div id="brainLbl" hidden></div></div>
+        <div class="brainKey"><span class="brainKey" aria-hidden="true"><span>resting</span><i style="background:#3f74e0"></i><i style="background:#a27dff"></i><i style="background:#3fd0e2"></i><i style="background:#46c486"></i><i style="background:#e07ab4"></i><i style="background:#8aa8ff"></i><i style="background:#5b82ea"></i><span style="margin-left:10px">firing</span><b></b></span><button type="button" id="brainLblBtn" class="mini" aria-pressed="false">Name the parts</button></div>
       </section>
       <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15" style="display:flex;flex-direction:column;gap:10px">
         <div class="rowlbl"><span>Dopamine · PAM cluster</span><span id="dopaVal">0.50</span></div>
@@ -736,7 +741,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <figure><img loading="lazy" src="docs/screenshots/whole-phone.png" alt="Whole-phone camera: the lesson screen with three slots and four tiles"><figcaption><strong>The screen.</strong> A canvas texture: progress, the meaning to build, three slots, four tiles, a feedback line. Tile pixel rectangles map to world coordinates the fly walks to.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/tap.png" alt="A wrong tap: the tile edge flashes red"><figcaption><strong>A wrong tap.</strong> The tile flashes red, the lateral horn and descending neurons fire, the fly flinches, dopamine drops and that word part's memory weakens.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/reward.png" alt="A correct tap: re- fills the prefix slot and dopamine rises"><figcaption><strong>A correct tap.</strong> The part fills its slot, mushroom bodies and taste centres fire, the wings buzz, the proboscis extends, and the memory strengthens.</figcaption></figure>
-        <figure><img loading="lazy" src="docs/screenshots/brain-panel.png" alt="The brain panel with point cloud, dopamine meter and region bars"><figcaption><strong>The brain panel.</strong> About 57,000 points shaped after Drosophila anatomy, fibre tracts with travelling pulses, dopamine, per-region activity and per-morpheme memory.</figcaption></figure>
+        <figure><img loading="lazy" src="docs/screenshots/brain-panel.png" alt="The brain panel with point cloud, dopamine meter and region bars"><figcaption><strong>The brain panel.</strong> About 57,000 neurons shaped after Drosophila anatomy that spike as calcium flashes, with a heading bump in the ellipsoid body, fibre tracts with travelling pulses, dopamine, per-region activity and per-morpheme memory.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/exp2-hover.png" alt="The fly hovering above the phone with a flight path behind it"><figcaption><strong>Reading in the air.</strong> In Experiment 2 the fly climbs to a hover point over the meaning and reads with a head sweep before diving.</figcaption></figure>
         <figure><img loading="lazy" src="docs/screenshots/exp3-swipe.png" alt="The fly holding a fly-sized phone with a scrolled list of answers"><figcaption><strong>Swiping.</strong> In Experiment 3 the answers sit below the fold; a foreleg drag scrolls them into reach.</figcaption></figure>
       </div>
@@ -1561,33 +1566,34 @@ function plantFeet() { fly.position.copy(flyState.pos); fly.rotation.y = flyStat
 // Each region keeps its id for the activity wiring; its shape is built from ellipsoids (default), tubes, arcs and glomeruli.
 const MIRROR = (sx, parts) => parts.map(q => { const m = v => v && [v[0] * sx, v[1], v[2]]; return { ...q, c: m(q.c), a: m(q.a), b: m(q.b) }; });
 const OPTIC = sx => MIRROR(sx, [
-  { c: [17.3, 2, 0.3], r: [0.9, 6.5, 4.7], n: 1400 },            // lamina, a thin cap
-  { c: [14.2, 2, 0.1], r: [3.1, 6.2, 4.5], n: 4200 },            // medulla
-  { c: [11, 1.4, -0.8], r: [1.9, 4.4, 3], n: 1500 },                   // lobula
-  { c: [12, 1.6, -3.1], r: [1.1, 4, 1.7], n: 900 },                      // lobula plate
+  { c: [17.3, 2, 0.3], r: [0.9, 6.5, 4.7], n: 1400, part: 1 },  // lamina, a thin cap
+  { c: [14.2, 2, 0.1], r: [3.1, 6.2, 4.5], n: 4200, part: 2 },  // medulla
+  { c: [11, 1.4, -0.8], r: [1.9, 4.4, 3], n: 1500, part: 3 },   // lobula
+  { c: [12, 1.6, -3.1], r: [1.1, 4, 1.7], n: 900, part: 4 },    // lobula plate
 ]);
 const MB = sx => MIRROR(sx, [
-  { c: [4.4, 6.2, -3.2], r: [1.9, 1.5, 1.4], n: 1500 },                    // calyx
-  { tube: 1, a: [4.2, 5.2, -2.2], b: [3.1, 1.6, 2.4], rad: 0.55, n: 700 },  // peduncle
-  { tube: 1, a: [3.1, 1.6, 2.4], b: [3.6, 7.4, 3], rad: 0.7, n: 900 },     // α lobe, vertical
-  { tube: 1, a: [3.1, 1.6, 2.4], b: [0.5, 1.2, 2.8], rad: 0.8, n: 1000 },  // β and γ lobes, toward the midline
+  { c: [4.4, 6.2, -3.2], r: [1.9, 1.5, 1.4], n: 1500, part: 5 },                    // calyx
+  { tube: 1, a: [4.2, 5.2, -2.2], b: [3.1, 1.6, 2.4], rad: 0.55, n: 700, part: 6 },  // peduncle
+  { tube: 1, a: [3.1, 1.6, 2.4], b: [3.6, 7.4, 3], rad: 0.7, n: 900, part: 7 },     // α lobe, vertical
+  { tube: 1, a: [3.1, 1.6, 2.4], b: [0.5, 1.2, 2.8], rad: 0.8, n: 1000, part: 8 },  // β and γ lobes, toward the midline
 ]);
 const REGIONS = [
   { name: 'optic-L', c: [-14, 2, 0], extra: OPTIC(-1) }, { name: 'optic-R', c: [14, 2, 0], extra: OPTIC(1) },
   { name: 'central', c: [0, 2, 0], r: [10, 5.9, 4.5], n: 4200, shell: 0.8, extra: [{ c: [0, 5.6, -0.8], r: [6.5, 2.6, 3.4], n: 700, shell: 0.6 }] },
   { name: 'MB-L', c: [-4, 4, 0], extra: MB(-1) }, { name: 'MB-R', c: [4, 4, 0], extra: MB(1) },
   { name: 'CX', c: [0, 3.5, 0.5], extra: [
-    { arc: 1, c: [0, 2.8, -0.2], R: 2.7, rad: 0.7, from: 0.08, to: 0.92, n: 1500 },   // fan-shaped body
-    { ring: 1, c: [0, 2.3, 1.5], R: 1.25, rad: 0.42, n: 900 },                        // ellipsoid body
-    { arc: 1, c: [0, 3.8, -2.6], R: 3.6, rad: 0.38, from: 0.18, to: 0.82, n: 700 } ] }, // protocerebral bridge
-  { name: 'AL-L', c: [-2.4, -1.8, 3.4], extra: [{ glom: 26, c: [-2.4, -1.8, 3.4], r: [1.9, 1.8, 1.7], n: 2000 }] },
-  { name: 'AL-R', c: [2.4, -1.8, 3.4], extra: [{ glom: 26, c: [2.4, -1.8, 3.4], r: [1.9, 1.8, 1.7], n: 2000 }] },
+    { arc: 1, c: [0, 2.8, -0.2], R: 2.7, rad: 0.7, from: 0.08, to: 0.92, n: 1500, part: 9 },   // fan-shaped body
+    { ring: 1, c: [0, 2.3, 1.5], R: 1.25, rad: 0.42, n: 900, part: 10 },                       // ellipsoid body
+    { arc: 1, c: [0, 3.8, -2.6], R: 3.6, rad: 0.38, from: 0.18, to: 0.82, n: 700, part: 11 } ] }, // protocerebral bridge
+  { name: 'AL-L', c: [-2.4, -1.8, 3.4], extra: [{ glom: 26, c: [-2.4, -1.8, 3.4], r: [1.9, 1.8, 1.7], n: 2000, part: 12 }] },
+  { name: 'AL-R', c: [2.4, -1.8, 3.4], extra: [{ glom: 26, c: [2.4, -1.8, 3.4], r: [1.9, 1.8, 1.7], n: 2000, part: 12, gOff: 26 }] },
   { name: 'LH-L', c: [-7.6, 4, -1.4], r: [1.9, 1.6, 1.6], n: 1100 }, { name: 'LH-R', c: [7.6, 4, -1.4], r: [1.9, 1.6, 1.6], n: 1100 },
   { name: 'SEZ', c: [0, -3.9, 1], r: [3.3, 2.2, 2.5], n: 2000 },
   { name: 'DN', c: [0, -8.5, -1], extra: [{ tube: 1, a: [0, -5.6, 0], b: [0, -11.4, -2.2], rad: 1, n: 1400 }] },
-  { name: 'T1', c: [0, -14, -2.6], extra: [{ c: [-2, -14, -2.6], r: [1.9, 2.3, 1.9], n: 1300 }, { c: [2, -14, -2.6], r: [1.9, 2.3, 1.9], n: 1300 }, { c: [0, -14.2, -3.4], r: [1.2, 2.2, 1.2], n: 400 }] },
-  { name: 'T2', c: [0, -19.2, -3.6], extra: [{ c: [-2.1, -19.2, -3.6], r: [2, 2.4, 2], n: 1300 }, { c: [2.1, -19.2, -3.6], r: [2, 2.4, 2], n: 1300 }, { c: [0, -19.4, -4.4], r: [1.2, 2.3, 1.2], n: 400 }] },
-  { name: 'T3', c: [0, -24.2, -4.4], extra: [{ c: [-1.9, -24.2, -4.4], r: [1.8, 2.2, 1.8], n: 1200 }, { c: [1.9, -24.2, -4.4], r: [1.8, 2.2, 1.8], n: 1200 }, { c: [0, -24.4, -5.1], r: [1.1, 2.2, 1.1], n: 350 }] },
+  // each leg neuropil is a left and a right hemineuromere (part 13, sub = the leg it drives) around a midline tectulum
+  { name: 'T1', c: [0, -14, -2.6], extra: [{ c: [-2, -14, -2.6], r: [1.9, 2.3, 1.9], n: 1300, part: 13, sub: 0 }, { c: [2, -14, -2.6], r: [1.9, 2.3, 1.9], n: 1300, part: 13, sub: 1 }, { c: [0, -14.2, -3.4], r: [1.2, 2.2, 1.2], n: 400 }] },
+  { name: 'T2', c: [0, -19.2, -3.6], extra: [{ c: [-2.1, -19.2, -3.6], r: [2, 2.4, 2], n: 1300, part: 13, sub: 2 }, { c: [2.1, -19.2, -3.6], r: [2, 2.4, 2], n: 1300, part: 13, sub: 3 }, { c: [0, -19.4, -4.4], r: [1.2, 2.3, 1.2], n: 400 }] },
+  { name: 'T3', c: [0, -24.2, -4.4], extra: [{ c: [-1.9, -24.2, -4.4], r: [1.8, 2.2, 1.8], n: 1200, part: 13, sub: 4 }, { c: [1.9, -24.2, -4.4], r: [1.8, 2.2, 1.8], n: 1200, part: 13, sub: 5 }, { c: [0, -24.4, -5.1], r: [1.1, 2.2, 1.1], n: 350 }] },
   { name: 'ABD', c: [0, -29.5, -5.4], extra: [{ tube: 1, a: [0, -26.6, -5], b: [0, -32.4, -5.8], rad: 1.2, taper: 0.45, n: 1400 }] },
 ];
 // faint outer envelope, never lit: brain, neck and nerve cord
@@ -1603,33 +1609,57 @@ const pulse = (i, v) => { if (act[i] < v) act[i] = v; };
 function buildBrain() {
   const blobs = []; REGIONS.forEach((r, id) => { if (r.n) blobs.push([r, id]); (r.extra || []).forEach(e => blobs.push([e, id])); }); ENVELOPE.forEach(e => blobs.push([e, 16]));
   const total = blobs.reduce((s, [b]) => s + b.n, 0);
-  const pos = new Float32Array(total * 3), reg = new Float32Array(total), seed = new Float32Array(total);
-  let k = 0; const R = Math.random;
-  const put = (x, y, z, id) => { pos[k * 3] = x; pos[k * 3 + 1] = y; pos[k * 3 + 2] = z; reg[k] = id; seed[k] = R(); k++; };
+  const pos = new Float32Array(total * 3), reg = new Float32Array(total), seed = new Float32Array(total), prt = new Float32Array(total), sub = new Float32Array(total);
+  let k = 0; const R = Math.random; let P = 0, Q = 0; // P: structure of the blob being filled, Q: its per-point coordinate (angle, glomerulus, leg)
+  const put = (x, y, z, id) => { pos[k * 3] = x; pos[k * 3 + 1] = y; pos[k * 3 + 2] = z; reg[k] = id; seed[k] = R(); prt[k] = P; sub[k] = Q; k++; };
   const ball = sh => { let x, y, z; do { x = R() * 2 - 1; y = R() * 2 - 1; z = R() * 2 - 1; } while (x * x + y * y + z * z > 1); const l = Math.hypot(x, y, z) || 1; const f = (sh && R() < sh ? 0.9 + 0.1 * R() : 0.35 + 0.65 * Math.pow(R(), 0.25)) / l; return [x * f, y * f, z * f]; };
   const disc = rad => { const t = R() * Math.PI * 2, r = rad * Math.sqrt(0.25 + 0.75 * R()); return [Math.cos(t) * r, Math.sin(t) * r]; };
   for (const [b, id] of blobs) {
+    P = b.part || 0; Q = b.sub || 0;
     if (b.tube) { const A = b.a, B = b.b, d = [B[0] - A[0], B[1] - A[1], B[2] - A[2]]; const L = Math.hypot(...d); const u = d.map(v => v / L); const ref = Math.abs(u[1]) < 0.9 ? [0, 1, 0] : [1, 0, 0];
       const p = [u[1] * ref[2] - u[2] * ref[1], u[2] * ref[0] - u[0] * ref[2], u[0] * ref[1] - u[1] * ref[0]]; const pl = Math.hypot(...p); p.forEach((v, i) => p[i] = v / pl); const q = [u[1] * p[2] - u[2] * p[1], u[2] * p[0] - u[0] * p[2], u[0] * p[1] - u[1] * p[0]];
-      for (let i = 0; i < b.n; i++) { const t = R(); const rr = b.rad * (1 - (b.taper || 0) * t); const [e1, e2] = b.shell ? (() => { const a2 = R() * Math.PI * 2; return [Math.cos(a2) * rr, Math.sin(a2) * rr]; })() : disc(rr); put(A[0] + d[0] * t + p[0] * e1 + q[0] * e2, A[1] + d[1] * t + p[1] * e1 + q[1] * e2, A[2] + d[2] * t + p[2] * e1 + q[2] * e2, id); } }
-    else if (b.arc || b.ring) { for (let i = 0; i < b.n; i++) { const t = b.ring ? R() * Math.PI * 2 : Math.PI * (b.from + (b.to - b.from) * R()); const [e1, e2] = disc(b.rad); const r = b.R + e1;
+      for (let i = 0; i < b.n; i++) { const t = R(); Q = t; const rr = b.rad * (1 - (b.taper || 0) * t); const [e1, e2] = b.shell ? (() => { const a2 = R() * Math.PI * 2; return [Math.cos(a2) * rr, Math.sin(a2) * rr]; })() : disc(rr); put(A[0] + d[0] * t + p[0] * e1 + q[0] * e2, A[1] + d[1] * t + p[1] * e1 + q[1] * e2, A[2] + d[2] * t + p[2] * e1 + q[2] * e2, id); } }
+    else if (b.arc || b.ring) { for (let i = 0; i < b.n; i++) { const f = R(), t = b.ring ? f * Math.PI * 2 : Math.PI * (b.from + (b.to - b.from) * f); Q = b.ring ? t : f; const [e1, e2] = disc(b.rad); const r = b.R + e1;
         if (b.ring) put(b.c[0] + Math.cos(t) * r, b.c[1] + Math.sin(t) * r, b.c[2] + e2, id); else put(b.c[0] - Math.cos(t) * r, b.c[1] + Math.sin(t) * r * 0.55, b.c[2] + e2, id); } }
     else if (b.glom) { const G = []; for (let g = 0; g < b.glom; g++) { const [x, y, z] = ball(0.8); G.push([b.c[0] + x * b.r[0] * 0.8, b.c[1] + y * b.r[1] * 0.8, b.c[2] + z * b.r[2] * 0.8]); }
-      for (let i = 0; i < b.n; i++) { const g = G[i % G.length]; const [x, y, z] = ball(); put(g[0] + x * 0.42, g[1] + y * 0.42, g[2] + z * 0.42, id); } }
+      for (let i = 0; i < b.n; i++) { const g = G[i % G.length]; Q = (b.gOff || 0) + i % G.length; const [x, y, z] = ball(); put(g[0] + x * 0.42, g[1] + y * 0.42, g[2] + z * 0.42, id); } }
     else for (let i = 0; i < b.n; i++) { const [x, y, z] = ball(b.shell); put(b.c[0] + x * b.r[0], b.c[1] + y * b.r[1], b.c[2] + z * b.r[2], id); }
   }
   const g = new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   g.setAttribute('region', new THREE.BufferAttribute(reg, 1));
   g.setAttribute('seed', new THREE.BufferAttribute(seed, 1));
+  g.setAttribute('part', new THREE.BufferAttribute(prt, 1)); g.setAttribute('sub', new THREE.BufferAttribute(sub, 1));
   const mat = new THREE.ShaderMaterial({
-    uniforms: { act: { value: act }, pr: { value: Math.min(devicePixelRatio, 2) }, vh: { value: 800 }, base: { value: REGION_HUE.map(c => new THREE.Color(c)) }, env: { value: new THREE.Color(0x8fa6e8) }, hot: { value: new THREE.Color(0xf2a900) } },
-    vertexShader: `uniform float act[16]; uniform vec3 base[16]; uniform float pr; uniform float vh; attribute float region; attribute float seed; varying float vA; varying float vS; varying float vE; varying vec3 vB;
-      void main(){ int r=int(region+0.5); float a=0.0; vB=vec3(0.5,0.6,0.9); for(int i=0;i<16;i++){ if(i==r){ a=act[i]; vB=base[i]; } } vA=a; vS=seed; vE=r==16?1.0:0.0;
-        vec4 mv=modelViewMatrix*vec4(position,1.0); gl_PointSize=(1.7+3.2*a)*pr*clamp(vh/800.0,0.4,1.4)*(60.0/-mv.z); gl_Position=projectionMatrix*mv; }`,
+    uniforms: { act: { value: act }, pr: { value: Math.min(devicePixelRatio, 2) }, vh: { value: 800 }, uT: { value: 0 }, uHead: { value: 0 }, uFlow: { value: 0 }, uTurn: { value: 0 }, uRew: { value: 99 }, uPun: { value: 99 }, uOdor: { value: 0 }, uSwing: { value: new Float32Array(6) }, base: { value: REGION_HUE.map(c => new THREE.Color(c)) }, env: { value: new THREE.Color(0x8fa6e8) }, hot: { value: new THREE.Color(0xf2a900) } },
+    // Each point is a neuron. Region activity sets how often it fires; each spike shows as a calcium transient (fast rise, slow decay),
+    // and circuits with known dynamics get them: a heading bump in the central complex, optic flow in the optic lobes,
+    // sparse Kenyon cells and dopamine compartments in the mushroom bodies, odour-specific glomeruli, and each leg's own hemineuromere.
+    vertexShader: `uniform float act[16]; uniform vec3 base[16]; uniform float pr; uniform float vh; uniform float uT; uniform float uHead; uniform float uFlow; uniform float uTurn; uniform float uRew; uniform float uPun; uniform float uOdor; uniform float uSwing[6];
+      attribute float region; attribute float seed; attribute float part; attribute float sub; varying float vA; varying float vS; varying float vE; varying vec3 vB;
+      float h1(float n){ return fract(sin(n * 12.9898) * 43758.5453); }
+      float bump(float d, float w){ d = mod(d + 3.14159, 6.28318) - 3.14159; return exp(-d * d / (2.0 * w * w)); }
+      void main(){ int r=int(region+0.5); float a=0.0; vB=vec3(0.5,0.6,0.9); for(int i=0;i<16;i++){ if(i==r){ a=act[i]; vB=base[i]; } }
+        float drive = max(0.0, (a - 0.08) / 0.92), gain = 1.0, tonic = 0.0, rate = 5.0; int p = int(part + 0.5);
+        if (p >= 1 && p <= 3) { float side = position.x < 0.0 ? -1.0 : 1.0; float w = 0.5 + 0.5 * sin(position.z * 1.1 + position.y * 0.45 - uT * (1.5 + 7.0 * uFlow) * side - uTurn * position.y * 0.6); gain = 0.3 + 1.4 * w * (0.35 + uFlow); }
+        else if (p == 4) { gain = 0.25 + 2.2 * max(0.0, uTurn * (position.x < 0.0 ? -1.0 : 1.0)); }
+        else if (p >= 5 && p <= 8) { gain = 0.4; rate = 3.0;
+          if (p == 8) tonic += 0.9 * exp(-uRew * 1.4) * (0.5 + 0.5 * sin(sub * 16.0 - uRew * 8.0));
+          if (p == 7) tonic += 0.8 * exp(-uPun * 1.6) * smoothstep(0.55, 0.95, sub); }
+        else if (p == 10) { tonic += (0.25 + drive) * 0.95 * bump(sub - uHead, 0.5); gain = 0.25; }
+        else if (p == 11) { tonic += (0.2 + drive) * 0.8 * bump(fract(sub * 2.0) * 6.28318 - uHead, 0.55); gain = 0.25; }
+        else if (p == 9) { tonic += drive * 0.9 * bump(sub * 6.28318 - uHead - uTurn * 1.4, 0.65); gain = 0.35; }
+        else if (p == 12) { float on = step(h1(sub * 7.13 + uOdor * 3.71), 0.2); gain = 0.12 + 2.4 * on; rate = 8.0; }
+        else if (p == 13) { int L = int(sub + 0.5); float sw = 0.0; for (int i = 0; i < 6; i++) { if (i == L) sw = uSwing[i]; } tonic += 0.8 * sw * (0.3 + drive); gain = 0.5; }
+        float k = uT * rate + seed * 97.0, n = floor(k), ph = fract(k);
+        float fire = step(h1(n + seed * 311.0), clamp(drive * gain * 0.85 + 0.012, 0.0, 0.95));
+        float ca = fire * (1.0 - exp(-ph * 25.0)) * exp(-ph * 1.8);
+        float v = clamp(0.08 + drive * 0.22 + ca * 0.85 + tonic, 0.0, 1.2);
+        vA = r == 16 ? 0.0 : v; vS = seed; vE = r == 16 ? 1.0 : 0.0;
+        vec4 mv=modelViewMatrix*vec4(position,1.0); gl_PointSize=(1.7+3.2*min(vA,1.0))*pr*clamp(vh/800.0,0.4,1.4)*(60.0/-mv.z); gl_Position=projectionMatrix*mv; }`,
     fragmentShader: `precision mediump float; varying float vA; varying float vS; varying float vE; varying vec3 vB; uniform vec3 hot; uniform vec3 env;
-      void main(){ vec2 c=gl_PointCoord-0.5; float d=dot(c,c); if(d>0.25) discard; float al=(0.3+0.45*vA)*smoothstep(0.25,0.04,d);
-        vec3 col=mix(vB,hot,clamp((vA-0.1)*1.25*(0.7+0.3*vS),0.0,1.0)); if(vE>0.5){ col=env; al*=0.45; } gl_FragColor=vec4(col,al); }`,
+      void main(){ vec2 c=gl_PointCoord-0.5; float d=dot(c,c); if(d>0.25) discard; float al=(0.3+0.45*min(vA,1.0))*smoothstep(0.25,0.04,d);
+        vec3 col=mix(vB,hot,clamp((vA-0.12)*1.3*(0.7+0.3*vS),0.0,1.0)); col=mix(col,vec3(1.0,0.95,0.8),clamp(vA-0.95,0.0,0.25)*2.0); if(vE>0.5){ col=env; al*=0.45; } gl_FragColor=vec4(col,al); }`,
     transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
   });
   return new THREE.Points(g, mat);
@@ -1642,6 +1672,30 @@ const camera2 = new THREE.PerspectiveCamera(38, 1, 0.1, 400); camera2.position.s
 const controls2 = new OrbitControls(camera2, brainCanvas); controls2.target.set(0, -11, 0); controls2.enableDamping = true; controls2.autoRotate = !matchMedia('(prefers-reduced-motion: reduce)').matches; controls2.autoRotateSpeed = 0.9; controls2.enablePan = false;
 const brainGroup = new THREE.Group(); scene2.add(brainGroup);
 const brainPts = buildBrain(); brainGroup.add(brainPts);
+// what the brain shader needs from the body each frame; a rise in dopamine marks a reward, a fall a punishment
+const neuro = { prevPos: new THREE.Vector3(), prevYaw: 0, flow: 0, turn: 0, dopa: 0.5, rewAt: -1e9, punAt: -1e9, odor: 0 };
+function driveBrain(now, raw) {
+  const U = brainPts.material.uniforms, st = flyState; U.uT.value = now / 1000;
+  const sp = raw > 0 ? st.pos.distanceTo(neuro.prevPos) / raw : 0; neuro.prevPos.copy(st.pos);
+  let dy = st.yaw - neuro.prevYaw; dy = Math.atan2(Math.sin(dy), Math.cos(dy)); neuro.prevYaw = st.yaw;
+  const k = Math.min(1, raw * 4); neuro.flow += (Math.min(1, sp / 12) - neuro.flow) * k; neuro.turn += (THREE.MathUtils.clamp(raw > 0 ? dy / raw / 2 : 0, -1, 1) - neuro.turn) * k;
+  U.uHead.value = st.yaw; U.uFlow.value = neuro.flow; U.uTurn.value = neuro.turn;
+  legs.forEach((L, i) => { U.uSwing.value[i] += ((L.step && experiment !== 7 ? 1 : 0) - U.uSwing.value[i]) * Math.min(1, raw * 10); });
+  const d = game.dopamine - neuro.dopa; if (d > 0.04) { neuro.rewAt = now; neuro.odor = (neuro.odor + 1) % 64; } else if (d < -0.04) neuro.punAt = now; neuro.dopa = game.dopamine;
+  U.uRew.value = (now - neuro.rewAt) / 1000; U.uPun.value = (now - neuro.punAt) / 1000; U.uOdor.value = neuro.odor;
+}
+// numbered neuropils, as on the poster; names show on hover
+const BRAIN_LABELS = [['lamina', 'Optic lobe: lamina', [17.3, 2, 0.3], 0], ['medulla', 'Optic lobe: medulla', [14.2, 5.5, 0.1], 0], ['lobula', 'Optic lobe: lobula', [11, -1.8, -0.8], 0],
+  ['calyx', 'Mushroom body calyx: Kenyon cell input', [4.4, 7.4, -3.2], 3], ['lobes', 'Mushroom body α and β/γ lobes: dopamine compartments', [3.6, 7.4, 3], 3],
+  ['fb', 'Fan-shaped body: steering', [0, 4.3, -0.2], 5], ['eb', 'Ellipsoid body: the heading bump', [0, 1.1, 1.5], 5], ['pb', 'Protocerebral bridge', [-2.8, 5.9, -2.6], 5],
+  ['al', 'Antennal lobe glomeruli: smell', [-2.4, -2.2, 3.4], 6], ['sez', 'Suboesophageal zone: taste', [0, -4.6, 1], 10], ['lh', 'Lateral horn: innate avoidance', [-7.6, 4.6, -1.4], 8],
+  ['dn', 'Neck connective: descending neurons', [0, -8.5, -1], 11], ['t1', 'Front-leg neuropil T1', [-3.9, -14, -2.6], 12], ['t2', 'Middle-leg neuropil T2', [3.9, -19.2, -3.6], 13],
+  ['t3', 'Hind-leg neuropil T3', [-3.7, -24.2, -4.4], 14], ['abd', 'Abdominal ganglion', [0, -30.5, -5.4], 15]];
+const brainLblEl = document.getElementById('brainLbl'); let brainLabels = false;
+const brainLblDots = BRAIN_LABELS.map(([, name, , reg], i) => { const e = document.createElement('span'); e.textContent = i + 1; e.title = `${i + 1} · ${name}`; e.style.borderColor = '#' + REGION_HUE[reg].toString(16).padStart(6, '0'); brainLblEl.appendChild(e); return e; });
+const lblV = new THREE.Vector3();
+function placeBrainLabels() { const w = brainCanvas.clientWidth, h = brainCanvas.clientHeight; BRAIN_LABELS.forEach(([, , p], i) => { lblV.set(...p).applyMatrix4(brainGroup.matrixWorld).project(camera2); brainLblDots[i].style.left = ((lblV.x + 1) / 2 * w).toFixed(1) + 'px'; brainLblDots[i].style.top = ((1 - lblV.y) / 2 * h).toFixed(1) + 'px'; }); }
+document.getElementById('brainLblBtn').addEventListener('click', e => { brainLabels = !brainLabels; brainLblEl.hidden = !brainLabels; e.currentTarget.setAttribute('aria-pressed', String(brainLabels)); if (brainLabels) placeBrainLabels(); });
 const FIBRES = [[0, 2], [1, 2], [6, 3], [7, 4], [3, 5], [4, 5], [8, 3], [9, 4], [10, 2], [2, 11], [11, 12], [12, 13], [13, 14], [14, 15]];
 const fibreCurves = FIBRES.map(([a, b]) => { const A = new THREE.Vector3(...REGIONS[a].c), B = new THREE.Vector3(...REGIONS[b].c); const M = A.clone().lerp(B, 0.5); M.z += 2.5; M.x += (Math.random() - 0.5) * 2; return new THREE.CatmullRomCurve3([A, M, B]); });
 {
@@ -5014,7 +5068,7 @@ function frame(now) {
     if (experiment !== 7) { sampleTelemetry(now); sampleScenario(now, dt); }
   }
   updateCamera(); controls2.update(); if (audio.v) updateVoice();
-  if (view === 'simulate') { fitClip(); renderer.render(scene, camera); renderEye(); if (experiment === 7 && visionOn) drawVision(); if (BRAIN_EXPS.includes(experiment)) renderer2.render(scene2, camera2); if (drawDashboards(now)) drawStrip(); if (now - rpAt > 250) { rpAt = now; renderScenario(); } }
+  if (view === 'simulate') { fitClip(); renderer.render(scene, camera); renderEye(); if (experiment === 7 && visionOn) drawVision(); if (BRAIN_EXPS.includes(experiment)) { driveBrain(now, raw); renderer2.render(scene2, camera2); if (brainLabels) placeBrainLabels(); } if (drawDashboards(now)) drawStrip(); if (now - rpAt > 250) { rpAt = now; renderScenario(); } }
   else if (view === 'dash') drawDashboards(now);
 }
 requestAnimationFrame(frame);
