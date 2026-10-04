@@ -23,6 +23,24 @@ The repository is a static site, so it deploys as is: import it at [vercel.com/n
 
 From a terminal with the Vercel CLI, `npx vercel` from the repository root does the same.
 
+## Trailer
+
+[![The trailer's title card: FRUIT FLY LINGO, an embodied Drosophila literacy simulation](docs/trailer/trailer-poster.jpg)](docs/trailer/fruit-fly-lingo-trailer.mp4)
+
+A one-minute trailer ([`docs/trailer/fruit-fly-lingo-trailer.mp4`](docs/trailer/fruit-fly-lingo-trailer.mp4), 1280 × 720, with sound; a WebM copy is the fallback for browsers without H.264) plays on the home page and near the top of About.
+- **Cold open:** a typewriter line, "In a world where fruit flies learn to read…".
+- **Experiments:** a 2.4-second shot of each of Experiments 1 to 19, every one a planned camera move timed to the moment the insect is at work. It opens on the fly walking onto the tile that says *walk*, then:
+  - the page turn with the caterpillar riding it;
+  - the globe spun to Algeria;
+  - algebra typed with the butterfly's abdomen;
+  - the caterpillar holding A for the wave beam.
+
+  Each shot has a lower-third caption with a dry joke and a lab-camera HUD (● REC, timecode, specimen, an invented metric).
+- **Dashboards:** the live metrics and brain, then two scrolls through the dashboards (one on Δw = η(R − V)).
+- **End card:** the title and the address.
+
+The footage was captured from the app itself. Running in a headless browser on a virtual clock, it advanced one frame at a time at 30 fps, so motion is smooth even on a software renderer. The soundtrack is a synthesised chiptune at 100 BPM, so each experiment is one bar and every cut lands on the beat.
+
 ## Four views
 
 The app is one page with four views, switched by the tabs in the header and by hash routes (`#home`, `#simulate`, `#dashboards`, `#about`). The home page explains the project and shows a card for each experiment; picking a card opens that experiment in the simulator.
