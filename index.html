@@ -5453,21 +5453,21 @@ const arcStick = new THREE.Group(), arcBtn = {};
     const slab = new THREE.ExtrudeGeometry(shape, { depth: 1.6, bevelEnabled: false }); slab.applyMatrix4(toSide); const m = new THREE.Mesh(slab, black); m.position.set(sd > 0 ? 27.6 : -26, ARC.Y, 0); m.castShadow = true; arcGroup.add(m);
     const face = new THREE.ShapeGeometry(shape); face.applyMatrix4(toSide); const pos = face.attributes.position, uv = face.attributes.uv;
     for (let i = 0; i < pos.count; i++) { const z = pos.getZ(i), y = pos.getY(i); uv.setXY(i, sd > 0 ? (12.2 - z) / 42.2 : (z + 30) / 42.2, y / 100); } uv.needsUpdate = true; // each side reads left to right from outside
-    const art = new THREE.Mesh(face, artM(sd < 0)); art.position.set(sd * 27.63, ARC.Y, 0); arcGroup.add(art); });
+    const art = new THREE.Mesh(face, artM(sd < 0)); art.position.set(sd * 27.72, ARC.Y, 0); arcGroup.add(art); });
   const box = (w, h, d, x, y, z, mat, rx = 0) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat); m.position.set(x, y, z); m.rotation.x = rx; m.castShadow = m.receiveShadow = true; arcGroup.add(m); return m; };
   box(52, 38, 40, 0, ARC.Y + 19, -10, black); box(52, 60, 14, 0, ARC.Y + 70, -23, black); box(52, 2, 1, 0, ARC.Y + 38, 10.3, trim);
   // the coin door
   box(18, 14, 0.6, 0, ARC.Y + 16, 10.4, new THREE.MeshStandardMaterial({ color: 0x2a2a30, roughness: 0.35, metalness: 0.6 }));
   [-4, 4].forEach(x => { const s = box(3.2, 4.2, 0.4, x, ARC.Y + 18, 10.8, new THREE.MeshStandardMaterial({ color: 0xff2a2a, emissive: 0xff2a2a, emissiveIntensity: 1.2 })); s.userData.coin = true; });
   const coinT = arcLabelTex(256, 48, (g, w, h) => { g.fillStyle = '#ffffff'; g.font = `800 30px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('INSERT COIN', w / 2, h / 2); });
-  const coin = new THREE.Mesh(new THREE.PlaneGeometry(14, 2.6), new THREE.MeshBasicMaterial({ map: coinT, transparent: true })); coin.position.set(0, ARC.Y + 12, 10.75); arcGroup.add(coin);
+  const coin = new THREE.Mesh(new THREE.PlaneGeometry(14, 2.6), new THREE.MeshBasicMaterial({ map: coinT, transparent: true })); coin.position.set(0, ARC.Y + 12, 10.82); arcGroup.add(coin);
   // control panel with art
   const cpT = arcLabelTex(512, 200, (g, w, h) => { g.fillStyle = '#1b0d33'; g.fillRect(0, 0, w, h); g.strokeStyle = '#ffe100'; g.lineWidth = 6; g.strokeRect(8, 8, w - 16, h - 16); g.fillStyle = '#00e5ff'; g.font = `800 22px ${DISPLAY}`; g.fillText('1 PLAYER', 330, 40); g.fillStyle = '#ff2a8a'; g.fillText('A FIRE · HOLD A BEAM', 250, 186); g.fillText('B', 452, 150); });
   const cp = box(52, 2.4, 22, 0, ARC.cp - 1.2, 1, black); cp.material = [black, black, new THREE.MeshStandardMaterial({ map: cpT, roughness: 0.5 }), black, black, black];
   // the screen, tilted back in its bezel, and the marquee
   const scr = new THREE.Group(); scr.position.set(0, ARC.cp + 27, -10); scr.rotation.x = -0.26; arcGroup.add(scr);
   const bz = new THREE.Mesh(new THREE.BoxGeometry(50, 52, 1.5), black); scr.add(bz);
-  const crt = new THREE.Mesh(new THREE.PlaneGeometry(34, 34 * ARC.sh / ARC.sw), new THREE.MeshBasicMaterial({ map: arcTex, toneMapped: false })); crt.position.z = 0.8; scr.add(crt); ARC.crt = crt;
+  const crt = new THREE.Mesh(new THREE.PlaneGeometry(34, 34 * ARC.sh / ARC.sw), new THREE.MeshBasicMaterial({ map: arcTex, toneMapped: false })); crt.position.z = 0.9; scr.add(crt); ARC.crt = crt;
   box(52, 6, 10, 0, ARC.cp + 3, -8, black);
   const mq = arcLabelTex(512, 96, (g, w, h) => { const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#13051f'); gr.addColorStop(1, '#3a0f73'); g.fillStyle = gr; g.fillRect(0, 0, w, h); g.font = `900 64px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineWidth = 10; g.strokeStyle = '#ff2a8a'; g.strokeText('ROOT BLASTER', w / 2, h / 2 + 4); g.fillStyle = '#ffe100'; g.fillText('ROOT BLASTER', w / 2, h / 2 + 4); });
   const mqm = new THREE.Mesh(new THREE.BoxGeometry(52, 10, 6), [black, black, black, black, new THREE.MeshBasicMaterial({ map: mq, toneMapped: false }), black]); mqm.position.set(0, ARC.Y + 95, 1); arcGroup.add(mqm);
@@ -5775,8 +5775,8 @@ window.__arc = () => arc; // debug hook
 // gamepad on a rug in front of a CRT TV. The fly stands on the pad and rocks the D-pad up and down with its forelegs; the caterpillar
 // presses A. The home version is the cabinet's engine (rbNew with rot) drawn a quarter turn round, so it scrolls sideways at 256 × 224.
 // =====================================================================
-const VG = { Y: TABLE_Y, sw: 256, sh: 224, ph: 2.6, cz: 16 };
-const VG_DPAD = new THREE.Vector3(-10.5, TABLE_Y + 2.6, 16), VG_A = new THREE.Vector3(13, TABLE_Y + 2.6, 16), VG_MID = new THREE.Vector3(0, TABLE_Y + 28, -14);
+const VG = { Y: TABLE_Y + 0.3, sw: 256, sh: 224, ph: 2.6, cz: 16 };
+const VG_DPAD = new THREE.Vector3(-10.5, VG.Y + 2.6, 16), VG_A = new THREE.Vector3(13, VG.Y + 2.6, 16), VG_MID = new THREE.Vector3(0, TABLE_Y + 28, -14);
 const vgGroup = new THREE.Group(); vgGroup.visible = false; scene.add(vgGroup);
 const vgCanvas = document.createElement('canvas'); vgCanvas.width = VG.sw; vgCanvas.height = VG.sh;
 const vgTex = new THREE.CanvasTexture(vgCanvas); vgTex.magFilter = THREE.NearestFilter; vgTex.minFilter = THREE.LinearFilter; vgTex.generateMipmaps = false; vgTex.colorSpace = THREE.SRGBColorSpace;
@@ -5790,21 +5790,21 @@ function vgPadTop(x, z) { const lx = Math.abs(x) - 10.5, dz = z - VG.cz, dl = Ma
     for (let i = 0; i < 80; i++) { const x = R() * w, y = R() * h, c = ['#6b2bd9', '#ffd23f', '#ff4f9a', '#111111', '#ffffff'][i % 5]; g.save(); g.translate(x, y); g.rotate(R() * 6.3); g.fillStyle = g.strokeStyle = c; g.lineWidth = 5; const k = i % 4;
       if (k === 0) { g.beginPath(); g.moveTo(0, -14); g.lineTo(13, 10); g.lineTo(-13, 10); g.closePath(); g.fill(); } else if (k === 1) { g.beginPath(); for (let j = 0; j < 5; j++) g.lineTo(j * 9 - 18, j % 2 ? 8 : -8); g.stroke(); } else if (k === 2) { g.beginPath(); g.arc(0, 0, 9, 0, 6.3); g.stroke(); } else g.fillRect(-6, -6, 12, 12); g.restore(); }
     g.strokeStyle = '#111111'; g.lineWidth = 14; g.strokeRect(7, 7, w - 14, h - 14); });
-  const rug = new THREE.Mesh(new THREE.PlaneGeometry(150, 112), new THREE.MeshStandardMaterial({ map: rugT, roughness: 0.95 })); rug.rotation.x = -Math.PI / 2; rug.position.set(0, VG.Y + 0.03, -8); rug.receiveShadow = true; vgGroup.add(rug);
+  const rugSide = new THREE.MeshStandardMaterial({ color: 0x166f6b, roughness: 0.95 }), rug = new THREE.Mesh(new THREE.BoxGeometry(150, 1.3, 112), [rugSide, rugSide, new THREE.MeshStandardMaterial({ map: rugT, roughness: 0.95 }), rugSide, rugSide, rugSide]); rug.position.set(0, VG.Y - 0.65, -8); rug.receiveShadow = true; vgGroup.add(rug); /* a thick rug, so its top never meets the table's */
   // the TV stand and a CRT TV with rabbit ears
   const wood = mat(0x6b4426, { roughness: 0.7 }), dark = mat(0x141417, { roughness: 0.4 }), tvM = mat(0x2a2a2e, { roughness: 0.35 });
   add(new THREE.BoxGeometry(96, 18, 32), wood, 0, VG.Y + 9, -46); [-22, 22].forEach(x => add(new THREE.BoxGeometry(40, 12, 1), dark, x, VG.Y + 9, -29.9));
   add(new THREE.BoxGeometry(78, 60, 40), tvM, 0, VG.Y + 48, -48);
-  const inset = new THREE.Mesh(new THREE.PlaneGeometry(64, 58), new THREE.MeshStandardMaterial({ color: 0x050506, roughness: 0.3 })); inset.position.set(-5, VG.Y + 51, -27.95); vgGroup.add(inset);
+  const inset = new THREE.Mesh(new THREE.PlaneGeometry(64, 58), new THREE.MeshStandardMaterial({ color: 0x050506, roughness: 0.3 })); inset.position.set(-5, VG.Y + 51, -27.85); vgGroup.add(inset);
   const sw = 58, sh = 58 * VG.sh / VG.sw, scrG = new THREE.PlaneGeometry(sw, sh, 20, 20), sp = scrG.attributes.position;
   for (let i = 0; i < sp.count; i++) { const x = sp.getX(i) / (sw / 2), y = sp.getY(i) / (sh / 2); sp.setZ(i, 1.4 * (1 - (x * x + y * y) / 2)); } scrG.computeVertexNormals(); /* the tube bulges */
-  const crt = new THREE.Mesh(scrG, new THREE.MeshBasicMaterial({ map: vgTex, toneMapped: false })); crt.position.set(-5, VG.Y + 51, -27.9); vgGroup.add(crt); VG.crt = crt;
+  const crt = new THREE.Mesh(scrG, new THREE.MeshBasicMaterial({ map: vgTex, toneMapped: false })); crt.position.set(-5, VG.Y + 51, -27.7); vgGroup.add(crt); VG.crt = crt;
   [[VG.Y + 64, 0x888890], [VG.Y + 56, 0x888890]].forEach(([y, c]) => { const k = add(new THREE.CylinderGeometry(1.6, 1.6, 1.4, 20), mat(c, { metalness: 0.6, roughness: 0.3 }), 31, y, -27.3); k.rotation.x = Math.PI / 2; });
   const grill = arcLabelTex(64, 96, (g, w, h) => { g.fillStyle = '#1b1b1f'; g.fillRect(0, 0, w, h); g.fillStyle = '#050505'; for (let y = 6; y < h; y += 8) g.fillRect(6, y, w - 12, 4); });
-  const gr = new THREE.Mesh(new THREE.PlaneGeometry(9, 14), new THREE.MeshStandardMaterial({ map: grill })); gr.position.set(31, VG.Y + 40, -27.95); vgGroup.add(gr);
+  const gr = new THREE.Mesh(new THREE.PlaneGeometry(9, 14), new THREE.MeshStandardMaterial({ map: grill })); gr.position.set(31, VG.Y + 40, -27.85); vgGroup.add(gr);
   add(new THREE.SphereGeometry(0.5, 10, 8), new THREE.MeshStandardMaterial({ color: 0xff2a2a, emissive: 0xff2a2a, emissiveIntensity: 1.5 }), 31, VG.Y + 26, -27.8);
   const brand = arcLabelTex(256, 40, (g, w, h) => { g.fillStyle = '#c9c9cf'; g.font = `800 26px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('LUMATRON', w / 2, h / 2); });
-  const br = new THREE.Mesh(new THREE.PlaneGeometry(12, 1.9), new THREE.MeshBasicMaterial({ map: brand, transparent: true })); br.position.set(-5, VG.Y + 21.4, -27.9); vgGroup.add(br);
+  const br = new THREE.Mesh(new THREE.PlaneGeometry(12, 1.9), new THREE.MeshBasicMaterial({ map: brand, transparent: true })); br.position.set(-5, VG.Y + 20.9, -27.8); vgGroup.add(br);
   add(new THREE.SphereGeometry(2.4, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2), dark, 0, VG.Y + 78, -50); [-1, 1].forEach(sd => { const a = add(new THREE.CylinderGeometry(0.18, 0.25, 34, 6), mat(0xb8b8c0, { metalness: 0.9, roughness: 0.2 }), sd * 8.2, VG.Y + 93.5, -50); a.rotation.z = -sd * 0.5; });
   // the console, styled after the early-90s 16-bit machines: grey shell, purple sliders, the Root Blaster cartridge in the slot
   const con = new THREE.Group(); con.position.set(28, VG.Y, -12); con.rotation.y = -0.3; vgGroup.add(con);
@@ -6109,7 +6109,7 @@ function catStep(dt, now) {
 // meaning to build and must eat its parts in word order: prefix, then root, then suffix. Each has its own word-part memory, updated
 // with the same Δw = η(R − V), so the eight learn at their own pace. The fly watches from the top of the scoreboard.
 // =====================================================================
-const MZ = { Y: TABLE_Y, C: 6, W: 15, H: 11, wall: 3.2 }; MZ.x0 = -MZ.W * MZ.C / 2; MZ.z0 = -MZ.H * MZ.C / 2;
+const MZ = { Y: TABLE_Y + 0.4, C: 6, W: 15, H: 11, wall: 3.2 }; MZ.x0 = -MZ.W * MZ.C / 2; MZ.z0 = -MZ.H * MZ.C / 2;
 const MZ_RACERS = [['Blue Morpho', 'Morpho', '#a0522d'], ['Zebra Longwing', 'Zebra', '#3c3c3c'], ['Gulf Fritillary', 'Gulf', '#ea6c12'], ['Monarch', 'Monarch', '#d4a800'],
   ['Eastern Tiger Swallowtail', 'Tiger', '#3f9a3a'], ['Cloudless Sulphur', 'Sulphur', '#9ab800'], ['Common Buckeye', 'Buckeye', '#6a3fa0'], ['Black Swallowtail', 'Black Swallowtail', '#00897b']];
 const MZ_SPAWN = [[1, 1], [13, 1], [1, 9], [13, 9], [7, 1], [7, 9], [1, 5], [13, 5]];
@@ -6127,12 +6127,11 @@ const mz = { grid: [], occ: new Map(), cats: [], leaves: [], t: 0, log: [], visi
 // ---------- the scene: a grassy board, hedges with flowers, the scoreboard ----------
 const mzBoardCv = document.createElement('canvas'); mzBoardCv.width = 512; mzBoardCv.height = 320; const mzBoardTex = new THREE.CanvasTexture(mzBoardCv); mzBoardTex.colorSpace = THREE.SRGBColorSpace; mzBoardTex.anisotropy = 4;
 const mzMap = document.createElement('canvas'); mzMap.width = 300; mzMap.height = 220;
-{ const grassT = arcLabelTex(512, 384, (g, w, h) => { g.fillStyle = '#5f9e3c'; g.fillRect(0, 0, w, h); for (let i = 0; i < 4000; i++) { g.fillStyle = ['#6fb04a', '#548f33', '#7bbf55', '#4c8530'][i % 4]; g.fillRect(Math.random() * w, Math.random() * h, 2, 4); } });
-  const W = MZ.W * MZ.C, D = MZ.H * MZ.C, base = new THREE.Mesh(new THREE.BoxGeometry(W + 8, 2, D + 8), [new THREE.MeshStandardMaterial({ color: 0x6b4a2b }), new THREE.MeshStandardMaterial({ color: 0x6b4a2b }), new THREE.MeshStandardMaterial({ map: grassT, roughness: 0.95 }), new THREE.MeshStandardMaterial({ color: 0x6b4a2b }), new THREE.MeshStandardMaterial({ color: 0x6b4a2b }), new THREE.MeshStandardMaterial({ color: 0x6b4a2b })]);
-  base.position.set(0, MZ.Y - 0.99, 0); base.receiveShadow = true; mzGroup.add(base);
-  // the corridor floor: soil paths
-  const pathT = arcLabelTex(MZ.W * 16, MZ.H * 16, (g, w, h) => { g.clearRect(0, 0, w, h); for (let j = 0; j < MZ.H; j++) for (let i = 0; i < MZ.W; i++) if (!mz.grid[j][i]) { g.fillStyle = '#b8935a'; g.fillRect(i * 16, j * 16, 16, 16); g.fillStyle = '#a5824c'; for (let k = 0; k < 6; k++) g.fillRect(i * 16 + 2 + Math.random() * 12, j * 16 + 2 + Math.random() * 12, 2, 2); } });
-  pathT.magFilter = THREE.LinearFilter; const pm = new THREE.Mesh(new THREE.PlaneGeometry(W, D), new THREE.MeshStandardMaterial({ map: pathT, transparent: true, roughness: 0.95 })); pm.rotation.x = -Math.PI / 2; pm.position.set(0, MZ.Y + 0.02, 0); pm.receiveShadow = true; mzGroup.add(pm);
+{ const W = MZ.W * MZ.C, D = MZ.H * MZ.C, px = 8; /* texture pixels per unit; the board overhangs the maze by 4 units all round */
+  const topT = arcLabelTex((W + 8) * px, (D + 8) * px, (g, w, h) => { g.fillStyle = '#5f9e3c'; g.fillRect(0, 0, w, h); for (let i = 0; i < 9000; i++) { g.fillStyle = ['#6fb04a', '#548f33', '#7bbf55', '#4c8530'][i % 4]; g.fillRect(Math.random() * w, Math.random() * h, 2, 4); }
+    const c = MZ.C * px; for (let j = 0; j < MZ.H; j++) for (let i = 0; i < MZ.W; i++) if (!mz.grid[j][i]) { const x = 4 * px + i * c, y = 4 * px + j * c; g.fillStyle = '#b8935a'; g.fillRect(x, y, c, c); g.fillStyle = '#a5824c'; for (let k = 0; k < 14; k++) g.fillRect(x + 3 + Math.random() * (c - 6), y + 3 + Math.random() * (c - 6), 3, 3); } });
+  const soil = new THREE.MeshStandardMaterial({ color: 0x6b4a2b }), base = new THREE.Mesh(new THREE.BoxGeometry(W + 8, 1.8, D + 8), [soil, soil, new THREE.MeshStandardMaterial({ map: topT, roughness: 0.95 }), soil, soil, soil]);
+  base.position.set(0, MZ.Y - 0.9, 0); base.receiveShadow = true; mzGroup.add(base);
   // hedges: leafy boxes, a few topped with flowers
   const hedgeT = arcLabelTex(128, 128, (g, w, h) => { g.fillStyle = '#2f6b2a'; g.fillRect(0, 0, w, h); for (let i = 0; i < 700; i++) { g.fillStyle = ['#3d8a33', '#2a5c25', '#4fa043', '#23511f', '#5cb34e'][i % 5]; g.beginPath(); g.ellipse(Math.random() * w, Math.random() * h, 3 + Math.random() * 3, 2, Math.random() * 3, 0, Math.PI * 2); g.fill(); } });
   hedgeT.wrapS = hedgeT.wrapT = THREE.RepeatWrapping; const cells = []; for (let j = 0; j < MZ.H; j++) for (let i = 0; i < MZ.W; i++) if (mz.grid[j][i]) cells.push([i, j]);
