@@ -41,6 +41,15 @@ A one-minute trailer ([`docs/trailer/fruit-fly-lingo-trailer.mp4`](docs/trailer/
 
 The footage was captured from the app itself. Running in a headless browser on a virtual clock, it advanced one frame at a time at 30 fps, so motion is smooth even on a software renderer. The soundtrack is a synthesised chiptune at 100 BPM, so each experiment is one bar and every cut lands on the beat.
 
+### Butterfly cut
+
+[![Title card: Teaching a Butterfly How to Read](docs/trailer/teaching-a-butterfly-how-to-read-poster.jpg)](docs/trailer/teaching-a-butterfly-how-to-read.mp4)
+
+*Teaching a Butterfly How to Read* ([MP4](docs/trailer/teaching-a-butterfly-how-to-read.mp4), [WebM](docs/trailer/teaching-a-butterfly-how-to-read.webm)) is a one-minute, all-ages cut with no fruit fly in the lead. It plays in the Butterfly mode section of About.
+- **Butterflies:** ten experiments, each with a different species, named on its caption.
+- **Caterpillars:** after "Then the caterpillars wanted to learn too", six scenes where the caterpillar plays its part: the page turn, math together, retro typing, the arcade, the home console and the maze race.
+- **Ending:** the learning dashboards and the maze leaderboard.
+
 ### Science poster cut
 
 [![Title card: Can a fruit fly learn how to read?](docs/trailer/can-a-fruit-fly-learn-to-read-poster.jpg)](docs/trailer/can-a-fruit-fly-learn-to-read.mp4)
@@ -51,7 +60,7 @@ A second one-minute cut for the science poster, *Can a fruit fly learn how to re
 - three firing traces (optic lobes, mushroom bodies, leg neuromeres) over the last 3 s;
 - the PAM dopamine level that drives learning.
 
-It opens with the question and a method card (one simulated brain from the FlyWire and MaleCNS connectomes, fifteen reading tasks, learning by Δw = η(R − V)). It closes on two dashboard scrolls (connectome and psychometrics) and the question again, over a slower 75 BPM score.
+It plays at the top of The student experiments on About. It opens with the question and a method card (one simulated brain from the FlyWire and MaleCNS connectomes, fifteen reading tasks, learning by Δw = η(R − V)). It closes on two dashboard scrolls (connectome and psychometrics) and the question again, over a slower 75 BPM score.
 
 ## Four views
 
