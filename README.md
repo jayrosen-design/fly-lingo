@@ -27,7 +27,7 @@ From a terminal with the Vercel CLI, `npx vercel` from the repository root does 
 
 The app is one page with four views, switched by the tabs in the header and by hash routes (`#home`, `#simulate`, `#dashboards`, `#about`). The home page explains the project and shows a card for each experiment; picking a card opens that experiment in the simulator.
 
-![The home page: a short explanation of the project and a grid of nineteen experiment cards](docs/screenshots/home.png) It works at phone width. The **Hide metrics / Show metrics** button in the arena hides every panel (the dashboard dock, the bottom strip and the scenario panel) so the 3D view fills the screen; phones start with the metrics hidden, and the choice is remembered. With metrics shown on a phone, the strip and the scenario panel sit under the arena, which keeps at least half the screen. The experiment list scrolls on its own line so speed, camera and Play stay in reach, the camera pulls back on a portrait screen, the fly-eye inset gives way on short screens, and a landscape phone shows only the arena. The dashboards stack to one column.
+![The home page: a short explanation of the project and a grid of twenty experiment cards](docs/screenshots/home.png) It works at phone width. The **Hide metrics / Show metrics** button in the arena hides every panel (the dashboard dock, the bottom strip and the scenario panel) so the 3D view fills the screen; phones start with the metrics hidden, and the choice is remembered. With metrics shown on a phone, the strip and the scenario panel sit under the arena, which keeps at least half the screen. The experiment list scrolls on its own line so speed, camera and Play stay in reach, the camera pulls back on a portrait screen, the fly-eye inset gives way on short screens, and a landscape phone shows only the arena. The dashboards stack to one column.
 
 ![Phone layout: the Walking experiment filling the screen, the experiment list, speed, camera and Pause above it, and the Show metrics button](docs/screenshots/phone-simulate.png)
 
@@ -40,7 +40,7 @@ The app is one page with four views, switched by the tabs in the header and by h
 
 ### Controls
 
-The **Experiment** dropdown in the header lists all nineteen experiments in a vertical, scrollable menu (arrow keys, Home, End and Escape work). Camera views: **Follow** (third person), the experiment's device or scene view, and **On its back**, which rides just above the fly's or butterfly's thorax, looking forward over its head and eyes at what it is doing; in the classroom it rides on the followed fly. The **Hide fly-eye view** pill hides the compound-eye inset and is remembered. In butterfly mode a species picker beside the logos dresses every butterfly in every scene: Blue Morpho with the six Gainesville species mixed in the classroom (the default), or any one of Blue Morpho, Zebra Longwing, Gulf Fritillary, Monarch, Eastern Tiger Swallowtail, Cloudless Sulphur and Common Buckeye everywhere.
+The **Experiment** dropdown in the header lists all twenty experiments in a vertical, scrollable menu (arrow keys, Home, End and Escape work). Camera views: **Follow** (third person), the experiment's device or scene view, and **On its back**, which rides just above the fly's or butterfly's thorax, looking forward over its head and eyes at what it is doing; in the classroom it rides on the followed fly. The **Hide fly-eye view** pill hides the compound-eye inset and is remembered. In butterfly mode a species picker beside the logos dresses every butterfly in every scene: Blue Morpho with the six Gainesville species mixed in the classroom (the default), or any one of Blue Morpho, Zebra Longwing, Gulf Fritillary, Monarch, Eastern Tiger Swallowtail, Cloudless Sulphur and Common Buckeye everywhere.
 
 Rendering: the camera sees 6,000 units with fog from 700, the zoom-out limit is 1,400, and the near clipping plane follows the viewing distance so depth precision is not wasted; every screen, page, card and label drawn on a surface is pulled forward with a polygon offset, which removes the flicker where screens met their bodies. The fly's steps lift fast and set down softly, it rolls a little with the tripod gait, banks into turns in flight, draws its legs in on take-off, its antennae twitch and its abdomen breathes, and its beating wings blur. Its wings are shaped and sized like a *Drosophila* wing: as long as the body, hinged on the thorax, folded over the abdomen at rest and reaching just past its tip, clear with the costa, veins L2 to L5 and the two crossveins, and a faint iridescence; the body is slimmer to match.
 
@@ -84,6 +84,7 @@ The left panel docks the most related dashboard. The right panel and the bottom 
 | 4 · Spelling | Live laptop screen, spelling card (letters so far, next part, key accuracy), brain, memory | Letters typed, keys right and wrong, flight speed, height above keys, Δw per letter, dopamine |
 | 5 · Teacher | Live gradebook screen, grading queue, the teacher's next actions, cursor and foreleg state; no brain | Cursor path, clicks and misclicks, movement time, grading error, keystrokes, students graded |
 | 6 · District admin | Live proctoring screen, open flags, FlyAI's latest recommendation, next actions; no brain | Mean attention, open flags, detections, flag precision, check-ins, response time |
+| 20 · Caterpillar maze | Live map of the maze (hedges, leaves and the eight heads), maze card (the leader, the top four and what each is doing, leaves on the board, the latest bite), brain, the eight caterpillars' right-leaf shares | Leaves on the board, words built by each, right leaves by each, dopamine |
 | 19 · Videogame | Live copy of the TV screen, game card (word to build, what it is going for, the part needed now, D-pad up, down or released, the caterpillar on A and the beam charge, score, lives and stage, last capsule), brain, word-part memory | Ship height, D-pad presses with what the shots hit, capsules right, dopamine |
 | 18 · Arcade | Live copy of the arcade screen, arcade card (word to build, the bug or capsule it is going for, the part needed now, joystick, the caterpillar on A, score and lives, last capsule), brain, word-part memory | Ship position, what the shots hit, capsules right, dopamine |
 | 17 · Retro computer | Live copy of the 1-bit screen, typing card (meaning to build, part being typed and its next key, the input line, slots filled, score and lives, last part), brain, word-part memory | Height above the keyboard, letters per minute, parts hit, dopamine |
@@ -147,6 +148,7 @@ Switch with the control at the top left of the header. All three share the same 
 | 4 · Spelling | Real-size laptop with a spelling activity | Hovers in front of the screen | Flies key to key and presses each letter with its body | Letter answers into the same trials, memory and dashboards |
 | 5 · Teacher | Fly-sized laptop with a gradebook, trackpad only, no touch | Reads from the trackpad | Steers the cursor with one foreleg on the pad, presses the pad to click, steps over to tap keys | Clicks, misclicks, keystrokes, Fitts' law, cursor heatmap, grading error |
 | 6 · District admin | Fly-sized laptop with nine webcam sessions, a vision overlay and FlyAI | Watches the grid | Steers to a flagged tile, opens it, clicks the check-in button | Flags scored against seeded cheating, precision, response time, attention, detections |
+| 20 · Caterpillar maze | A garden hedge maze with eight caterpillars racing for leaves labelled with word parts | Watches from the scoreboard, turning its head to the latest word or the leader | Nothing to press: it is the audience; each caterpillar chooses, routes and eats on its own | Words built and right leaves for each caterpillar, the race, part memory, a crawl heatmap |
 | 19 · Videogame | A 16-bit console and a CRT TV running the side-scrolling home version of Root Blaster, with a gamepad on the rug | Watches the TV out of the side of its eyes | Rocks the D-pad up and down with its forelegs to bring the ship level with the bug it wants, then the capsule; the caterpillar presses A and holds it to charge the beam | Words built, capsules right, D-pad presses, beams, bosses, ship-height trace |
 | 18 · Arcade | An upright 80s arcade cabinet with a joystick and A and B buttons, running a 2D pixel shooter | Watches the screen while it plays | Works the joystick with both forelegs to steer the ship under the bug carrying the part it wants, then under the falling capsule; the caterpillar presses A to fire | Words built, capsules right, shots, hits, joystick trace |
 | 17 · Retro computer | A 1984 beige all-in-one styled after the original Macintosh, with keyboard and mouse, running a 1-bit typing game | Hovers in front of the screen | Flies to the keyboard, taps each letter of a word part with a foreleg, presses Return to fire at the falling part | Words built, parts hit, letters per minute, shared word-part memory |
@@ -231,6 +233,35 @@ The insect stands on the control panel, reared up with both forelegs on the joys
 ![Experiment 18: the Root Blaster screen, a capsule reading play falling toward the ship, the bug formation, the centipede and the mushrooms](docs/screenshots/exp18-screen.png)
 
 ![Root Blaster in the cabinet, four moments: the wave beam cutting up a column, the Root Hydra with its health bar, the WARNING card, and WORD BUILT](docs/screenshots/exp18-game.png)
+
+### Caterpillar maze
+
+Experiment 20 is more of a game. A garden hedge maze sits on the table, laid out like the grid-maze classics: hedge pillars on a regular grid, some extra hedges, and soil corridors that always connect. The hedges are leafy, with flowers on some of them. Eight caterpillars race through it, one larva of each species: Blue Morpho, Zebra Longwing, Gulf Fritillary, Monarch, Eastern Tiger Swallowtail, Cloudless Sulphur, Common Buckeye and Black Swallowtail. The Buckeye larva is new here and now also dresses the Buckeye's companion caterpillar in other scenes, which before borrowed the Morpho's colours.
+
+Leaves lie in the corridors, each with a word part written large in a white label. Each caterpillar has a meaning to build and must eat its parts in word order: the prefix, then the root, then the suffix. A name tag over each one shows its progress (`un- · ? · ?`).
+- **Choosing a leaf.** It goes for the nearest right leaf with a chance of 0.45 + 0.5 × its memory of that part, and otherwise for a nearby decoy.
+- **Getting there.** A shortest-path search takes it round the hedges, steering clear of corridors other bodies lie in when there is another way. Its body follows the head's own trail, so it bends round corners.
+- **Traffic.** It pauses at a head-on jam. When two meet, the one arriving arches its body over the other.
+- **Eating.** It rears up to munch for a moment. The leaf shrinks with each bite, and a green +1 or a red ✗ floats up.
+- **Learning.** Each caterpillar has its own word-part memory, updated with Δw = η(R − V), so the eight learn at their own pace.
+- **Finishing a word.** It rears up in celebration and the word floats over it, then it gets a new meaning.
+- **Restocking.** The board keeps every caterpillar's next part on it, plus decoys. Decoys are often parts another caterpillar needs, so the caterpillars compete for leaves.
+
+The fly watches from the top rail of the ROOT MAZE scoreboard at the far side and turns its head toward the latest word or the leader. The board ranks the eight live by words built. Camera views are Follow, Top view and On its back. The side panel shows a live map of the maze and a card with the top four. Dashboard 20 has:
+- a leaderboard;
+- the race (words built over time, eight lines);
+- the share of right leaves and the average part memory for each caterpillar;
+- a heatmap of the cells they crawl through;
+- a log.
+
+There is a munching sound on each bite.
+
+| | |
+| --- | --- |
+| ![Experiment 20: the hedge maze with eight caterpillars, leaves labelled with word parts and the ROOT MAZE scoreboard](docs/screenshots/exp20-maze.png) | ![Experiment 20: caterpillars close up in the corridors, name tags showing their progress, leaves reading lock and view](docs/screenshots/exp20-close.png) |
+| **The maze.** Eight racers and the scoreboard. | **Close up.** Name tags show each word so far. |
+
+![Experiment 20: the top view of the maze, every leaf label readable](docs/screenshots/exp20-top.png)
 
 ### Videogame
 
@@ -642,7 +673,7 @@ The TRD describes a biologically grounded stack: a MuJoCo `flybody` model (102 D
 flowchart LR
   subgraph Now["In this repo today"]
     UI["3D language interface<br/>screen · tiles · trial card"]
-    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>nineteen experiments"]
+    FlyP["Procedural fly<br/>IK gait, flight, swipe, tap, buzz, flinch<br/>twenty experiments"]
     Policy["Behavioural policy<br/>memory-weighted tile choice"]
     BrainViz["Stylised CNS point cloud<br/>16 regions, act[]"]
     Eye["Fly-eye mosaic<br/>750 ommatidia, 4.5°"]

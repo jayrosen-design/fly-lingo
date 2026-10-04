@@ -350,6 +350,7 @@ pre.mermaid svg{max-width:none;height:auto}
             <button type="button" data-exp="17" aria-pressed="false">Retro computer</button>
             <button type="button" data-exp="18" aria-pressed="false">Arcade</button>
             <button type="button" data-exp="19" aria-pressed="false">Videogame</button>
+            <button type="button" data-exp="20" aria-pressed="false">Caterpillar maze</button>
         </div>
       </div>
       <div class="seg" role="group" aria-label="Speed">
@@ -380,8 +381,8 @@ pre.mermaid svg{max-width:none;height:auto}
       </div>
 
       <div>
-        <h3 class="sec">Nineteen experiments</h3>
-        <p class="sub">Seventeen student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all nineteen.</p>
+        <h3 class="sec">Twenty experiments</h3>
+        <p class="sub">Eighteen student activities and two staff roles. Pick one to open it in the simulator; the same fly, brain and curriculum run through all twenty.</p>
       </div>
       <div class="expgrid">
         <a class="expcard" href="#simulate" data-run="1"><img loading="lazy" src="docs/screenshots/overview.png" alt="Experiment 1: the fly walking across the phone screen toward a tile"><div class="body"><span class="num">Experiment 1</span><h3>Walking</h3><p>The fly walks across a phone lying on the table, reads the meaning with head sweeps, and presses word-part tiles with a foreleg.</p><span class="role student">Student</span></div></a>
@@ -403,6 +404,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <a class="expcard" href="#simulate" data-run="17"><img loading="lazy" src="docs/screenshots/exp17-retro.png" alt="Experiment 17: a beige 1984-style all-in-one computer showing a black and white typing game, the fly over its keyboard"><div class="body"><span class="num">Experiment 17</span><h3>Retro computer</h3><p>The word-part game as an early typing game on a 1984 computer styled after the original Macintosh. The fly taps each letter with a foreleg and fires with Return.</p></div></a>
         <a class="expcard" href="#simulate" data-run="18"><img loading="lazy" src="docs/screenshots/exp18-arcade.png" alt="Experiment 18: an upright arcade cabinet running a pixel shooter, the fly on the joystick and the caterpillar by the A button"><div class="body"><span class="num">Experiment 18</span><h3>Arcade</h3><p>Root Blaster on an 80s cabinet: shoot the bug carrying the right word part and catch its capsule. The fly works the joystick; the caterpillar presses A.</p></div></a>
         <a class="expcard" href="#simulate" data-run="19"><img loading="lazy" src="docs/screenshots/exp19-videogame.png" alt="Experiment 19: a CRT TV running the side-scrolling home version of Root Blaster, the fly on the gamepad's D-pad and the caterpillar on A"><div class="body"><span class="num">Experiment 19</span><h3>Videogame</h3><p>Root Blaster's home version on a 16-bit console: it scrolls sideways. The fly rocks the D-pad; the caterpillar presses A and holds it for the wave beam.</p></div></a>
+        <a class="expcard" href="#simulate" data-run="20"><img loading="lazy" src="docs/screenshots/exp20-maze.png" alt="Experiment 20: eight caterpillars of different species in a garden hedge maze, with leaves labelled with word parts"><div class="body"><span class="num">Experiment 20</span><h3>Caterpillar maze</h3><p>Eight caterpillars race round a hedge maze to eat the leaves that spell their words, in order: prefix, root, suffix. The fly keeps score.</p></div></a>
       </div>
 
       <h3 class="sec">What you can measure</h3>
@@ -442,6 +444,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <button type="button" data-dock="d-retro-sec" aria-pressed="false"><span>Retro computer</span></button>
         <button type="button" data-dock="d-arc-sec" aria-pressed="false"><span>Arcade</span></button>
         <button type="button" data-dock="d-vg-sec" aria-pressed="false"><span>Videogame</span></button>
+        <button type="button" data-dock="d-mz-sec" aria-pressed="false"><span>Caterpillar maze</span></button>
       </div>
       <div id="dockBody"></div>
     </aside>
@@ -474,10 +477,10 @@ pre.mermaid svg{max-width:none;height:auto}
 
     <aside id="brainPanel" aria-label="Scenario panel">
       <div id="nowLine" aria-live="polite">Walking · building a word</div>
-      <section id="rpScreen" data-rp="3 4 5 6 8 9 10 11 13 14 15 16 17 18 19" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
+      <section id="rpScreen" data-rp="3 4 5 6 8 9 10 11 13 14 15 16 17 18 19 20" class="rp"><div class="rowlbl"><h3 id="rpScreenHead">Screen</h3><span class="sub" id="rpScreenSub">live</span></div><canvas id="rpScreenCv" aria-label="Live copy of the device screen"></canvas></section>
       <section id="rpMap" data-rp="7" class="rp"><div class="rowlbl"><h3>Seating chart</h3><span class="sub">click a fly to follow it</span></div><canvas id="rpMapCv" aria-label="Top-down seating chart of the six tables; click a fly to follow it"></canvas></section>
       <section id="rpScen" class="rp"><h3 id="rpScenHead"></h3><div id="rpScenBody"></div></section>
-      <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18 19" style="display:flex;flex-direction:column;gap:8px">
+      <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18 19 20" style="display:flex;flex-direction:column;gap:8px">
         <div>
           <h2>Central nervous system</h2>
           <span class="sub">Each point is a neuron after the FlyWire and MaleCNS neuropils. Spikes show as calcium flashes; a heading bump circles the ellipsoid body. Drag to turn.</span>
@@ -485,17 +488,17 @@ pre.mermaid svg{max-width:none;height:auto}
         <div id="brainWrap"><canvas id="brain" aria-label="Rotating point cloud of the fly's nervous system; neurons flash as they fire"></canvas><div id="brainLbl" hidden></div></div>
         <div class="brainKey"><span class="brainKey" aria-hidden="true"><span>resting</span><i style="background:#3f74e0"></i><i style="background:#a27dff"></i><i style="background:#3fd0e2"></i><i style="background:#46c486"></i><i style="background:#e07ab4"></i><i style="background:#8aa8ff"></i><i style="background:#5b82ea"></i><span style="margin-left:10px">firing</span><b></b></span><button type="button" id="brainLblBtn" class="mini" aria-pressed="false">Name the parts</button></div>
       </section>
-      <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18 19" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18 19 20" style="display:flex;flex-direction:column;gap:10px">
         <div class="rowlbl"><span>Dopamine · PAM cluster</span><span id="dopaVal">0.50</span></div>
         <div class="bar" id="dopaBar"><span style="width:50%"></span></div>
         <ul class="regions" id="regions"></ul>
       </section>
-      <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18 19" style="display:flex;flex-direction:column;gap:10px">
+      <section data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18 19 20" style="display:flex;flex-direction:column;gap:10px">
         <h3 id="memHead">Word part memory · Kenyon cell to MBON weights</h3>
         <div class="memory" id="memory"></div>
       </section>
       <section style="display:flex;flex-direction:column;gap:12px">
-        <div class="stat-row" data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18 19">
+        <div class="stat-row" data-rp="1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18 19 20">
           <div class="stat good"><b id="stWords">0</b><span class="sub">words built</span></div>
           <div class="stat plain"><b id="stTaps">0</b><span class="sub">answers</span></div>
           <div class="stat"><b id="stAcc">0%</b><span class="sub">correct</span></div>
@@ -518,7 +521,7 @@ pre.mermaid svg{max-width:none;height:auto}
         <p class="lead">Four dashboards from the psychometric specification, fed by the running fly. Values update while the simulation runs in the Simulate view. Where a quantity is a stand-in for a sensor or model the app does not yet have, the card says so.</p>
       </div>
       <nav class="subnav" aria-label="Dashboards">
-        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a><a href="#d-writing">Writing</a><a href="#d-vr">VR</a><a href="#d-ar">AR</a><a href="#d-sc">Scrabble</a><a href="#d-pb">Paper book</a><a href="#d-geo">Geography</a><a href="#d-math">Mathematics</a><a href="#d-retro">Retro computer</a><a href="#d-arc">Arcade</a><a href="#d-vg">Videogame</a>
+        <a href="#d-session">Session</a><a href="#d-kinematic">Kinematic and sensorimotor</a><a href="#d-connectome">Connectomic</a><a href="#d-psycho">Psychometric</a><a href="#d-curriculum">Curriculum</a><a href="#d-teacher">Teacher navigation</a><a href="#d-admin">District proctoring</a><a href="#d-class">Classroom</a><a href="#d-phonics">Phonics</a><a href="#d-reading">Reading</a><a href="#d-writing">Writing</a><a href="#d-vr">VR</a><a href="#d-ar">AR</a><a href="#d-sc">Scrabble</a><a href="#d-pb">Paper book</a><a href="#d-geo">Geography</a><a href="#d-math">Mathematics</a><a href="#d-retro">Retro computer</a><a href="#d-arc">Arcade</a><a href="#d-vg">Videogame</a><a href="#d-mz">Caterpillar maze</a>
       </nav>
 
       <section id="d-session" class="grid" data-dockable>
@@ -779,6 +782,21 @@ pre.mermaid svg{max-width:none;height:auto}
         <article class="card span4"><header><h3>Word-part memory</h3><span class="sub">shared with Experiments 1 to 4</span></header><div id="vgMem" class="memory"></div></article>
         <article class="card span4"><header><h3>Game log</h3><span class="sub">capsules, words and bosses</span></header><ul class="events" id="vgLogL" style="max-height:260px"></ul></article>
       </section>
+
+      <h3 class="sec" id="d-mz">Dashboard 20 · Caterpillar maze</h3>
+      <p class="sub">Experiment 20. Eight caterpillars, one of each Gainesville species, race through a hedge maze for leaves that carry word parts. Each must eat its word's parts in order, prefix then root then suffix, and finds its way with a shortest-path search round the hedges and the other heads. Which leaf it goes for depends on its own word-part memory, updated after every bite with Δw = η(R − V), so the eight learn separately.</p>
+      <section class="grid" id="d-mz-sec" data-dockable>
+        <article class="card span4"><header><h3>Maze session</h3><span class="sub" id="mzMode">not running</span></header>
+          <div class="stat-row"><div class="stat good"><b id="mzWords">0</b><span class="sub">words built</span></div><div class="stat plain"><b id="mzEaten">0</b><span class="sub">leaves eaten</span></div><div class="stat"><b id="mzAcc">–</b><span class="sub">right leaf</span></div></div>
+          <div class="kv"><span>Leaves on the board</span><b id="mzLeaves">0</b><span>Distance crawled, all eight</span><b id="mzDist">0</b><span>Race time</span><b id="mzTime">0</b></div>
+          <p class="sub">A caterpillar goes for the right leaf with a chance of 0.45 + 0.5 × its memory of that part, else a nearby decoy. Decoys are often parts another caterpillar needs, so they compete for leaves.</p></article>
+        <article class="card span8"><header><h3>Leaderboard</h3><span class="sub">words built, then right leaves</span></header><div style="overflow-x:auto"><table class="tbl" id="mzTable" style="width:100%;border-collapse:collapse;font-size:13px"></table></div></article>
+        <article class="card span8"><header><h3>The race</h3><span class="sub">words built over time, each third of a word as it is eaten</span></header><canvas class="chart tall" id="cMzRace" aria-label="Words built over time for each of the eight caterpillars"></canvas><div class="legend" id="mzLegend"></div></article>
+        <article class="card span4"><header><h3>Right leaf, by caterpillar</h3><span class="sub">share of leaves that were the next part</span></header><canvas class="chart" id="cMzAcc" aria-label="Share of right leaves for each caterpillar"></canvas></article>
+        <article class="card span4"><header><h3>Where they crawl</h3><span class="sub">cells entered, darker is busier</span></header><canvas class="chart" id="cMzHeat" aria-label="Heatmap of the maze cells the caterpillars entered"></canvas></article>
+        <article class="card span4"><header><h3>Memory of the parts</h3><span class="sub">average over the parts each has met</span></header><canvas class="chart" id="cMzMem" aria-label="Average word-part memory for each caterpillar"></canvas></article>
+        <article class="card span4"><header><h3>Maze log</h3><span class="sub">bites and words</span></header><ul class="events" id="mzLogL" style="max-height:260px"></ul></article>
+      </section>
     </div>
   </section>
 
@@ -1028,7 +1046,7 @@ pre.mermaid svg{max-width:none;height:auto}
 </pre></article><article class="card"><h3>From this app to the full EDLS</h3><pre class="mermaid">flowchart LR
   subgraph Now[&quot;In this repo today&quot;]
     UI[&quot;3D language interface&lt;br/&gt;screen · tiles · trial card&quot;]
-    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;nineteen experiments&quot;]
+    FlyP[&quot;Procedural fly&lt;br/&gt;IK gait, flight, swipe, tap, buzz, flinch&lt;br/&gt;twenty experiments&quot;]
     Policy[&quot;Behavioural policy&lt;br/&gt;memory-weighted tile choice&quot;]
     BrainViz[&quot;Stylised CNS point cloud&lt;br/&gt;16 regions, act[]&quot;]
     Eye[&quot;Fly-eye mosaic&lt;br/&gt;750 ommatidia, 4.5°&quot;]
@@ -1282,6 +1300,7 @@ const EXP = {
   13: { name: 'Scrabble', note: 'Experiment 13 · Scrabble. The fruit fly plays a Blue Morpho butterfly on a full 15 by 15 board with premium squares and a 98-tile bag. On its turn the fly walks to its rack, takes each tile with a foreleg, walks it to its square and sets it down; the butterfly flies its tiles in and drops them. Words have to cross a word already on the board. Each player starts knowing only part of the word list and learns the words its opponent plays.', phys: 'Fly walks · butterfly flies', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [0, 70, 86], scrabble: true },
   14: { name: 'Paper book', note: 'Experiment 14 · Paper book. Flynn and the Giant Peach as a hardback picture book lying open on the table, the picture on the left page and the text on the right. The fly looks over the picture, then flies from word to word above the text, buzzing each one aloud. At the end of the page it flies to the corner, grips it with both forelegs, beats its wings to lift the page past upright and lets it fall over.', phys: 'Hover flight · forelegs grip the page', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [0, 52, 58], paper: true },
   15: { name: 'Geography', note: 'Experiment 15 · Geography. A globe with real country outlines stands on a school desk beside a trivia card. The fly walks to the card and reads the question, flies to the globe and sweeps it round with a foreleg, then flies to the country it thinks is the answer and taps it. The country lights up green if right; if wrong it lights red and the right one lights green.', phys: 'Walks, flies · a foreleg taps the globe', phoneScale: 1, layout: 'grid', jitter: 0, camOffset: [4, 34, 74], geo: true },
+  20: { name: 'Caterpillar maze', note: 'Experiment 20 · Caterpillar maze. Eight caterpillars, one of each Gainesville species, race through a garden hedge maze laid out like the grid-maze classics. Leaves in the corridors each carry a word part. Each caterpillar has a meaning to build and must eat its parts in word order, prefix then root then suffix, finding its way round the hedges. Each learns from its own word-part memory. The fly watches from the scoreboard.', phys: 'Perched on the scoreboard · eight caterpillars', phoneScale: 1, layout: 'grid', jitter: 0, maze: true, camOffset: [-8, 64, 84] },
   19: { name: 'Videogame', note: 'Experiment 19 · Videogame. The home version of Root Blaster on a 16-bit console with a CRT TV. At home the game scrolls sideways: the ship flies right through organic walls with a force pod in front, bugs carrying word parts sweep in from the right, and a boss comes every second word. The fly stands on the gamepad and rocks the D-pad up and down with its forelegs; the caterpillar presses A, and holds it to charge the wave beam.', phys: 'Standing on the gamepad · forelegs on the D-pad', phoneScale: 1, layout: 'grid', jitter: 0, console: true, camOffset: [-34, 26, 128] },
   18: { name: 'Arcade', note: 'Experiment 18 · Arcade. An upright 80s cabinet runs Root Blaster, a 2D pixel shooter in the style of the formation-and-dive and centipede-in-the-mushrooms classics. A formation of bugs carries word parts; shooting one drops a capsule with its part, and steering the ship under it collects it, while a centipede winds down through the mushrooms. The insect works the joystick with both forelegs; the caterpillar sits by the A button and bonks it to fire.', phys: 'Standing on the panel · forelegs on the joystick', phoneScale: 1, layout: 'grid', jitter: 0, arcade: true, camOffset: [-30, 26, 70] },
   17: { name: 'Retro computer', note: 'Experiment 17 · Retro computer. A beige all-in-one from 1984, styled after the original Macintosh and the Lisa, with its keyboard and one-button mouse, runs the word-part game recreated as an early typing game in 1-bit black and white at 512 × 342. Word parts fall toward a turret. The fly reads the meaning on the screen, flies to the keyboard, taps the letters of a part with a foreleg and presses Return to fire; the right part drops into its slot.', phys: 'Hover flight · a foreleg taps each key', phoneScale: 1, layout: 'grid', jitter: 0, retro: true, camOffset: [-26, 40, 96] },
@@ -1813,6 +1832,7 @@ function renderTrial() {
   if (experiment === 17) return renderRetroTrial();
   if (experiment === 18) return renderArcadeTrial();
   if (experiment === 19) return renderVideogameTrial();
+  if (experiment === 20) return renderMazeTrial();
   if (experiment === 4 && typeof spell !== 'undefined' && spell.letters.length) {
     $('meaning').textContent = spell.word.meaning;
     $('chips').innerHTML = spell.letters.map((ch, i) => i < spell.typed.length ? `<span class="chip ${KINDS[partAtLetter(i)]}" style="padding:0 12px">${ch}</span>` : `<span class="chip empty" style="padding:0 10px">${KINDS[partAtLetter(i)][0]}</span>`).join('');
@@ -1854,6 +1874,7 @@ const PHASE_TEXT = { look: 'Looking at the screen', walk: 'Walking to a tile', t
   pb_look: 'Looking at the picture', pb_read: 'Reading aloud', pb_go: 'Flying to the page corner', pb_grab: 'Gripping the corner', pb_lift: 'Lifting the page with its wings', pb_fall: 'The page falls over', pb_end: 'The End', pb_rewind: 'Back to the beginning',
   j_play: 'Playing: forelegs on the joystick',
   g_play: 'Playing: forelegs on the D-pad',
+  z_watch: 'Watching the caterpillars race',
   o_read: 'Reading the screen', o_fly: 'Flying to the keyboard', o_aim: 'Lining up the next key', o_hop: 'Hopping to the next key', o_tap: 'Tapping a key with a foreleg', o_watch: 'Watching the shot', o_back: 'Flying back up to the screen',
   m_read: 'Reading the problem card', m_fly: 'Flying to the calculator', m_aim: 'Lining up the next key', m_hop: 'Hopping to the next key', m_tail: 'Tapping a key with the tip of its abdomen', m_leg: 'Tapping a key with a hind leg', m_graph: 'Watching the graph draw', m_watch: 'Reading the answer off the screen', m_react: 'Checking the answer', m_home: 'Flying back to the problem card',
   g_wait: 'Loading the map', g_walk: 'Walking to the question card', g_read: 'Reading the question', g_fly: 'Flying to the globe', g_spin: 'Spinning the globe', g_seek: 'Flying to a country', g_tap: 'Tapping the country', g_react: 'Checking the answer', g_home: 'Flying back to the desk',
@@ -1957,6 +1978,7 @@ function stepAgent(dt, now) {
   if (experiment === 17) return stepRetro(dt, now);
   if (experiment === 18) return stepArcade(dt, now);
   if (experiment === 19) return stepVideogame(dt, now);
+  if (experiment === 20) return stepMaze(dt, now);
   if (EXP[experiment].laptop) return stepTeacher(dt, now);
   const st = flyState; const s = phone.scale.x;
   switch (agent.phase) {
@@ -3138,7 +3160,7 @@ function drawVision() {
 }
 
 // ---------- scenario panels: the right panel and bottom strip follow the experiment ----------
-const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]; // the teacher and admin panels show their screen and work queue instead of the brain
+const BRAIN_EXPS = [1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]; // the teacher and admin panels show their screen and work queue instead of the brain
 let rpAt = 0;
 // scenario history, 4 samples a second of the numbers the strip plots (the classroom keeps its own in cls.hist)
 const sh = []; let shAt = 0, shSim = 0; const shPrev = new THREE.Vector3();
@@ -3150,7 +3172,7 @@ function sampleScenario(now, dt) {
   sh.push({ t, exp: experiment, speed, h: Math.max(0, st.pos.y - ground), air: st.airborne ? 1 : 0, scroll: game.scrollY, typed: spell.typed.length,
     path: T.path, clicks: T.clicks, miss: T.miss, keys: T.keys, graded: T.graded.length,
     att: admin.students.length ? admin.students.reduce((a, s) => a + s.att, 0) / admin.students.length : null, flags: admin.flags.filter(f => f.open).length,
-    song: flyState.songAmp || 0, pen: (experiment === 10 && agent.phase === 'w_write' && wr.path[Math.floor(wr.s)] && wr.path[Math.floor(wr.s)].down) || (experiment === 11 && agent.phase === 'v_write') ? 1 : 0, ball: vr.speed, arcX: experiment === 18 ? arc.ship.x / ARC.sw : null, vgX: experiment === 19 ? (vg.ship.x - vg.x0) / (vg.x1 - vg.x0) : null, oH: experiment === 17 ? Math.max(0, flyState.pos.y - RT.Y - RT.kb.h) : null, mH: experiment === 16 ? Math.max(0, flyState.pos.y - MATH.Y - MATH.ti.h) : null, gH: experiment === 15 ? Math.max(0, flyState.pos.y - TABLE_Y) : null, gSpin: experiment === 15 ? (gq.spinRate || 0) : null, gMemM: gq.mem.size ? [...gq.mem.values()].reduce((a, b) => a + b, 0) / gq.mem.size : null, pbH: experiment === 14 ? Math.max(0, flyState.pos.y - PB.Y) : null, scF: scr.scores[0], scB: scr.scores[1], scBag: scr.bag.length, arHold: experiment === 12 && ['a_carry', 'a_rotate'].includes(agent.phase) ? 1 : 0, arRot: experiment === 12 && ar.pick ? Math.abs(arWrap(ar.pick.g.rotation.y)) * 57.3 : null, pmem: game.memory.size ? [...game.memory.values()].reduce((a, b) => a + b, 0) / game.memory.size : null, rmem: wr.mem.size ? [...wr.mem.values()].reduce((a, b) => a + b, 0) / wr.mem.size : null, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
+    song: flyState.songAmp || 0, pen: (experiment === 10 && agent.phase === 'w_write' && wr.path[Math.floor(wr.s)] && wr.path[Math.floor(wr.s)].down) || (experiment === 11 && agent.phase === 'v_write') ? 1 : 0, ball: vr.speed, arcX: experiment === 18 ? arc.ship.x / ARC.sw : null, mzL: experiment === 20 ? mz.leaves.length / 20 : null, vgX: experiment === 19 ? (vg.ship.x - vg.x0) / (vg.x1 - vg.x0) : null, oH: experiment === 17 ? Math.max(0, flyState.pos.y - RT.Y - RT.kb.h) : null, mH: experiment === 16 ? Math.max(0, flyState.pos.y - MATH.Y - MATH.ti.h) : null, gH: experiment === 15 ? Math.max(0, flyState.pos.y - TABLE_Y) : null, gSpin: experiment === 15 ? (gq.spinRate || 0) : null, gMemM: gq.mem.size ? [...gq.mem.values()].reduce((a, b) => a + b, 0) / gq.mem.size : null, pbH: experiment === 14 ? Math.max(0, flyState.pos.y - PB.Y) : null, scF: scr.scores[0], scB: scr.scores[1], scBag: scr.bag.length, arHold: experiment === 12 && ['a_carry', 'a_rotate'].includes(agent.phase) ? 1 : 0, arRot: experiment === 12 && ar.pick ? Math.abs(arWrap(ar.pick.g.rotation.y)) * 57.3 : null, pmem: game.memory.size ? [...game.memory.values()].reduce((a, b) => a + b, 0) / game.memory.size : null, rmem: wr.mem.size ? [...wr.mem.values()].reduce((a, b) => a + b, 0) / wr.mem.size : null, vmem: reading.vocab.size ? [...reading.vocab.values()].reduce((a, b) => a + b, 0) / reading.vocab.size : null, mem: phon.mem.size ? [...phon.mem.values()].reduce((a, b) => a + b, 0) / phon.mem.size : null,
     prec: A.tp + A.fp ? A.tp / (A.tp + A.fp) : null, checkins: A.checkins, det: A.detections.filter(d => t - d.t < 5).reduce((a, d) => a + d.lookaway + d.helper + d.device + d.offscreen, 0) });
   if (sh.length > 480) sh.shift();
 }
@@ -3258,6 +3280,10 @@ const STRIPS = {
     { l: 'A presses', v: () => String(arc.stats.shots), d: id => barChart(id, [{ v: arc.stats.hits, color: CH.green, label: `bugs hit: ${arc.stats.hits}` }, { v: arc.stats.segs, color: CH.amber, label: `centipede segments: ${arc.stats.segs}` }, { v: arc.stats.mush, color: CH.blue, label: `mushrooms cleared: ${arc.stats.mush}` }], { positive: true, compact: true, empty: 'No shots yet' }) },
     { l: 'Capsules right', v: () => `${arc.stats.right} of ${arc.stats.caught}`, d: id => barChart(id, arc.history.slice(-20).map(h => ({ v: 1, color: h.ok ? CH.green : CH.red, label: `${h.need}: caught ${h.got}` })), { ymax: 1, positive: true, compact: true, empty: 'No capsules yet' }) },
     sDopa],
+  20: [sHist('Leaves on the board', 'mzL', () => String(mz.leaves.length), { ymax: 1 }),
+    { l: 'Words built', v: () => String(mz.stats.words), d: id => barChart(id, mz.cats.map(c => ({ v: c.stats.words, color: c.color, label: `${c.short}: ${c.stats.words} words` })), { positive: true, compact: true, empty: 'No words yet' }) },
+    { l: 'Right leaves', v: () => `${mz.stats.right} of ${mz.stats.eaten}`, d: id => barChart(id, mz.cats.map(c => ({ v: c.stats.eaten ? c.stats.right / c.stats.eaten : 0, color: c.color, label: `${c.short}: ${c.stats.right} of ${c.stats.eaten}` })), { ymax: 1, positive: true, compact: true, empty: 'No leaves eaten yet' }) },
+    sDopa],
   19: [sHist('Ship height', 'vgX', () => `${Math.round(vg.ship.x)} px`, { ymax: 1 }),
     { l: 'D-pad presses', v: () => String(vg.stats.presses), d: id => barChart(id, [{ v: vg.stats.hits, color: CH.green, label: `hits: ${vg.stats.hits}` }, { v: vg.stats.beams, color: CH.blue, label: `wave beams: ${vg.stats.beams}` }, { v: vg.stats.blocked, color: CH.amber, label: `shots the pod blocked: ${vg.stats.blocked}` }], { positive: true, compact: true, empty: 'No shots yet' }) },
     { l: 'Capsules right', v: () => `${vg.stats.right} of ${vg.stats.caught}`, d: id => barChart(id, vg.history.slice(-20).map(h => ({ v: 1, color: h.ok ? CH.green : CH.red, label: `${h.need}: caught ${h.got}` })), { ymax: 1, positive: true, compact: true, empty: 'No capsules yet' }) },
@@ -3294,6 +3320,8 @@ function scenarioCard() {
     return ['Proctoring', `<h3>Open flags</h3><ul>${open.map(f => `<li class="now">${admin.students[f.student].name}: ${REASON[f.reason] || f.reason} · ${Math.round(TDT() - f.t)} s ago</li>`).join('') || '<li>None open</li>'}</ul>` +
       (ai ? `<p class="sub" style="margin:0">FlyAI: ${ai.text}</p>` : '') + `<h3>Next actions</h3><ol>${next.map((s, i) => `<li class="${i ? '' : 'now'}">${stepText(s)}</li>`).join('')}</ol>` +
       kv([['Flags · confirmed · false alarms', `${admin.flags.length} · ${A.tp} · ${A.fp}`], ['Check-ins sent', A.checkins]])]; }
+  if (e === 20) { const R = mzRank(), last = mz.log[mz.log.length - 1];
+    return ['Caterpillar maze', kv([['Leading', R[0] ? `${R[0].short} · ${R[0].stats.words} words` : '–'], ...R.slice(0, 4).map(c => [c.short, c.word ? `${c.word.parts.map((p, i) => i < c.slot ? p : '?').join(' · ')} · ${c.state === 'eat' ? 'eating' : c.state === 'cheer' ? 'built it!' : c.target ? `going for "${c.target.label}"` : 'looking'}` : '–']), ['Leaves on the board', String(mz.leaves.length)], ['Latest', last ? last.text : '–']])]; }
   if (e === 18 || e === 19) { const G = e === 19 ? vg : arc, last = G.history[G.history.length - 1], need = G.word ? G.word.parts[G.slot] : null;
     const ctl = e === 19 ? ['D-pad', G.joy < 0 ? 'up' : G.joy > 0 ? 'down' : 'released'] : ['Joystick', `${G.joy < -0.15 ? 'left' : G.joy > 0.15 ? 'right' : 'centre'} · ${Math.round(Math.abs(G.joy) * 100)}%`];
     return [e === 19 ? 'Videogame' : 'Arcade', kv([['Build', G.word ? G.word.meaning : '–'], ['Going for', G.hydra ? 'the Root Hydra' : G.caps.length ? `the "${G.caps[0].label}" capsule` : G.aim ? `the bug carrying "${G.aim.label}"` : '–'], ['Needed now', need ? `${need} · ${kindOf(need)}` : '–'], ctl,
@@ -3325,19 +3353,19 @@ function renderScenario(force) {
   if (view !== 'simulate' && !force) return;
   const [head, body] = scenarioCard(); if ($('rpScenHead').textContent !== head) $('rpScenHead').textContent = head;
   const B = $('rpScenBody'); if (B.innerHTML !== body) B.innerHTML = body;
-  if ([3, 4, 5, 6, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
+  if ([3, 4, 5, 6, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20].includes(experiment)) drawRpScreen(); if (experiment === 7) drawRpMap();
 }
 // a live copy of the phone or laptop screen
 function drawRpScreen() {
-  const cv = $('rpScreenCv'), w = cv.clientWidth; if (!w) return; const lap = EXP[experiment].laptop || experiment === 9 || experiment === 11 || experiment === 13 || experiment === 14 || experiment === 15 || experiment === 16 || experiment === 17, src = experiment === 19 ? vgCanvas : experiment === 18 ? arcCanvas : experiment === 17 ? rtCanvas : experiment === 16 ? tiCanvas : experiment === 15 ? geoMap : experiment === 14 ? pbSpread : experiment === 13 ? scMini : experiment === 11 ? vrCanvas : experiment === 9 ? bookCanvas : EXP[experiment].laptop ? lapCanvas : screenCanvas;
-  const h = experiment === 19 ? Math.round(w * VG.sh / VG.sw) : experiment === 18 ? Math.min(380, Math.round(w * ARC.sh / ARC.sw)) : lap ? Math.round(w * 640 / 1024) : Math.min(300, Math.round(w * SH / SW)); const pr = Math.min(devicePixelRatio, 2);
+  const cv = $('rpScreenCv'), w = cv.clientWidth; if (!w) return; const lap = EXP[experiment].laptop || experiment === 9 || experiment === 11 || experiment === 13 || experiment === 14 || experiment === 15 || experiment === 16 || experiment === 17, src = experiment === 20 ? mzMap : experiment === 19 ? vgCanvas : experiment === 18 ? arcCanvas : experiment === 17 ? rtCanvas : experiment === 16 ? tiCanvas : experiment === 15 ? geoMap : experiment === 14 ? pbSpread : experiment === 13 ? scMini : experiment === 11 ? vrCanvas : experiment === 9 ? bookCanvas : EXP[experiment].laptop ? lapCanvas : screenCanvas;
+  const h = experiment === 20 ? Math.round(w * mzMap.height / mzMap.width) : experiment === 19 ? Math.round(w * VG.sh / VG.sw) : experiment === 18 ? Math.min(380, Math.round(w * ARC.sh / ARC.sw)) : lap ? Math.round(w * 640 / 1024) : Math.min(300, Math.round(w * SH / SW)); const pr = Math.min(devicePixelRatio, 2);
   if (cv.height !== Math.round(h * pr) || cv.width !== Math.round(w * pr)) { cv.width = Math.round(w * pr); cv.height = Math.round(h * pr); cv.style.height = h + 'px'; }
   const g = cv.getContext('2d'); g.setTransform(pr, 0, 0, pr, 0, 0); g.fillStyle = '#0b0b0c'; g.fillRect(0, 0, w, h);
   const s = Math.min(w / src.width, h / src.height), dw = src.width * s, dh = src.height * s; g.drawImage(src, (w - dw) / 2, (h - dh) / 2, dw, dh);
   if (experiment === 13) {}
   if (experiment === 11) { const iw = w * 0.36, ih = iw * 0.625, ix = w - iw - 6, iy = h - ih - 6; g.drawImage(vrCanvasT, ix, iy, iw, ih); g.strokeStyle = '#fff'; g.lineWidth = 2; g.strokeRect(ix, iy, iw, ih); g.fillStyle = 'rgba(0,38,87,0.85)'; g.fillRect(ix, iy, 52, 14); g.fillStyle = '#fff'; g.font = `700 9px ${DISPLAY}`; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText('Teacher', ix + 5, iy + 7.5); }
-  $('rpScreenHead').textContent = experiment === 19 ? 'TV screen' : experiment === 18 ? 'Arcade screen' : experiment === 17 ? 'Computer screen' : experiment === 16 ? 'Graphing calculator' : experiment === 15 ? 'World map' : experiment === 14 ? 'The open book' : experiment === 13 ? 'Scoreboard' : experiment === 11 ? 'Headset view' : experiment === 10 ? 'Writing app' : experiment === 9 ? 'Storybook app' : experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
-  $('rpScreenSub').textContent = experiment === 19 ? 'Root Blaster at home, 256 × 224' : experiment === 18 ? 'Root Blaster, 224 × 288' : experiment === 17 ? '1-bit, 512 × 342' : experiment === 16 ? 'Y=, ZOOM, the graph and CALC' : experiment === 15 ? 'the globe, flattened' : experiment === 14 ? 'the spread the fly is reading' : experiment === 13 ? 'board, racks and scores' : experiment === 11 ? 'student, teacher inset' : experiment === 10 ? 'ink from the abdomen tip' : experiment === 9 ? 'the page the fly is reading' : experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
+  $('rpScreenHead').textContent = experiment === 20 ? 'Maze map' : experiment === 19 ? 'TV screen' : experiment === 18 ? 'Arcade screen' : experiment === 17 ? 'Computer screen' : experiment === 16 ? 'Graphing calculator' : experiment === 15 ? 'World map' : experiment === 14 ? 'The open book' : experiment === 13 ? 'Scoreboard' : experiment === 11 ? 'Headset view' : experiment === 10 ? 'Writing app' : experiment === 9 ? 'Storybook app' : experiment === 8 ? 'Phonics app' : experiment === 3 ? 'Phone screen' : experiment === 4 ? 'Laptop screen' : experiment === 5 ? 'Gradebook' : 'Proctoring screen';
+  $('rpScreenSub').textContent = experiment === 20 ? 'hedges, leaves and the eight heads' : experiment === 19 ? 'Root Blaster at home, 256 × 224' : experiment === 18 ? 'Root Blaster, 224 × 288' : experiment === 17 ? '1-bit, 512 × 342' : experiment === 16 ? 'Y=, ZOOM, the graph and CALC' : experiment === 15 ? 'the globe, flattened' : experiment === 14 ? 'the spread the fly is reading' : experiment === 13 ? 'board, racks and scores' : experiment === 11 ? 'student, teacher inset' : experiment === 10 ? 'ink from the abdomen tip' : experiment === 9 ? 'the page the fly is reading' : experiment === 3 ? 'what the fly sees, scrolled' : experiment === 8 ? 'what the fly sees and hears scored' : 'live, as on the laptop';
 }
 // classroom seating chart, top down
 const MAP = { x0: -56, x1: 56, z0: -40, z1: 32 };
@@ -3440,7 +3468,7 @@ function pulseBurst() {
   const V = audio.v; if (!V || !audio.on || (experiment !== 8 && experiment !== 9)) return; const g = V.pulse.gain, t = audio.ctx.currentTime + 0.005;
   g.cancelScheduledValues(t); for (let k = 0; k < 3; k++) { const s = t + k * 0.035; g.setValueAtTime(0, s); g.linearRampToValueAtTime(1.3, s + 0.003); g.linearRampToValueAtTime(0, s + 0.017); }
 }
-function syncSoundBtn() { $('soundBtn').setAttribute('aria-pressed', String(audio.on)); $('soundBtn').textContent = audio.on ? (experiment === 19 ? 'Sound on · game effects' : experiment === 18 ? 'Sound on · arcade effects' : 'Sound on · buzz plays while it sings') : 'Sound off'; }
+function syncSoundBtn() { $('soundBtn').setAttribute('aria-pressed', String(audio.on)); $('soundBtn').textContent = audio.on ? (experiment === 20 ? 'Sound on · munching' : experiment === 19 ? 'Sound on · game effects' : experiment === 18 ? 'Sound on · arcade effects' : 'Sound on · buzz plays while it sings') : 'Sound off'; }
 document.addEventListener('visibilitychange', () => { if (audio.ctx) { if (document.hidden) audio.ctx.suspend(); else if (audio.on) audio.ctx.resume(); } });
 // ---------- spectrogram of the buzz (64 bands to 8 kHz), drawn from the same model that drives the synthesis ----------
 const spectro = document.createElement('canvas'); spectro.width = 240; spectro.height = 64; const spc = spectro.getContext('2d');
@@ -5454,8 +5482,8 @@ const arcBallWorld = () => ARC.ball.getWorldPosition(new THREE.Vector3());
 // arcade sound effects, synthesised on the shared audio context; each kind is rate-limited so fast play stays clean
 const sfxLast = {}; let sfxNoise = null;
 function sfx(kind) {
-  if (!audio.on || !audio.ctx || (experiment !== 18 && experiment !== 19)) return; const c = audio.ctx, t = c.currentTime + 0.005, now = performance.now();
-  if (now - (sfxLast[kind] || 0) < ({ laser: 70, hit: 45, boom: 90, pop: 60, tick: 40, zap: 90, charge: 600, beam: 300, warn: 1500, bigboom: 800 }[kind] || 30)) return; sfxLast[kind] = now;
+  if (!audio.on || !audio.ctx || (experiment !== 18 && experiment !== 19 && experiment !== 20)) return; const c = audio.ctx, t = c.currentTime + 0.005, now = performance.now();
+  if (now - (sfxLast[kind] || 0) < ({ laser: 70, hit: 45, boom: 90, pop: 60, tick: 40, zap: 90, charge: 600, beam: 300, warn: 1500, bigboom: 800, chomp: 120 }[kind] || 30)) return; sfxLast[kind] = now;
   if (!sfxNoise) { sfxNoise = c.createBuffer(1, c.sampleRate, c.sampleRate); const d = sfxNoise.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; }
   const gain = (peak, a, d, at = t) => { const g = c.createGain(); g.gain.setValueAtTime(0.0001, at); g.gain.exponentialRampToValueAtTime(peak, at + a); g.gain.exponentialRampToValueAtTime(0.0001, at + a + d); g.connect(audio.master); return g; };
   const tone = (type, f0, f1, dur, peak, at = t) => { const o = c.createOscillator(); o.type = type; o.frequency.setValueAtTime(f0, at); o.frequency.exponentialRampToValueAtTime(f1, at + dur); o.connect(gain(peak, 0.004, dur, at)); o.start(at); o.stop(at + dur + 0.05); };
@@ -5469,6 +5497,7 @@ function sfx(kind) {
   else if (kind === 'ok') [1047, 1319, 1568, 2093].forEach((f, k) => tone('triangle', f, f, 0.07, 0.13, t + k * 0.065));
   else if (kind === 'bad') { tone('square', 320, 140, 0.32, 0.1); tone('square', 330, 146, 0.32, 0.06); }
   else if (kind === 'word') [523, 659, 784, 1047, 784, 1047, 1319].forEach((f, k) => { tone('square', f, f, 0.08, 0.07, t + k * 0.09); tone('triangle', f / 2, f / 2, 0.08, 0.08, t + k * 0.09); });
+  else if (kind === 'chomp') { noise(0.07, 0.16, 'bandpass', 900, 500); tone('square', 180, 110, 0.06, 0.05); }
   else if (kind === 'zap') tone('square', 2400, 1500, 0.05, 0.035);
   else if (kind === 'charge') { tone('sawtooth', 160, 1400, 0.95, 0.06); tone('square', 80, 700, 0.95, 0.03); }
   else if (kind === 'beam') { noise(0.6, 0.35, 'bandpass', 600, 4000); tone('sawtooth', 1800, 120, 0.55, 0.12); tone('square', 900, 60, 0.5, 0.08); }
@@ -5852,7 +5881,7 @@ function updateCamera() {
   if (camMode === 'back') return updateBackCam(false);
   if (camMode === 'phone' && experiment === 12) { const h = head.getWorldPosition(new THREE.Vector3()), f = new THREE.Vector3(Math.sin(flyState.yaw), 0, Math.cos(flyState.yaw)); const k = fly.scale.x; camera.position.copy(h).addScaledVector(f, 1.3 * k).add(new THREE.Vector3(0, 0.5 * k, 0)); controls.target.copy(h).addScaledVector(f, 12); } // what the fly sees through the glass headset, overlays included
   if (camMode === 'follow') {
-    const goal = experiment === 19 ? VG_MID.clone() : experiment === 18 ? ARC_MID.clone() : experiment === 17 ? flyState.pos.clone().lerp(RT_MID, 0.35) : experiment === 16 ? flyState.pos.clone().lerp(MATH_MID, 0.25) : experiment === 11 ? VR_MID.clone() : experiment === 13 ? SC_MID.clone() : experiment === 14 ? PB_MID.clone() : experiment === 15 ? GEO_MID.clone() : flyState.pos.clone(); goal.y += 1;
+    const goal = experiment === 20 ? MZ_MID.clone() : experiment === 19 ? VG_MID.clone() : experiment === 18 ? ARC_MID.clone() : experiment === 17 ? flyState.pos.clone().lerp(RT_MID, 0.35) : experiment === 16 ? flyState.pos.clone().lerp(MATH_MID, 0.25) : experiment === 11 ? VR_MID.clone() : experiment === 13 ? SC_MID.clone() : experiment === 14 ? PB_MID.clone() : experiment === 15 ? GEO_MID.clone() : flyState.pos.clone(); goal.y += 1;
     const delta = goal.clone().sub(controls.target).multiplyScalar(flyState.airborne ? 0.25 : 0.12);
     controls.target.add(delta); camera.position.add(delta);
   }
@@ -5863,7 +5892,8 @@ function setCamMode(m) {
   document.querySelectorAll('[data-cam]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === m)));
   const s = phone.scale.x;
   if (m === 'back') { updateBackCam(true); return; }
-  if (m === 'phone' && EXP[experiment].console) { const c = VG.crt.getWorldPosition(new THREE.Vector3()); controls.target.copy(c); camera.position.copy(c).add(new THREE.Vector3(0, 6, 104)); }
+  if (m === 'phone' && EXP[experiment].maze) { controls.target.copy(MZ_MID); camera.position.copy(MZ_MID).add(new THREE.Vector3(0, 112, 26)); }
+  else if (m === 'phone' && EXP[experiment].console) { const c = VG.crt.getWorldPosition(new THREE.Vector3()); controls.target.copy(c); camera.position.copy(c).add(new THREE.Vector3(0, 6, 104)); }
   else if (m === 'phone' && EXP[experiment].arcade) { const c = ARC.crt.getWorldPosition(new THREE.Vector3()); controls.target.copy(c); camera.position.copy(c).add(new THREE.Vector3(0, 22, 86)); }
   else if (m === 'phone' && EXP[experiment].retro) { const c = RT.crt.getWorldPosition(new THREE.Vector3()); controls.target.copy(c); camera.position.copy(c).add(new THREE.Vector3(0, 4, 62)); }
   else if (m === 'phone' && EXP[experiment].math) { controls.target.copy(MATH_MID); camera.position.set(MATH_MID.x, MATH.Y + 125, MATH_MID.z + 34); }
@@ -5876,7 +5906,7 @@ function setCamMode(m) {
   else if (m === 'phone' && EXP[experiment].classroom) { const k = camera.aspect < 1 ? Math.min(2.2, Math.pow(1 / camera.aspect, 0.75)) : 1; controls.target.set(0, CLS.topY - 2, -10); camera.position.set(0, CLS.topY + 78 * k, -10 + 114 * k); }
   else if (m === 'phone' && EXP[experiment].laptop) { const L = laptop.position; controls.target.set(L.x, TABLE_Y + 60 * s, -30 * s); camera.position.set(L.x, TABLE_Y + 190 * s + (experiment === 5 ? 3 : 0), 300 * s + (experiment === 5 ? 5 : 0)); }
   else if (m === 'phone') { controls.target.set(0, screenTopY(), 0); camera.position.set(0, 120 * s + (experiment === 3 ? 2 : 0), 150 * s + (experiment === 3 ? 4 : 0)); }
-  else { const t = experiment === 19 ? VG_MID : experiment === 18 ? ARC_MID : experiment === 17 ? flyState.pos.clone().lerp(RT_MID, 0.35) : experiment === 16 ? flyState.pos.clone().lerp(MATH_MID, 0.25) : experiment === 11 ? VR_MID : experiment === 13 ? SC_MID : experiment === 14 ? PB_MID : experiment === 15 ? GEO_MID : flyState.pos; controls.target.copy(t); camera.position.copy(t).add(new THREE.Vector3(...EXP[experiment].camOffset).multiplyScalar((butterfly && !EXP[experiment].vrRig && !EXP[experiment].scrabble ? 1.7 : 1) * (camera.aspect < 1 ? Math.min(2.2, Math.pow(1 / camera.aspect, 0.75)) : 1))); } // step back for the bigger butterfly, and for a narrow portrait screen
+  else { const t = experiment === 20 ? MZ_MID : experiment === 19 ? VG_MID : experiment === 18 ? ARC_MID : experiment === 17 ? flyState.pos.clone().lerp(RT_MID, 0.35) : experiment === 16 ? flyState.pos.clone().lerp(MATH_MID, 0.25) : experiment === 11 ? VR_MID : experiment === 13 ? SC_MID : experiment === 14 ? PB_MID : experiment === 15 ? GEO_MID : flyState.pos; controls.target.copy(t); camera.position.copy(t).add(new THREE.Vector3(...EXP[experiment].camOffset).multiplyScalar((butterfly && !EXP[experiment].vrRig && !EXP[experiment].scrabble ? 1.7 : 1) * (camera.aspect < 1 ? Math.min(2.2, Math.pow(1 / camera.aspect, 0.75)) : 1))); } // step back for the bigger butterfly, and for a narrow portrait screen
 }
 document.querySelectorAll('[data-cam]').forEach(b => b.addEventListener('click', () => setCamMode(b.dataset.cam)));
 
@@ -5886,16 +5916,16 @@ function setExperiment(n) {
   document.querySelectorAll('[data-exp]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.exp) === n)));
   $('expDropName').textContent = cfg.name;
   $('expNote').textContent = cfg.note; $('physPill').textContent = cfg.phys;
-  $('gripPill').textContent = n === 19 ? 'Forelegs on the D-pad' : n === 18 ? 'Both forelegs on the joystick' : n === 17 ? 'A foreleg taps each key' : n === 16 ? 'Abdomen tip and a hind leg press keys' : n === 15 ? 'A foreleg taps the globe' : n === 14 ? 'Both forelegs grip the page' : n === 13 ? 'A foreleg carries each tile' : n === 12 ? 'A foreleg pinches the holograms' : n === 11 ? 'Six feet on the ball' : n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
-  document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.console ? 'TV' : cfg.arcade ? 'Screen' : cfg.retro ? 'Screen' : cfg.math ? 'Calculators' : cfg.geo ? 'Globe' : cfg.paper ? 'Book' : cfg.scrabble ? 'Board' : cfg.ar ? 'Headset' : cfg.vrRig ? 'Laptop' : cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
+  $('gripPill').textContent = n === 20 ? 'Perched on the scoreboard' : n === 19 ? 'Forelegs on the D-pad' : n === 18 ? 'Both forelegs on the joystick' : n === 17 ? 'A foreleg taps each key' : n === 16 ? 'Abdomen tip and a hind leg press keys' : n === 15 ? 'A foreleg taps the globe' : n === 14 ? 'Both forelegs grip the page' : n === 13 ? 'A foreleg carries each tile' : n === 12 ? 'A foreleg pinches the holograms' : n === 11 ? 'Six feet on the ball' : n === 10 ? 'Abdomen tip on the glass' : n === 9 ? 'Hovering · a foreleg taps the glass' : n === 8 ? 'One wing out to sing' : n === 7 ? '12 ♀ · 12 ♂' : n === 3 ? 'Forelegs holding the phone' : n === 4 ? 'Tarsal pads on the keys' : n >= 5 ? 'Foreleg on the trackpad' : 'Tarsal pads gripping glass';
+  document.querySelectorAll('[data-cam="phone"]').forEach(b => { b.textContent = cfg.maze ? 'Top view' : cfg.console ? 'TV' : cfg.arcade ? 'Screen' : cfg.retro ? 'Screen' : cfg.math ? 'Calculators' : cfg.geo ? 'Globe' : cfg.paper ? 'Book' : cfg.scrabble ? 'Board' : cfg.ar ? 'Headset' : cfg.vrRig ? 'Laptop' : cfg.tablet ? 'Tablet' : cfg.classroom ? 'Classroom' : cfg.laptop ? 'Laptop' : 'Phone'; });
   const wasClass = classroom.visible; classroom.visible = !!cfg.classroom; fly.visible = !cfg.classroom;
-  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n >= 8; $('soundBtn').hidden = n !== 8 && n !== 9 && n !== 14 && n !== 18 && n !== 19; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; flyState.pitchOverride = null; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom || n === 11; $('eyeBtn').hidden = !!cfg.classroom || n === 11; $('vision').hidden = !(cfg.classroom && visionOn);
-  $('stWords').nextElementSibling.textContent = n === 19 ? 'words built' : n === 18 ? 'words built' : n === 17 ? 'words built' : n === 16 ? 'problems right' : cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : n === 15 ? 'countries right' : n === 14 ? 'pages read' : n === 13 ? 'words played' : n === 10 || n === 11 ? 'answers right' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : n === 12 ? 'blocks placed' : n === 13 ? 'points' : n === 14 ? 'words read' : n === 15 ? 'questions' : n === 10 || n === 11 ? 'answers written' : 'answers';
-  $('memHead').textContent = n === 19 ? 'Word-part memory · shared with Experiments 1 to 4' : n === 18 ? 'Word-part memory · shared with Experiments 1 to 4' : n === 17 ? 'Word-part memory · shared with Experiments 1 to 4' : n === 16 ? 'Problem-type memory · the insect, then the caterpillar' : cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : n === 9 ? 'Vocabulary memory · Kenyon cell to MBON weights' : n === 10 ? 'Greek root memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
+  $('pathsBtn').hidden = $('heatBtn').hidden = !!cfg.classroom || n >= 8; $('soundBtn').hidden = n !== 8 && n !== 9 && n !== 14 && n !== 18 && n !== 19 && n !== 20; ripples.forEach(r => { r.t = 1; r.m.visible = false; }); flyState.songExt = flyState.songAmp = 0; flyState.pitchOverride = null; $('seasonBtn').hidden = $('overlayBtn').hidden = $('visionBtn').hidden = !cfg.classroom; $('eyeLabel').hidden = !!cfg.classroom || n === 11; $('eyeBtn').hidden = !!cfg.classroom || n === 11; $('vision').hidden = !(cfg.classroom && visionOn);
+  $('stWords').nextElementSibling.textContent = n === 20 ? 'words built' : n === 19 ? 'words built' : n === 18 ? 'words built' : n === 17 ? 'words built' : n === 16 ? 'problems right' : cfg.classroom ? 'items done' : n === 8 ? 'words said right' : n === 9 ? 'stories read' : n === 15 ? 'countries right' : n === 14 ? 'pages read' : n === 13 ? 'words played' : n === 10 || n === 11 ? 'answers right' : 'words built'; $('stTaps').nextElementSibling.textContent = n === 9 ? 'words read' : n === 12 ? 'blocks placed' : n === 13 ? 'points' : n === 14 ? 'words read' : n === 15 ? 'questions' : n === 10 || n === 11 ? 'answers written' : 'answers';
+  $('memHead').textContent = n === 20 ? 'The eight caterpillars · right leaves' : n === 19 ? 'Word-part memory · shared with Experiments 1 to 4' : n === 18 ? 'Word-part memory · shared with Experiments 1 to 4' : n === 17 ? 'Word-part memory · shared with Experiments 1 to 4' : n === 16 ? 'Problem-type memory · the insect, then the caterpillar' : cfg.classroom ? 'Tablemates · lesson progress' : n === 8 ? 'Letter-sound memory · Kenyon cell to MBON weights' : n === 9 ? 'Vocabulary memory · Kenyon cell to MBON weights' : n === 10 ? 'Greek root memory · Kenyon cell to MBON weights' : 'Word part memory · Kenyon cell to MBON weights';
   document.querySelectorAll('#brainPanel [data-rp]').forEach(el => { el.hidden = !el.dataset.rp.split(' ').includes(String(n)); }); requestAnimationFrame(() => { sizeCharts(); resize(); renderScenario(true); }); // right panel sections for this scenario
   if (cfg.classroom) { setFocal(cls.focal); classroomStart(); } else head.add(eyeCam);
   phone.scale.setScalar(s); phone.position.set(0, TABLE_Y + 4 * s, 0); phone.updateMatrixWorld(true);
-  phone.visible = !cfg.laptop && !cfg.classroom && !cfg.tablet && !cfg.vrRig && !cfg.ar && !cfg.scrabble && !cfg.paper && !cfg.geo && !cfg.math && !cfg.retro && !cfg.arcade && !cfg.console; vgGroup.visible = !!cfg.console; mathGroup.visible = !!cfg.math; retroGroup.visible = !!cfg.retro; arcGroup.visible = !!cfg.arcade; vrRig.visible = headset.visible = !!cfg.vrRig; arGroup.visible = arHeadset.visible = !!cfg.ar; scGroup.visible = !!cfg.scrabble; pbGroup.visible = !!cfg.paper; geoGroup.visible = !!cfg.geo; table.visible = !cfg.geo; agent.tapLeg2 = null; applyMainLook(cfg.scrabble ? false : butterfly); head.rotation.x = 0; agent.tapLeg = null; laptop.visible = !!cfg.laptop; tabletRig.visible = !!cfg.tablet;
+  phone.visible = !cfg.laptop && !cfg.classroom && !cfg.tablet && !cfg.vrRig && !cfg.ar && !cfg.scrabble && !cfg.paper && !cfg.geo && !cfg.math && !cfg.retro && !cfg.arcade && !cfg.console && !cfg.maze; vgGroup.visible = !!cfg.console; mzGroup.visible = !!cfg.maze; mathGroup.visible = !!cfg.math; retroGroup.visible = !!cfg.retro; arcGroup.visible = !!cfg.arcade; vrRig.visible = headset.visible = !!cfg.vrRig; arGroup.visible = arHeadset.visible = !!cfg.ar; scGroup.visible = !!cfg.scrabble; pbGroup.visible = !!cfg.paper; geoGroup.visible = !!cfg.geo; table.visible = !cfg.geo; agent.tapLeg2 = null; applyMainLook(cfg.scrabble ? false : butterfly); head.rotation.x = 0; agent.tapLeg = null; laptop.visible = !!cfg.laptop; tabletRig.visible = !!cfg.tablet;
   if (cfg.laptop) { laptop.scale.setScalar(s); laptop.position.set(0, TABLE_Y, 0); laptop.updateMatrixWorld(true); }
   Object.entries(trajGroups).forEach(([k, g]) => { g.visible = showPaths && Number(k) === n; });
   ghostLine.visible = false; agent.ghost = null;
@@ -5924,12 +5954,13 @@ function setExperiment(n) {
   if (n === 17) retroStart();
   if (n === 18) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); arcadeStart(); }
   if (n === 19) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); videogameStart(); }
+  if (n === 20) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); mazeStart(); }
   if (n === 14) { if (!audio.userOff) audio.on = audioInit(); syncSoundBtn(); pbStart(); }
   // the side panel follows the experiment to its most related dashboard (after start-up, once the dock code exists)
   requestAnimationFrame(() => { dockChoice = DOCK_FOR[n]; if (view === 'simulate') dock(dockChoice); });
   catSync();
 }
-const DOCK_FOR = { 19: 'd-vg-sec', 18: 'd-arc-sec', 17: 'd-retro-sec', 16: 'd-math-sec', 15: 'd-geo-sec', 14: 'd-pb-sec', 13: 'd-sc-sec', 12: 'd-ar-sec', 11: 'd-vr-sec', 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
+const DOCK_FOR = { 20: 'd-mz-sec', 19: 'd-vg-sec', 18: 'd-arc-sec', 17: 'd-retro-sec', 16: 'd-math-sec', 15: 'd-geo-sec', 14: 'd-pb-sec', 13: 'd-sc-sec', 12: 'd-ar-sec', 11: 'd-vr-sec', 10: 'd-writing-sec', 9: 'd-reading-sec', 8: 'd-phonics-sec', 1: 'd-kinematic-sec', 2: 'd-curriculum-sec', 3: 'd-psycho-sec', 4: 'd-connectome-sec', 5: 'd-teacher-sec', 6: 'd-admin-sec', 7: 'd-class-sec' };
 document.querySelectorAll('[data-exp]').forEach(b => b.addEventListener('click', () => { setExperiment(Number(b.dataset.exp)); expMenuOpen(false, true); }));
 // the experiment dropdown: a vertical list, placed under its button (fixed, so the header's scrolling row does not clip it)
 function expMenuOpen(on, refocus) {
@@ -5965,18 +5996,25 @@ const CAT_LOOK = {
     paint: (g, W, H, mark, band) => { g.fillStyle = '#6cba3c'; g.fillRect(0, 0, W, H); catDots(g, [W * 0.18, W * 0.32], [10, 32, 54], 1.6, '#c6e070');
       if (band) { g.fillStyle = '#141414'; g.fillRect(0, 22, W, 20); g.fillStyle = '#f2d22a'; g.fillRect(0, 26, W, 12); }
       if (mark) [W * 0.15, W * 0.35].forEach(x => { g.fillStyle = '#141414'; g.beginPath(); g.arc(x, H / 2, 13, 0, Math.PI * 2); g.fill(); g.fillStyle = '#f2d22a'; g.beginPath(); g.arc(x, H / 2, 10, 0, Math.PI * 2); g.fill(); g.fillStyle = '#141414'; g.beginPath(); g.arc(x, H / 2, 6, 0, Math.PI * 2); g.fill(); g.fillStyle = '#ffffff'; g.beginPath(); g.arc(x - 2, H / 2 - 2, 2, 0, Math.PI * 2); g.fill(); }); } },
+  'Common Buckeye': { head: 0xc8641e, spines: 0x1b2440,
+    paint: (g, W, H) => { g.fillStyle = '#1c1a1e'; g.fillRect(0, 0, W, H); g.fillStyle = '#e8892a'; g.fillRect(0, 24, W, 6); catDots(g, [W * 0.1, W * 0.4, W * 0.6, W * 0.9], [12, 50], 3, '#f2efe6'); catDots(g, [W * 0.25], [14, 48], 3.5, '#e8892a'); } },
+  'Black Swallowtail': { head: 0x6aa84a,
+    paint: (g, W, H) => { g.fillStyle = '#86c860'; g.fillRect(0, 0, W, H); g.fillStyle = '#141414'; g.fillRect(0, 22, W, 20); catDots(g, [W * 0.1, W * 0.25, W * 0.4, W * 0.6, W * 0.9], [32], 4.5, '#f2d22a'); } },
   'Cloudless Sulphur': { head: 0x9cc23a,
     paint: (g, W, H) => { g.fillStyle = '#b4d43a'; g.fillRect(0, 0, W, H); g.fillStyle = '#f4e04a'; [W * 0.5, 0, W].forEach(x => g.fillRect(x - 5, 0, 10, H)); catDots(g, [W * 0.08, W * 0.16, W * 0.25, W * 0.34, W * 0.42], [12, 44], 1.8, '#24407a'); } },
 };
 const catGroup = new THREE.Group(); catGroup.visible = false; scene.add(catGroup);
 const cat = { name: '', look: null, parts: [], chain: [], yaw: 0, phase: 0, read: 0, moving: 0, target: null, wait: 0, attach: false, exp: 0, on: true };
-const catR = k => { const L = cat.look, t = k / CAT_N; let r = 0.62 * (1 - 0.35 * t * t); if (k <= 1) r *= 0.86; if (L && L.thorax && k >= 1 && k <= 3) r *= 1.32; return r; };
+const catR = (k, L = cat.look) => { const t = k / CAT_N; let r = 0.62 * (1 - 0.35 * t * t); if (k <= 1) r *= 0.86; if (L && L.thorax && k >= 1 && k <= 3) r *= 1.32; return r; };
 function catTex(paint) { const c = document.createElement('canvas'); c.width = 128; c.height = 64; paint(c.getContext('2d'), 128, 64); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; }
 function catBuild(set) {
   if (cat.name === set.name) return; cat.name = set.name;
   catGroup.children.slice().forEach(o => { catGroup.remove(o); o.traverse(m => { if (m.geometry) m.geometry.dispose(); if (m.material) { if (m.material.map) m.material.map.dispose(); m.material.dispose(); } }); });
-  const L = cat.look = CAT_LOOK[set.name] || CAT_LOOK['Blue Morpho']; cat.parts = [];
-  const tex = {}, matOf = (mark, band) => { const key = (mark ? 'm' : '') + (band ? 'b' : ''); if (!tex[key]) tex[key] = new THREE.MeshStandardMaterial({ map: catTex((g, W, H) => L.paint(g, W, H, mark, band)), roughness: 0.62 }); return tex[key]; };
+  const L = cat.look = CAT_LOOK[set.name] || CAT_LOOK['Blue Morpho']; cat.parts = catMake(L, catGroup);
+}
+// builds a larva into a group: head, then CAT_N segments with the species' paint, spines, hairs, filaments and prolegs
+function catMake(L, group) {
+  const parts = [], tex = {}, matOf = (mark, band) => { const key = (mark ? 'm' : '') + (band ? 'b' : ''); if (!tex[key]) tex[key] = new THREE.MeshStandardMaterial({ map: catTex((g, W, H) => L.paint(g, W, H, mark, band)), roughness: 0.62 }); return tex[key]; };
   const dark = new THREE.MeshStandardMaterial({ color: 0x1a140f, roughness: 0.7 }), spineM = L.spines ? new THREE.MeshStandardMaterial({ color: L.spines, roughness: 0.6 }) : null, hairM = L.hair ? new THREE.MeshStandardMaterial({ color: L.hair, roughness: 0.9 }) : null;
   const up = new THREE.Vector3(0, 1, 0), stick = (grp, geo, m, dir, at) => { const o = new THREE.Mesh(geo, m); o.quaternion.setFromUnitVectors(up, dir.clone().normalize()); o.position.copy(at); grp.add(o); return o; };
   const sph = new THREE.SphereGeometry(1, 18, 12);
@@ -5984,15 +6022,16 @@ function catBuild(set) {
   { const g = new THREE.Group(), hm = new THREE.MeshStandardMaterial({ color: L.head, roughness: 0.5 }); const h = new THREE.Mesh(sph, hm); h.scale.set(0.46, 0.42, 0.44); h.castShadow = true; g.add(h);
     [-1, 1].forEach(sd => { stick(g, new THREE.ConeGeometry(0.035, 0.32, 5), dark, new THREE.Vector3(sd * 0.4, 1, 0.3), new THREE.Vector3(sd * 0.16, 0.48, 0.12)); const e = new THREE.Mesh(sph, dark); e.scale.setScalar(0.06); e.position.set(sd * 0.3, 0.22, 0.12); g.add(e); });
     if (L.filaments) [-1, 1].forEach(sd => stick(g, new THREE.ConeGeometry(0.04, 1.5, 5), dark, new THREE.Vector3(sd * 0.5, 0.6, 1), new THREE.Vector3(sd * 0.2, -0.2, 0.9)));
-    catGroup.add(g); cat.parts.push({ g, r: 0.42 }); }
+    group.add(g); parts.push({ g, r: 0.42 }); }
   for (let k = 1; k <= CAT_N; k++) {
-    const g = new THREE.Group(), r = catR(k), m = new THREE.Mesh(sph, matOf(L.marks && L.marks.includes(k), L.bands && L.bands.includes(k))); m.scale.set(r, r * 1.22, r * 0.92); m.castShadow = true; g.add(m);
+    const g = new THREE.Group(), r = catR(k, L), m = new THREE.Mesh(sph, matOf(L.marks && L.marks.includes(k), L.bands && L.bands.includes(k))); m.scale.set(r, r * 1.22, r * 0.92); m.castShadow = true; g.add(m);
     if (spineM) [-1.25, -0.55, 0.55, 1.25].forEach(a => { const d = new THREE.Vector3(Math.sin(a), 0, Math.cos(a)); stick(g, new THREE.ConeGeometry(0.06, 0.55, 5), spineM, d, d.clone().multiplyScalar(r * 0.95)); });
     if (hairM && (k === 1 || k === CAT_N)) for (let i = 0; i < 7; i++) { const d = new THREE.Vector3((i - 3) * 0.25, k === 1 ? 0.5 : -0.6, 1); stick(g, new THREE.ConeGeometry(0.05, 0.6, 4), hairM, d, d.clone().normalize().multiplyScalar(r * 0.9)); }
     if (L.filaments && L.filaments.includes(k) && k > 1) [-1, 1].forEach(sd => stick(g, new THREE.ConeGeometry(0.04, 1.3, 5), dark, new THREE.Vector3(sd * 0.5, -0.6, 1), new THREE.Vector3(sd * r * 0.4, 0, r * 0.8)));
     if (k <= 3 || (k >= 6 && k <= 9) || k === CAT_N) [-1, 1].forEach(sd => { const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.07, k <= 3 ? 0.03 : 0.08, 0.26, 5), k <= 3 ? dark : m.material); leg.rotation.x = Math.PI / 2; leg.position.set(sd * r * 0.42, 0, -r * 0.62); g.add(leg); });
-    catGroup.add(g); cat.parts.push({ g, r });
+    group.add(g); parts.push({ g, r });
   }
+  return parts;
 }
 // where each scene lets it crawl: a surface height, a box (x0, x1, z0, z1) and the thing it tries to read
 function catZone() {
@@ -6064,6 +6103,214 @@ function catStep(dt, now) {
     catV.m.makeBasis(catV.r, catV.f, catV.b); part.g.quaternion.setFromRotationMatrix(catV.m);
   }
 }
+// =====================================================================
+// Experiment 20 · Caterpillar maze. Eight caterpillars, one of each Gainesville species' larva, race through a garden hedge maze
+// laid out like the grid-maze classics. Leaves lie in the corridors, each with a word part written on it. Each caterpillar has a
+// meaning to build and must eat its parts in word order: prefix, then root, then suffix. Each has its own word-part memory, updated
+// with the same Δw = η(R − V), so the eight learn at their own pace. The fly watches from the top of the scoreboard.
+// =====================================================================
+const MZ = { Y: TABLE_Y, C: 6, W: 15, H: 11, wall: 3.2 }; MZ.x0 = -MZ.W * MZ.C / 2; MZ.z0 = -MZ.H * MZ.C / 2;
+const MZ_RACERS = [['Blue Morpho', 'Morpho', '#a0522d'], ['Zebra Longwing', 'Zebra', '#3c3c3c'], ['Gulf Fritillary', 'Gulf', '#ea6c12'], ['Monarch', 'Monarch', '#d4a800'],
+  ['Eastern Tiger Swallowtail', 'Tiger', '#3f9a3a'], ['Cloudless Sulphur', 'Sulphur', '#9ab800'], ['Common Buckeye', 'Buckeye', '#6a3fa0'], ['Black Swallowtail', 'Black Swallowtail', '#00897b']];
+const MZ_SPAWN = [[1, 1], [13, 1], [1, 9], [13, 9], [7, 1], [7, 9], [1, 5], [13, 5]];
+const MZ_BOARD = new THREE.Vector3(0, MZ.Y + 18.6, MZ.z0 - 5), MZ_MID = new THREE.Vector3(0, MZ.Y, 4);
+const mzGroup = new THREE.Group(); mzGroup.visible = false; scene.add(mzGroup);
+const mzCell = (i, j) => V3(MZ.x0 + (i + 0.5) * MZ.C, MZ.Y, MZ.z0 + (j + 0.5) * MZ.C);
+const mzAt = (x, z) => [THREE.MathUtils.clamp(Math.floor((x - MZ.x0) / MZ.C), 0, MZ.W - 1), THREE.MathUtils.clamp(Math.floor((z - MZ.z0) / MZ.C), 0, MZ.H - 1)];
+const mz = { grid: [], occ: new Map(), cats: [], leaves: [], t: 0, log: [], visits: [], floats: [], race: [], boardT: 0, focus: null, stats: { words: 0, eaten: 0, right: 0 } };
+// the maze: a border, a pillar on every even cell, then extra hedges wherever they keep every corridor connected
+{ let seed = 20; const R = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  for (let j = 0; j < MZ.H; j++) { mz.grid.push([]); mz.visits.push(new Array(MZ.W).fill(0)); for (let i = 0; i < MZ.W; i++) mz.grid[j].push(i === 0 || j === 0 || i === MZ.W - 1 || j === MZ.H - 1 || (i % 2 === 0 && j % 2 === 0) ? 1 : 0); }
+  const open = () => { const c = []; for (let j = 0; j < MZ.H; j++) for (let i = 0; i < MZ.W; i++) if (!mz.grid[j][i]) c.push([i, j]); return c; };
+  const connected = () => { const o = open(), seen = new Set([o[0].join()]), q = [o[0]]; while (q.length) { const [i, j] = q.shift(); [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([a, b]) => { const k = [i + a, j + b]; if (!mz.grid[k[1]][k[0]] && !seen.has(k.join())) { seen.add(k.join()); q.push(k); } }); } return seen.size === o.length; };
+  let added = 0; for (let n = 0; n < 200 && added < 16; n++) { const i = 1 + Math.floor(R() * (MZ.W - 2)), j = 1 + Math.floor(R() * (MZ.H - 2)); if (mz.grid[j][i] || MZ_SPAWN.some(([a, b]) => Math.abs(a - i) + Math.abs(b - j) < 2)) continue; mz.grid[j][i] = 1; if (connected()) added++; else mz.grid[j][i] = 0; } }
+// ---------- the scene: a grassy board, hedges with flowers, the scoreboard ----------
+const mzBoardCv = document.createElement('canvas'); mzBoardCv.width = 512; mzBoardCv.height = 320; const mzBoardTex = new THREE.CanvasTexture(mzBoardCv); mzBoardTex.colorSpace = THREE.SRGBColorSpace; mzBoardTex.anisotropy = 4;
+const mzMap = document.createElement('canvas'); mzMap.width = 300; mzMap.height = 220;
+{ const grassT = arcLabelTex(512, 384, (g, w, h) => { g.fillStyle = '#5f9e3c'; g.fillRect(0, 0, w, h); for (let i = 0; i < 4000; i++) { g.fillStyle = ['#6fb04a', '#548f33', '#7bbf55', '#4c8530'][i % 4]; g.fillRect(Math.random() * w, Math.random() * h, 2, 4); } });
+  const W = MZ.W * MZ.C, D = MZ.H * MZ.C, base = new THREE.Mesh(new THREE.BoxGeometry(W + 8, 2, D + 8), [new THREE.MeshStandardMaterial({ color: 0x6b4a2b }), new THREE.MeshStandardMaterial({ color: 0x6b4a2b }), new THREE.MeshStandardMaterial({ map: grassT, roughness: 0.95 }), new THREE.MeshStandardMaterial({ color: 0x6b4a2b }), new THREE.MeshStandardMaterial({ color: 0x6b4a2b }), new THREE.MeshStandardMaterial({ color: 0x6b4a2b })]);
+  base.position.set(0, MZ.Y - 0.99, 0); base.receiveShadow = true; mzGroup.add(base);
+  // the corridor floor: soil paths
+  const pathT = arcLabelTex(MZ.W * 16, MZ.H * 16, (g, w, h) => { g.clearRect(0, 0, w, h); for (let j = 0; j < MZ.H; j++) for (let i = 0; i < MZ.W; i++) if (!mz.grid[j][i]) { g.fillStyle = '#b8935a'; g.fillRect(i * 16, j * 16, 16, 16); g.fillStyle = '#a5824c'; for (let k = 0; k < 6; k++) g.fillRect(i * 16 + 2 + Math.random() * 12, j * 16 + 2 + Math.random() * 12, 2, 2); } });
+  pathT.magFilter = THREE.LinearFilter; const pm = new THREE.Mesh(new THREE.PlaneGeometry(W, D), new THREE.MeshStandardMaterial({ map: pathT, transparent: true, roughness: 0.95 })); pm.rotation.x = -Math.PI / 2; pm.position.set(0, MZ.Y + 0.02, 0); pm.receiveShadow = true; mzGroup.add(pm);
+  // hedges: leafy boxes, a few topped with flowers
+  const hedgeT = arcLabelTex(128, 128, (g, w, h) => { g.fillStyle = '#2f6b2a'; g.fillRect(0, 0, w, h); for (let i = 0; i < 700; i++) { g.fillStyle = ['#3d8a33', '#2a5c25', '#4fa043', '#23511f', '#5cb34e'][i % 5]; g.beginPath(); g.ellipse(Math.random() * w, Math.random() * h, 3 + Math.random() * 3, 2, Math.random() * 3, 0, Math.PI * 2); g.fill(); } });
+  hedgeT.wrapS = hedgeT.wrapT = THREE.RepeatWrapping; const cells = []; for (let j = 0; j < MZ.H; j++) for (let i = 0; i < MZ.W; i++) if (mz.grid[j][i]) cells.push([i, j]);
+  const hm = new THREE.InstancedMesh(new THREE.BoxGeometry(MZ.C, MZ.wall, MZ.C), new THREE.MeshStandardMaterial({ map: hedgeT, roughness: 0.9 }), cells.length), M = new THREE.Matrix4();
+  cells.forEach(([i, j], k) => { const p = mzCell(i, j); M.makeScale(1, 0.9 + ((i * 7 + j * 3) % 5) * 0.05, 1).setPosition(p.x, MZ.Y + MZ.wall / 2, p.z); hm.setMatrixAt(k, M); }); hm.castShadow = hm.receiveShadow = true; mzGroup.add(hm);
+  const fl = cells.filter(([i, j]) => (i * 5 + j * 11) % 4 === 0), fm = new THREE.InstancedMesh(new THREE.SphereGeometry(0.45, 8, 6), new THREE.MeshStandardMaterial({ roughness: 0.5 }), fl.length * 3), C = new THREE.Color();
+  fl.forEach(([i, j], k) => { const p = mzCell(i, j); for (let n = 0; n < 3; n++) { M.makeTranslation(p.x + (n - 1) * 1.6, MZ.Y + MZ.wall * (0.9 + ((i * 7 + j * 3) % 5) * 0.05) + 0.25, p.z + ((n * 7 + i) % 3 - 1) * 1.4); fm.setMatrixAt(k * 3 + n, M); fm.setColorAt(k * 3 + n, C.set(['#ff4f9a', '#ffd23f', '#ffffff', '#b04cff'][(i + j + n) % 4])); } }); mzGroup.add(fm);
+  // the scoreboard on two posts at the far side; the fly stands on its top rail
+  const wood = new THREE.MeshStandardMaterial({ color: 0x7a5230, roughness: 0.7 }); [-11, 11].forEach(x => { const p = new THREE.Mesh(new THREE.BoxGeometry(1.2, 18, 1.2), wood); p.position.set(x, MZ.Y + 9, MZ_BOARD.z - 1); p.castShadow = true; mzGroup.add(p); });
+  const bd = new THREE.Mesh(new THREE.BoxGeometry(26, 15, 0.8), [wood, wood, wood, wood, new THREE.MeshBasicMaterial({ map: mzBoardTex, toneMapped: false }), wood]); bd.position.set(0, MZ.Y + 10.6, MZ_BOARD.z); bd.castShadow = true; mzGroup.add(bd);
+  const rail = new THREE.Mesh(new THREE.BoxGeometry(27, 0.6, 2.6), wood); rail.position.set(0, MZ.Y + 18.3, MZ_BOARD.z); rail.castShadow = true; mzGroup.add(rail); }
+// ---------- leaves with word parts ----------
+const mzLeafTex = {};
+function mzLeafMat(label) {
+  if (mzLeafTex[label]) return mzLeafTex[label];
+  const t = arcLabelTex(320, 200, (g, w, h) => { g.save(); g.translate(w / 2, h / 2);
+    const leaf = () => { g.beginPath(); g.moveTo(-150, 0); g.bezierCurveTo(-90, -96, 90, -96, 150, 0); g.bezierCurveTo(90, 96, -90, 96, -150, 0); g.closePath(); };
+    const gr = g.createLinearGradient(0, -90, 0, 90); gr.addColorStop(0, '#7ccf4f'); gr.addColorStop(1, '#2e8b2e'); leaf(); g.fillStyle = gr; g.fill(); g.lineWidth = 6; g.strokeStyle = '#1d5e1d'; g.stroke();
+    g.strokeStyle = '#b9ec8a'; g.lineWidth = 4; g.beginPath(); g.moveTo(-146, 0); g.lineTo(146, 0); g.stroke(); g.lineWidth = 2.5; for (let k = -3; k <= 3; k++) { if (!k) continue; [-1, 1].forEach(sd => { g.beginPath(); g.moveTo(k * 34, 0); g.quadraticCurveTo(k * 34 + 14, sd * 30, k * 34 + 30, sd * 56); g.stroke(); }); }
+    g.fillStyle = '#ffffff'; g.beginPath(); g.roundRect(-112, -40, 224, 80, 22); g.fill(); g.lineWidth = 4; g.strokeStyle = '#1d5e1d'; g.stroke();
+    let fs = 64; g.font = `900 ${fs}px ${DISPLAY}`; while (g.measureText(label).width > 204 && fs > 30) { fs -= 2; g.font = `900 ${fs}px ${DISPLAY}`; }
+    g.fillStyle = '#0d2b0d'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(label, 0, 4); g.restore(); });
+  return (mzLeafTex[label] = new THREE.MeshStandardMaterial({ map: t, emissive: 0xffffff, emissiveMap: t, emissiveIntensity: 0.28, transparent: true, alphaTest: 0.4, side: THREE.DoubleSide, roughness: 0.6 }));
+}
+const mzLeafGeo = new THREE.PlaneGeometry(5.4, 3.4);
+function mzFreeCell() {
+  const busy = new Set([...mz.leaves.map(l => l.cell.join()), ...mz.cats.map(c => mzAt(c.trail[0].x, c.trail[0].z).join())]);
+  for (let n = 0; n < 60; n++) { const i = 1 + Math.floor(Math.random() * (MZ.W - 2)), j = 1 + Math.floor(Math.random() * (MZ.H - 2)); if (mz.grid[j][i] || busy.has(i + ',' + j)) continue;
+    if (mz.cats.some(c => { const [a, b] = mzAt(c.trail[0].x, c.trail[0].z); return Math.abs(a - i) + Math.abs(b - j) < 3; })) continue; return [i, j]; }
+  return null;
+}
+function mzSpawnLeaf(label) { const cell = mzFreeCell(); if (!cell) return; const m = new THREE.Mesh(mzLeafGeo, mzLeafMat(label)), p = mzCell(...cell); m.position.set(p.x, MZ.Y + 1.3, p.z); m.rotation.set(-Math.PI / 2 + 0.55, 0, 0); m.scale.setScalar(0.01); mzGroup.add(m); mz.leaves.push({ label, cell, m, t: 0, eater: null, ph: Math.random() * 6 }); }
+// keep every caterpillar's next part on the board, plus decoys (often parts another caterpillar needs, so they compete)
+function mzStock() {
+  mz.cats.forEach(c => { if (c.state === 'cheer' || !c.word) return; const need = c.word.parts[c.slot]; if (!mz.leaves.some(l => l.label === need && !l.eater)) mzSpawnLeaf(need); });
+  const pool = [...new Set([...DISTRACTORS, ...WORDS.flatMap(w => w.parts)])];
+  while (mz.leaves.length < 20) { const others = mz.cats.filter(c => c.word).map(c => c.word.parts[Math.min(2, c.slot + 1)]); mzSpawnLeaf(Math.random() < 0.4 ? others[Math.floor(Math.random() * others.length)] : pool[Math.floor(Math.random() * pool.length)]); if (mz.leaves.length >= 20 || !mzFreeCell()) break; }
+}
+// ---------- the eight caterpillars ----------
+function mzTag(c) { const g = c.tagCv.getContext('2d'), W = 256, H = 96; g.clearRect(0, 0, W, H); g.fillStyle = 'rgba(255,255,255,0.92)'; g.beginPath(); g.roundRect(4, 4, W - 8, H - 8, 16); g.fill(); g.lineWidth = 5; g.strokeStyle = c.color; g.stroke();
+  g.fillStyle = c.color; g.textAlign = 'center'; g.textBaseline = 'middle'; let fs = 26; g.font = `800 ${fs}px ${DISPLAY}`; while (g.measureText(c.short).width > W - 28 && fs > 14) g.font = `800 ${--fs}px ${DISPLAY}`; g.fillText(c.short, W / 2, 28);
+  g.fillStyle = '#0d1b2a'; g.font = `800 24px ${DISPLAY}`; g.fillText(c.word ? c.word.parts.map((p, i) => i < c.slot ? p : '?').join(' · ') : '', W / 2, 64); c.tag.material.map.needsUpdate = true; }
+function mzNewWord(c) { const taken = new Set(mz.cats.filter(o => o !== c && o.word).map(o => o.word.word)); let pick = null;
+  for (let n = 0; n < WORDS.length && !pick; n++) { const w = WORDS[(c.wi++ * 3 + c.idx * 5) % WORDS.length]; if (!taken.has(w.word) && w !== c.word) pick = w; }
+  c.word = pick || WORDS[(c.wi++ + c.idx) % WORDS.length]; /* more caterpillars than free words: two may share one */ c.slot = 0; c.target = null; mzTag(c); }
+function mzMakeCat(idx) {
+  const [species, short, color] = MZ_RACERS[idx], L = CAT_LOOK[species] || CAT_LOOK['Blue Morpho'], group = new THREE.Group(); mzGroup.add(group);
+  const parts = catMake(L, group), [si, sj] = MZ_SPAWN[idx], p = mzCell(si, sj);
+  const nb = [[0, 1], [0, -1], [1, 0], [-1, 0]].find(([a, b]) => !mz.grid[sj + b][si + a]); /* lay the body down an open corridor */
+  const trail = []; for (let k = 0; k < 40; k++) trail.push({ x: p.x + nb[0] * k * 0.25, z: p.z + nb[1] * k * 0.25 });
+  const tagCv = document.createElement('canvas'); tagCv.width = 256; tagCv.height = 96; const tt = new THREE.CanvasTexture(tagCv); tt.colorSpace = THREE.SRGBColorSpace;
+  const tag = new THREE.Sprite(new THREE.SpriteMaterial({ map: tt, depthTest: false, transparent: true })); tag.scale.set(6.4, 2.4, 1); tag.renderOrder = 5; mzGroup.add(tag);
+  const c = { idx, species, short, color, group, parts, trail, path: [], target: null, state: 'think', t: Math.random(), phase: Math.random() * 6, moving: 0, eat: 0, cheer: 0, shake: 0, mem: new Map(), word: null, slot: 0, wi: idx,
+    speed: 6.4 + (idx % 4) * 0.35, block: 0, pts: [], tagCv, tag, stats: { words: 0, eaten: 0, right: 0, dist: 0 }, history: [], wordsAt: [] };
+  mz.cats.push(c); mzNewWord(c); return c;
+}
+const mzMem = (c, p) => c.mem.has(p) ? c.mem.get(p) : 0.2;
+function mzBfs(from, to, avoid) {
+  const key = (i, j) => j * MZ.W + i, prev = new Map([[key(...from), null]]), q = [from];
+  while (q.length) { const [i, j] = q.shift(); if (i === to[0] && j === to[1]) break; for (const [a, b] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) { const ni = i + a, nj = j + b, k = key(ni, nj); if (mz.grid[nj][ni] || prev.has(k) || (avoid.has(k) && !(ni === to[0] && nj === to[1]))) continue; prev.set(k, [i, j]); q.push([ni, nj]); } }
+  if (!prev.has(key(...to))) return null; const path = []; let n = to; while (n) { path.unshift(n); n = prev.get(key(...n)); } return path;
+}
+// which leaf: the right part with a chance that grows with its memory of that part, else a nearby decoy; then the shortest way there
+function mzChoose(c) {
+  const need = c.word.parts[c.slot], free = mz.leaves.filter(l => !l.eater && l.t > 0.3), here = mzAt(c.trail[0].x, c.trail[0].z); if (!free.length) return null;
+  const dist = l => Math.abs(l.cell[0] - here[0]) + Math.abs(l.cell[1] - here[1]), right = free.filter(l => l.label === need).sort((a, b) => dist(a) - dist(b));
+  if (right.length && Math.random() < 0.45 + 0.5 * mzMem(c, need)) return right[0];
+  const wrong = free.filter(l => l.label !== need).sort((a, b) => dist(a) - dist(b)).slice(0, 4); return wrong.length ? wrong[Math.floor(Math.random() * wrong.length)] : right[0] || null;
+}
+function mzRoute(c) {
+  // the shortest way round the hedges, avoiding the cells other caterpillars' bodies lie in when there is another way
+  const here = mzAt(c.trail[0].x, c.trail[0].z), avoid = new Set([...mz.occ.keys()].filter(k => [...mz.occ.get(k)].some(o => o !== c.idx)));
+  c.path = mzBfs(here, c.target.cell, avoid) || mzBfs(here, c.target.cell, new Set()) || []; if (c.path.length > 1) c.path.shift(); /* drop the cell it is already in */
+}
+function mzEat(c, l) {
+  const need = c.word.parts[c.slot], ok = l.label === need, V = mzMem(c, need), dw = ETA * ((ok ? 1 : 0) - V); c.mem.set(need, V + dw); c.stats.eaten++; mz.stats.eaten++; if (ok) { c.stats.right++; mz.stats.right++; }
+  c.history.push({ t: TDT(), ok, need, got: l.label, word: c.word.word }); if (c.history.length > 60) c.history.shift();
+  mzFloat(l.m.position, ok ? '+1' : '✗', ok ? '#22884c' : '#d32737'); sfx(ok ? 'ok' : 'bad'); mz.focus = c;
+  if (ok) { c.slot++; mzLog(`${c.short} ate "${l.label}", the ${kindOf(need)} it needed.`);
+    if (c.slot >= c.word.parts.length) { c.stats.words++; mz.stats.words++; c.wordsAt.push(mz.t); c.state = 'cheer'; c.cheer = 2.2; sfx('word'); mzLog(`${c.short} built "${c.word.word}" from ${c.word.parts.join(' + ')}!`); mzFloat(c.trail[0], c.word.word, c.color, true); pulse(3, 0.8); pulse(10, 0.6); } }
+  else { c.shake = 0.9; mzLog(`${c.short} ate "${l.label}", but needed the ${kindOf(need)} "${need}".`); }
+  mzTag(c); mzGroup.remove(l.m); mz.leaves.splice(mz.leaves.indexOf(l), 1); c.target = null; mzStock();
+}
+function mzLog(text) { mz.log.push({ t: TDT(), text }); if (mz.log.length > 80) mz.log.shift(); }
+const mzFloatPool = [];
+function mzFloat(at, text, color, big) {
+  const cv = document.createElement('canvas'); cv.width = 256; cv.height = 96; const g = cv.getContext('2d'); g.font = `900 ${big ? 50 : 70}px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineWidth = 10; g.strokeStyle = '#ffffff'; g.strokeText(text, 128, 50); g.fillStyle = color; g.fillText(text, 128, 50);
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, depthTest: false, transparent: true })); s.scale.set(big ? 9 : 5, big ? 3.4 : 1.9, 1); s.position.set(at.x, MZ.Y + 7, at.z); s.renderOrder = 6; /* above the name tags */ mzGroup.add(s); mz.floats.push({ s, t: 0 });
+}
+const mzV = { f: new THREE.Vector3(), r: new THREE.Vector3(), b: new THREE.Vector3(), n: new THREE.Vector3(0, 1, 0), m: new THREE.Matrix4() };
+function mzPts(c) {
+  // segments sit along the head's own trail, so the body follows the corridor round corners
+  const T = c.trail, pts = []; let k = 0, acc = 0, i = 0; const want = s => { while (i < T.length - 1) { const d = Math.hypot(T[i + 1].x - T[i].x, T[i + 1].z - T[i].z); if (acc + d >= s) { const f = (s - acc) / (d || 1); return { x: T[i].x + (T[i + 1].x - T[i].x) * f, z: T[i].z + (T[i + 1].z - T[i].z) * f }; } acc += d; i++; } return { ...T[T.length - 1] }; };
+  for (k = 0; k <= CAT_N; k++) pts.push(want(k * CAT_D)); c.pts = pts;
+}
+// where two bodies meet, the one that arrives (its head nearer the contact) arches over the other, as caterpillars do
+function mzClimb(c) {
+  const cl = new Array(c.parts.length).fill(0);
+  mz.cats.forEach(o => { if (o === c) return; for (let k = 0; k < c.parts.length; k++) { const a = c.pts[k]; for (let m = 0; m < o.parts.length; m++) { const q = o.pts[m], rr = (c.parts[k].r + o.parts[m].r) * 0.95, d = Math.hypot(a.x - q.x, a.z - q.z);
+    if (d < rr && (k < m || (k === m && c.idx > o.idx))) cl[k] = Math.max(cl[k], o.parts[m].r * 1.7 * Math.min(1, (rr - d) / (rr * 0.4))); } } });
+  for (let n = 0; n < 2; n++) for (let k = 0; k < cl.length; k++) cl[k] = Math.max(cl[k], (cl[k - 1] || 0) * 0.65, (cl[k + 1] || 0) * 0.65);
+  return cl;
+}
+function mzPose(c, now, cl) {
+  const pts = c.pts; let k;
+  const munch = c.state === 'eat' ? 1 : 0, cheer = Math.min(1, c.cheer), shake = c.shake > 0 ? Math.sin(now / 40) * 0.5 * c.shake : 0;
+  for (k = 0; k < c.parts.length; k++) { const part = c.parts[k], r = part.r, a = pts[k], b = k === 0 ? pts[1] : pts[k - 1];
+    if (k === 0) mzV.f.set(a.x - b.x, 0, a.z - b.z); else mzV.f.set(b.x - a.x, 0, b.z - a.z); if (mzV.f.lengthSq() < 1e-6) mzV.f.set(0, 0, -1); mzV.f.normalize();
+    const lift = (k < 3 ? (munch * (0.35 + Math.sin(now / 70) * 0.18) + cheer * 1.1) * [1, 0.55, 0.2][k] : 0), hump = c.moving * Math.max(0, Math.sin(c.phase - k * 0.8)) * 0.3 * r;
+    if (k < 3 && lift > 0) mzV.f.addScaledVector(mzV.n, lift * 0.6 * (3 - k) / 3).normalize();
+    mzV.r.crossVectors(mzV.f, mzV.n).normalize(); mzV.b.crossVectors(mzV.r, mzV.f).normalize();
+    part.g.position.set(a.x, MZ.Y + r * 0.9 + 0.05 + hump + lift + cl[k], a.z).addScaledVector(mzV.r, k < 3 ? shake * (3 - k) / 3 : 0); mzV.m.makeBasis(mzV.r, mzV.f, mzV.b); part.g.quaternion.setFromRotationMatrix(mzV.m); }
+  c.tag.position.set(pts[0].x, MZ.Y + 4.4 + cheer * 1.2, pts[0].z);
+}
+function mzStep(dt, now) {
+  mz.t += dt;
+  mz.leaves.forEach(l => { l.t += dt; const s = l.eater ? Math.max(0.01, 1 - l.eater.eat / 0.9) : Math.min(1, l.t * 2.4) * (1 + 0.18 * Math.max(0, Math.sin(Math.min(1, l.t * 2.4) * Math.PI))); l.m.scale.setScalar(s); l.m.position.y = MZ.Y + 1.3 + Math.sin(mz.t * 2 + l.ph) * 0.18; });
+  mz.occ = new Map(); mz.cats.forEach(c => c.trail.forEach((p, k) => { if (k % 2) return; const [i, j] = mzAt(p.x, p.z), key = j * MZ.W + i; if (!mz.occ.has(key)) mz.occ.set(key, new Set()); mz.occ.get(key).add(c.idx); }));
+  mz.cats.forEach(c => { c.shake = Math.max(0, c.shake - dt);
+    if (c.state === 'cheer') { c.cheer -= dt; c.moving *= 1 - Math.min(1, dt * 4); if (c.cheer <= 0) { c.cheer = 0; mzNewWord(c); c.state = 'think'; c.t = 0.3; mzStock(); } return; }
+    if (c.state === 'eat') { c.eat += dt; c.moving = 0; if (c.eat >= 0.9) { const l = c.target; c.state = 'think'; c.t = 0.4; c.eat = 0; mzEat(c, l); } else if (Math.floor(c.eat / 0.25) !== Math.floor((c.eat - dt) / 0.25)) sfx('chomp'); return; }
+    if (c.target && (c.target.eater || !mz.leaves.includes(c.target))) { c.target = null; c.state = 'think'; c.t = 0.2; }
+    if (c.state === 'think') { c.moving *= 1 - Math.min(1, dt * 4); if ((c.t -= dt) > 0) return; c.target = mzChoose(c); if (!c.target) { c.t = 0.5; return; } c.state = 'go'; mzRoute(c); }
+    // crawl cell to cell along the route; a looping wave runs down the body, so the pace pulses
+    const H = c.trail[0]; c.phase += dt * 5.5; c.moving += (1 - c.moving) * Math.min(1, dt * 3);
+    if (!c.path.length) { const p = mzCell(...c.target.cell); if (Math.hypot(p.x - H.x, p.z - H.z) < 0.4) { c.state = 'eat'; c.eat = 0; c.target.eater = c; return; } c.path = [c.target.cell]; }
+    // another head in the next cell: a short wait at the jam, then it crawls on, over the other if need be
+    { const [ni, nj] = c.path[0], [hi, hj] = mzAt(H.x, H.z), jam = (ni !== hi || nj !== hj) && mz.cats.some(o => { if (o === c) return false; const [a, b] = mzAt(o.trail[0].x, o.trail[0].z); return a === ni && b === nj; });
+      if (jam && c.block < 1) { c.block += dt; c.moving *= 1 - Math.min(1, dt * 4); return; } if (!jam) c.block = 0; }
+    const w = mzCell(...c.path[0]), dx = w.x - H.x, dz = w.z - H.z, d = Math.hypot(dx, dz), v = c.speed * (0.35 + 0.65 * Math.max(0, Math.sin(c.phase))) * dt;
+    const nx = d <= v ? w.x : H.x + dx / d * v, nz = d <= v ? w.z : H.z + dz / d * v; c.stats.dist += Math.min(d, v);
+    if (d <= v) { const [i, j] = c.path.shift(); mz.visits[j][i]++; if (c.path.length) mzRoute(c); }
+    c.trail.unshift({ x: nx, z: nz }); let len = 0; for (let k = 1; k < c.trail.length; k++) { len += Math.hypot(c.trail[k].x - c.trail[k - 1].x, c.trail[k].z - c.trail[k - 1].z); if (len > CAT_N * CAT_D + 2) { c.trail.length = k + 1; break; } } });
+  mz.cats.forEach(mzPts); mz.cats.forEach(c => mzPose(c, now, mzClimb(c)));
+  mz.floats.forEach(f => { f.t += dt; f.s.position.y += dt * 2.2; f.s.material.opacity = Math.max(0, 1 - f.t / 1.6); }); mz.floats = mz.floats.filter(f => { if (f.t < 1.6) return true; mzGroup.remove(f.s); f.s.material.map.dispose(); f.s.material.dispose(); return false; });
+  if (mz.race.length === 0 || mz.t - mz.race[mz.race.length - 1].t > 1) { mz.race.push({ t: mz.t, w: mz.cats.map(c => c.stats.words + c.slot / 3) }); if (mz.race.length > 900) mz.race.shift(); }
+  if ((mz.boardT += dt) > 0.4) { mz.boardT = 0; mzDrawBoard(); mzDrawMap(); }
+}
+function mzRank() { return mz.cats.slice().sort((a, b) => (b.stats.words + b.slot / 3) - (a.stats.words + a.slot / 3) || b.stats.right - a.stats.right); }
+function mzDrawBoard() {
+  const g = mzBoardCv.getContext('2d'), W = 512, H = 320; g.fillStyle = '#123d1c'; g.fillRect(0, 0, W, H); g.strokeStyle = '#ffd23f'; g.lineWidth = 8; g.strokeRect(6, 6, W - 12, H - 12);
+  g.fillStyle = '#ffd23f'; g.font = `900 34px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('ROOT MAZE', W / 2, 34);
+  mzRank().forEach((c, r) => { const y = 74 + r * 30; g.fillStyle = c.color; g.beginPath(); g.arc(34, y, 10, 0, Math.PI * 2); g.fill(); g.fillStyle = '#ffffff'; g.font = `800 21px ${DISPLAY}`; g.textAlign = 'left'; g.fillText(`${r + 1}. ${c.short}`, 54, y);
+    g.textAlign = 'right'; g.fillStyle = '#b9ec8a'; g.fillText(c.word ? c.word.parts.map((p, i) => i < c.slot ? p : '·').join(' ') : '', 392, y); g.fillStyle = '#ffd23f'; g.fillText(String(c.stats.words), 480, y); });
+  mzBoardTex.needsUpdate = true;
+}
+// the live map for the side panel: hedges, leaves and the eight heads
+function mzDrawMap() {
+  const g = mzMap.getContext('2d'), s = Math.min(mzMap.width / MZ.W, mzMap.height / MZ.H), ox = (mzMap.width - s * MZ.W) / 2, oy = (mzMap.height - s * MZ.H) / 2;
+  g.fillStyle = '#5f9e3c'; g.fillRect(0, 0, mzMap.width, mzMap.height); for (let j = 0; j < MZ.H; j++) for (let i = 0; i < MZ.W; i++) { g.fillStyle = mz.grid[j][i] ? '#2f6b2a' : '#c9a66b'; g.fillRect(ox + i * s, oy + j * s, s - 0.5, s - 0.5); }
+  g.font = `700 ${Math.round(s * 0.42)}px ${DISPLAY}`; g.textAlign = 'center'; g.textBaseline = 'middle';
+  mz.leaves.forEach(l => { const x = ox + (l.cell[0] + 0.5) * s, y = oy + (l.cell[1] + 0.5) * s; g.fillStyle = '#3f9a3a'; g.beginPath(); g.ellipse(x, y, s * 0.46, s * 0.28, 0, 0, Math.PI * 2); g.fill(); g.fillStyle = '#ffffff'; g.fillText(l.label, x, y + 0.5); });
+  mz.cats.forEach(c => { const tx = v => ox + (v - MZ.x0) / MZ.C * s, tz = v => oy + (v - MZ.z0) / MZ.C * s; g.strokeStyle = c.color; g.lineWidth = s * 0.3; g.lineCap = 'round'; g.beginPath(); c.trail.filter((_, i) => i % 4 === 0).slice(0, 12).forEach((p, i) => i ? g.lineTo(tx(p.x), tz(p.z)) : g.moveTo(tx(p.x), tz(p.z))); g.stroke();
+    g.fillStyle = c.color; g.beginPath(); g.arc(tx(c.trail[0].x), tz(c.trail[0].z), s * 0.26, 0, Math.PI * 2); g.fill(); g.strokeStyle = '#ffffff'; g.lineWidth = 1.5; g.stroke(); });
+}
+function mazeStart() {
+  const st = flyState, k = fly.scale.x; st.airborne = false; st.buzz = 0; st.walking = false; st.yaw = 0; st.pitchOverride = null; st.groundY = MZ_BOARD.y; legs.forEach(L => { L.groundY = MZ_BOARD.y; });
+  st.pos.copy(MZ_BOARD).add(V3(0, 0, 0.2 * k)); plantFeet(); agent.tapLeg = null; agent.tapLeg2 = null;
+  if (!mz.cats.length) { for (let i = 0; i < 8; i++) mzMakeCat(i); mzStock(); } mzDrawBoard(); mzDrawMap(); setPhase('z_watch'); renderTrial();
+}
+function stepMaze(dt, now) {
+  const st = flyState; mzStep(dt, now); st.airborne = false; st.walking = false; st.yaw = 0; st.pos.copy(MZ_BOARD).add(V3(0, 0, 0.2 * fly.scale.x));
+  // the fly turns its head toward the latest catch, else the leader
+  const f = mz.focus && mz.focus.state === 'cheer' ? mz.focus : mzRank()[0], H = f.trail[0], want = THREE.MathUtils.clamp(Math.atan2(H.x - st.pos.x, H.z - st.pos.z), -0.6, 0.6);
+  st.headYaw += (want - st.headYaw) * Math.min(1, dt * 3); pulse(0, 1); pulse(1, 1); pulse(11, 0.4);
+  if (Math.floor(now / 500) !== Math.floor((now - dt * 1000) / 500)) renderTrial();
+}
+function renderMazeTrial() {
+  const lead = mzRank()[0]; if (!lead || !lead.word) return; const S = mz.stats;
+  $('meaning').textContent = `${lead.short} leads: ${lead.word.meaning}`;
+  $('chips').innerHTML = lead.word.parts.map((p, i) => `<span class="chip ${i < lead.slot ? kindOf(p) : 'empty'}">${i < lead.slot ? p : '?'}<small>${kindOf(p)}</small></span>`).join('');
+  $('placedCount').textContent = `${lead.slot} of 3 eaten`; $('placedBar').classList.toggle('done', lead.slot >= 3); $('placedBar').firstElementChild.style.width = `${lead.slot / 3 * 100}%`;
+  $('feedback').textContent = mz.log.length ? mz.log[mz.log.length - 1].text : ''; $('nowLine').textContent = `Caterpillar maze · ${mz.leaves.length} leaves · ${S.words} words built`;
+  $('stWords').textContent = S.words; $('stTaps').textContent = S.eaten; $('stAcc').textContent = S.eaten ? Math.round(100 * S.right / S.eaten) + '%' : '0%';
+  $('memory').innerHTML = mzRank().map(c => { const m = c.stats.eaten ? c.stats.right / c.stats.eaten : 0; return `<div class="m"><span style="color:${c.color}">${c.short}</span><div class="bar"><span style="width:${Math.round(m * 100)}%;background:${c.color}"></span></div><span class="sub">${c.stats.words} words · ${c.stats.right}/${c.stats.eaten}</span></div>`; }).join('');
+}
+window.__mz = () => mz; // debug hook
+
 // fruit fly or Blue Morpho butterfly: swaps the wings on every fly in every experiment
 // the student's own look: its wings and size (Scrabble keeps it a fruit fly, facing the butterfly)
 function applyMainLook(b) { fly.scale.setScalar(b ? BF_SCALE : 1); wings.forEach(g => { g.userData.flyWing.visible = !b; g.userData.bf.visible = b; const sd = g.userData.side; if (b) morphoPose(g, performance.now(), {}); else g.rotation.set(0, -sd * 0.35, sd * 0.25); }); }
@@ -6564,6 +6811,24 @@ function drawDashboards(now, force) {
     const rows = H.slice(-12).reverse().map(h => `<tr><th scope="row">${h.q}</th><td>${geoName(h.answer)}</td><td class="${h.ok ? 'yes' : ''}">${geoName(h.picked)}</td><td>${h.ok ? '–' : h.km.toLocaleString() + ' km'}</td></tr>`).join('');
     const tb = document.querySelector('#geoTable tbody'); if (tb.innerHTML !== rows) tb.innerHTML = rows;
     document.getElementById('geoLogL').innerHTML = gq.log.slice(-10).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing yet</li>';
+  }
+  // ---- dashboard 20: caterpillar maze ----
+  if (mz.cats.length) { const S = mz.stats, R = mzRank();
+    $t('mzMode', experiment === 20 ? `Experiment 20 · ${R[0].short} leads` : 'switch to Experiment 20 to run'); $t('mzWords', S.words); $t('mzEaten', S.eaten); $t('mzAcc', S.eaten ? Math.round(100 * S.right / S.eaten) + '%' : '–');
+    $t('mzLeaves', mz.leaves.length); $t('mzDist', `${Math.round(mz.cats.reduce((a, c) => a + c.stats.dist, 0))} units`); $t('mzTime', `${Math.round(mz.t)} s`);
+    const th = '<tr>' + ['', 'Caterpillar', 'Words', 'Right leaves', 'Building', 'Doing'].map(h => `<th style="text-align:left;padding:4px 6px;border-bottom:1px solid #ece9e3">${h}</th>`).join('') + '</tr>';
+    const tb = R.map((c, r) => `<tr><td style="padding:4px 6px">${r + 1}</td><td style="padding:4px 6px"><i style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${c.color};margin-right:6px"></i>${c.short}</td><td style="padding:4px 6px"><b>${c.stats.words}</b></td><td style="padding:4px 6px">${c.stats.right} of ${c.stats.eaten}</td><td style="padding:4px 6px">${c.word ? c.word.parts.map((p, i) => i < c.slot ? `<b>${p}</b>` : '?').join(' · ') : ''}</td><td style="padding:4px 6px" class="sub">${c.state === 'eat' ? 'eating' : c.state === 'cheer' ? 'built it!' : c.target ? `going for "${c.target.label}"` : 'looking'}</td></tr>`).join('');
+    const te = document.getElementById('mzTable'); if (te.innerHTML !== th + tb) te.innerHTML = th + tb;
+    const lg = mz.cats.map(c => `<span><i style="background:${c.color}"></i>${c.short}</span>`).join(''), le = document.getElementById('mzLegend'); if (le.innerHTML !== lg) le.innerHTML = lg;
+    if (mz.race.length < 2) emptyChart('cMzRace', 'Runs in Experiment 20');
+    else { const t0 = mz.race[0].t, t1 = mz.race[mz.race.length - 1].t, top = Math.max(1, ...mz.race[mz.race.length - 1].w); const C = plot('cMzRace', { x: [t0, t1], y: [0, Math.ceil(top)], xl: `${Math.round(t1 - t0)} s of racing →` });
+      if (C) { const { ctx, X, Y, o } = C; mz.cats.forEach((c, k) => pline(ctx, mz.race.map(q => [X(q.t), Y(q.w[k])]), c.color, 2)); tipNear(o, mz.race.filter((_, i) => i % 2 === 0).map(q => ({ x: X(q.t), y: 0, t: `${Math.round(t1 - q.t)} s ago · ` + mz.cats.map((c, k) => `${c.short} ${q.w[k].toFixed(1)}`).join(', ') })), true); } }
+    barChart('cMzAcc', mz.cats.map(c => ({ v: c.stats.eaten ? c.stats.right / c.stats.eaten : 0, color: c.color, label: `${c.short}: ${c.stats.right} of ${c.stats.eaten}` })), { ymax: 1, positive: true, empty: 'Runs in Experiment 20' });
+    barChart('cMzMem', mz.cats.map(c => { const v = [...c.mem.values()]; const m = v.length ? v.reduce((a, b) => a + b, 0) / v.length : 0.2; return { v: m, color: c.color, label: `${c.short}: ${Math.round(m * 100)}% over ${v.length} parts` }; }), { ymax: 1, positive: true, empty: 'Runs in Experiment 20' });
+    { const o = chart('cMzHeat'); if (o.w) { const g = o.ctx, s = Math.min(o.w / MZ.W, o.h / MZ.H), ox = (o.w - s * MZ.W) / 2, oy = (o.h - s * MZ.H) / 2, mx = Math.max(1, ...mz.visits.flat()); g.clearRect(0, 0, o.w, o.h);
+      for (let j = 0; j < MZ.H; j++) for (let i = 0; i < MZ.W; i++) { const v = mz.visits[j][i] / mx; g.fillStyle = mz.grid[j][i] ? '#d9e6d2' : `rgba(0,33,165,${0.06 + 0.9 * v})`; g.fillRect(ox + i * s, oy + j * s, s - 1, s - 1); }
+      o.tipFn = h => { const i = Math.floor((h[0] - ox) / s), j = Math.floor((h[1] - oy) / s); return i >= 0 && j >= 0 && i < MZ.W && j < MZ.H && !mz.grid[j][i] ? `cell ${i}, ${j}: entered ${mz.visits[j][i]} times` : null; }; } }
+    document.getElementById('mzLogL').innerHTML = mz.log.slice(-10).reverse().map(e => `<li><time>${Math.round(TDT() - e.t)} s ago</time><span>${e.text}</span></li>`).join('') || '<li class="sub">Nothing yet</li>';
   }
   // ---- dashboards 18 and 19: Root Blaster in the arcade and at home ----
   [[arc, 'arc', 'Arc', 18], [vg, 'vg', 'Vg', 19]].forEach(([G, p, P, n]) => { const S = G.stats;
