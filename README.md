@@ -41,6 +41,18 @@ A one-minute trailer ([`docs/trailer/fruit-fly-lingo-trailer.mp4`](docs/trailer/
 
 The footage was captured from the app itself. Running in a headless browser on a virtual clock, it advanced one frame at a time at 30 fps, so motion is smooth even on a software renderer. The soundtrack is a synthesised chiptune at 100 BPM, so each experiment is one bar and every cut lands on the beat.
 
+### Science poster cut
+
+[![Title card: Can a fruit fly learn how to read?](docs/trailer/can-a-fruit-fly-learn-to-read-poster.jpg)](docs/trailer/can-a-fruit-fly-learn-to-read.mp4)
+
+A second one-minute cut for the science poster, *Can a fruit fly learn how to read?* ([MP4](docs/trailer/can-a-fruit-fly-learn-to-read.mp4), [WebM](docs/trailer/can-a-fruit-fly-learn-to-read.webm)), shows only the fruit fly. It covers the 15 experiments with no butterfly or caterpillar: 1–12, 14, 15 and 17. Each 3.2-second shot sits beside the simulation's own live readouts for that moment:
+- the rendered fly brain;
+- a bar chart of activity in each neuropil;
+- three firing traces (optic lobes, mushroom bodies, leg neuromeres) over the last 3 s;
+- the PAM dopamine level that drives learning.
+
+It opens with the question and a method card (one simulated brain from the FlyWire and MaleCNS connectomes, fifteen reading tasks, learning by Δw = η(R − V)). It closes on two dashboard scrolls (connectome and psychometrics) and the question again, over a slower 75 BPM score.
+
 ## Four views
 
 The app is one page with four views, switched by the tabs in the header and by hash routes (`#home`, `#simulate`, `#dashboards`, `#about`). The home page explains the project and shows a card for each experiment; picking a card opens that experiment in the simulator.
